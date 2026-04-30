@@ -1,90 +1,164 @@
-# Sổ Rủi Ro
+# Risks
 
-## Agent Sửa Nhầm Repo
+## Agent Writes To The Wrong Repo
 
-Rủi ro: Agent viết vào sai repository.
+Risk:
 
-Cách phòng:
+- An agent edits the wrong repository.
 
-- Mọi prompt phải ghi rõ workspace duy nhất được phép đọc/ghi.
-- Mọi prompt phải ghi rõ path bị cấm sửa.
+Mitigation:
 
-## Lệch Kiến Trúc
+- Every implementation prompt must state the single allowed write workspace.
+- Every implementation prompt must state the forbidden paths explicitly.
 
-Rủi ro: NVIDIA phát triển thành IDE thuần, ABW phát triển thành CLI thuần, bridge không gặp nhau.
+## Architectural Divergence
 
-Cách phòng:
+Risk:
 
-- Duy trì control folder này.
-- Cập nhật README, audit report, roadmap và journal sau mỗi quyết định quan trọng.
+- NVIDIA evolves as a product shell while ABW evolves as a governance engine, but the bridge assumptions drift apart.
 
-## Phụ Thuộc Provider
+Mitigation:
 
-Rủi ro: hệ thống phụ thuộc vào NVIDIA miễn phí.
+- Maintain this control repo as the shared governance layer.
+- Re-sync roadmap, handoff, bridge contract, and integration journal after major changes.
 
-Cách phòng:
+## Provider Dependence
 
-- Duy trì model provider abstraction.
-- Xem provider là hạ tầng có thể thay thế.
+Risk:
 
-## ABW Bị App Hóa
+- The system becomes too dependent on one model provider or branding assumption.
 
-Rủi ro: ABW hấp thụ UI/runtime và mất trọng tâm governance.
+Mitigation:
 
-Cách phòng:
+- Keep provider abstraction in NVIDIA.
+- Treat the long-term value as runtime, governance, and knowledge discipline rather than provider lock-in.
 
-- ABW giữ vai trò canonical governance engine.
-- NVIDIA giữ vai trò product shell/runtime.
+## ABW Gets Diluted Into An App Framework
 
-## NVIDIA Bypass ABW
+Risk:
 
-Rủi ro: flow self-improvement trong NVIDIA ghi file hoặc chạy command mà không qua Continuation Kernel.
+- ABW loses its governance role by being treated as a general app framework inside NVIDIA.
 
-Cách phòng:
+Mitigation:
 
-- Bridge policy: không bypass với task rủi ro.
-- Thêm audit checks cho ABW gate integration.
+- Keep ABW as the canonical governance engine.
+- Keep NVIDIA as the product shell and active runtime.
+
+## NVIDIA Bypasses ABW Governance
+
+Risk:
+
+- Self-improvement or write flows in NVIDIA skip continuation rules, locked decisions, rollback contracts, or evidence checks.
+
+Mitigation:
+
+- Bridge policy must require ABW governance for governed write/action flows.
+- Add future bridge/e2e checks for gate semantics.
 
 ## False Grounding
 
-Rủi ro: enterprise chatbot trả lời tự tin dù thiếu bằng chứng.
+Risk:
 
-Cách phòng:
+- Enterprise answers appear confident without adequate evidence.
 
-- Bắt buộc trạng thái binding: grounded, draft, pending_grounding, disputed, stale, missing.
-- Log gap và dùng trạng thái draft/pending khi thiếu evidence.
+Mitigation:
 
-## Lộ Dữ Liệu Nhạy Cảm
+- Preserve explicit answer states such as `grounded`, `draft`, `pending_grounding`, `disputed`, `stale`, and `missing`.
+- Surface sources, warnings, and gaps in UI rather than hiding them in prose.
 
-Rủi ro: `raw/`, `.brain`, reports hoặc logs chứa dữ liệu doanh nghiệp.
+## Sensitive Data Exposure
 
-Cách phòng:
+Risk:
 
-- Gitignore raw/private state mặc định.
-- Chỉ version policy/schema/decision/wiki đã sanitize và được duyệt.
+- `.brain`, `raw/`, reports, or logs may contain enterprise-sensitive material.
 
-## Overengineering Bridge
+Mitigation:
 
-Rủi ro: xây FastAPI/gRPC phức tạp trước khi CLI bridge chứng minh giá trị.
+- Keep raw/private state out of Git by default.
+- Version only sanitized schemas, policies, decisions, and approved docs.
 
-Cách phòng:
+## Overengineering The Bridge Too Early
 
-- CLI bridge trước.
-- Chỉ thêm service khi có nhu cầu realtime UI cụ thể.
+Risk:
 
-## Lẫn Vai Agent
+- The team jumps to FastAPI, gRPC, or deeper integration before a CLI bridge proves value.
 
-Rủi ro: Architect, Builder, Auditor vượt scope của nhau.
+Mitigation:
 
-Cách phòng:
+- Keep bridge work CLI-first.
+- Add API/service transport only after contract and status semantics stabilize.
 
-- Prompt phải ghi rõ role, allowed paths, forbidden paths và output artifacts.
+## Role Confusion
 
-## Thiếu Human Checkpoint
+Risk:
 
-Rủi ro: hệ tự phát triển mà không có điểm dừng duyệt bởi human.
+- Architect, Builder, and Auditor scopes blur and create weak accountability.
 
-Cách phòng:
+Mitigation:
 
-- Human approval bắt buộc cho quyết định kiến trúc, bridge milestone, locked decision change và enterprise data policy.
+- Prompts must state role, allowed paths, forbidden paths, and expected artifacts.
 
+## Missing Human Checkpoints
+
+Risk:
+
+- Architecture or governance changes land without human review.
+
+Mitigation:
+
+- Require human review for major bridge milestones, architectural decisions, and enterprise data policy changes.
+
+## Control Repo Drift
+
+Risk:
+
+- Control repo docs drift behind the observed ABW and NVIDIA repos, causing wrong planning or false integration claims.
+
+Mitigation:
+
+- Re-sync control docs after each ABW release baseline change or NVIDIA sprint close.
+- Treat integration journal, roadmap, handoff, and bridge contract as living governance artifacts.
+
+## ABW Release Truth Drift
+
+Risk:
+
+- ABW release truth diverges across `pyproject.toml`, tags, release notes, changelog, and control-repo assumptions.
+
+Mitigation:
+
+- Treat observed `v1.1.0` as the current baseline until newer evidence exists.
+- Require future bridge and handoff updates to cite the version evidence source explicitly.
+
+## Bridge Too Text-Based
+
+Risk:
+
+- Bridge design stays at prose level too long, without stable field contracts for status, warnings, sources, gaps, and stop conditions.
+
+Mitigation:
+
+- Define command, JSON, and result contracts before implementation.
+- Map ABW runtime fields to NVIDIA UI states explicitly in `BRIDGE_CONTRACT.md`.
+
+## NVIDIA Audit Harness Is Not Full E2E
+
+Risk:
+
+- `npm run agent:audit` may be mistaken for proof that bridge behavior, governance gates, rollback, or enterprise grounding actually work.
+
+Mitigation:
+
+- Treat the current harness as capability smoke evidence only.
+- Add future bridge/e2e checks before claiming integration readiness.
+
+## Context Picker Locks In Too Early
+
+Risk:
+
+- Sprint 2 Context Picker may be designed before ABW context semantics are defined, making future ABW context hard to surface cleanly.
+
+Mitigation:
+
+- Reserve future context types now: `@abw`, `@wiki`, `@gaps`, `@route`, `@decision`.
+- Keep Sprint 2 context plumbing extensible so ABW-governed context can be added without a redesign.

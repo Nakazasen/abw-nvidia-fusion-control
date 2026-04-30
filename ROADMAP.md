@@ -1,47 +1,59 @@
-# Roadmap Hợp Nhất ABW x NVIDIA
+# ABW x NVIDIA Unified Roadmap
 
-## Chiến Lược Hiện Tại
+## Current Strategic Direction
 
-Tiếp tục phát triển hai repo độc lập nhưng theo cùng một tư tưởng kiến trúc.
+The two repos continue independently but evolve toward one shared architecture:
 
-- NVIDIA tiếp tục là product shell và active agent runtime.
-- ABW tiếp tục là canonical governance engine.
-- Tích hợp bắt đầu bằng contract và bridge, không merge source.
+- NVIDIA remains the product shell and active agent runtime.
+- ABW remains the canonical governance engine.
+- Integration happens through contract and bridge work, not source merging.
 
-## Việc Cần Làm Ngay
+## Immediate Priority
 
-- Review `D:\Sandbox\skill-Anti-brain-wiki_note\README.proposed.md`.
+- NVIDIA `Sprint 2: Context Picker` is complete.
+- Next immediate NVIDIA work is `Sprint 3: Terminal/Job Manager UX`.
+- Keep bridge work separate: ABW bridge remains planned after or alongside context/job UX, but is not implemented yet.
+- Keep future ABW-aware context types reserved:
+  - `@abw`
+  - `@wiki`
+  - `@gaps`
+  - `@route`
+  - `@decision`
+
+## Next Work
+
+- Review `D:\Sandbox\skill-Anti-brain-wiki_note\README.md`.
 - Review `D:\Sandbox\skill-Anti-brain-wiki_note\docs\ABW_ARCHITECTURE_AUDIT_2026-04-30.md`.
-- Đối chiếu ABW README đề xuất với `D:\Sandbox\Nvidia\README.md` và fusion audit.
-- Hoàn thiện `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\BRIDGE_CONTRACT.md`.
-- Quyết định có adopt `README.proposed.md` thành README chính của ABW hay không.
+- Review `D:\Sandbox\Nvidia\README.md`.
+- Review `D:\Sandbox\Nvidia\.nvidia-agent\reports\audit-nvidia-abw-fusion-2026-04-30.md`.
+- Keep the control repo aligned with observed ABW and NVIDIA reality.
 
-## Ngắn Hạn
+## Near-Term
 
-- NVIDIA tiếp tục Sprint 2+ trong README: context picker, job manager, enterprise/IDE mode, extension UX.
-- ABW tiếp tục theo roadmap trong `README.proposed.md` sau khi human duyệt.
-- Tạo NVIDIA-side ABW detection/doctor bridge nhỏ.
-- Fix mojibake ABW bằng một lượt docs-only có kiểm soát.
-- Đồng bộ release truth của ABW: `VERSION`, `pyproject.toml`, release notes, changelog, tags.
-- Định nghĩa ranh giới `.nvidia-agent` và `.brain`.
-- Định nghĩa trạng thái câu trả lời enterprise: grounded, draft, pending_grounding, disputed, stale, missing.
+1. Execute `Sprint 3: Terminal/Job Manager UX` with focus on running/completed/failed job visibility.
+2. Add safe `cancel` and `rerun` job actions.
+3. Attach terminal/job output to chat context.
+4. Improve `stdout`/`stderr` chunk display for readability and troubleshooting.
+5. Harden command lifecycle handling for safer execution state transitions.
+6. Preserve `.nvidia-agent` versus `.brain` state boundaries.
+7. Keep ABW release truth aligned across version files, tags, release notes, and control-doc assumptions.
 
-## Trung Hạn
+## Mid-Term
 
-- Implement CLI bridge:
-  - phát hiện ABW workspace,
-  - chạy `abw doctor`,
-  - chạy `abw ask`,
-  - đọc trạng thái `.brain`,
-  - hiển thị knowledge gaps.
-- Đưa Continuation Kernel vào flow self-improvement của NVIDIA.
-- Gắn pending diff với ABW step id.
-- Mở rộng `npm run agent:audit` để test hành vi ABW bridge.
+1. Add a CLI-first NVIDIA-side ABW bridge for:
+   - `abw version`
+   - `abw doctor`
+   - `abw ask`
+2. Surface health, evidence status, warnings, and gaps in NVIDIA UI.
+3. Reserve and later implement pending-diff binding to ABW continuation step ids.
+4. Expand NVIDIA audit coverage beyond capability presence into bridge and governance behavior.
 
-## Dài Hạn
+## Long-Term
 
-- Chỉ cân nhắc FastAPI/local ABW service sau khi CLI bridge chứng minh giá trị.
-- Thêm UX ingest tài liệu doanh nghiệp.
-- Thêm deployment policy cho môi trường doanh nghiệp/sản xuất.
-- Đánh giá tiếp: multi-repo, package dependency, submodule, hay monorepo.
-
+1. Consider FastAPI/local API only after the CLI bridge proves useful and stable.
+2. Add enterprise knowledge lifecycle flows around `raw/`, `processed/`, `wiki/`, and governed promotion.
+3. Evaluate longer-term packaging only after bridge behavior is proven:
+   - multi-repo
+   - package dependency
+   - submodule
+   - monorepo
