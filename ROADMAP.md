@@ -12,7 +12,8 @@ The two repos continue independently but evolve toward one shared architecture:
 
 - NVIDIA `Sprint 2: Context Picker` is complete.
 - NVIDIA `Sprint 3: Terminal/Job Manager UX` is complete.
-- Next immediate NVIDIA work is `Sprint 4: Enterprise/IDE Mode Toggle`.
+- NVIDIA `Sprint 4: Enterprise/IDE Mode Toggle` is complete.
+- Next immediate NVIDIA work is `Sprint 5: Extension UX Tối Thiểu`.
 - Keep bridge work separate: ABW bridge remains planned after or alongside context/job UX, but is not implemented yet.
 - Keep future ABW-aware context types reserved:
   - `@abw`
@@ -31,14 +32,17 @@ The two repos continue independently but evolve toward one shared architecture:
 
 ## Near-Term
 
-1. Execute `Sprint 4: Enterprise/IDE Mode Toggle`.
-2. Add `uiMode` setting with clear enterprise vs IDE behavior boundaries.
-3. Ensure enterprise mode hides dangerous IDE panels/tools while IDE mode exposes full workbench.
-4. Persist mode via localStorage and/or `.nvidia-agent/profile.json`.
-5. Add shortcut `Ctrl+Alt+Shift+I` only if safe and non-conflicting.
-6. Preserve all Sprint 1/2/3 behavior while implementing Sprint 4.
-7. Keep bridge work separate: ABW bridge remains planned but not implemented.
-8. Keep ABW release truth aligned across version files, tags, release notes, and control-doc assumptions.
+1. Execute `Sprint 5: Extension UX Tối Thiểu`.
+2. Use real backend installed/Open VSX data in the Extensions panel.
+3. Add install from folder.
+4. Add install VSIX.
+5. Add install Open VSX.
+6. Add activate extension.
+7. Add run registered command.
+8. Show registered commands in the command palette.
+9. Preserve Sprint 1/2/3/4 behavior while implementing Sprint 5.
+10. Keep bridge work separate: ABW bridge remains planned but not implemented.
+11. Keep ABW release truth aligned across version files, tags, release notes, and control-doc assumptions.
 
 ## Mid-Term
 

@@ -151,3 +151,64 @@ Explicit limitations:
 - rerun/attach were not fully browser E2E verified
 - full `/proxy/chat` provider completion was not executed
 - `@abw`, `@wiki`, `@gaps`, `@route`, `@decision` remain placeholders only
+
+## 2026-04-30 - NVIDIA Sprint 4 Enterprise/IDE Mode Toggle Committed And Pushed
+
+NVIDIA Sprint 4 is completed and pushed in `D:\Sandbox\Nvidia`.
+
+Push evidence:
+
+- Commit hash: `6c93858230bb6cef67d2085575bee339d805844b`
+- Commit short hash: `6c93858`
+- Commit message: `feat: add Sprint 4 enterprise IDE mode toggle`
+- Push result: `7457113..6c93858 main -> main`
+- Local HEAD after push: `6c93858230bb6cef67d2085575bee339d805844b`
+- Remote `origin/main` after push: `6c93858230bb6cef67d2085575bee339d805844b`
+- Local HEAD equals remote main: `YES`
+- `git status --short` after push: clean
+
+Verification evidence recorded from NVIDIA Sprint 4 close:
+
+- `node --check tools\nvidia-server.mjs` passed (exit 0)
+- `node --check tools\nvidia-cli-agent.mjs` passed (exit 0)
+- `node --check tools\extension-host.mjs` passed (exit 0)
+- `node --check tools\agent-core.mjs` passed (exit 0)
+- `npm run agent:audit` returned `ok true`, `25/25`
+- Inline HTML script parse check passed
+- Enterprise mode safety static check passed
+- Profile API smoke passed:
+  - `GET /api/profile` returned enterprise profile
+  - `POST /api/profile {"uiMode":"enterprise"}` persisted enterprise
+  - `POST /api/profile {"uiMode":"ide"}` persisted ide
+  - `POST /api/profile {"uiMode":"bad"}` returned `400`
+  - final profile was restored to enterprise
+
+Sprint 4 scope implemented:
+
+- `uiMode` supports `enterprise` and `ide`
+- Enterprise mode hides dangerous IDE surfaces
+- IDE mode restores full workbench
+- localStorage persistence uses `nvidia.uiMode`
+- backend profile API exposes `GET /api/profile` and `POST /api/profile`
+- profile is stored at `.nvidia-agent/profile.json`
+- invalid `uiMode` is rejected with `400`
+- `Ctrl+Alt+Shift+I` toggles mode
+- URL mode parsing supports `?mode=ide` and `?mode=enterprise`
+
+Codex audit/fix highlights:
+
+- fixed Enterprise mode exposures for code viewer
+- fixed Enterprise mode exposures for pinned context
+- fixed Enterprise mode exposures for slash menu
+- fixed Enterprise mode exposures for pending edit cards
+- fixed Enterprise mode exposures for Auto-Accept
+- fixed Enterprise mode exposures for the legacy destructive frontend path
+- added profile `enabledPanels` sanitization so Enterprise mode does not persist IDE-only panels
+
+Explicit limitations:
+
+- no full browser E2E visual mode switching was run
+- `npm run agent:audit` is capability evidence, not full end-to-end proof
+- no ABW bridge is implemented
+- Sprint 5 has not started
+- `@abw`, `@wiki`, `@gaps`, `@route`, `@decision` remain placeholders only

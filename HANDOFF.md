@@ -10,8 +10,9 @@ Reality-synced state as of 2026-04-30:
 - NVIDIA Sprint 1 Composer/Diff UX is complete.
 - NVIDIA Sprint 2 `Context Picker` is complete and pushed.
 - NVIDIA Sprint 3 `Terminal/Job Manager UX` is complete and pushed.
-- Latest NVIDIA remote `main` is `745711380bc86c648290296bc02b7ecff885a1cb`.
-- NVIDIA next planned sprint is `Sprint 4: Enterprise/IDE Mode Toggle`.
+- NVIDIA Sprint 4 `Enterprise/IDE Mode Toggle` is complete and pushed.
+- Latest NVIDIA remote `main` is `6c93858230bb6cef67d2085575bee339d805844b`.
+- NVIDIA next planned sprint is `Sprint 5: Extension UX Tối Thiểu`.
 - NVIDIA already has shared `agent-core`, pending edits, command jobs, extension host, and MCP server infrastructure.
 - `npm run agent:audit` is useful capability evidence, but it is not full end-to-end proof.
 - Fusion bridge contract exists, but bridge implementation is not implemented yet.
@@ -20,7 +21,7 @@ Reality-synced state as of 2026-04-30:
 - Do not claim Cognitive OS integration is complete.
 - Do not claim ABW bridge exists.
 - Do not treat `npm run agent:audit` as full E2E proof.
-- Do not start Sprint 4 from this control update task.
+- Do not start Sprint 5 from this control update task.
 
 ## Recovery Order For A New Session
 
@@ -40,7 +41,7 @@ Read these in order:
 
 ## Immediate Next Action
 
-Prepare Sprint 4 builder planning while preserving current truth: Sprint 1/2/3 are pushed, bridge implementation does not exist yet, and next sprint remains `Sprint 4: Enterprise/IDE Mode Toggle`.
+Prepare Sprint 5 builder planning while preserving current truth: Sprint 1/2/3/4 are pushed, bridge implementation does not exist yet, and next sprint remains `Sprint 5: Extension UX Tối Thiểu`.
 
 Constraints for the next builder:
 

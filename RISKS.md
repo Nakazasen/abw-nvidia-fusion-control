@@ -113,6 +113,7 @@ Mitigation:
 Risk:
 
 - Control repo docs drift behind the observed ABW and NVIDIA repos, causing wrong planning or false integration claims.
+- Sprint state drifts if the control repo is not updated after each NVIDIA push.
 
 Mitigation:
 
@@ -146,11 +147,48 @@ Mitigation:
 Risk:
 
 - `npm run agent:audit` may be mistaken for proof that bridge behavior, governance gates, rollback, or enterprise grounding actually work.
+- Sprint 4 may be overclaimed as full browser E2E proof when only static and API smoke evidence exists.
 
 Mitigation:
 
 - Treat the current harness as capability smoke evidence only.
 - Add future bridge/e2e checks before claiming integration readiness.
+
+## Enterprise Mode Is Not A Complete Security Boundary
+
+Risk:
+
+- Enterprise mode may hide UI visually while backend endpoints still rely on trust and approval rules.
+- UI hiding must not be treated as a complete security boundary by itself.
+- Enterprise/IDE mode may be confused with the ABW governance bridge.
+
+Mitigation:
+
+- Treat Enterprise mode as UX restriction, not as a replacement for backend trust and approval controls.
+- Keep trust and approval enforcement server-side in NVIDIA.
+- Keep ABW bridge status documented separately from UI mode work.
+
+## Sprint Handoff Drift
+
+Risk:
+
+- Sprint 5 work could start before Sprint 4 state is recorded in the control repo.
+
+Mitigation:
+
+- Update integration journal, handoff, and roadmap immediately after each verified NVIDIA push.
+- Require the control repo review step before the next builder prompt is issued.
+
+## Extension UX Security Expansion
+
+Risk:
+
+- Sprint 5 extension install/activate/run-command work may introduce security risks if approval gates are weak or missing.
+
+Mitigation:
+
+- Require explicit approval and trust review for extension install and execution surfaces.
+- Audit extension UX changes separately before claiming the sprint is safe.
 
 ## Context Picker Locks In Too Early
 
