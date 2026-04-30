@@ -98,3 +98,56 @@ Explicit limitations:
 - ABW bridge is not implemented.
 - `npm run agent:audit` is capability evidence, not full end-to-end proof.
 - Sprint 3 has not started.
+
+## 2026-04-30 - NVIDIA Sprint 3 Terminal/Job Manager UX Committed And Pushed
+
+NVIDIA Sprint 3 is completed and pushed in `D:\Sandbox\Nvidia`.
+
+Push evidence:
+
+- Commit hash: `745711380bc86c648290296bc02b7ecff885a1cb`
+- Commit short hash: `7457113`
+- Commit message: `feat: add Sprint 3 job manager UX`
+- Push result: `2357eca..7457113 main -> main`
+- Local HEAD after push: `745711380bc86c648290296bc02b7ecff885a1cb`
+- Remote `origin/main` after push: `745711380bc86c648290296bc02b7ecff885a1cb`
+- Local HEAD equals remote main: `YES`
+- `git status --short` after push: clean
+
+Verification evidence recorded from NVIDIA Sprint 3 close:
+
+- `node --check tools\nvidia-server.mjs` passed (exit 0)
+- `node --check tools\nvidia-cli-agent.mjs` passed (exit 0)
+- `node --check tools\extension-host.mjs` passed (exit 0)
+- `node --check tools\agent-core.mjs` passed (exit 0)
+- `npm run agent:audit` returned `ok true`, `25/25`
+- Inline HTML script parse check: OK
+- Short command job smoke: completed, output `job smoke ok` appeared exactly once
+- Cancel job smoke: status transitioned to `cancelled`
+- `/api/command_jobs` list worked
+- `/proxy/chat` `contextTerminalJobs` path did not crash local server path
+
+Sprint 3 scope implemented:
+
+- Job Manager panel
+- running/completed/failed/cancelled job display
+- view output
+- cancel job
+- rerun job UI/path
+- attach job output to chat context path
+- incremental stdout/stderr polling
+- offset-safe stdout/stderr chunking
+
+Codex audit/fix highlights:
+
+- fixed command-job stdout/stderr duplication risk
+- added `stdoutNextOffset` / `stderrNextOffset` for offset-safe paging
+
+Explicit limitations:
+
+- ABW bridge is not implemented
+- Sprint 4 has not started
+- `npm run agent:audit` is capability evidence, not full end-to-end proof
+- rerun/attach were not fully browser E2E verified
+- full `/proxy/chat` provider completion was not executed
+- `@abw`, `@wiki`, `@gaps`, `@route`, `@decision` remain placeholders only

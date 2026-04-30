@@ -11,7 +11,8 @@ The two repos continue independently but evolve toward one shared architecture:
 ## Immediate Priority
 
 - NVIDIA `Sprint 2: Context Picker` is complete.
-- Next immediate NVIDIA work is `Sprint 3: Terminal/Job Manager UX`.
+- NVIDIA `Sprint 3: Terminal/Job Manager UX` is complete.
+- Next immediate NVIDIA work is `Sprint 4: Enterprise/IDE Mode Toggle`.
 - Keep bridge work separate: ABW bridge remains planned after or alongside context/job UX, but is not implemented yet.
 - Keep future ABW-aware context types reserved:
   - `@abw`
@@ -30,13 +31,14 @@ The two repos continue independently but evolve toward one shared architecture:
 
 ## Near-Term
 
-1. Execute `Sprint 3: Terminal/Job Manager UX` with focus on running/completed/failed job visibility.
-2. Add safe `cancel` and `rerun` job actions.
-3. Attach terminal/job output to chat context.
-4. Improve `stdout`/`stderr` chunk display for readability and troubleshooting.
-5. Harden command lifecycle handling for safer execution state transitions.
-6. Preserve `.nvidia-agent` versus `.brain` state boundaries.
-7. Keep ABW release truth aligned across version files, tags, release notes, and control-doc assumptions.
+1. Execute `Sprint 4: Enterprise/IDE Mode Toggle`.
+2. Add `uiMode` setting with clear enterprise vs IDE behavior boundaries.
+3. Ensure enterprise mode hides dangerous IDE panels/tools while IDE mode exposes full workbench.
+4. Persist mode via localStorage and/or `.nvidia-agent/profile.json`.
+5. Add shortcut `Ctrl+Alt+Shift+I` only if safe and non-conflicting.
+6. Preserve all Sprint 1/2/3 behavior while implementing Sprint 4.
+7. Keep bridge work separate: ABW bridge remains planned but not implemented.
+8. Keep ABW release truth aligned across version files, tags, release notes, and control-doc assumptions.
 
 ## Mid-Term
 

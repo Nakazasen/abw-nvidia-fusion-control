@@ -9,16 +9,18 @@ Reality-synced state as of 2026-04-30:
 - ABW architectural framing is Hybrid ABW with 4 tiers and 6 lanes.
 - NVIDIA Sprint 1 Composer/Diff UX is complete.
 - NVIDIA Sprint 2 `Context Picker` is complete and pushed.
-- Latest NVIDIA remote `main` is `2357eca3c485d7a51c12578139905e7d97763436`.
-- NVIDIA next planned sprint is `Sprint 3: Terminal/Job Manager UX`.
+- NVIDIA Sprint 3 `Terminal/Job Manager UX` is complete and pushed.
+- Latest NVIDIA remote `main` is `745711380bc86c648290296bc02b7ecff885a1cb`.
+- NVIDIA next planned sprint is `Sprint 4: Enterprise/IDE Mode Toggle`.
 - NVIDIA already has shared `agent-core`, pending edits, command jobs, extension host, and MCP server infrastructure.
 - `npm run agent:audit` is useful capability evidence, but it is not full end-to-end proof.
-- Fusion bridge is not implemented yet.
+- Fusion bridge contract exists, but bridge implementation is not implemented yet.
 - Integration strategy remains bridge-first, not source-merge-first.
 - Control workspace remains `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL`.
 - Do not claim Cognitive OS integration is complete.
 - Do not claim ABW bridge exists.
-- Do not rename `Sprint 3: Terminal/Job Manager UX`.
+- Do not treat `npm run agent:audit` as full E2E proof.
+- Do not start Sprint 4 from this control update task.
 
 ## Recovery Order For A New Session
 
@@ -38,7 +40,7 @@ Read these in order:
 
 ## Immediate Next Action
 
-Prepare Sprint 3 planning while preserving current truth: Sprint 2 is pushed, bridge implementation does not exist yet, and Sprint 3 remains `Terminal/Job Manager UX`.
+Prepare Sprint 4 builder planning while preserving current truth: Sprint 1/2/3 are pushed, bridge implementation does not exist yet, and next sprint remains `Sprint 4: Enterprise/IDE Mode Toggle`.
 
 Constraints for the next builder:
 
