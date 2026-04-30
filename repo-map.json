@@ -1,0 +1,30 @@
+{
+  "repos": {
+    "nvidia": {
+      "local": "D:\\Sandbox\\Nvidia",
+      "github": "https://github.com/Nakazasen/nvidia-server",
+      "role": "product shell and active agent runtime"
+    },
+    "abw": {
+      "local": "D:\\Sandbox\\skill-Anti-brain-wiki_note",
+      "github": "https://github.com/Nakazasen/skill-Anti-brain-wiki_note",
+      "role": "canonical governance engine and constitutional layer"
+    }
+  },
+  "strategy": {
+    "mechanical_source_merge_now": false,
+    "integration_order": [
+      "shared philosophy",
+      "explicit contract",
+      "CLI bridge",
+      "FastAPI local service if needed",
+      "packaging decision later"
+    ]
+  },
+  "state_boundaries": {
+    ".nvidia-agent": "application/runtime state",
+    ".brain": "governed project cognitive/action state",
+    "raw_processed_wiki": "ABW knowledge pipeline state"
+  }
+}
+
