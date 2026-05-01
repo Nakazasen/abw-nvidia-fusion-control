@@ -2,6 +2,74 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-01 - NVIDIA Sprint 9 Browser E2E Smoke Harness Committed And Pushed
+
+NVIDIA Sprint 9 is completed and pushed in `D:\Sandbox\Nvidia`.
+
+Push evidence:
+
+- Commit hash: `6d1b1ea953b91313564cd6a6c77bebfbd60cbc5c`
+- Commit short hash: `6d1b1ea`
+- Commit message: `feat: add Sprint 9 browser E2E smoke harness`
+- Push result: `09e8d89..6d1b1ea main -> main`
+- Local HEAD after push: `6d1b1ea953b91313564cd6a6c77bebfbd60cbc5c`
+- Remote `origin/main` after push: `6d1b1ea953b91313564cd6a6c77bebfbd60cbc5c`
+- Local HEAD equals remote main: `YES`
+- `git status --short` after push: clean
+
+Verification evidence recorded from NVIDIA Sprint 9 close:
+
+- `node --check tools\browser-smoke.mjs` passed
+- `node --check tools\nvidia-server.mjs` passed
+- `node --check tools\nvidia-cli-agent.mjs` passed
+- `node --check tools\extension-host.mjs` passed
+- `node --check tools\agent-core.mjs` passed
+- `npm run agent:audit` passed `25/25`
+- inline HTML parse check passed
+- real browser smoke passed:
+  - command: `npm run browser:smoke -- --start-server --port 3456`
+  - exit code: `0`
+  - `ok=true`
+  - `mode=real-browser`
+  - `checks=21 passed / 0 failed`
+  - readiness: `domcontentloaded` reached, `load` reached, `body` attached
+  - server stopped cleanly
+  - orphan=`false`
+- runtime artifacts were not staged
+
+Sprint 9 scope implemented:
+
+- `tools/browser-smoke.mjs`
+- `npm run browser:smoke`
+- `playwright-core` + local Chrome browser automation
+- real browser page load
+- rendered DOM checks
+- Enterprise/IDE mode smoke
+- context picker smoke
+- Terminal/Jobs smoke
+- Problems panel smoke
+- Monaco/editor shell smoke
+- Extensions shell smoke
+- Index shell smoke
+- JSON/log/screenshot artifacts under `.nvidia-agent/reports`
+
+Codex audit/fix highlights:
+
+- HTTP fallback no longer counts as Sprint 9 pass
+- real-browser mode is required for pass
+- `networkidle` removed as hard pass gate
+- `domcontentloaded` + selector readiness gate used
+- server lifecycle verified clean
+
+Explicit limitations:
+
+- smoke harness is not full E2E coverage
+- daily-use readiness is not achieved
+- no ABW bridge is implemented
+- Sprint 10 has not started
+- Cognitive OS is not achieved
+- VS Code parity is not achieved
+
 ## 2026-04-30 - Control Repo Created
 
 Control workspace established at:

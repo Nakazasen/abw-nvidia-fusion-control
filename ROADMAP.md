@@ -2,16 +2,18 @@
 
 ## 1. Current State
 
-- NVIDIA Sprint 1-8 are completed and pushed.
-- Sprint 9 is the next sprint: `Browser E2E Smoke Harness`.
+- NVIDIA Sprint 1-9 are completed and pushed.
+- Sprint 9 `Browser E2E Smoke Harness` is complete.
+- Next sprint is `Sprint 10: Settings / Provider Manager / API Key UI`.
 - ABW bridge is not implemented.
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
-- Browser E2E visual validation is still missing.
+- Browser smoke baseline now exists and passed in real-browser mode.
+- Browser smoke is not full E2E coverage.
 - Current capability is not Cognitive OS yet.
 - Current capability is not VS Code parity.
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
-- Control repo latest recorded NVIDIA remote main: `09e8d8933f3ed0c4dd3b7855ad0ce443842ffccf`.
+- Control repo latest recorded NVIDIA remote main: `6d1b1ea953b91313564cd6a6c77bebfbd60cbc5c`.
 - Control repo latest recorded control remote main: `f3423f4558c06f8ccf33a1f84f0abd62f50fde02`.
 
 ## 2. Roadmap Governance Rules
@@ -68,7 +70,7 @@ Sprint range: Sprint 1-16
 - Sprint 6: Monaco Workbench / Multi-tab Editor - done
 - Sprint 7: Semantic Index Cache / Context Engine - done
 - Sprint 8: LSP Diagnostics / Problems Panel - done
-- Sprint 9: Browser E2E Smoke Harness
+- Sprint 9: Browser E2E Smoke Harness - done
 - Sprint 10: Settings / Provider Manager / API Key UI
 - Sprint 11: Inline Edit kieu Cursor
 - Sprint 12: Task Timeline + Recovery / Resume
@@ -88,10 +90,11 @@ Sprint range: Sprint 1-16
 
 - After Sprint 9, warn that the next track must return to daily-use features, not deeper foundation work.
 - Around Sprint 14-16, warn that this is the daily-use readiness gate.
+- Daily-use readiness is still not achieved until Sprint 16 audit passes.
 
 ### Required Audit Gate
 
-- Sprint 9: Browser smoke gate
+- Sprint 9: Browser smoke baseline gate (real-browser pass required, not full E2E proof)
 - Sprint 16: Full daily-use readiness audit
 
 ### Sprint 16 Decision Outcomes
