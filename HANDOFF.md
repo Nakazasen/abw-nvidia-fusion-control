@@ -17,14 +17,16 @@ Reality-synced state as of 2026-05-01:
 - NVIDIA Sprint 9 `Browser E2E Smoke Harness` is complete and pushed.
 - NVIDIA Sprint 10 Settings / Provider Manager / API Key UI is complete and pushed.
 - NVIDIA Sprint 11 Inline Edit kieu Cursor is complete and pushed.
-- Latest NVIDIA remote `main` is `bc973945f88aff047b780a08988aa1d1fe32a76c`.
-- NVIDIA next planned sprint is `Sprint 12: Task Timeline + Recovery / Resume`.
+- NVIDIA Sprint 12 Task Timeline + Recovery / Resume is complete and pushed.
+- Latest NVIDIA remote `main` is `da4c19a21cc4865db6f2d5818aba2daaa88857d0`.
+- NVIDIA next planned sprint is `Sprint 13: Git / SCM Panel tốt hơn`.
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
 - Sprint 9 browser smoke is a baseline gate, not full E2E coverage.
 - Sprint 10 returned the project to the daily-use track after the browser smoke baseline.
 - Provider/settings capabilities now exist, but daily-use readiness is still not achieved.
 - Sprint 11 adds a Cursor-like inline edit proposal workflow, but daily-use readiness is still not achieved.
 - Inline edit is proposal/pending-edit based, not direct-write based.
+- Sprint 12 adds task timeline and marker-based/manual recovery/resume, not full autonomous recovery.
 - Fusion bridge contract exists, but bridge implementation is not implemented yet.
 - Integration strategy remains bridge-first, not source-merge-first.
 - Control workspace remains `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL`.
@@ -37,19 +39,19 @@ Reality-synced state as of 2026-05-01:
 - Do not claim full LSP server integration.
 - Do not treat `npm run agent:audit` as full E2E proof.
 - Do not treat browser smoke as full E2E proof.
-- Do not start Sprint 12 from this control update task.
+- Do not claim full autonomous recovery.
+- Do not start Sprint 13 from this control update task.
 
 ## Current Strategic Roadmap Status
 
 - Master Roadmap v1 has been recorded.
-- Current next sprint remains `Sprint 12: Task Timeline + Recovery / Resume`.
-- After Sprint 11, the roadmap continues on the daily-use track:
-  - Sprint 12: Task Timeline + Recovery / Resume
-  - Sprint 13: Git/SCM
+- Current next sprint remains `Sprint 13: Git / SCM Panel tốt hơn`.
+- After Sprint 12, the roadmap continues on the daily-use track:
+  - Sprint 13: Git / SCM Panel tốt hơn
   - Sprint 14: Security
   - Sprint 15: Project Rules/Memory
   - Sprint 16: Daily-use hardening
-- Do not start Sprint 12 until Sprint 11 is implemented, audited, committed, pushed, and recorded in this control repo.
+- Do not start Sprint 13 until Sprint 12 is implemented, audited, committed, pushed, and recorded in this control repo.
 - ABW bridge still not implemented.
 - Cognitive OS not yet achieved.
 
@@ -72,7 +74,7 @@ Read these in order:
 
 ## Immediate Next Action
 
-Prepare Sprint 12 builder planning while preserving current truth: Sprint 1-11 are pushed, bridge implementation does not exist yet, and next sprint remains `Sprint 12: Task Timeline + Recovery / Resume`.
+Prepare Sprint 13 builder planning while preserving current truth: Sprint 1-12 are pushed, bridge implementation does not exist yet, and next sprint remains `Sprint 13: Git / SCM Panel tốt hơn`.
 
 Constraints for the next builder:
 

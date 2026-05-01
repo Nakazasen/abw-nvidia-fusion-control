@@ -2,6 +2,79 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-01 - NVIDIA Sprint 12 Task Timeline + Recovery / Resume Committed And Pushed
+
+NVIDIA Sprint 12 is completed and pushed in `D:\Sandbox\Nvidia`.
+
+Push evidence:
+
+- Commit hash: `da4c19a21cc4865db6f2d5818aba2daaa88857d0`
+- Commit short hash: `da4c19a`
+- Commit message: `feat: add Sprint 12 task timeline recovery`
+- Push result: `bc97394..da4c19a main -> main`
+- Local HEAD after push: `da4c19a21cc4865db6f2d5818aba2daaa88857d0`
+- Remote `origin/main` after push: `da4c19a21cc4865db6f2d5818aba2daaa88857d0`
+- Local HEAD equals remote main: `YES`
+- `git status --short` after push: clean
+
+Verification evidence recorded from NVIDIA Sprint 12 close:
+
+- `node --check tools\nvidia-server.mjs` passed
+- `node --check tools\nvidia-cli-agent.mjs` passed
+- `node --check tools\extension-host.mjs` passed
+- `node --check tools\agent-core.mjs` passed
+- `node --check tools\browser-smoke.mjs` passed
+- `npm run agent:audit` passed `25/25`
+- inline HTML parse check passed
+- browser smoke passed:
+  - command: `npm run browser:smoke -- --start-server --port 3456`
+  - exit code: `0`
+  - `ok=true`
+  - `mode=real-browser`
+  - `checks=27 passed / 0 failed`
+  - server stopped cleanly
+  - orphan=`false`
+- task API guard smoke passed
+- task event/pause/resume/cancel/clear-completed smoke passed
+- provider/settings regression safe
+- runtime secrets/artifacts were not staged
+
+Sprint 12 scope implemented:
+
+- task timeline sidebar/state
+- persisted task records under ignored `.nvidia-agent/tasks`
+- task start/event/pause/resume/cancel/clear-completed APIs
+- normalized/sanitized task and step model
+- taskId wiring into `/proxy/chat`
+- agent loop task event recording
+- abort-to-pause marker
+- manual recovery marker/resume semantics
+- clear completed flow
+
+Codex audit/fix highlights:
+
+- task mutation endpoints guarded with IDE + approval enforcement
+- clearCompleted frontend approval fixed
+- `/api/tasks/event` added
+- oversized payload rejected
+- invalid taskId rejected
+- `runAutonomousAgent` toolResults bug fixed
+- resume claim downgraded to manual recovery marker
+- no full autonomous recovery claim
+
+Explicit limitations:
+
+- recovery is marker-based/manual guidance, not full autonomous recovery orchestration
+- no automatic safe snapshot of pending edits/jobs/diagnostics beyond hints
+- daily-use readiness is not achieved
+- browser smoke is not full E2E coverage
+- API keys remain local plaintext runtime storage
+- non-NVIDIA providers are not fully wired for real chat execution
+- no ABW bridge is implemented
+- Sprint 13 has not started
+- Cognitive OS is not achieved
+- VS Code parity is not achieved
+
 ## 2026-05-01 - NVIDIA Sprint 11 Inline Edit kieu Cursor Committed And Pushed
 
 NVIDIA Sprint 11 is completed and pushed in `D:\Sandbox\Nvidia`.

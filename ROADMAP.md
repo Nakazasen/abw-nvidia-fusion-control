@@ -2,11 +2,12 @@
 
 ## 1. Current State
 
-- NVIDIA Sprint 1-11 are completed and pushed.
+- NVIDIA Sprint 1-12 are completed and pushed.
 - Sprint 9 `Browser E2E Smoke Harness` is complete.
 - Sprint 10 Settings / Provider Manager / API Key UI is complete.
 - Sprint 11 Inline Edit kieu Cursor is complete.
-- Next sprint is `Sprint 12: Task Timeline + Recovery / Resume`.
+- Sprint 12 Task Timeline + Recovery / Resume is complete.
+- Next sprint is `Sprint 13: Git / SCM Panel tốt hơn`.
 - ABW bridge is not implemented.
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
 - Browser smoke baseline now exists and passed in real-browser mode.
@@ -15,12 +16,13 @@
 - API key UI now exists.
 - API key secret storage is local plaintext runtime state, not encrypted.
 - Inline edit workflow now exists with proposal-only pending edits, explicit apply flow, enterprise mutation block, and dirty-tab safety fixes.
+- Sprint 12 task timeline/recovery workflow now exists with persisted runtime task records under ignored state, guarded task mutation APIs, taskId wiring into the agent/proxy flow, and manual recovery marker semantics (not full autonomous recovery).
 - Non-NVIDIA providers are config-ready but not fully wired for real chat execution.
 - Current capability is not Cognitive OS yet.
 - Current capability is not VS Code parity.
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
-- Control repo latest recorded NVIDIA remote main: `bc973945f88aff047b780a08988aa1d1fe32a76c`.
+- Control repo latest recorded NVIDIA remote main: `da4c19a21cc4865db6f2d5818aba2daaa88857d0`.
 - Control repo latest recorded control remote main: `f3423f4558c06f8ccf33a1f84f0abd62f50fde02`.
 
 ## 2. Roadmap Governance Rules
@@ -40,7 +42,7 @@
 
 ### Planning Horizons
 
-- Short-term plan: Sprint 12-16, finish timeline/recovery, SCM, security, memory UI, and daily-use hardening.
+- Short-term plan: Sprint 13-16, finish SCM, security, memory UI, and daily-use hardening.
 - Mid-term plan: Sprint 17-40, move from a stronger internal agent IDE into an ABW-governed internal Cognitive Workspace and internal pilot.
 - Long-term plan: Sprint 41-60, add governed knowledge ingestion, self-growing wiki controls, self-improvement controls, and controlled tool generation.
 - End-state plan: Sprint 61-80, reach Enterprise Cognitive OS Beta with enterprise runtime, orchestration, evidence ledger, compliance, and department workflows.
@@ -80,8 +82,8 @@ Sprint range: Sprint 1-16
 - Sprint 9: Browser E2E Smoke Harness - done
 - Sprint 10: Settings / Provider Manager / API Key UI - done
 - Sprint 11: Inline Edit kieu Cursor - done
-- Sprint 12: Task Timeline + Recovery / Resume
-- Sprint 13: Git / SCM Panel tot hon
+- Sprint 12: Task Timeline + Recovery / Resume - done
+- Sprint 13: Git / SCM Panel tốt hơn
 - Sprint 14: Security Permission Model co ban
 - Sprint 15: Project Rules / Memory UI toi thieu
 - Sprint 16: Daily-use hardening / E2E regression pack
@@ -95,7 +97,7 @@ Sprint range: Sprint 1-16
 
 ### Capability Warning
 
-- Sprint 9, Sprint 10, and Sprint 11 are complete; the next track continues daily-use features, not deeper foundation work.
+- Sprint 9, Sprint 10, Sprint 11, and Sprint 12 are complete; the next track continues daily-use features, not deeper foundation work.
 - Around Sprint 14-16, warn that this is the daily-use readiness gate.
 - Daily-use readiness is still not achieved until Sprint 16 audit passes.
 
