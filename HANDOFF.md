@@ -5,8 +5,7 @@
 Reality-synced state as of 2026-05-01:
 
 - ABW baseline is `v1.1.0` and should be treated as the current governance/runtime truth.
-- ABW observed surface includes `/ask`, `/route-query`, `/workspace-intel`, `/gaps`, health/inspect APIs, multi-workspace registry, trust scoring, retrieval status, sources, and warnings handling.
-- ABW architectural framing is Hybrid ABW with 4 tiers and 6 lanes.
+- ABW is intended as a governance, evidence, and reliability layer to reduce hallucination, unsupported answers, and overclaiming from weaker agents.
 - NVIDIA Sprint 1 Composer/Diff UX is complete and pushed.
 - NVIDIA Sprint 2 `Context Picker` is complete and pushed.
 - NVIDIA Sprint 3 `Terminal/Job Manager UX` is complete and pushed.
@@ -17,39 +16,59 @@ Reality-synced state as of 2026-05-01:
 - NVIDIA Sprint 8 `LSP Diagnostics / Problems Panel` is complete and pushed.
 - Latest NVIDIA remote `main` is `09e8d8933f3ed0c4dd3b7855ad0ce443842ffccf`.
 - NVIDIA next planned sprint is `Sprint 9: Browser E2E Smoke Harness`.
-- NVIDIA already has shared `agent-core`, pending edits, command jobs, extension host, and MCP server infrastructure.
-- `npm run agent:audit` is useful capability evidence, but it is not full end-to-end proof.
+- Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
+- Browser E2E visual validation is still missing.
 - Fusion bridge contract exists, but bridge implementation is not implemented yet.
 - Integration strategy remains bridge-first, not source-merge-first.
 - Control workspace remains `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL`.
-- Do not claim Cognitive OS integration is complete.
+- Do not claim daily-use readiness already achieved.
 - Do not claim ABW bridge exists.
+- Do not claim Cognitive OS is already achieved.
+- Do not claim self-growing wiki is already implemented.
+- Do not claim manufacturing fault investigation runtime is already implemented.
 - Do not claim full LSP server integration.
 - Do not treat `npm run agent:audit` as full E2E proof.
 - Do not start Sprint 9 from this control update task.
+
+## Current Strategic Roadmap Status
+
+- Master Roadmap v1 has been recorded.
+- Current next sprint remains `Sprint 9: Browser E2E Smoke Harness`.
+- After Sprint 9, the roadmap returns to the daily-use track:
+  - Sprint 10: Provider/Settings
+  - Sprint 11: Inline Edit
+  - Sprint 12: Timeline/Recovery
+  - Sprint 13: Git/SCM
+  - Sprint 14: Security
+  - Sprint 15: Project Rules/Memory
+  - Sprint 16: Daily-use hardening
+- Do not start Sprint 10 until Sprint 9 is implemented, audited, committed, pushed, and recorded.
+- ABW bridge still not implemented.
+- Cognitive OS not yet achieved.
 
 ## Recovery Order For A New Session
 
 Read these in order:
 
-1. `D:\Sandbox\skill-Anti-brain-wiki_note\docs\ABW_ARCHITECTURE_AUDIT_2026-04-30.md`
-2. `D:\Sandbox\skill-Anti-brain-wiki_note\README.md`
-3. `D:\Sandbox\Nvidia\.nvidia-agent\reports\audit-nvidia-abw-fusion-2026-04-30.md`
-4. `D:\Sandbox\Nvidia\README.md`
-5. `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\README.md`
-6. `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\ROADMAP.md`
-7. `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\DECISIONS.md`
-8. `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\RISKS.md`
-9. `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\INTEGRATION_JOURNAL.md`
-10. `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\BRIDGE_CONTRACT.md`
-11. `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\HANDOFF.md`
+1. `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\README.md`
+2. `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\ROADMAP.md`
+3. `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\HANDOFF.md`
+4. `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\INTEGRATION_JOURNAL.md`
+5. `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\RISKS.md`
+6. `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\DECISIONS.md`
+7. `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\BRIDGE_CONTRACT.md`
+8. `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\repo-map.json`
+9. `D:\Sandbox\skill-Anti-brain-wiki_note\docs\ABW_ARCHITECTURE_AUDIT_2026-04-30.md`
+10. `D:\Sandbox\skill-Anti-brain-wiki_note\README.md`
+11. `D:\Sandbox\Nvidia\.nvidia-agent\reports\audit-nvidia-abw-fusion-2026-04-30.md`
+12. `D:\Sandbox\Nvidia\README.md`
 
 ## Immediate Next Action
 
-Prepare Sprint 9 builder planning while preserving current truth: Sprint 1/2/3/4/5/6/7/8 are pushed, bridge implementation does not exist yet, and next sprint remains `Sprint 9: Browser E2E Smoke Harness`.
+Prepare Sprint 9 builder planning while preserving current truth: Sprint 1-8 are pushed, bridge implementation does not exist yet, and next sprint remains `Sprint 9: Browser E2E Smoke Harness`.
 
 Constraints for the next builder:
 
 - Keep bridge work CLI-first and API-second.
-- Do not modify NVIDIA source or ABW source during contract-only work.
+- Do not modify NVIDIA source or ABW source during control-doc work.
 - Do not claim integration exists until a real bridge is implemented and verified.

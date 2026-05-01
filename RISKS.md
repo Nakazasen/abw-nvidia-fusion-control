@@ -53,7 +53,7 @@ Risk:
 Mitigation:
 
 - Bridge policy must require ABW governance for governed write/action flows.
-- Add future bridge/e2e checks for gate semantics.
+- Add future bridge/E2E checks for gate semantics.
 
 ## False Grounding
 
@@ -147,14 +147,12 @@ Mitigation:
 Risk:
 
 - `npm run agent:audit` may be mistaken for proof that bridge behavior, governance gates, rollback, or enterprise grounding actually work.
-- Sprint 4 may be overclaimed as full browser E2E proof when only static and API smoke evidence exists.
-- Sprint 6 may be overclaimed as full browser E2E proof when only static/headless checks and save-path smoke evidence exist.
-- Sprint 7 may be overclaimed as semantic/embedding-level AI search when implementation remains lexical/offline by default.
+- Syntax or headless checks may be mistaken for full browser E2E.
 
 Mitigation:
 
 - Treat the current harness as capability smoke evidence only.
-- Add future bridge/e2e checks before claiming integration readiness.
+- Add future bridge/E2E checks before claiming integration readiness.
 
 ## Enterprise Mode Is Not A Complete Security Boundary
 
@@ -162,7 +160,6 @@ Risk:
 
 - Enterprise mode may hide UI visually while backend endpoints still rely on trust and approval rules.
 - UI hiding must not be treated as a complete security boundary by itself.
-- Enterprise/IDE mode may be confused with the ABW governance bridge.
 
 Mitigation:
 
@@ -174,10 +171,7 @@ Mitigation:
 
 Risk:
 
-- Sprint 5 work could start before Sprint 4 state is recorded in the control repo.
-- Sprint 7 work could start before Sprint 6 state is recorded in the control repo.
-- Sprint 8 work could start before Sprint 7 state is recorded in the control repo.
-- Sprint 9 work could start before Sprint 8 state is recorded in the control repo.
+- The next sprint may start before the previous sprint state is properly recorded in the control repo.
 
 Mitigation:
 
@@ -188,7 +182,7 @@ Mitigation:
 
 Risk:
 
-- Sprint 5 extension install/activate/run-command work may introduce security risks if approval gates are weak or missing.
+- Extension install/activate/run-command work may introduce security risks if approval gates are weak or missing.
 
 Mitigation:
 
@@ -217,16 +211,112 @@ Risk:
 Mitigation:
 
 - Keep `.nvidia-agent` runtime cache ignored in Git and verify staging before commit.
-- Enforce and test skip rules for node_modules, `.git`, dist/build, `.nvidia-agent`, binary files, and large files.
+- Enforce and test skip rules for `node_modules`, `.git`, dist/build, `.nvidia-agent`, binary files, and large files.
 - Keep lexical/offline fallback as default and treat external provider use as optional, explicit, and separately audited.
 
 ## Context Picker Locks In Too Early
 
 Risk:
 
-- Sprint 2 Context Picker may be designed before ABW context semantics are defined, making future ABW context hard to surface cleanly.
+- Context Picker may be designed before ABW context semantics are defined, making future ABW context hard to surface cleanly.
 
 Mitigation:
 
 - Reserve future context types now: `@abw`, `@wiki`, `@gaps`, `@route`, `@decision`.
-- Keep Sprint 2 context plumbing extensible so ABW-governed context can be added without a redesign.
+- Keep context plumbing extensible so ABW-governed context can be added without a redesign.
+
+## Roadmap Drift If Not Recorded
+
+Risk:
+
+- Implementation order changes without a control-repo record and the team starts following chat memory instead of documented truth.
+
+Mitigation:
+
+- Record roadmap changes in `DECISIONS.md`.
+- Update `ROADMAP.md`, `HANDOFF.md`, and `INTEGRATION_JOURNAL.md` together.
+
+## Capability Overclaim At Phase Boundaries
+
+Risk:
+
+- Phase-end messaging claims more than the audit evidence supports.
+
+Mitigation:
+
+- Add explicit milestone gates, non-claim language, and mandatory review checkpoints before any phase-end claim is accepted.
+
+## System Bloat / Codebase Becoming Uncontrollable
+
+Risk:
+
+- Sprint accumulation increases complexity, dead code, duplicated UI, and stale runtime artifacts until delivery slows down or reliability falls.
+
+Mitigation:
+
+- Trigger cleanup or refactor sprints when audit checkpoints show bloat.
+- Require every major audit to assess code size, duplication, and stale runtime files.
+
+## Self-Learning Without Evidence Gate
+
+Risk:
+
+- Knowledge ingestion or auto-research starts merging unverified material into the governed knowledge base.
+
+Mitigation:
+
+- Require verification, conflict handling, and merge gates before any knowledge promotion.
+- Treat unknown as a gap and weak source as draft only.
+
+## Tool Generation Without Ground Truth
+
+Risk:
+
+- Generated tools appear impressive but are not validated against datasets, expected outputs, or production reality.
+
+Mitigation:
+
+- Require test datasets, ground truth, human review, audit, and rollback plans before tool-generated capability is treated as real.
+
+## Production Automation Tool Overclaim
+
+Risk:
+
+- Internal helper tools for production support are described as production-ready before they pass realistic evaluation.
+
+Mitigation:
+
+- Distinguish helper, prototype, pilot, and production-ready status explicitly.
+- Require manufacturing-specific audit evidence before any production-readiness claim.
+
+## Browser E2E Gap
+
+Risk:
+
+- Foundational UI work accumulates without browser smoke evidence, allowing regressions to hide behind static or API checks.
+
+Mitigation:
+
+- Keep Sprint 9 as the immediate browser smoke baseline gate.
+- Do not proceed to stronger daily-use claims if browser smoke fails.
+
+## ABW Bridge Delay
+
+Risk:
+
+- NVIDIA UX advances while ABW bridge work remains delayed, creating a widening gap between prototype utility and governed trust capability.
+
+Mitigation:
+
+- Keep bridge milestones explicit in Phase 3 and treat the bridge as not implemented until audited evidence exists.
+
+## Confusing Prototype/Demo With Production-Ready System
+
+Risk:
+
+- A strong prototype or demo is mistaken for a stable daily-use system, Cognitive OS, or enterprise runtime.
+
+Mitigation:
+
+- Use milestone tables with explicit non-claims.
+- Require audit-backed capability language at every major phase boundary.

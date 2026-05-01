@@ -42,15 +42,15 @@ Observed reality:
 - ABW architectural framing is Hybrid ABW with a 4-tier and 6-lane operating model.
 - Remaining ABW risks still include release-truth drift, warnings discipline, encoding issues, and no newly confirmed HMAC audit evidence.
 - NVIDIA Sprint 1 Composer/Diff UX is complete.
-- NVIDIA next sprint is `Sprint 2: Context Picker`.
-- NVIDIA already has shared `agent-core`, pending edits, command jobs, extension host, and MCP infrastructure.
+- NVIDIA next sprint was `Sprint 2: Context Picker` at that time.
+- NVIDIA already had shared `agent-core`, pending edits, command jobs, extension host, and MCP infrastructure.
 - `npm run agent:audit` is a capability harness, not end-to-end bridge proof.
-- No executable ABW bridge is implemented in NVIDIA yet.
+- No executable ABW bridge was implemented in NVIDIA.
 
 Conclusion:
 
 - The control repo had drifted behind observed reality.
-- The bridge contract must be upgraded before any bridge coding starts.
+- The bridge contract had to be upgraded before any bridge coding starts.
 
 ## 2026-04-30 - NVIDIA Sprint 2 Context Picker Committed And Pushed
 
@@ -97,7 +97,7 @@ Explicit limitations:
 
 - ABW bridge is not implemented.
 - `npm run agent:audit` is capability evidence, not full end-to-end proof.
-- Sprint 3 has not started.
+- Sprint 3 had not started at that time.
 
 ## 2026-04-30 - NVIDIA Sprint 3 Terminal/Job Manager UX Committed And Pushed
 
@@ -146,11 +146,11 @@ Codex audit/fix highlights:
 Explicit limitations:
 
 - ABW bridge is not implemented
-- Sprint 4 has not started
+- Sprint 4 had not started at that time
 - `npm run agent:audit` is capability evidence, not full end-to-end proof
 - rerun/attach were not fully browser E2E verified
 - full `/proxy/chat` provider completion was not executed
-- `@abw`, `@wiki`, `@gaps`, `@route`, `@decision` remain placeholders only
+- `@abw`, `@wiki`, `@gaps`, `@route`, `@decision` remained placeholders only
 
 ## 2026-04-30 - NVIDIA Sprint 4 Enterprise/IDE Mode Toggle Committed And Pushed
 
@@ -210,8 +210,8 @@ Explicit limitations:
 - no full browser E2E visual mode switching was run
 - `npm run agent:audit` is capability evidence, not full end-to-end proof
 - no ABW bridge is implemented
-- Sprint 5 has not started
-- `@abw`, `@wiki`, `@gaps`, `@route`, `@decision` remain placeholders only
+- Sprint 5 had not started at that time
+- `@abw`, `@wiki`, `@gaps`, `@route`, `@decision` remained placeholders only
 
 ## 2026-04-30 - NVIDIA Sprint 5 Extension UX Toi Thieu Committed And Pushed
 
@@ -277,7 +277,7 @@ Explicit limitations:
 - no browser E2E visual validation
 - `npm run agent:audit` is not full E2E proof
 - no ABW bridge implemented
-- Sprint 6 has not started
+- Sprint 6 had not started at that time
 
 ## 2026-04-30 - NVIDIA Sprint 6 Monaco Workbench Committed And Pushed
 
@@ -329,7 +329,7 @@ Explicit limitations:
 - `npm run agent:audit` is not full E2E proof
 - split editor not implemented
 - no ABW bridge implemented
-- Sprint 7 has not started
+- Sprint 7 had not started at that time
 
 ## 2026-04-30 - NVIDIA Sprint 7 Semantic Index Cache Committed And Pushed
 
@@ -385,7 +385,7 @@ Explicit limitations:
 - `npm run agent:audit` is not full E2E proof
 - AST/symbol chunking not implemented
 - no ABW bridge implemented
-- Sprint 8 has not started
+- Sprint 8 had not started at that time
 
 ## 2026-04-30 - NVIDIA Sprint 8 LSP Diagnostics / Problems Panel Committed And Pushed
 
@@ -444,3 +444,30 @@ Explicit limitations:
 - `npm run agent:audit` is not full E2E proof
 - no ABW bridge implemented
 - Sprint 9 has not started
+
+## 2026-04-30 - Master Roadmap v1 Established
+
+Reason:
+
+- avoid sprint-by-sprint drift
+
+Decision:
+
+- create roadmap from Sprint 1 to Sprint 80+
+
+Key ranges:
+
+- Sprint 1-16 Internal Daily-Use Agent IDE
+- Sprint 17-28 Cursor/Antigravity-like Agent IDE
+- Sprint 29-40 ABW-Governed Internal Cognitive Workspace
+- Sprint 41-52 Governed Knowledge Ingestion / Self-Growing Wiki v1
+- Sprint 53-60 Self-Improving Agent IDE / Controlled Tool Generation
+- Sprint 61-80 Enterprise Cognitive OS Runtime
+
+Current state:
+
+- Sprint 1-8 done, Sprint 9 next
+
+Warning:
+
+- control repo is the source of truth, not chat memory
