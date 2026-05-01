@@ -2,6 +2,74 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-01 - NVIDIA Sprint 10 Settings / Provider Manager / API Key UI Committed And Pushed
+
+NVIDIA Sprint 10 is completed and pushed in `D:\Sandbox\Nvidia`.
+
+Push evidence:
+
+- Commit hash: `8ebb1c6c11f72830e9fb5f9ff6e5ac2f8771fd28`
+- Commit short hash: `8ebb1c6`
+- Commit message: `feat: add Sprint 10 provider settings`
+- Push result: `6d1b1ea..8ebb1c6 main -> main`
+- Local HEAD after push: `8ebb1c6c11f72830e9fb5f9ff6e5ac2f8771fd28`
+- Remote `origin/main` after push: `8ebb1c6c11f72830e9fb5f9ff6e5ac2f8771fd28`
+- Local HEAD equals remote main: `YES`
+- `git status --short` after push: clean
+
+Verification evidence recorded from NVIDIA Sprint 10 close:
+
+- `node --check tools\nvidia-server.mjs` passed
+- `node --check tools\nvidia-cli-agent.mjs` passed
+- `node --check tools\extension-host.mjs` passed
+- `node --check tools\agent-core.mjs` passed
+- `node --check tools\browser-smoke.mjs` passed
+- `npm run agent:audit` passed `25/25`
+- inline HTML parse check passed
+- browser smoke passed:
+  - command: `npm run browser:smoke -- --start-server --port 3456`
+  - exit code: `0`
+  - `ok=true`
+  - `mode=real-browser`
+  - `checks=26 passed / 0 failed`
+  - server stopped cleanly
+  - orphan=`false`
+- settings/provider API smoke passed
+- secret redaction smoke passed
+- enterprise mutation guard passed
+- runtime secrets/artifacts were not staged
+
+Sprint 10 scope implemented:
+
+- Settings UI
+- Provider Manager UI
+- API key UI
+- backend settings/provider APIs
+- default provider selection
+- provider test/default/clear-key flows
+- chat provider/model resolution with safe fallback
+- browser smoke Settings checks
+
+Codex audit/fix highlights:
+
+- oversized provider payload rejected with `400`
+- invalid provider id rejected with `400`
+- raw dummy key not returned by GET/POST/test/default/clear responses
+- raw dummy key not found in server logs
+- enterprise mode mutation rejected server-side
+- unsupported provider test returns `untested` / `not implemented`
+
+Explicit limitations:
+
+- daily-use readiness is not achieved
+- browser smoke is not full E2E coverage
+- API keys are local plaintext runtime storage, not encrypted
+- non-NVIDIA providers are not fully wired for real chat execution
+- no ABW bridge is implemented
+- Sprint 11 has not started
+- Cognitive OS is not achieved
+- VS Code parity is not achieved
+
 ## 2026-05-01 - NVIDIA Sprint 9 Browser E2E Smoke Harness Committed And Pushed
 
 NVIDIA Sprint 9 is completed and pushed in `D:\Sandbox\Nvidia`.

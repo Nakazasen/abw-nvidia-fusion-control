@@ -300,6 +300,52 @@ Mitigation:
 - Keep Sprint 9 as the immediate browser smoke baseline gate.
 - Do not proceed to stronger daily-use claims if browser smoke fails.
 
+## Local Plaintext API Key Storage Risk
+
+Risk:
+
+- Sprint 10 provider secrets are stored as local plaintext runtime state.
+- This may be misunderstood as encrypted storage if not explicitly documented.
+
+Mitigation:
+
+- Keep explicit warnings in roadmap/handoff/journal that encryption is not implemented.
+- Keep secret files out of Git and verify staging before every commit.
+
+## Provider Configuration Overclaim Risk
+
+Risk:
+
+- Provider list/support UI can be mistaken for full provider execution support.
+- Non-NVIDIA providers may be presented as configured while not fully wired for real chat execution.
+
+Mitigation:
+
+- Keep non-NVIDIA status language explicit: config-ready, not fully wired for real chat execution.
+- Require provider capability verification evidence before changing claim level.
+
+## API Key Leakage Into Smoke Artifacts Risk
+
+Risk:
+
+- Browser smoke reports/logs/screenshots may accidentally capture raw test keys.
+
+Mitigation:
+
+- Keep smoke scenarios secret-safe and avoid entering real keys.
+- Run post-smoke leak scans in logs/reports/diffs before commit/push.
+
+## Settings Mutation Guard Drift Risk
+
+Risk:
+
+- Enterprise/IDE guard behavior may drift if frontend/backends evolve separately.
+
+Mitigation:
+
+- Keep server-side mutation guard mandatory (`uiMode` + approval header).
+- Re-run mutation guard smoke checks during Sprint close audits.
+
 ## ABW Bridge Delay
 
 Risk:

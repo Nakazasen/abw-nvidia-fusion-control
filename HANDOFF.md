@@ -15,37 +15,39 @@ Reality-synced state as of 2026-05-01:
 - NVIDIA Sprint 7 `Semantic Index Cache / Context Engine` is complete and pushed.
 - NVIDIA Sprint 8 `LSP Diagnostics / Problems Panel` is complete and pushed.
 - NVIDIA Sprint 9 `Browser E2E Smoke Harness` is complete and pushed.
-- Latest NVIDIA remote `main` is `6d1b1ea953b91313564cd6a6c77bebfbd60cbc5c`.
-- NVIDIA next planned sprint is `Sprint 10: Settings / Provider Manager / API Key UI`.
+- NVIDIA Sprint 10 `Settings / Provider Manager / API Key UI` is complete and pushed.
+- Latest NVIDIA remote `main` is `8ebb1c6c11f72830e9fb5f9ff6e5ac2f8771fd28`.
+- NVIDIA next planned sprint is `Sprint 11: Inline Edit kiểu Cursor`.
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
 - Sprint 9 browser smoke is a baseline gate, not full E2E coverage.
-- After Sprint 9, the roadmap returns to the daily-use track.
+- Sprint 10 returns the project to the daily-use track after the browser smoke baseline.
+- Provider/settings capabilities now exist, but daily-use readiness is still not achieved.
 - Fusion bridge contract exists, but bridge implementation is not implemented yet.
 - Integration strategy remains bridge-first, not source-merge-first.
 - Control workspace remains `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL`.
 - Do not claim daily-use readiness already achieved.
 - Do not claim ABW bridge exists.
 - Do not claim Cognitive OS is already achieved.
+- Do not claim API key encryption exists.
 - Do not claim self-growing wiki is already implemented.
 - Do not claim manufacturing fault investigation runtime is already implemented.
 - Do not claim full LSP server integration.
 - Do not treat `npm run agent:audit` as full E2E proof.
 - Do not treat browser smoke as full E2E proof.
-- Do not start Sprint 10 from this control update task.
+- Do not start Sprint 11 from this control update task.
 
 ## Current Strategic Roadmap Status
 
 - Master Roadmap v1 has been recorded.
-- Current next sprint remains `Sprint 10: Settings / Provider Manager / API Key UI`.
-- After Sprint 9, the roadmap returns to the daily-use track:
-  - Sprint 10: Provider/Settings
-  - Sprint 11: Inline Edit
+- Current next sprint remains `Sprint 11: Inline Edit kiểu Cursor`.
+- After Sprint 10, the roadmap continues on the daily-use track:
+  - Sprint 11: Inline Edit kiểu Cursor
   - Sprint 12: Timeline/Recovery
   - Sprint 13: Git/SCM
   - Sprint 14: Security
   - Sprint 15: Project Rules/Memory
   - Sprint 16: Daily-use hardening
-- Do not start Sprint 10 until Sprint 9 is implemented, audited, committed, pushed, and recorded in this control repo.
+- Do not start Sprint 11 until Sprint 10 is implemented, audited, committed, pushed, and recorded in this control repo.
 - ABW bridge still not implemented.
 - Cognitive OS not yet achieved.
 
@@ -68,7 +70,7 @@ Read these in order:
 
 ## Immediate Next Action
 
-Prepare Sprint 10 builder planning while preserving current truth: Sprint 1-9 are pushed, bridge implementation does not exist yet, and next sprint remains `Sprint 10: Settings / Provider Manager / API Key UI`.
+Prepare Sprint 11 builder planning while preserving current truth: Sprint 1-10 are pushed, bridge implementation does not exist yet, and next sprint remains `Sprint 11: Inline Edit kiểu Cursor`.
 
 Constraints for the next builder:
 

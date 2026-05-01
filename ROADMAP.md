@@ -2,18 +2,23 @@
 
 ## 1. Current State
 
-- NVIDIA Sprint 1-9 are completed and pushed.
+- NVIDIA Sprint 1-10 are completed and pushed.
 - Sprint 9 `Browser E2E Smoke Harness` is complete.
-- Next sprint is `Sprint 10: Settings / Provider Manager / API Key UI`.
+- Sprint 10 `Settings / Provider Manager / API Key UI` is complete.
+- Next sprint is `Sprint 11: Inline Edit kiểu Cursor`.
 - ABW bridge is not implemented.
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
 - Browser smoke baseline now exists and passed in real-browser mode.
 - Browser smoke is not full E2E coverage.
+- Provider/settings layer now exists.
+- API key UI now exists.
+- API key secret storage is local plaintext runtime state, not encrypted.
+- Non-NVIDIA providers are config-ready but not fully wired for real chat execution.
 - Current capability is not Cognitive OS yet.
 - Current capability is not VS Code parity.
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
-- Control repo latest recorded NVIDIA remote main: `6d1b1ea953b91313564cd6a6c77bebfbd60cbc5c`.
+- Control repo latest recorded NVIDIA remote main: `8ebb1c6c11f72830e9fb5f9ff6e5ac2f8771fd28`.
 - Control repo latest recorded control remote main: `f3423f4558c06f8ccf33a1f84f0abd62f50fde02`.
 
 ## 2. Roadmap Governance Rules
@@ -33,7 +38,7 @@
 
 ### Planning Horizons
 
-- Short-term plan: Sprint 9-16, finish browser smoke, settings/provider controls, inline edit, recovery, SCM, security, memory UI, and daily-use hardening.
+- Short-term plan: Sprint 11-16, finish inline edit, recovery, SCM, security, memory UI, and daily-use hardening.
 - Mid-term plan: Sprint 17-40, move from a stronger internal agent IDE into an ABW-governed internal Cognitive Workspace and internal pilot.
 - Long-term plan: Sprint 41-60, add governed knowledge ingestion, self-growing wiki controls, self-improvement controls, and controlled tool generation.
 - End-state plan: Sprint 61-80, reach Enterprise Cognitive OS Beta with enterprise runtime, orchestration, evidence ledger, compliance, and department workflows.
@@ -71,8 +76,8 @@ Sprint range: Sprint 1-16
 - Sprint 7: Semantic Index Cache / Context Engine - done
 - Sprint 8: LSP Diagnostics / Problems Panel - done
 - Sprint 9: Browser E2E Smoke Harness - done
-- Sprint 10: Settings / Provider Manager / API Key UI
-- Sprint 11: Inline Edit kieu Cursor
+- Sprint 10: Settings / Provider Manager / API Key UI - done
+- Sprint 11: Inline Edit kiểu Cursor
 - Sprint 12: Task Timeline + Recovery / Resume
 - Sprint 13: Git / SCM Panel tot hon
 - Sprint 14: Security Permission Model co ban
@@ -88,7 +93,7 @@ Sprint range: Sprint 1-16
 
 ### Capability Warning
 
-- After Sprint 9, warn that the next track must return to daily-use features, not deeper foundation work.
+- Sprint 9 and Sprint 10 are complete; the next track continues daily-use features, not deeper foundation work.
 - Around Sprint 14-16, warn that this is the daily-use readiness gate.
 - Daily-use readiness is still not achieved until Sprint 16 audit passes.
 
