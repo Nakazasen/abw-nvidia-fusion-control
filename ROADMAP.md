@@ -10,11 +10,12 @@ The two repos continue independently but evolve toward one shared architecture:
 
 ## Immediate Priority
 
-- NVIDIA `Sprint 2: Context Picker` is complete.
-- NVIDIA `Sprint 3: Terminal/Job Manager UX` is complete.
-- NVIDIA `Sprint 4: Enterprise/IDE Mode Toggle` is complete.
-- Next immediate NVIDIA work is `Sprint 5: Extension UX Tối Thiểu`.
-- Keep bridge work separate: ABW bridge remains planned after or alongside context/job UX, but is not implemented yet.
+- NVIDIA Sprint 2 `Context Picker` is complete.
+- NVIDIA Sprint 3 `Terminal/Job Manager UX` is complete.
+- NVIDIA Sprint 4 `Enterprise/IDE Mode Toggle` is complete.
+- NVIDIA Sprint 5 `Extension UX Toi Thieu` is complete.
+- Next immediate NVIDIA work is `Sprint 6: Monaco Workbench / Multi-tab Editor`.
+- Keep bridge work separate: ABW bridge remains planned but not implemented.
 - Keep future ABW-aware context types reserved:
   - `@abw`
   - `@wiki`
@@ -32,17 +33,15 @@ The two repos continue independently but evolve toward one shared architecture:
 
 ## Near-Term
 
-1. Execute `Sprint 5: Extension UX Tối Thiểu`.
-2. Use real backend installed/Open VSX data in the Extensions panel.
-3. Add install from folder.
-4. Add install VSIX.
-5. Add install Open VSX.
-6. Add activate extension.
-7. Add run registered command.
-8. Show registered commands in the command palette.
-9. Preserve Sprint 1/2/3/4 behavior while implementing Sprint 5.
-10. Keep bridge work separate: ABW bridge remains planned but not implemented.
-11. Keep ABW release truth aligned across version files, tags, release notes, and control-doc assumptions.
+1. Execute `Sprint 6: Monaco Workbench / Multi-tab Editor`.
+2. Implement multi-tab editor UX.
+3. Implement dirty state indicators per tab/file.
+4. Implement save and save all flows.
+5. Implement open recent files flow.
+6. Implement split editor only if safe.
+7. Preserve Sprint 1/2/3/4/5 behavior while implementing Sprint 6.
+8. Keep bridge work separate: ABW bridge remains planned but not implemented.
+9. Keep ABW release truth aligned across version files, tags, release notes, and control-doc assumptions.
 
 ## Mid-Term
 

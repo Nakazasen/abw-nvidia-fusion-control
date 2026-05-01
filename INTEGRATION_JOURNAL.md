@@ -212,3 +212,69 @@ Explicit limitations:
 - no ABW bridge is implemented
 - Sprint 5 has not started
 - `@abw`, `@wiki`, `@gaps`, `@route`, `@decision` remain placeholders only
+
+## 2026-04-30 - NVIDIA Sprint 5 Extension UX Toi Thieu Committed And Pushed
+
+NVIDIA Sprint 5 is completed and pushed in `D:\Sandbox\Nvidia`.
+
+Push evidence:
+
+- Commit hash: `9f5e0cf9b47558ba6f71b90d2438a92809ec7e93`
+- Commit short hash: `9f5e0cf`
+- Commit message: `feat: add Sprint 5 extension UX`
+- Push result: `6c93858..9f5e0cf main -> main`
+- Local HEAD after push: `9f5e0cf9b47558ba6f71b90d2438a92809ec7e93`
+- Remote `origin/main` after push: `9f5e0cf9b47558ba6f71b90d2438a92809ec7e93`
+- Local HEAD equals remote main: `YES`
+- `git status --short` after push: clean
+
+Verification evidence recorded from NVIDIA Sprint 5 close:
+
+- `node --check tools\nvidia-server.mjs` passed
+- `node --check tools\nvidia-cli-agent.mjs` passed
+- `node --check tools\extension-host.mjs` passed
+- `node --check tools\agent-core.mjs` passed
+- `npm run agent:audit` passed `25/25`
+- Inline HTML script parse check passed
+- Mojibake scan required patterns passed with final count `0`
+- `non_ascii_lines=0` in `nvidia_playground.html`
+- Extension backend smoke passed:
+  - `GET /api/extensions`
+  - `GET /api/agent_providers`
+  - `GET /api/extensions/search?q=json&size=5`
+- Fixture extension lifecycle smoke passed:
+  - `install_without_header_status=403`
+  - `install_status=success ext_id=localtest.hello-ext`
+  - `activate_status=success`
+  - `run_status=success result=hello-ok`
+  - `disable_enabled=False`
+  - `run_when_disabled_status=500`
+  - `uninstall_status=success`
+
+Sprint 5 scope implemented:
+
+- backend-truth Extensions panel
+- installed extensions list
+- enabled/disabled state
+- registered extension commands
+- agent providers
+- local folder install path
+- VSIX install path
+- Open VSX search/install path
+- activate/enable/disable/uninstall paths
+- minimal command palette with `Ctrl+Shift+P`
+- Enterprise-mode extension guards
+
+Codex audit/fix highlights:
+
+- fixed activation crash caused by `subscriptions` undefined
+- removed duplicate `toggleBottomPanel`
+- added `showExtensionDetail` IDE guard
+- completed hard mojibake cleanup
+
+Explicit limitations:
+
+- no browser E2E visual validation
+- `npm run agent:audit` is not full E2E proof
+- no ABW bridge implemented
+- Sprint 6 has not started
