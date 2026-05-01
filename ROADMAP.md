@@ -16,7 +16,8 @@ The two repos continue independently but evolve toward one shared architecture:
 - NVIDIA Sprint 5 `Extension UX Toi Thieu` is complete.
 - NVIDIA Sprint 6 `Monaco Workbench / Multi-tab Editor` is complete.
 - NVIDIA Sprint 7 `Semantic Index Cache / Context Engine` is complete.
-- Next immediate NVIDIA work is `Sprint 8: LSP Diagnostics / Problems Panel`.
+- NVIDIA Sprint 8 `LSP Diagnostics / Problems Panel` is complete.
+- Next immediate NVIDIA work is `Sprint 9: Browser E2E Smoke Harness`.
 - Keep bridge work separate: ABW bridge remains planned but not implemented.
 - Keep future ABW-aware context types reserved:
   - `@abw`
@@ -35,15 +36,18 @@ The two repos continue independently but evolve toward one shared architecture:
 
 ## Near-Term
 
-1. Execute `Sprint 8: LSP Diagnostics / Problems Panel`.
-2. Implement minimal diagnostics model.
-3. Add Problems panel UI.
-4. Source diagnostics from safe static checks or command output.
-5. Implement file/line mapping for diagnostics.
-6. Open Monaco tab at target line on problem click if safe.
-7. Preserve Sprint 1/2/3/4/5/6/7 behavior while implementing Sprint 8.
-8. Keep bridge work separate: ABW bridge remains planned but not implemented.
-9. Keep ABW release truth aligned across version files, tags, release notes, and control-doc assumptions.
+1. Execute `Sprint 9: Browser E2E Smoke Harness`.
+2. Launch local NVIDIA server and open playground page.
+3. Verify Enterprise/IDE mode toggle in browser smoke flow.
+4. Verify Composer/Diff basic UI paths.
+5. Verify Context Picker opens.
+6. Verify Terminal/Jobs basic panel.
+7. Verify Problems panel basic render.
+8. Verify Monaco tab open path if safe.
+9. Collect screenshot/log artifact if safe.
+10. Preserve Sprint 1/2/3/4/5/6/7/8 behavior while implementing Sprint 9.
+11. Keep bridge work separate: ABW bridge remains planned but not implemented.
+12. Keep ABW release truth aligned across version files, tags, release notes, and control-doc assumptions.
 
 ## Mid-Term
 

@@ -14,8 +14,9 @@ Reality-synced state as of 2026-05-01:
 - NVIDIA Sprint 5 `Extension UX Toi Thieu` is complete and pushed.
 - NVIDIA Sprint 6 `Monaco Workbench / Multi-tab Editor` is complete and pushed.
 - NVIDIA Sprint 7 `Semantic Index Cache / Context Engine` is complete and pushed.
-- Latest NVIDIA remote `main` is `03d2ae0c9f1a8f7ddc3677948b6b10f42b9b4141`.
-- NVIDIA next planned sprint is `Sprint 8: LSP Diagnostics / Problems Panel`.
+- NVIDIA Sprint 8 `LSP Diagnostics / Problems Panel` is complete and pushed.
+- Latest NVIDIA remote `main` is `09e8d8933f3ed0c4dd3b7855ad0ce443842ffccf`.
+- NVIDIA next planned sprint is `Sprint 9: Browser E2E Smoke Harness`.
 - NVIDIA already has shared `agent-core`, pending edits, command jobs, extension host, and MCP server infrastructure.
 - `npm run agent:audit` is useful capability evidence, but it is not full end-to-end proof.
 - Fusion bridge contract exists, but bridge implementation is not implemented yet.
@@ -23,8 +24,9 @@ Reality-synced state as of 2026-05-01:
 - Control workspace remains `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL`.
 - Do not claim Cognitive OS integration is complete.
 - Do not claim ABW bridge exists.
+- Do not claim full LSP server integration.
 - Do not treat `npm run agent:audit` as full E2E proof.
-- Do not start Sprint 8 from this control update task.
+- Do not start Sprint 9 from this control update task.
 
 ## Recovery Order For A New Session
 
@@ -44,7 +46,7 @@ Read these in order:
 
 ## Immediate Next Action
 
-Prepare Sprint 8 builder planning while preserving current truth: Sprint 1/2/3/4/5/6/7 are pushed, bridge implementation does not exist yet, and next sprint remains `Sprint 8: LSP Diagnostics / Problems Panel`.
+Prepare Sprint 9 builder planning while preserving current truth: Sprint 1/2/3/4/5/6/7/8 are pushed, bridge implementation does not exist yet, and next sprint remains `Sprint 9: Browser E2E Smoke Harness`.
 
 Constraints for the next builder:
 

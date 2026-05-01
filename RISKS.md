@@ -177,6 +177,7 @@ Risk:
 - Sprint 5 work could start before Sprint 4 state is recorded in the control repo.
 - Sprint 7 work could start before Sprint 6 state is recorded in the control repo.
 - Sprint 8 work could start before Sprint 7 state is recorded in the control repo.
+- Sprint 9 work could start before Sprint 8 state is recorded in the control repo.
 
 Mitigation:
 
