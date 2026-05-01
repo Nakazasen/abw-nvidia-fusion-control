@@ -330,3 +330,59 @@ Explicit limitations:
 - split editor not implemented
 - no ABW bridge implemented
 - Sprint 7 has not started
+
+## 2026-04-30 - NVIDIA Sprint 7 Semantic Index Cache Committed And Pushed
+
+NVIDIA Sprint 7 is completed and pushed in `D:\Sandbox\Nvidia`.
+
+Push evidence:
+
+- Commit hash: `03d2ae0c9f1a8f7ddc3677948b6b10f42b9b4141`
+- Commit short hash: `03d2ae0`
+- Commit message: `feat: add Sprint 7 semantic index cache`
+- Push result: `7975266..03d2ae0 main -> main`
+- Local HEAD after push: `03d2ae0c9f1a8f7ddc3677948b6b10f42b9b4141`
+- Remote `origin/main` after push: `03d2ae0c9f1a8f7ddc3677948b6b10f42b9b4141`
+- Local HEAD equals remote main: `YES`
+- `git status --short` after push: clean
+
+Verification evidence recorded from NVIDIA Sprint 7 close:
+
+- `node --check tools\nvidia-server.mjs` passed
+- `node --check tools\nvidia-cli-agent.mjs` passed
+- `node --check tools\extension-host.mjs` passed
+- `node --check tools\agent-core.mjs` passed
+- `npm run agent:audit` passed `25/25`
+- Inline HTML script parse check passed
+- Mojibake scan required patterns passed with final count `0`
+- Index build/search smoke passed
+- Incremental add/delete smoke passed
+- Runtime `.nvidia-agent/index` files were not staged
+
+Sprint 7 scope implemented:
+
+- persistent `.nvidia-agent/index` cache
+- `index-meta.json` / `index-files.json` / `index-chunks.json`
+- `GET /api/index/status`
+- `POST /api/index/build`
+- `POST /api/index/refresh`
+- `GET /api/index/search?q=...`
+- `POST /api/index_search`
+- lexical/offline provider fallback
+- search ranking with lexical/path/exact/recent/git bonuses
+- incremental refresh
+- IDE-only Index Engine UI
+- `@index` NVIDIA-side context attachment
+
+Codex audit/fix highlights:
+
+- fixed `skippedFiles` accounting
+- added `scannedFiles` and `eligibleFiles` metadata
+
+Explicit limitations:
+
+- no browser E2E visual validation
+- `npm run agent:audit` is not full E2E proof
+- AST/symbol chunking not implemented
+- no ABW bridge implemented
+- Sprint 8 has not started

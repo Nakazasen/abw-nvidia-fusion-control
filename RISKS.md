@@ -149,6 +149,7 @@ Risk:
 - `npm run agent:audit` may be mistaken for proof that bridge behavior, governance gates, rollback, or enterprise grounding actually work.
 - Sprint 4 may be overclaimed as full browser E2E proof when only static and API smoke evidence exists.
 - Sprint 6 may be overclaimed as full browser E2E proof when only static/headless checks and save-path smoke evidence exist.
+- Sprint 7 may be overclaimed as semantic/embedding-level AI search when implementation remains lexical/offline by default.
 
 Mitigation:
 
@@ -175,6 +176,7 @@ Risk:
 
 - Sprint 5 work could start before Sprint 4 state is recorded in the control repo.
 - Sprint 7 work could start before Sprint 6 state is recorded in the control repo.
+- Sprint 8 work could start before Sprint 7 state is recorded in the control repo.
 
 Mitigation:
 
@@ -202,6 +204,20 @@ Mitigation:
 
 - Keep server-side trust and approval enforcement mandatory for write paths.
 - Keep save-path smoke checks in sprint-close validation and document results in control journal entries.
+
+## Index Runtime Cache Staging
+
+Risk:
+
+- Generated `.nvidia-agent/index` runtime cache files may be accidentally staged or committed.
+- Index build may include sensitive/generated/huge files if skip rules drift.
+- Search/ranking may accidentally start requiring external providers and break offline expectations.
+
+Mitigation:
+
+- Keep `.nvidia-agent` runtime cache ignored in Git and verify staging before commit.
+- Enforce and test skip rules for node_modules, `.git`, dist/build, `.nvidia-agent`, binary files, and large files.
+- Keep lexical/offline fallback as default and treat external provider use as optional, explicit, and separately audited.
 
 ## Context Picker Locks In Too Early
 
