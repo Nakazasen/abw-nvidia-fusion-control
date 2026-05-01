@@ -14,7 +14,8 @@ The two repos continue independently but evolve toward one shared architecture:
 - NVIDIA Sprint 3 `Terminal/Job Manager UX` is complete.
 - NVIDIA Sprint 4 `Enterprise/IDE Mode Toggle` is complete.
 - NVIDIA Sprint 5 `Extension UX Toi Thieu` is complete.
-- Next immediate NVIDIA work is `Sprint 6: Monaco Workbench / Multi-tab Editor`.
+- NVIDIA Sprint 6 `Monaco Workbench / Multi-tab Editor` is complete.
+- Next immediate NVIDIA work is `Sprint 7: Semantic Index Cache / Context Engine`.
 - Keep bridge work separate: ABW bridge remains planned but not implemented.
 - Keep future ABW-aware context types reserved:
   - `@abw`
@@ -33,15 +34,16 @@ The two repos continue independently but evolve toward one shared architecture:
 
 ## Near-Term
 
-1. Execute `Sprint 6: Monaco Workbench / Multi-tab Editor`.
-2. Implement multi-tab editor UX.
-3. Implement dirty state indicators per tab/file.
-4. Implement save and save all flows.
-5. Implement open recent files flow.
-6. Implement split editor only if safe.
-7. Preserve Sprint 1/2/3/4/5 behavior while implementing Sprint 6.
-8. Keep bridge work separate: ABW bridge remains planned but not implemented.
-9. Keep ABW release truth aligned across version files, tags, release notes, and control-doc assumptions.
+1. Execute `Sprint 7: Semantic Index Cache / Context Engine`.
+2. Implement `.nvidia-agent/index` cache foundation.
+3. Preserve lexical baseline behavior.
+4. Add optional embedding/rerank abstraction only if safe.
+5. Add incremental index update flow if safe.
+6. Add AST/symbol chunking if safe.
+7. Add git-aware and recent-file-aware ranking.
+8. Preserve Sprint 1/2/3/4/5/6 behavior while implementing Sprint 7.
+9. Keep bridge work separate: ABW bridge remains planned but not implemented.
+10. Keep ABW release truth aligned across version files, tags, release notes, and control-doc assumptions.
 
 ## Mid-Term
 

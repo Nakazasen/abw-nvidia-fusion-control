@@ -148,6 +148,7 @@ Risk:
 
 - `npm run agent:audit` may be mistaken for proof that bridge behavior, governance gates, rollback, or enterprise grounding actually work.
 - Sprint 4 may be overclaimed as full browser E2E proof when only static and API smoke evidence exists.
+- Sprint 6 may be overclaimed as full browser E2E proof when only static/headless checks and save-path smoke evidence exist.
 
 Mitigation:
 
@@ -173,6 +174,7 @@ Mitigation:
 Risk:
 
 - Sprint 5 work could start before Sprint 4 state is recorded in the control repo.
+- Sprint 7 work could start before Sprint 6 state is recorded in the control repo.
 
 Mitigation:
 
@@ -189,6 +191,17 @@ Mitigation:
 
 - Require explicit approval and trust review for extension install and execution surfaces.
 - Audit extension UX changes separately before claiming the sprint is safe.
+
+## Save Path Trust/Approval Bypass
+
+Risk:
+
+- Editor save/write paths might bypass trust checks or explicit approval boundaries if frontend and backend assumptions drift.
+
+Mitigation:
+
+- Keep server-side trust and approval enforcement mandatory for write paths.
+- Keep save-path smoke checks in sprint-close validation and document results in control journal entries.
 
 ## Context Picker Locks In Too Early
 

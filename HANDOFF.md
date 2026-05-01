@@ -2,7 +2,7 @@
 
 ## Current State
 
-Reality-synced state as of 2026-04-30:
+Reality-synced state as of 2026-05-01:
 
 - ABW baseline is `v1.1.0` and should be treated as the current governance/runtime truth.
 - ABW observed surface includes `/ask`, `/route-query`, `/workspace-intel`, `/gaps`, health/inspect APIs, multi-workspace registry, trust scoring, retrieval status, sources, and warnings handling.
@@ -12,8 +12,9 @@ Reality-synced state as of 2026-04-30:
 - NVIDIA Sprint 3 `Terminal/Job Manager UX` is complete and pushed.
 - NVIDIA Sprint 4 `Enterprise/IDE Mode Toggle` is complete and pushed.
 - NVIDIA Sprint 5 `Extension UX Toi Thieu` is complete and pushed.
-- Latest NVIDIA remote `main` is `9f5e0cf9b47558ba6f71b90d2438a92809ec7e93`.
-- NVIDIA next planned sprint is `Sprint 6: Monaco Workbench / Multi-tab Editor`.
+- NVIDIA Sprint 6 `Monaco Workbench / Multi-tab Editor` is complete and pushed.
+- Latest NVIDIA remote `main` is `7975266ae7041e10a2445737ce619c54dd16c7df`.
+- NVIDIA next planned sprint is `Sprint 7: Semantic Index Cache / Context Engine`.
 - NVIDIA already has shared `agent-core`, pending edits, command jobs, extension host, and MCP server infrastructure.
 - `npm run agent:audit` is useful capability evidence, but it is not full end-to-end proof.
 - Fusion bridge contract exists, but bridge implementation is not implemented yet.
@@ -22,7 +23,7 @@ Reality-synced state as of 2026-04-30:
 - Do not claim Cognitive OS integration is complete.
 - Do not claim ABW bridge exists.
 - Do not treat `npm run agent:audit` as full E2E proof.
-- Do not start Sprint 6 from this control update task.
+- Do not start Sprint 7 from this control update task.
 
 ## Recovery Order For A New Session
 
@@ -42,7 +43,7 @@ Read these in order:
 
 ## Immediate Next Action
 
-Prepare Sprint 6 builder planning while preserving current truth: Sprint 1/2/3/4/5 are pushed, bridge implementation does not exist yet, and next sprint remains `Sprint 6: Monaco Workbench / Multi-tab Editor`.
+Prepare Sprint 7 builder planning while preserving current truth: Sprint 1/2/3/4/5/6 are pushed, bridge implementation does not exist yet, and next sprint remains `Sprint 7: Semantic Index Cache / Context Engine`.
 
 Constraints for the next builder:
 
