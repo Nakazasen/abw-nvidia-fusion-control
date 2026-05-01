@@ -366,3 +366,58 @@ Mitigation:
 
 - Use milestone tables with explicit non-claims.
 - Require audit-backed capability language at every major phase boundary.
+
+## Inline Edit Overclaim Risk
+
+Risk:
+
+- Sprint 11 inline edit may be mistaken for full Cursor parity.
+
+Mitigation:
+
+- Keep claim scope limited to proposal-oriented inline edit workflow.
+- Keep explicit non-claim language for full Cursor parity.
+
+## Dirty State / Pending Edit Consistency Risk
+
+Risk:
+
+- Dirty editor state and pending-edit state can drift, causing false clean-state assumptions.
+
+Mitigation:
+
+- Keep dirty-state tied to real apply outcome, not pending-edit creation.
+- Include dirty-state checks in sprint-close audits.
+
+## Inline Edit Provider Reliability Risk
+
+Risk:
+
+- Inline edit generation can fail or degrade when provider routing/availability changes.
+
+Mitigation:
+
+- Keep safe failure handling and explicit error surfacing.
+- Avoid fake-success behavior when provider call is unavailable.
+
+## Inline Edit Direct-Write Bypass Risk
+
+Risk:
+
+- Inline edit path could regress into direct disk writes without pending review.
+
+Mitigation:
+
+- Keep proposal-only pending-edit flow as invariant.
+- Re-verify apply-guard and review/apply requirement in every audit.
+
+## Inline Edit Browser Coverage Gap Risk
+
+Risk:
+
+- Browser smoke may not fully validate provider-backed inline generation in all runtime conditions.
+
+Mitigation:
+
+- Treat smoke as baseline evidence only.
+- Add deeper provider-backed E2E checks before stronger inline-edit claims.

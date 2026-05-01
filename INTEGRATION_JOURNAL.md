@@ -2,6 +2,74 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-01 - NVIDIA Sprint 11 Inline Edit kieu Cursor Committed And Pushed
+
+NVIDIA Sprint 11 is completed and pushed in `D:\Sandbox\Nvidia`.
+
+Push evidence:
+
+- Commit hash: `bc973945f88aff047b780a08988aa1d1fe32a76c`
+- Commit short hash: `bc97394`
+- Commit message: `feat: add Sprint 11 inline edit`
+- Push result: `8ebb1c6..bc97394 main -> main`
+- Local HEAD after push: `bc973945f88aff047b780a08988aa1d1fe32a76c`
+- Remote `origin/main` after push: `bc973945f88aff047b780a08988aa1d1fe32a76c`
+- Local HEAD equals remote main: `YES`
+- `git status --short` after push: clean
+
+Verification evidence recorded from NVIDIA Sprint 11 close:
+
+- `node --check tools\nvidia-server.mjs` passed
+- `node --check tools\nvidia-cli-agent.mjs` passed
+- `node --check tools\extension-host.mjs` passed
+- `node --check tools\agent-core.mjs` passed
+- `node --check tools\browser-smoke.mjs` passed
+- `npm run agent:audit` passed `25/25`
+- inline HTML parse check passed
+- browser smoke passed:
+  - command: `npm run browser:smoke -- --start-server --port 3456`
+  - exit code: `0`
+  - `ok=true`
+  - `mode=real-browser`
+  - `checks=27 passed / 0 failed`
+  - server stopped cleanly
+  - orphan=`false`
+- inline edit API guard smoke passed
+- dirty-state fix verified
+- provider/settings regression passed
+- runtime secrets/artifacts were not staged
+
+Sprint 11 scope implemented:
+
+- Monaco inline edit action
+- `Ctrl/Cmd+K` inline edit entry
+- selection-based inline edit
+- instruction input
+- `/api/inline_edit` endpoint
+- proposal-only pending edit creation
+- review/apply flow via existing pending edit mechanism
+- Enterprise/IDE mutation guard
+- browser smoke inline-edit safety coverage
+
+Codex audit/fix highlights:
+
+- frontend missing `X-Agent-Approved` header fixed
+- dirty tab clean-state bug fixed
+- `/api/inline_edit` hardened with validation/redaction
+- Enterprise mode inline edit mutation blocked server-side
+- inline edit does not write directly to disk
+
+Explicit limitations:
+
+- daily-use readiness is not achieved
+- browser smoke is not full E2E coverage
+- API keys are local plaintext runtime storage, not encrypted
+- non-NVIDIA providers are not fully wired for real chat execution
+- no ABW bridge is implemented
+- Sprint 12 has not started
+- Cognitive OS is not achieved
+- VS Code parity is not achieved
+
 ## 2026-05-01 - NVIDIA Sprint 10 Settings / Provider Manager / API Key UI Committed And Pushed
 
 NVIDIA Sprint 10 is completed and pushed in `D:\Sandbox\Nvidia`.
@@ -607,3 +675,5 @@ Current state:
 Warning:
 
 - control repo is the source of truth, not chat memory
+
+
