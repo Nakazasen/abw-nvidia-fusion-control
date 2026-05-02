@@ -85,7 +85,7 @@ Reality-synced state as of 2026-05-02:
 ## Current Strategic Roadmap Status
 
 - Master Roadmap v1 has been recorded.
-- Current next step is committing/pushing this ABW Sprint 20 completion control update.
+- Current next step is committing/pushing this Sprint 21 scope-decision control update.
 - Phase 1 Gate Review selected cleanup verdict `B`, and post-cleanup re-gate selected `A`.
 - Daily-use track status:
   - Sprint 13: Git / SCM Panel tot hon (done)
@@ -93,7 +93,7 @@ Reality-synced state as of 2026-05-02:
   - Sprint 15: Project Rules / Memory UI toi thieu (done)
   - Sprint 16: Daily-use hardening / E2E regression pack (done)
 - Sprint 16.5 cleanup is complete and recorded.
-- Sprint 21 remains blocked until this ABW Sprint 20 completion control update is committed/pushed.
+- Sprint 21 remains blocked until this Sprint 21 scope-decision control update is committed/pushed.
 - Carry-over risks remain active: `securityRotation: NOT_ROTATED_YET`, `idleMemoryEstimateMb: NOT_MEASURED_YET`, server monolith still large, and runtime hygiene dry-run safety posture.
 - ABW bridge remains delayed/dependency-gated on ABW ingest maturity proof.
 - Sprint 18 selected scope (browser-smoke modularization) is complete.
@@ -135,7 +135,7 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Commit and push this control repo update that records ABW Sprint 20 completion. After that push, prepare Sprint 21 planning focused on ABW ingest hardening from the Sprint 20 gap map.
+Commit and push this control repo update that records Sprint 21 scope decision. After that push, prepare Sprint 21 Builder prompt focused on `A. Disable / Gate Blind Auto-Promotion`.
 
 Sprint 21 status and governance constraints:
 
@@ -143,6 +143,7 @@ Sprint 21 status and governance constraints:
 - Builder result is not final truth.
 - GPT audit/fix is required before commit.
 - No deep bridge work in Sprint 21 scope.
+- No NVIDIA work in Sprint 21 scope.
 - No production/Cognitive OS claim.
 
 Constraints for the next builder:

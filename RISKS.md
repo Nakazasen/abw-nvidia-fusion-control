@@ -860,3 +860,22 @@ Mitigation:
 - Add contamination guard and manual-mode no-blind-auto-promote enforcement tests.
 - Add ingest-bound machine-readable gap output contract.
 - Keep bridge blocked until ingest baseline proof is implementation-backed and audited.
+
+## Sprint 21 Promotion-Safety Risk Cluster (Active)
+
+Risk:
+
+- Blind auto-promote risk is the active Sprint 21 target.
+- Hidden wiki write side-path risk must be audited and removed from accepted behavior.
+- Self-growing wiki overclaim risk remains active if promotion is not explicit-review gated.
+- Manual review enforcement gap remains active until Sprint 21 implementation/audit completes.
+- Bridge remains dependency-gated on ingest baseline proof.
+- Domain contamination remains active carry-over risk for a later sprint.
+
+Mitigation:
+
+- Require explicit approval before wiki write/promotion.
+- Add regression tests for no silent promote behavior.
+- Audit all promote/write paths in ingest and knowledge flows.
+- Require GPT audit/fix before commit.
+- Preserve non-claims.

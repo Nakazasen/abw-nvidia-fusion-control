@@ -425,6 +425,19 @@ Required ABW ingest baseline proof before deep bridge work:
 - No bridge implementation and no ingest implementation code were added in Sprint 20.
 - Sprint 21 remains blocked until this control record is committed/pushed.
 
+## 2P. Sprint 21 Scope Decision (2026-05-02)
+
+- Selected scope: `A. Disable / Gate Blind Auto-Promotion`.
+- Sprint 21 remains within ABW v1.2 Ingest Kernel Hardening.
+- Sprint 21 is not bridge-first.
+- Sprint 21 objective:
+  - block hidden/blind auto-promote paths
+  - enforce manual-first promotion invariant
+  - preserve explicit approve path if safe
+  - add promotion safety regression tests
+- Sprint 22 should continue ABW ingest hardening based on remaining Sprint 20/Sprint 21 gaps.
+- Sprint 23-26 Bridge Phase 1 remains blocked until ABW ingest baseline proof.
+
 ## 3. Phase 1 - Internal Daily-Use Agent IDE
 
 Sprint range: Sprint 1-16

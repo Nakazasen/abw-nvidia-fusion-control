@@ -381,3 +381,21 @@ Consequence:
 
 - Sprint 21 may be planned only after this control update is committed/pushed.
 - Deep NVIDIA<->ABW bridge remains blocked until ABW ingest baseline proof.
+
+## 2026-05-02: Sprint 21 Scope Decision - Disable / Gate Blind Auto-Promotion
+
+Decision:
+
+- Sprint 21 will focus on disabling/gating blind auto-promotion paths.
+- Wiki writes/promote flows must require explicit review/approval.
+- No hidden auto-promote side path may remain accepted behavior.
+- No bridge work.
+
+Status:
+
+- Accepted.
+
+Rationale:
+
+- Silent promotion is the highest-risk trust-boundary failure from Sprint 20.
+- Promotion safety must be hardened before bridge-facing reports/manifest expansion.

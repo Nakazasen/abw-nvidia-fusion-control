@@ -2,6 +2,59 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-02 - Sprint 21 Scope Planning Completed
+
+Selected option:
+
+- `A. Disable / Gate Blind Auto-Promotion`
+
+Rationale:
+
+- This is the highest-risk trust-boundary gap from Sprint 20.
+- If drafts can enter wiki without explicit review, later manifest/report/bridge work can create false trust.
+- Promotion safety must be hardened before additional bridge-facing output.
+- Sprint 21 should enforce manual-first review/promotion invariants.
+
+Rejected options:
+
+- `B. Domain Contamination Guard v1`: important, but should follow after auto-promote side paths are gated.
+- `C. Aggregate Ingest Report + Machine-Readable Gap Output`: valuable for visibility, but does not block silent promote risk.
+- `D. Manifest + Source Evidence Contract Hardening`: good foundation, but does not remove highest-risk trust violation.
+- `E. Gap Report Bound to Ingest Output`: useful governance output, but should follow promotion safety hardening.
+
+Allowed Sprint 21 scope:
+
+- Add explicit promotion safety gate.
+- Block hidden/blind auto-promote paths.
+- Preserve safe explicit review/approve path.
+- Add/adjust tests proving:
+  - manual-first behavior
+  - no silent wiki write without approval
+  - existing explicit promote flow still works if safe
+- Update docs/evidence for behavior and limitations.
+
+Forbidden Sprint 21 scope:
+
+- No deep NVIDIA<->ABW bridge.
+- No NVIDIA UI bridge.
+- No self-growing wiki.
+- No hidden auto-promote side path.
+- No grounded claim without valid source.
+- No domain contamination as accepted behavior.
+- No broad rewrite.
+- No productionization.
+- No claim that ABW ingest maturity is solved.
+- No Sprint 22 implementation work unless later explicitly scoped.
+
+Model orchestration:
+
+- Builder model: `Gemini 3.1 Pro`
+- Required audit/fix model: `GPT-5.3-Codex / GPT-5.4 / GPT-5.5`
+
+Governance requirement:
+
+- This control repo update must be committed/pushed before Sprint 21 Builder prompt issuance.
+
 ## 2026-05-02 - ABW Sprint 20 Ingest Baseline Audit / Gap Map Committed And Pushed
 
 ABW Sprint 20 is completed and pushed in `D:\Sandbox\skill-Anti-brain-wiki_note`.
