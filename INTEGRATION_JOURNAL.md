@@ -2,6 +2,88 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-02 - NVIDIA Sprint 17 Route Modularization Foundation Committed And Pushed
+
+NVIDIA Sprint 17 is completed and pushed in `D:\Sandbox\Nvidia`.
+
+Push evidence:
+
+- Previous NVIDIA main before Sprint 17: `86e929166c50f2b338f8854fa7eb9d278ff20beb`
+- Commit hash: `988f8a6e625112a406ab4d1d957991c9f9ac9286`
+- Commit short hash: `988f8a6`
+- Commit message: `refactor: add Sprint 17 route modularization foundation`
+- Push result: `86e9291..988f8a6 main -> main`
+- Local HEAD after push: `988f8a6e625112a406ab4d1d957991c9f9ac9286`
+- Remote `origin/main` after push: `988f8a6e625112a406ab4d1d957991c9f9ac9286`
+- Local HEAD equals remote main: `YES`
+- `git status --short` after push: clean
+- `git status --short .nvidia-agent` after push: clean
+
+Files committed:
+
+- `tools/nvidia-server.mjs`
+- `tools/browser-smoke.mjs`
+- `tools/routes/health-routes.mjs`
+- `docs/sprint-17-modularization.md`
+
+Audit/Fix verdict before commit:
+
+- `AUDIT_FIXED_READY_FOR_COMMIT`
+
+Route-boundary summary:
+
+- Introduced route module `tools/routes/health-routes.mjs`
+- Extracted read-only GET routes from monolith:
+  - `GET /api/workspace`
+  - `GET /api/pending_edits`
+  - `GET /api/tools`
+  - `GET /api/rate_limit`
+- Added safe read-only endpoint:
+  - `GET /api/health`
+- Duplicate extracted GET handlers removed from monolith route block
+
+Validation evidence:
+
+- `node --check tools/nvidia-server.mjs` passed
+- `node --check tools/routes/health-routes.mjs` passed
+- `node --check tools/browser-smoke.mjs` passed
+- `node --check tools/agent-core.mjs` passed
+- `node --check tools/performance-budget.mjs` passed
+- `node --check tools/runtime-hygiene.mjs` passed
+- `npm run budget:check` passed
+- `npm run runtime:hygiene` passed in DRY-RUN mode
+- `npm run agent:audit` passed `25/25`
+- `npm run browser:smoke -- --start-server --port 3456` passed `99/0`, server stopped cleanly
+
+Performance/runtime gate evidence:
+
+- `coldStartTimeMs`: `106`
+- `reachabilityTimeMs`: `128`
+- `idleMemoryEstimateMb`: `NOT_MEASURED_YET`
+- `nvidia_playground.html`: `286578 bytes / 6324 lines`
+- runtime hygiene summary:
+  - mode `DRY-RUN`
+  - scanned `339`
+  - would delete `267`
+  - preserved `1`
+  - boundaryRejected `0`
+  - `securityRotation: NOT_ROTATED_YET`
+  - apply not run
+
+Remaining limitations and non-claims preserved:
+
+- `securityRotation: NOT_ROTATED_YET`
+- `idleMemoryEstimateMb: NOT_MEASURED_YET`
+- server monolith still large; only first route boundary extracted
+- ABW bridge not implemented
+- not production-ready
+- not Cognitive OS achieved
+- not VS Code parity
+- browser smoke is not full E2E proof
+- not enterprise-grade security
+- not full sandboxing
+- provider secret encryption not implemented
+
 ## 2026-05-02 - Post-Cleanup Phase 1 Re-Gate Result A Recorded
 
 Re-gate verdict:

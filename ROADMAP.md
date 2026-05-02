@@ -3,6 +3,7 @@
 ## 1. Current State
 
 - NVIDIA Sprint 1-16 are completed and pushed.
+- NVIDIA Sprint 17 Route Modularization Foundation is completed and pushed.
 - Sprint 9 `Browser E2E Smoke Harness` is complete.
 - Sprint 10 Settings / Provider Manager / API Key UI is complete.
 - Sprint 11 Inline Edit kieu Cursor is complete.
@@ -24,8 +25,19 @@
 - Current capability is not VS Code parity.
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
-- Control repo latest recorded NVIDIA remote main: 86e929166c50f2b338f8854fa7eb9d278ff20beb.
+- Control repo latest recorded NVIDIA remote main: 988f8a6e625112a406ab4d1d957991c9f9ac9286.
 - Control repo latest recorded control remote main: `680ec634105b48810e9cb17a8711bf3bdde6880b`.
+- Sprint 17 scope summary:
+  - server route modularization foundation
+  - extracted read-only GET route group (`/api/workspace`, `/api/pending_edits`, `/api/tools`, `/api/rate_limit`)
+  - added safe read-only endpoint `GET /api/health`
+  - browser smoke regression now passes `99/0`
+- Sprint 18 must not start until this Sprint 17 control record is committed and pushed.
+- Carry-over constraints remain active:
+  - `securityRotation: NOT_ROTATED_YET`
+  - `idleMemoryEstimateMb: NOT_MEASURED_YET`
+  - server monolith still large; split discipline remains mandatory
+  - ABW bridge not implemented
 
 ## 2. Roadmap Governance Rules
 

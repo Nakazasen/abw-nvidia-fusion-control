@@ -23,12 +23,13 @@ Reality-synced state as of 2026-05-02:
 - NVIDIA Sprint 15 Project Rules / Memory UI toi thieu is complete and pushed.
 - NVIDIA Sprint 16 Daily-use hardening / E2E regression pack is complete and pushed.
 - NVIDIA Sprint 16.5 cleanup is complete and pushed.
-- Latest NVIDIA remote main is 86e929166c50f2b338f8854fa7eb9d278ff20beb.
+- NVIDIA Sprint 17 Route Modularization Foundation is complete and pushed.
+- Latest NVIDIA remote main is 988f8a6e625112a406ab4d1d957991c9f9ac9286.
 - Current readiness verdict is INTERNAL_DAILY_USE_CANDIDATE.
 - Phase 1 Gate Review is completed.
 - Phase 1 Gate Review verdict is `B. INSERT_SPRINT_16_5_CLEANUP`.
 - Post-cleanup re-gate is completed with verdict `A. PROCEED_TO_SPRINT_17`.
-- Sprint 17 is authorized to plan/execute after this control update is committed.
+- Sprint 17 is completed and pushed.
 - Sprint 16.5 cleanup, bugfix hardening, or readiness downgrade were valid gate outcomes; gate selected cleanup (`B`).
 - System must remain lightweight, modular, bounded, and controllable.
 - Current system is an internal daily-use candidate, not production-ready.
@@ -67,12 +68,12 @@ Reality-synced state as of 2026-05-02:
 - Do not claim project rules are ABW governance/proof.
 - Do not claim VS Code SCM parity.
 - Do not claim VS Code parity.
-- Do not start Sprint 17 from this control update task.
+- Do not start Sprint 18 from this control update task.
 
 ## Current Strategic Roadmap Status
 
 - Master Roadmap v1 has been recorded.
-- Current next step is Sprint 17 scope planning under carry-over constraints.
+- Current next step is committing/pushing this control update that records Sprint 17 completion.
 - Phase 1 Gate Review selected cleanup verdict `B`, and post-cleanup re-gate selected `A`.
 - Daily-use track status:
   - Sprint 13: Git / SCM Panel tot hon (done)
@@ -80,7 +81,8 @@ Reality-synced state as of 2026-05-02:
   - Sprint 15: Project Rules / Memory UI toi thieu (done)
   - Sprint 16: Daily-use hardening / E2E regression pack (done)
 - Sprint 16.5 cleanup is complete and recorded.
-- Sprint 17 authorization is constrained by carry-over risks: `securityRotation: NOT_ROTATED_YET`, `idleMemoryEstimateMb: NOT_MEASURED_YET`, monolith split discipline, and runtime hygiene dry-run safety posture.
+- Sprint 18 remains blocked until this Sprint 17 control record is committed/pushed.
+- Carry-over risks remain active: `securityRotation: NOT_ROTATED_YET`, `idleMemoryEstimateMb: NOT_MEASURED_YET`, server monolith still large, and runtime hygiene dry-run safety posture.
 - INTERNAL_DAILY_USE_CANDIDATE is not production readiness.
 - The system must remain lightweight, modular, bounded, and controllable before entering Phase 2 feature growth.
 - Do not claim Sprint 15 as autonomous self-learning, self-growing wiki, or ABW governance/proof.
@@ -116,7 +118,7 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Prepare Sprint 17 scope planning / builder prompt after this control update is committed, while preserving current truth: Sprint 1-16.5 are pushed, readiness remains INTERNAL_DAILY_USE_CANDIDATE only, bridge implementation does not exist yet, and Sprint 17 execution must keep carry-over constraints and non-claims explicit.
+Commit and push this control repo update to officially record NVIDIA Sprint 17 completion. Sprint 18 planning/builder work must wait until this control record is pushed.
 
 Constraints for the next builder:
 

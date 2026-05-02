@@ -234,3 +234,20 @@ Consequence:
 
 - Sprint 17 may start only under constraints and must preserve non-claims.
 - Carry-over constraints remain active: `securityRotation: NOT_ROTATED_YET`, `idleMemoryEstimateMb: NOT_MEASURED_YET`, monolith split discipline, and runtime hygiene dry-run safety posture.
+
+## 2026-05-02: Record Sprint 17 Completion As Modularization-First Foundation
+
+Decision:
+
+- Record NVIDIA Sprint 17 completion as modularization-first foundation, not feature expansion.
+- Accept `GET /api/health` as a safe read-only endpoint added for route boundary validation.
+- Continue modular split discipline in future sprints.
+
+Status:
+
+- Accepted.
+
+Consequence:
+
+- Sprint 18 may be planned only after this control update is committed/pushed.
+- Builder outputs remain non-final until audit/fix plus commit/push plus control-record update are completed.

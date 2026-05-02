@@ -707,3 +707,22 @@ Mitigation:
 - Preserve dry-run-first hygiene posture and explicit apply guard.
 - Implement safe JSONL rotation policy before stronger runtime-operations claims.
 - Keep non-claim boundaries explicit until memory/rotation gaps are closed by evidence.
+
+## Sprint 17 Modularization Carry-Over Risk Cluster (Active)
+
+Risk:
+
+- Monolith risk is only partially mitigated by the first route extraction and remains active.
+- Runtime hygiene/data growth risk remains active because `securityRotation` is still `NOT_ROTATED_YET`.
+- Idle memory performance baseline remains incomplete (`NOT_MEASURED_YET`).
+- New endpoint additions during modularization can expand attack and maintenance surface if not kept read-only and explicitly gated.
+- ABW bridge is still not implemented.
+- Provider plaintext secret storage risk remains unchanged.
+
+Mitigation:
+
+- Keep Sprint 18 scope constrained to modular split discipline, safety boundaries, and evidence-backed claims.
+- Preserve dry-run-first runtime hygiene posture and explicit apply guard.
+- Prioritize safe rotation strategy for large single JSONL files.
+- Keep endpoint expansion read-only by default unless explicitly gated with stronger trust controls.
+- Keep ABW bridge and production/security claims blocked until audited implementation evidence exists.
