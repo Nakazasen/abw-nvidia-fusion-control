@@ -2,6 +2,83 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-02 - NVIDIA Sprint 16.5 Cleanup Committed And Pushed
+
+NVIDIA Sprint 16.5 cleanup is completed and pushed in `D:\Sandbox\Nvidia`.
+
+Push evidence:
+
+- Previous NVIDIA main before Sprint 16.5: `3f8159fc80c4061ab5b87a337b1aab9a80d97252`
+- Commit hash: `86e929166c50f2b338f8854fa7eb9d278ff20beb`
+- Commit short hash: `86e9291`
+- Commit message: `test: add Sprint 16.5 cleanup budget gates`
+- Push result: `3f8159f..86e9291 main -> main`
+- Local HEAD after push: `86e929166c50f2b338f8854fa7eb9d278ff20beb`
+- Remote `origin/main` after push: `86e929166c50f2b338f8854fa7eb9d278ff20beb`
+- Local HEAD equals remote main: `YES`
+- `git status --short` after push: clean
+- `git status --short .nvidia-agent` after push: clean
+
+Files committed:
+
+- `docs/sprint-16-5-cleanup-plan.md`
+- `package.json`
+- `tools/performance-budget.mjs`
+- `tools/runtime-hygiene.mjs`
+
+Audit/Fix verdict before commit:
+
+- `AUDIT_FIXED_READY_FOR_COMMIT`
+
+Validation evidence recorded from Sprint 16.5 close:
+
+- `node --check tools/performance-budget.mjs` passed
+- `node --check tools/runtime-hygiene.mjs` passed
+- `node --check tools/nvidia-server.mjs` passed
+- `node --check tools/browser-smoke.mjs` passed
+- `node --check tools/agent-core.mjs` passed
+- `npm run budget:check` passed
+- `npm run runtime:hygiene` passed in DRY-RUN mode (no delete)
+- `npm run agent:audit` passed `25/25`
+- `npm run browser:smoke -- --start-server --port 3456` passed `97 passed / 0 failed`, server stopped cleanly
+
+Performance budget evidence:
+
+- `coldStartTimeMs`: `89`
+- `reachabilityTimeMs`: `121`
+- `idleMemoryEstimateMb`: `NOT_MEASURED_YET`
+- `nvidia_playground.html`: `286578 bytes / 6324 lines`
+- generated reports:
+  - `.nvidia-agent/reports/performance-budget.json`
+  - `.nvidia-agent/reports/performance-budget.md`
+
+Runtime hygiene evidence:
+
+- mode: `DRY-RUN`
+- scanned: `319`
+- would delete: `247`
+- preserved: `1` audit markdown
+- boundaryRejected: `0`
+- boundaryRoot: `D:\Sandbox\Nvidia\.nvidia-agent`
+- apply was not run
+- securityRotation: `NOT_ROTATED_YET`
+
+Remaining limitations:
+
+- single large JSONL rotation (especially `security/permission-audit.jsonl`) is detected/reported but not automatically rotated yet
+- idle memory is still `NOT_MEASURED_YET`
+- Sprint 16.5 completion does not unblock Sprint 17 by itself
+- post-cleanup re-gate is mandatory
+- Sprint 17 can start only if post-cleanup re-gate explicitly selects `A. PROCEED_TO_SPRINT_17`
+
+Non-claims preserved:
+
+- not production-ready
+- not Cognitive OS
+- not VS Code parity
+- ABW bridge is not implemented
+- browser smoke is not full E2E proof
+
 ## 2026-05-02 - Phase 1 Gate Review Completed (Performance/Bloat Budget Gate)
 
 Gate result:

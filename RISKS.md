@@ -670,3 +670,22 @@ Mitigation:
 
 - Sprint 16.5 cleanup must add baseline measurements, runtime rotation/caps, modular split plan, and recurring audit checks.
 - Do not start Sprint 17 until post-cleanup gate explicitly records `A. PROCEED_TO_SPRINT_17`.
+
+## Sprint 16.5 Partial Mitigation Risk Carry-Over (Active)
+
+Risk:
+
+- Sprint 16.5 reduced risk through measurement and hygiene tooling, but does not eliminate monolith/modularity/runtime growth risk by itself.
+- Runtime artifact growth is only partially mitigated: dry-run and boundary safety exist, but apply/rotation policy still requires careful governance.
+- Security JSONL growth risk remains active because `securityRotation` is `NOT_ROTATED_YET` for single-file growth scenarios.
+- Idle memory baseline remains incomplete (`NOT_MEASURED_YET`), limiting performance trend confidence.
+- Sprint progression risk remains if Sprint 17 is started before post-cleanup re-gate explicitly selects `A`.
+- Provider plaintext secret storage risk remains unchanged.
+
+Mitigation:
+
+- Keep Sprint 17 blocked until post-cleanup re-gate decision is explicitly recorded.
+- Add safe JSONL rotation policy/implementation for large single-file audit logs before stronger readiness claims.
+- Preserve conservative performance claims until idle memory baseline is measured.
+- Keep runtime hygiene in dry-run-by-default posture unless explicit controlled apply workflow is approved.
+- Keep explicit warnings that provider key storage is local plaintext runtime state until hardening evidence changes this truth.

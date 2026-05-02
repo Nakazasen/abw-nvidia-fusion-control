@@ -199,3 +199,19 @@ Consequence:
 - Sprint 16.5 cleanup must run first.
 - A post-cleanup re-gate is required before Sprint 17.
 - Sprint 17 can start only if re-gate explicitly records `A. PROCEED_TO_SPRINT_17`.
+
+## 2026-05-02: Record Sprint 16.5 Cleanup Completion Without Auto-Unblocking Sprint 17
+
+Decision:
+
+- Record NVIDIA Sprint 16.5 cleanup completion and push evidence in control governance docs.
+- Sprint 16.5 completion does not automatically authorize Sprint 17.
+- Post-cleanup re-gate remains mandatory.
+
+Status:
+
+- Accepted.
+
+Consequence:
+
+- Sprint 17 remains blocked until post-cleanup re-gate explicitly selects `A. PROCEED_TO_SPRINT_17`.

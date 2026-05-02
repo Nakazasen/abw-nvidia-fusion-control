@@ -9,7 +9,7 @@
 - Sprint 12 Task Timeline + Recovery / Resume is complete.
 - Sprint 13 Git / SCM Panel tot hon is complete.
 - Current readiness verdict: INTERNAL_DAILY_USE_CANDIDATE.
-- Next immediate work is Sprint 16.5 cleanup after Phase 1 Gate Review verdict B.
+- Sprint 16.5 cleanup is completed and pushed after Phase 1 Gate Review verdict B.
 - ABW bridge is not implemented.
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
 - Browser smoke baseline now exists and passed in real-browser mode.
@@ -24,7 +24,7 @@
 - Current capability is not VS Code parity.
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
-- Control repo latest recorded NVIDIA remote main: 3f8159fc80c4061ab5b87a337b1aab9a80d97252.
+- Control repo latest recorded NVIDIA remote main: 86e929166c50f2b338f8854fa7eb9d278ff20beb.
 - Control repo latest recorded control remote main: `680ec634105b48810e9cb17a8711bf3bdde6880b`.
 
 ## 2. Roadmap Governance Rules
@@ -128,6 +128,43 @@ Sprint 16.5 cleanup objective:
 Unblock condition:
 
 - Sprint 17 can start only after post-cleanup Phase 1 re-gate explicitly records `A. PROCEED_TO_SPRINT_17`.
+
+### 2026-05-02 Sprint 16.5 Cleanup Close Summary
+
+- Sprint 16.5 cleanup is completed and pushed in NVIDIA repo at `86e929166c50f2b338f8854fa7eb9d278ff20beb` (`test: add Sprint 16.5 cleanup budget gates`).
+- Scope delivered:
+  - performance budget baseline script
+  - runtime hygiene dry-run/apply-safe script
+  - package scripts: `budget:check`, `runtime:hygiene`
+  - modularization cleanup plan document
+- Validation evidence:
+  - `node --check` pass for `tools/performance-budget.mjs`, `tools/runtime-hygiene.mjs`, `tools/nvidia-server.mjs`, `tools/browser-smoke.mjs`, `tools/agent-core.mjs`
+  - `npm run budget:check` pass
+  - `npm run runtime:hygiene` pass in DRY-RUN mode (no delete)
+  - `npm run agent:audit` pass `25/25`
+  - `npm run browser:smoke -- --start-server --port 3456` pass `97/0`, server stopped cleanly
+- Current measured budget snapshot:
+  - cold start `89 ms`
+  - reachability `121 ms`
+  - idle memory `NOT_MEASURED_YET`
+  - `nvidia_playground.html` `286578 bytes / 6324 lines`
+- Runtime hygiene snapshot:
+  - mode `DRY-RUN`
+  - scanned `319`
+  - would delete `247`
+  - preserved `1` audit markdown
+  - boundary rejected `0`
+  - security rotation `NOT_ROTATED_YET`
+- Remaining limitations:
+  - single large `.jsonl` rotation (notably `security/permission-audit.jsonl`) is detected/reported but not auto-rotated yet
+  - idle memory baseline remains `NOT_MEASURED_YET`
+
+Post-cleanup gate requirement:
+
+- Sprint 17 remains blocked.
+- Next required step is post-cleanup Phase 1 re-gate.
+- Re-gate must choose exactly one decision: `A`, `B`, `C`, or `D`.
+- Sprint 17 can start only if re-gate explicitly selects `A. PROCEED_TO_SPRINT_17`.
 
 ## 2C. Performance Budget Policy
 

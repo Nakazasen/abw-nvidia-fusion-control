@@ -22,11 +22,12 @@ Reality-synced state as of 2026-05-02:
 - NVIDIA Sprint 14 Security Permission Model co ban is complete and pushed.
 - NVIDIA Sprint 15 Project Rules / Memory UI toi thieu is complete and pushed.
 - NVIDIA Sprint 16 Daily-use hardening / E2E regression pack is complete and pushed.
-- Latest NVIDIA remote main is 3f8159fc80c4061ab5b87a337b1aab9a80d97252.
+- NVIDIA Sprint 16.5 cleanup is complete and pushed.
+- Latest NVIDIA remote main is 86e929166c50f2b338f8854fa7eb9d278ff20beb.
 - Current readiness verdict is INTERNAL_DAILY_USE_CANDIDATE.
 - Phase 1 Gate Review is completed.
 - Phase 1 Gate Review verdict is `B. INSERT_SPRINT_16_5_CLEANUP`.
-- Sprint 17 remains blocked pending Sprint 16.5 cleanup and re-gate.
+- Sprint 17 remains blocked pending post-cleanup re-gate.
 - Do not prepare or issue a Sprint 17 Builder prompt before re-gate explicitly selects `A. PROCEED_TO_SPRINT_17`.
 - Sprint 16.5 cleanup, bugfix hardening, or readiness downgrade were valid gate outcomes; gate selected cleanup (`B`).
 - System must remain lightweight, modular, bounded, and controllable.
@@ -115,10 +116,11 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Prepare Sprint 16.5 cleanup plan and execution scope while preserving current truth: Sprint 1-16 are pushed, readiness remains INTERNAL_DAILY_USE_CANDIDATE only, bridge implementation does not exist yet, and Sprint 17 must stay blocked until post-cleanup re-gate explicitly selects `A. PROCEED_TO_SPRINT_17`.
+Run post-cleanup Phase 1 re-gate and record one explicit decision (`A` / `B` / `C` / `D`) while preserving current truth: Sprint 1-16.5 are pushed, readiness remains INTERNAL_DAILY_USE_CANDIDATE only, bridge implementation does not exist yet, and Sprint 17 must stay blocked unless re-gate explicitly selects `A. PROCEED_TO_SPRINT_17`.
 
 Constraints for the next builder:
 
 - Keep bridge work CLI-first and API-second.
 - Do not modify NVIDIA source or ABW source during control-doc work.
 - Do not claim integration exists until a real bridge is implemented and verified.
+- Do not prepare or issue Sprint 17 builder prompts until post-cleanup re-gate explicitly selects `A. PROCEED_TO_SPRINT_17`.
