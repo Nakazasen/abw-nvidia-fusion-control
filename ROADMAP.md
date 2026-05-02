@@ -2,13 +2,14 @@
 
 ## 1. Current State
 
-- NVIDIA Sprint 1-15 are completed and pushed.
+- NVIDIA Sprint 1-16 are completed and pushed.
 - Sprint 9 `Browser E2E Smoke Harness` is complete.
 - Sprint 10 Settings / Provider Manager / API Key UI is complete.
 - Sprint 11 Inline Edit kieu Cursor is complete.
 - Sprint 12 Task Timeline + Recovery / Resume is complete.
 - Sprint 13 Git / SCM Panel tot hon is complete.
-- Next sprint is Sprint 16: Daily-use hardening / E2E regression pack.
+- Current readiness verdict: INTERNAL_DAILY_USE_CANDIDATE.
+- Next immediate work is Phase 1 Gate Review before Sprint 17.
 - ABW bridge is not implemented.
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
 - Browser smoke baseline now exists and passed in real-browser mode.
@@ -23,7 +24,7 @@
 - Current capability is not VS Code parity.
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
-- Control repo latest recorded NVIDIA remote main: 40eaf7b5679146666b5a47a6d2c0900f474a41c2.
+- Control repo latest recorded NVIDIA remote main: 3f8159fc80c4061ab5b87a337b1aab9a80d97252.
 - Control repo latest recorded control remote main: `f3423f4558c06f8ccf33a1f84f0abd62f50fde02`.
 
 ## 2. Roadmap Governance Rules
@@ -43,7 +44,7 @@ implementation exists, audit passes, commit exists, push exists, and the control
 
 ### Planning Horizons
 
-- Short-term plan: Sprint 16, daily-use hardening/regression/readiness gate after Sprint 15 completion.
+- Short-term plan: Phase 1 Gate Review before Sprint 17 implementation.
 - Mid-term plan: Sprint 17-40, move from a stronger internal agent IDE into an ABW-governed internal Cognitive Workspace and internal pilot.
 - Long-term plan: Sprint 41-60, add governed knowledge ingestion, self-growing wiki controls, self-improvement controls, and controlled tool generation.
 - End-state plan: Sprint 61-80, reach Enterprise Cognitive OS Beta with enterprise runtime, orchestration, evidence ledger, compliance, and department workflows.
@@ -87,7 +88,7 @@ Sprint range: Sprint 1-16
 - Sprint 13: Git / SCM Panel tot hon - done
 - Sprint 14: Security Permission Model co ban - done
 - Sprint 15: Project Rules / Memory UI toi thieu - done
-- Sprint 16: Daily-use hardening / E2E regression pack
+- Sprint 16: Daily-use hardening / E2E regression pack - done
 
 ### Capability Target (Phase 1)
 
@@ -98,9 +99,9 @@ Sprint range: Sprint 1-16
 
 ### Capability Warning
 
-- Sprint 9, Sprint 10, Sprint 11, Sprint 12, Sprint 13, Sprint 14, and Sprint 15 are complete; the next track continues daily-use features, not deeper foundation work.
-- Around Sprint 16, warn that this is the daily-use readiness gate.
-- Daily-use readiness is still not achieved until Sprint 16 audit passes.
+- Sprint 9 through Sprint 16 are complete in the Phase 1 daily-use track.
+- Sprint 16 is the hardening/regression/readiness gate sprint, not a normal feature sprint.
+- Sprint 17 must not start until Phase 1 Gate Review decides readiness direction.
 
 
 ### Phase 1 Daily-use Track Status
@@ -112,7 +113,13 @@ Sprint range: Sprint 1-16
 - Sprint 13 Git / SCM Panel tot hon complete.
 - Sprint 14 Security Permission Model co ban complete.
 - Sprint 15 Project Rules / Memory UI toi thieu complete.
-- Sprint 16 Daily-use hardening / E2E regression pack.
+- Sprint 16 Daily-use hardening / E2E regression pack complete.
+
+### Current Readiness Verdict
+
+- INTERNAL_DAILY_USE_CANDIDATE.
+- Candidate only, not production readiness.
+- Not Cognitive OS and not VS Code parity.
 
 ### Sprint 13 Capability Note
 
@@ -152,6 +159,20 @@ Sprint range: Sprint 1-16
 ### Sprint 16 Gate Note
 
 - Sprint 16 is a major hardening/regression/readiness evaluation gate, not a normal feature sprint.
+- Sprint 16 shipped expanded real-browser smoke regression coverage.
+- Sprint 16 shipped API regression pack coverage.
+- Sprint 16 shipped permission/guard matrix checks.
+- Sprint 16 shipped selected real endpoint mutation guard checks.
+- Sprint 16 shipped daily-use readiness reports under ignored runtime state.
+- Sprint 16 verdict is INTERNAL_DAILY_USE_CANDIDATE, not production-ready.
+
+### Gate Warning Before Sprint 17
+
+- Sprint 17 must not start until Phase 1 Gate Review chooses one of:
+  - proceed to Phase 2 / Sprint 17
+  - insert cleanup sprint
+  - insert bugfix sprint
+  - downgrade readiness
 
 ### Required Audit Gate (Phase 1)
 

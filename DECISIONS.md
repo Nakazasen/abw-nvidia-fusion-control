@@ -73,3 +73,22 @@ Constraint:
 - This decision does not implement ABW bridge.
 - This decision does not claim Cognitive OS is already achieved.
 - This decision does not claim VS Code parity.
+
+## 2026-05-02: Run Phase 1 Gate Review Before Any Sprint 17 Implementation
+
+Decision:
+
+- After Sprint 16, run Phase 1 Gate Review before any Sprint 17 builder implementation.
+
+Rationale:
+
+- Sprint 16 is a gate milestone for hardening/regression/readiness, not a normal feature sprint.
+- Current verdict is INTERNAL_DAILY_USE_CANDIDATE and must be reviewed before phase transition.
+
+Status:
+
+- Accepted.
+
+Consequence:
+
+- Do not issue Sprint 17 builder prompts until gate review is completed and recorded.

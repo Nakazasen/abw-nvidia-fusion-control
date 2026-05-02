@@ -21,9 +21,11 @@ Reality-synced state as of 2026-05-02:
 - NVIDIA Sprint 13 Git / SCM Panel tot hon is complete and pushed.
 - NVIDIA Sprint 14 Security Permission Model co ban is complete and pushed.
 - NVIDIA Sprint 15 Project Rules / Memory UI toi thieu is complete and pushed.
-- Latest NVIDIA remote main is 40eaf7b5679146666b5a47a6d2c0900f474a41c2.
-- NVIDIA next planned sprint is Sprint 16: Daily-use hardening / E2E regression pack.
-- Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
+- NVIDIA Sprint 16 Daily-use hardening / E2E regression pack is complete and pushed.
+- Latest NVIDIA remote main is 3f8159fc80c4061ab5b87a337b1aab9a80d97252.
+- Current readiness verdict is INTERNAL_DAILY_USE_CANDIDATE.
+- Next step is Phase 1 Gate Review before Sprint 17.
+- Current system is an internal daily-use candidate, not production-ready.
 - Sprint 9 browser smoke is a baseline gate, not full E2E coverage.
 - Sprint 10 returned the project to the daily-use track after the browser smoke baseline.
 - Provider/settings capabilities now exist, but daily-use readiness is still not achieved.
@@ -38,11 +40,11 @@ Reality-synced state as of 2026-05-02:
 - Sprint 15 is not autonomous self-learning.
 - Sprint 15 is not a self-growing wiki.
 - Sprint 15 is not ABW governance/proof.
-- Daily-use readiness is still not achieved.
+- INTERNAL_DAILY_USE_CANDIDATE is candidate-only and not production readiness.
 - Fusion bridge contract exists, but bridge implementation is not implemented yet.
 - Integration strategy remains bridge-first, not source-merge-first.
 - Control workspace remains `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL`.
-- Do not claim daily-use readiness already achieved.
+- Do not claim production readiness.
 - Do not claim ABW bridge exists.
 - Do not claim Cognitive OS is already achieved.
 - Do not claim API key encryption exists.
@@ -58,17 +60,19 @@ Reality-synced state as of 2026-05-02:
 - Do not claim self-growing wiki.
 - Do not claim project rules are ABW governance/proof.
 - Do not claim VS Code SCM parity.
-- Do not start Sprint 16 from this control update task.
+- Do not claim VS Code parity.
+- Do not start Sprint 17 from this control update task.
 
 ## Current Strategic Roadmap Status
 
 - Master Roadmap v1 has been recorded.
-- Current next sprint remains Sprint 16: Daily-use hardening / E2E regression pack.
-- After Sprint 12, the roadmap continues on the daily-use track:
+- Current next step is Phase 1 Gate Review before Sprint 17.
+- Daily-use track status:
   - Sprint 13: Git / SCM Panel tot hon (done)
   - Sprint 14: Security Permission Model co ban (done)
   - Sprint 15: Project Rules / Memory UI toi thieu (done)
-  - Sprint 16: Daily-use hardening
+  - Sprint 16: Daily-use hardening / E2E regression pack (done)
+- Sprint 17 must not start before the Phase 1 Gate Review decision.
 - Do not claim Sprint 15 as autonomous self-learning, self-growing wiki, or ABW governance/proof.
 - ABW bridge still not implemented.
 - Cognitive OS not yet achieved.
@@ -92,7 +96,7 @@ Read these in order:
 
 ## Immediate Next Action
 
-Prepare Sprint 16 builder planning while preserving current truth: Sprint 1-15 are pushed, bridge implementation does not exist yet, and next sprint remains Sprint 16: Daily-use hardening / E2E regression pack.
+Prepare Phase 1 Gate Review prompt while preserving current truth: Sprint 1-16 are pushed, readiness is INTERNAL_DAILY_USE_CANDIDATE only, bridge implementation does not exist yet, and Sprint 17 must not start until gate review is completed.
 
 Constraints for the next builder:
 

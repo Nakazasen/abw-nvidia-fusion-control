@@ -2,7 +2,95 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
-## 2026-05-02 - NVIDIA Sprint 15 Project Rules / Memory UI tối thiểu committed and pushed
+## 2026-05-02 - NVIDIA Sprint 16 Daily-use hardening / E2E regression pack committed and pushed
+
+NVIDIA Sprint 16 is completed and pushed in `D:\Sandbox\Nvidia`.
+
+Push evidence:
+
+- Commit hash: `3f8159fc80c4061ab5b87a337b1aab9a80d97252`
+- Commit short hash: `3f8159f`
+- Commit message: `test: add Sprint 16 daily-use regression gate`
+- Push result: `40eaf7b..3f8159f main -> main`
+- Local HEAD after push: `3f8159fc80c4061ab5b87a337b1aab9a80d97252`
+- Remote `origin/main` after push: `3f8159fc80c4061ab5b87a337b1aab9a80d97252`
+- Local HEAD equals remote main: `YES`
+- `git status --short` after push: clean
+
+Verification evidence recorded from NVIDIA Sprint 16 close:
+
+- `node --check tools\nvidia-server.mjs` passed
+- `node --check tools\nvidia-cli-agent.mjs` passed
+- `node --check tools\extension-host.mjs` passed
+- `node --check tools\agent-core.mjs` passed
+- `node --check tools\browser-smoke.mjs` passed
+- `npm run agent:audit` passed `25/25`
+- HTML/div balance check passed (`openDiv=313`, `closeDiv=313`, `balanced=true`)
+- duplicate frontend function scan passed (`duplicateCount=0`)
+- browser smoke passed:
+  - command: `npm run browser:smoke -- --start-server --port 3456`
+  - exit code: `0`
+  - `ok=true`
+  - `mode=real-browser`
+  - `checks=97 passed / 0 failed`
+  - server stopped cleanly
+  - orphan=`false`
+- API regression checks passed:
+  - `/api/permissions`
+  - `/api/project_rules`
+  - `/api/project_rules/context`
+  - `/api/git/status`
+  - `/api/tasks`
+  - `/api/extensions`
+  - `/api/agent_providers`
+  - `/api/settings`
+  - `/api/providers`
+  - `/api/security/summary`
+  - `/api/diagnostics`
+  - `/api/index/search`
+  - `/api/pending_edits`
+- permission/guard matrix passed `16/16`:
+  - `git.commit` denied
+  - `git.push` denied
+  - `abw.bridge.reserved` denied
+  - unknown action rejected
+- selected real endpoint mutation guard checks passed:
+  - `write_file`
+  - `inline_edit`
+  - `tasks/start`
+  - `git/stage`
+  - `project_rules/add`
+- readiness report generated under ignored runtime path:
+  - `.nvidia-agent/reports/daily-use-readiness.json`
+  - `.nvidia-agent/reports/daily-use-readiness.md`
+- readiness verdict: `INTERNAL_DAILY_USE_CANDIDATE`
+- runtime secrets/artifacts were not staged
+
+Sprint 16 implemented:
+
+- expanded browser regression pack
+- API regression pack
+- permission/guard matrix
+- selected real endpoint mutation guard checks
+- code hygiene checks
+- daily-use readiness report under ignored runtime path
+
+Exact readiness verdict:
+
+- `INTERNAL_DAILY_USE_CANDIDATE`
+
+Explicit limitations:
+
+- candidate only, not production readiness
+- browser smoke is not full E2E proof
+- ABW bridge not implemented
+- not Cognitive OS
+- not VS Code parity
+- inline edit deep observability remains limited/warn-level
+- non-NVIDIA providers not fully wired for real chat execution
+- Sprint 17 not started
+- Phase 1 Gate Review required before Sprint 17
+## 2026-05-02 - NVIDIA Sprint 15 Project Rules / Memory UI t騾ｶ・ｻ髫ｪ・ｴ thi騾ｶ・ｻ郢昴・committed and pushed
 
 NVIDIA Sprint 15 is completed and pushed in `D:\Sandbox\Nvidia`.
 
@@ -197,7 +285,7 @@ Explicit limitations:
 - no git commit product flow
 - no git push product flow
 - no branch switching/stash/conflict UI
-## 2026-05-02 - NVIDIA Sprint 13 Git / SCM Panel t盻奏 hﾆ｡n committed and pushed
+## 2026-05-02 - NVIDIA Sprint 13 Git / SCM Panel t鬨ｾ・ｶ繝ｻ・ｻ髯槭ｅ繝ｻh郢晢ｽｻ郢晢ｽｻ繝ｻ・ｽ繝ｻ・｡n committed and pushed
 
 NVIDIA Sprint 13 is completed and pushed in `D:\Sandbox\Nvidia`.
 
@@ -1014,3 +1102,5 @@ Current state:
 Warning:
 
 - control repo is the source of truth, not chat memory
+
+

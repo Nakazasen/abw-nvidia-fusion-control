@@ -487,3 +487,58 @@ Mitigation:
 
 - Treat browser smoke as baseline only, not full E2E.
 - Add longer-horizon evaluation scenarios before daily-use readiness claims.
+
+## INTERNAL_DAILY_USE_CANDIDATE Overclaim As Production-Ready
+
+Risk:
+
+- Sprint 16 candidate status may be overclaimed as production readiness.
+
+Mitigation:
+
+- Keep explicit language that INTERNAL_DAILY_USE_CANDIDATE is not production-ready.
+- Require Phase 1 Gate Review before any readiness upgrade claim.
+
+## Sprint 17 Starts Without Phase 1 Gate Review
+
+Risk:
+
+- Team may start Sprint 17 implementation before Phase 1 gate decision.
+
+Mitigation:
+
+- Lock next step to Phase 1 Gate Review before Sprint 17.
+- Reject Sprint 17 builder prompts until gate review outcome is recorded.
+
+## 97/0 Browser Smoke Mistaken As Full E2E
+
+Risk:
+
+- A clean 97/0 smoke result may be misread as full E2E proof.
+
+Mitigation:
+
+- Keep explicit warning that browser smoke is not full E2E coverage.
+- Require separate long-horizon and scenario-depth validation before stronger claims.
+
+## Inline Edit Deep Observability Gap
+
+Risk:
+
+- Inline edit deep observability remains warn-level in smoke and can hide real behavior gaps.
+
+Mitigation:
+
+- Keep limitation visible in handoff/journal.
+- Add deeper inline-edit observability checks in future gate hardening.
+
+## Non-NVIDIA Provider Real-Execution Gap
+
+Risk:
+
+- Non-NVIDIA providers remain not fully wired for real chat execution but may be over-assumed as production-capable.
+
+Mitigation:
+
+- Keep capability language explicit and conservative.
+- Require provider-specific real execution evidence before readiness upgrade claims.
