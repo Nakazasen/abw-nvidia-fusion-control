@@ -726,3 +726,22 @@ Mitigation:
 - Prioritize safe rotation strategy for large single JSONL files.
 - Keep endpoint expansion read-only by default unless explicitly gated with stronger trust controls.
 - Keep ABW bridge and production/security claims blocked until audited implementation evidence exists.
+
+## Post-Sprint 17 Dependency-Gate Risk Cluster (Active)
+
+Risk:
+
+- Premature ABW bridge risk: NVIDIA can appear integrated while ABW ingest remains prompt-dependent.
+- Fake Cognitive OS overclaim risk if bridge UI exists but governed ingest/input is weak.
+- Weak governed ingest/input pipeline risk before ABW v1.2 ingest hardening proof.
+- Domain contamination risk if ingest maturity is not proven with explicit controls.
+- Manual prompt-dependent ingest risk (not robust runtime behavior).
+- Bridge UI masking weak ABW ingestion risk.
+
+Mitigation:
+
+- Gate deep bridge on ABW v1.2 Ingest Kernel Hardening evidence.
+- Require one-command `raw/` ingest proof.
+- Require drafts/manifests/reports/review queue outputs with visible failed/skipped files.
+- Require no blind auto-promote and no grounded claim without valid source.
+- Keep Sprint 18-19 focused on NVIDIA modularization/runtime hardening.

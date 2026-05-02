@@ -327,6 +327,27 @@ Explicit future checkpoints:
 - Sprint 60: self-improvement safety audit.
 - Sprint 80: enterprise beta audit.
 
+## 2J. Post-Sprint 17 Strategic Dependency Adjustment (2026-05-02)
+
+- Sprint 80 remains the long-term Enterprise Cognitive OS Beta target.
+- The roadmap is not shortened and not cancelled.
+- Near-term sequencing is corrected after Sprint 17:
+  - Sprint 18-19: NVIDIA modularization and runtime hardening only (no deep ABW bridge).
+  - Sprint 20-22: prioritize ABW v1.2 Ingest Kernel Hardening.
+  - Sprint 23-26: NVIDIA<->ABW Bridge Phase 1 may start only after ABW ingest baseline is proven.
+  - Sprint 27-30: bridge hardening and E2E governance validation.
+- Deep NVIDIA<->ABW bridge is dependency-gated on ABW ingest maturity.
+
+Required ABW ingest baseline proof before deep bridge work:
+
+- User can put raw files into `raw/`.
+- Run one command.
+- ABW produces drafts/manifests/reports/review queue.
+- Failed/skipped files are visible.
+- No domain contamination.
+- No blind auto-promote.
+- No grounded claim without valid source.
+
 ## 3. Phase 1 - Internal Daily-Use Agent IDE
 
 Sprint range: Sprint 1-16

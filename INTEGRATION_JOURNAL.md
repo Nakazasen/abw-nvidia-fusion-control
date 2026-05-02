@@ -2,6 +2,51 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-02 - Post-Sprint 17 Strategic Dependency Adjustment
+
+Decision recorded:
+
+- Sprint 80 remains the long-term Enterprise Cognitive OS Beta target.
+- Deep NVIDIA<->ABW bridge is delayed/dependency-gated, not cancelled.
+- Near-term sequencing is adjusted to prevent overclaim and weak governance input coupling.
+
+Why the near-term path changed:
+
+- ABW has ingest capabilities, but ingest is not yet mature as a robust self-ingesting runtime.
+- ABW still cannot be treated as reliably converting `raw/` into governed drafts/manifests/reports/review queue without prompt/agent assistance in all expected cases.
+- If NVIDIA bridge depth grows first, the system may appear integrated while governed knowledge input remains weak.
+
+Dependency gate:
+
+- Deep bridge work must wait for ABW v1.2 Ingest Kernel Hardening proof.
+- Required baseline proof:
+  - put raw files into `raw/`
+  - run one command
+  - obtain drafts/manifests/reports/review queue
+  - visible failed/skipped files
+  - no domain contamination
+  - no blind auto-promote
+  - no grounded claim without valid source
+
+Adjusted near-term sequence:
+
+- Sprint 18-19: NVIDIA modularization/runtime hardening, no deep ABW bridge.
+- Sprint 20-22: ABW v1.2 Ingest Kernel Hardening priority.
+- Sprint 23-26: Bridge Phase 1 (CLI-first) only after ingest baseline proof.
+- Sprint 27-30: bridge hardening and E2E/governance regression.
+
+Non-claims preserved:
+
+- not production-ready
+- not Cognitive OS achieved
+- not VS Code parity
+- not Cursor parity
+- not enterprise-grade security
+- not full ABW bridge
+- not self-growing wiki
+- not autonomous self-learning
+- not mature self-ingesting knowledge system
+
 ## 2026-05-02 - NVIDIA Sprint 17 Route Modularization Foundation Committed And Pushed
 
 NVIDIA Sprint 17 is completed and pushed in `D:\Sandbox\Nvidia`.

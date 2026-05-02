@@ -251,3 +251,22 @@ Consequence:
 
 - Sprint 18 may be planned only after this control update is committed/pushed.
 - Builder outputs remain non-final until audit/fix plus commit/push plus control-record update are completed.
+
+## 2026-05-02: Post-Sprint 17 Strategic Dependency Adjustment
+
+Decision:
+
+- Keep Sprint 80 as long-term target.
+- Delay/dependency-gate deep NVIDIA<->ABW bridge until ABW ingest maturity is proven.
+- Sprint 18 must not be bridge-first.
+- Sprint 18 should focus on NVIDIA modularization/runtime hardening unless a later governance update changes this.
+
+Status:
+
+- Accepted.
+
+Rationale:
+
+- ABW ingest is not yet mature enough as a robust self-ingesting knowledge/governance runtime.
+- Early bridge would risk an integrated-looking system with weak governed knowledge input.
+- This would create Cognitive OS overclaim risk.
