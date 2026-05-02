@@ -2,6 +2,85 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-02 - Post-Cleanup Phase 1 Re-Gate Result A Recorded
+
+Re-gate verdict:
+
+- `A. PROCEED_TO_SPRINT_17`
+
+Evidence summary:
+
+- NVIDIA repo clean and synced:
+  - `HEAD`: `86e929166c50f2b338f8854fa7eb9d278ff20beb`
+  - `origin/main`: `86e929166c50f2b338f8854fa7eb9d278ff20beb`
+- Control repo synced at re-gate time:
+  - `HEAD`: `81863da8a919f972a0c0861cda02812cbec4c972`
+  - `origin/main`: `81863da8a919f972a0c0861cda02812cbec4c972`
+- Control repo local drift observed but out-of-scope for gate content:
+  - `M FILE_INDEX.md`
+  - `?? AGENTS.md`
+
+Sprint 16.5 control verification at re-gate:
+
+- `budget:check` exists
+- `runtime:hygiene` exists and is dry-run by default
+- performance-budget reports write only under `.nvidia-agent/reports`
+- runtime-hygiene apply requires explicit `--apply`
+- deletion boundary guard uses `realpath` under `.nvidia-agent`
+- critical report artifacts preserved (`performance-budget.*`, `audit-*.md`)
+- `securityRotation` limitation is explicit (`NOT_ROTATED_YET`)
+- modularization plan exists
+
+Latest validation pass evidence:
+
+- `node --check tools/performance-budget.mjs` passed
+- `node --check tools/runtime-hygiene.mjs` passed
+- `node --check tools/nvidia-server.mjs` passed
+- `node --check tools/browser-smoke.mjs` passed
+- `node --check tools/agent-core.mjs` passed
+- `npm run budget:check` passed
+- `npm run runtime:hygiene` passed in DRY-RUN mode
+- `npm run agent:audit` passed `25/25`
+- `npm run browser:smoke -- --start-server --port 3456` passed `97/0`, server stopped cleanly
+
+Latest performance/runtime metrics:
+
+- `coldStartTimeMs`: `138`
+- `reachabilityTimeMs`: `252`
+- `idleMemoryEstimateMb`: `NOT_MEASURED_YET`
+- `nvidia_playground.html`: `286578 bytes / 6324 lines`
+- runtime hygiene summary:
+  - mode `DRY-RUN`
+  - scanned `324`
+  - would delete `252`
+  - preserved `1` audit markdown
+  - boundaryRejected `0`
+  - `securityRotation: NOT_ROTATED_YET`
+  - apply not run
+
+Authorization constraints:
+
+- Sprint 17 may be planned/executed after this re-gate record is committed.
+- Carry-over constraints are mandatory:
+  - `securityRotation: NOT_ROTATED_YET`
+  - `idleMemoryEstimateMb: NOT_MEASURED_YET`
+  - monolith partial mitigation with split discipline
+  - runtime hygiene dry-run safety posture
+  - non-claim boundaries
+
+Non-claims preserved:
+
+- not production-ready
+- not Cognitive OS achieved
+- not VS Code parity
+- browser smoke is not full E2E proof
+- ABW bridge not implemented
+- not enterprise-grade security
+- not full sandboxing
+- provider secret encryption not implemented
+- full runtime rotation not achieved
+- idle memory not measured
+
 ## 2026-05-02 - NVIDIA Sprint 16.5 Cleanup Committed And Pushed
 
 NVIDIA Sprint 16.5 cleanup is completed and pushed in `D:\Sandbox\Nvidia`.

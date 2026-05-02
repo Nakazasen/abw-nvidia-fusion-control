@@ -144,14 +144,14 @@ Unblock condition:
   - `npm run agent:audit` pass `25/25`
   - `npm run browser:smoke -- --start-server --port 3456` pass `97/0`, server stopped cleanly
 - Current measured budget snapshot:
-  - cold start `89 ms`
-  - reachability `121 ms`
+  - cold start `138 ms`
+  - reachability `252 ms`
   - idle memory `NOT_MEASURED_YET`
   - `nvidia_playground.html` `286578 bytes / 6324 lines`
 - Runtime hygiene snapshot:
   - mode `DRY-RUN`
-  - scanned `319`
-  - would delete `247`
+  - scanned `324`
+  - would delete `252`
   - preserved `1` audit markdown
   - boundary rejected `0`
   - security rotation `NOT_ROTATED_YET`
@@ -161,10 +161,14 @@ Unblock condition:
 
 Post-cleanup gate requirement:
 
-- Sprint 17 remains blocked.
-- Next required step is post-cleanup Phase 1 re-gate.
-- Re-gate must choose exactly one decision: `A`, `B`, `C`, or `D`.
-- Sprint 17 can start only if re-gate explicitly selects `A. PROCEED_TO_SPRINT_17`.
+- Re-gate completed and selected `A. PROCEED_TO_SPRINT_17`.
+- Sprint 17 is authorized to plan/execute after this control record is committed.
+- Authorization constraints must carry forward:
+  - `securityRotation: NOT_ROTATED_YET`
+  - `idleMemoryEstimateMb: NOT_MEASURED_YET`
+  - monolith split discipline and anti-bloat controls
+  - runtime hygiene dry-run safety posture
+  - non-claim boundaries
 
 ## 2C. Performance Budget Policy
 

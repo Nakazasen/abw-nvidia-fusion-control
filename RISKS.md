@@ -689,3 +689,21 @@ Mitigation:
 - Preserve conservative performance claims until idle memory baseline is measured.
 - Keep runtime hygiene in dry-run-by-default posture unless explicit controlled apply workflow is approved.
 - Keep explicit warnings that provider key storage is local plaintext runtime state until hardening evidence changes this truth.
+
+## Post-Re-Gate A Carry-Over Risk Cluster (Active)
+
+Risk:
+
+- Re-gate `A` authorizes Sprint 17, but runtime/data hardening remains partial.
+- `securityRotation: NOT_ROTATED_YET` remains active for single-file growth scenarios (notably `security/permission-audit.jsonl`).
+- `idleMemoryEstimateMb: NOT_MEASURED_YET` remains an incomplete baseline.
+- Monolith surfaces remain large and currently rely on plan+discipline, not completed structural split.
+- Runtime hygiene apply/rotation policy still requires caution to avoid unintended deletions or trust drift.
+- Provider plaintext secret storage risk remains unchanged.
+
+Mitigation:
+
+- Treat these items as mandatory Sprint 17 carry-over controls, not optional cleanup debt.
+- Preserve dry-run-first hygiene posture and explicit apply guard.
+- Implement safe JSONL rotation policy before stronger runtime-operations claims.
+- Keep non-claim boundaries explicit until memory/rotation gaps are closed by evidence.

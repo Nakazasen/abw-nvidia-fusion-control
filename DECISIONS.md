@@ -215,3 +215,22 @@ Status:
 Consequence:
 
 - Sprint 17 remains blocked until post-cleanup re-gate explicitly selects `A. PROCEED_TO_SPRINT_17`.
+
+## 2026-05-02: Post-Cleanup Phase 1 Re-Gate Selects A
+
+Decision:
+
+- Post-cleanup Phase 1 re-gate selects `A. PROCEED_TO_SPRINT_17`.
+
+Status:
+
+- Accepted.
+
+Rationale:
+
+- Sprint 16.5 delivered performance budget checks, runtime hygiene dry-run safety controls, modularization planning, and validation pass evidence.
+
+Consequence:
+
+- Sprint 17 may start only under constraints and must preserve non-claims.
+- Carry-over constraints remain active: `securityRotation: NOT_ROTATED_YET`, `idleMemoryEstimateMb: NOT_MEASURED_YET`, monolith split discipline, and runtime hygiene dry-run safety posture.
