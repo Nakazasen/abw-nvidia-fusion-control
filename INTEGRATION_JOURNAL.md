@@ -2,6 +2,77 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-02 - NVIDIA Sprint 13 Git / SCM Panel tốt hơn committed and pushed
+
+NVIDIA Sprint 13 is completed and pushed in `D:\Sandbox\Nvidia`.
+
+Push evidence:
+
+- Commit hash: `3806664dba0ac36588e9e47a8054be6fd0af885a`
+- Commit short hash: `3806664`
+- Commit message: `feat: add Sprint 13 git scm panel`
+- Push result: `da4c19a..3806664 main -> main`
+- Local HEAD after push: `3806664dba0ac36588e9e47a8054be6fd0af885a`
+- Remote `origin/main` after push: `3806664dba0ac36588e9e47a8054be6fd0af885a`
+- Local HEAD equals remote main: `YES`
+- `git status --short` after push: clean
+
+Verification evidence recorded from NVIDIA Sprint 13 close:
+
+- `node --check tools\nvidia-server.mjs` passed
+- `node --check tools\nvidia-cli-agent.mjs` passed
+- `node --check tools\extension-host.mjs` passed
+- `node --check tools\agent-core.mjs` passed
+- `node --check tools\browser-smoke.mjs` passed
+- `npm run agent:audit` passed `25/25`
+- inline HTML parse check passed (`openDiv=270`, `closeDiv=270`)
+- browser smoke passed:
+  - command: `npm run browser:smoke -- --start-server --port 3456`
+  - exit code: `0`
+  - `ok=true`
+  - `mode=real-browser`
+  - `checks=31 passed / 0 failed`
+  - SCM checks passed
+  - server stopped cleanly
+  - orphan=`false`
+- Git API smoke/audit passed
+- mutation guard smoke passed
+- runtime secrets/artifacts were not staged
+
+Sprint 13 scope implemented:
+
+- SCM panel UI
+- branch/status summary
+- changed files list grouped by staged/changes/untracked
+- file diff preview
+- Git status/log/diff APIs
+- guarded stage/unstage/discard APIs
+- template-only commit draft
+- Enterprise read-only SCM view
+- browser smoke SCM checks
+
+Codex audit/fix highlights:
+
+- git status staged/worktree parser fixed
+- path validation added before git file-based operations
+- Enterprise read-only diff unblocked
+- mutation endpoints guarded
+- discard requires `confirm:true`
+- no git commit/push product flow
+
+Explicit limitations:
+
+- `GET /api/git/file_diff` is not separate; use `GET /api/git/diff?file=...`
+- invalid path rejects but may return `500` instead of clearer `400`
+- no git commit product flow
+- no git push product flow
+- no branch switching/stash/conflict UI
+- daily-use readiness is not achieved
+- browser smoke is not full E2E coverage
+- no ABW bridge is implemented
+- Sprint 14 has not started
+- Cognitive OS is not achieved
+
 ## 2026-05-01 - NVIDIA Sprint 12 Task Timeline + Recovery / Resume Committed And Pushed
 
 NVIDIA Sprint 12 is completed and pushed in `D:\Sandbox\Nvidia`.

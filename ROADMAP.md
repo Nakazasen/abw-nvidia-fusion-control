@@ -2,12 +2,13 @@
 
 ## 1. Current State
 
-- NVIDIA Sprint 1-12 are completed and pushed.
+- NVIDIA Sprint 1-13 are completed and pushed.
 - Sprint 9 `Browser E2E Smoke Harness` is complete.
 - Sprint 10 Settings / Provider Manager / API Key UI is complete.
 - Sprint 11 Inline Edit kieu Cursor is complete.
 - Sprint 12 Task Timeline + Recovery / Resume is complete.
-- Next sprint is `Sprint 13: Git / SCM Panel tốt hơn`.
+- Sprint 13 Git / SCM Panel tốt hơn is complete.
+- Next sprint is `Sprint 14: Security Permission Model cơ bản`.
 - ABW bridge is not implemented.
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
 - Browser smoke baseline now exists and passed in real-browser mode.
@@ -22,16 +23,16 @@
 - Current capability is not VS Code parity.
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
-- Control repo latest recorded NVIDIA remote main: `da4c19a21cc4865db6f2d5818aba2daaa88857d0`.
+- Control repo latest recorded NVIDIA remote main: `3806664dba0ac36588e9e47a8054be6fd0af885a`.
 - Control repo latest recorded control remote main: `f3423f4558c06f8ccf33a1f84f0abd62f50fde02`.
 
 ## 2. Roadmap Governance Rules
 
 - The control repo is the source of truth, not chat memory.
 - Every sprint must follow this order:
-  `Builder -> Audit/Fix -> Commit -> Push -> Control Repo Update -> Control Repo Commit/Push`
+`Builder -> Audit/Fix -> Commit -> Push -> Control Repo Update -> Control Repo Commit/Push`
 - No sprint is done until:
-  implementation exists, audit passes, commit exists, push exists, and the control repo records the result.
+implementation exists, audit passes, commit exists, push exists, and the control repo records the result.
 - No capability claim without evidence.
 - Every roadmap change must be recorded in `DECISIONS.md`.
 - Every 4 sprints must trigger a Roadmap Review.
@@ -42,7 +43,7 @@
 
 ### Planning Horizons
 
-- Short-term plan: Sprint 13-16, finish SCM, security, memory UI, and daily-use hardening.
+- Short-term plan: Sprint 14-16, finish security, memory UI, and daily-use hardening.
 - Mid-term plan: Sprint 17-40, move from a stronger internal agent IDE into an ABW-governed internal Cognitive Workspace and internal pilot.
 - Long-term plan: Sprint 41-60, add governed knowledge ingestion, self-growing wiki controls, self-improvement controls, and controlled tool generation.
 - End-state plan: Sprint 61-80, reach Enterprise Cognitive OS Beta with enterprise runtime, orchestration, evidence ledger, compliance, and department workflows.
@@ -69,7 +70,7 @@ A sprint or phase only achieved its promised capability when all of the followin
 
 Sprint range: Sprint 1-16
 
-### Sprint List
+### Sprint List (Phase 1)
 
 - Sprint 1: Composer / Diff UX - done
 - Sprint 2: Context Picker - done
@@ -83,12 +84,12 @@ Sprint range: Sprint 1-16
 - Sprint 10: Settings / Provider Manager / API Key UI - done
 - Sprint 11: Inline Edit kieu Cursor - done
 - Sprint 12: Task Timeline + Recovery / Resume - done
-- Sprint 13: Git / SCM Panel tốt hơn
+- Sprint 13: Git / SCM Panel tốt hơn - done
 - Sprint 14: Security Permission Model co ban
 - Sprint 15: Project Rules / Memory UI toi thieu
 - Sprint 16: Daily-use hardening / E2E regression pack
 
-### Capability Target
+### Capability Target (Phase 1)
 
 - Internal Agent IDE can be used daily by the builder/user.
 - This phase does not claim ABW-governed Cognitive OS.
@@ -97,11 +98,21 @@ Sprint range: Sprint 1-16
 
 ### Capability Warning
 
-- Sprint 9, Sprint 10, Sprint 11, and Sprint 12 are complete; the next track continues daily-use features, not deeper foundation work.
+- Sprint 9, Sprint 10, Sprint 11, Sprint 12, and Sprint 13 are complete; the next track continues daily-use features, not deeper foundation work.
 - Around Sprint 14-16, warn that this is the daily-use readiness gate.
 - Daily-use readiness is still not achieved until Sprint 16 audit passes.
 
-### Required Audit Gate
+### Sprint 13 Capability Note
+
+- SCM panel exists in the NVIDIA workbench.
+- Git read APIs exist (`/api/git/status`, `/api/git/log`, `/api/git/diff`).
+- Guarded stage/unstage/discard APIs exist with mutation controls.
+- Commit draft is template-only.
+- No git commit/push product flow exists.
+- This is not VS Code SCM parity.
+- ABW bridge remains planned and not implemented.
+
+### Required Audit Gate (Phase 1)
 
 - Sprint 9: Browser smoke baseline gate (real-browser pass required, not full E2E proof)
 - Sprint 16: Full daily-use readiness audit
@@ -116,7 +127,7 @@ Sprint range: Sprint 1-16
 
 Sprint range: Sprint 17-28
 
-### Sprint List
+### Sprint List (Phase 2)
 
 - Sprint 17: Multi-file Composer nang cap
 - Sprint 18: Planner / Task Graph
@@ -131,13 +142,13 @@ Sprint range: Sprint 17-28
 - Sprint 27: Workspace Templates / Internal App Generator
 - Sprint 28: Cursor-like UX hardening
 
-### Capability Target
+### Capability Target (Phase 2)
 
 - Internal Agent IDE becomes closer to Cursor or Antigravity.
 - Task planning, edits, provider routing, recovery, and approvals become stronger.
 - This phase still does not claim VS Code platform parity.
 
-### Required Audit Gate
+### Required Audit Gate (Phase 2)
 
 - Sprint 20: provider or routing audit
 - Sprint 24: recovery or resume audit
@@ -147,7 +158,7 @@ Sprint range: Sprint 17-28
 
 Sprint range: Sprint 29-40
 
-### Sprint List
+### Sprint List (Phase 3)
 
 - Sprint 29: ABW Bridge v0 - Read-only Governance Bridge
 - Sprint 30: ABW Ask / Route / Evidence Contract Integration
@@ -162,7 +173,7 @@ Sprint range: Sprint 29-40
 - Sprint 39: Cross-workspace Search / Memory
 - Sprint 40: Cognitive OS Internal Pilot
 
-### Capability Target
+### Capability Target (Phase 3)
 
 - Agent IDE plus ABW becomes useful for technical chatbot, SOP, internal translation, fault investigation, and report generation.
 - ABW helps weak agents reduce hallucination, overclaiming, and unsupported answers.
@@ -176,7 +187,7 @@ Sprint range: Sprint 29-40
 - Sprint 36: evidence or audit visibility gate
 - Sprint 40: Cognitive OS internal pilot gate
 
-### Required Audit Gate
+### Required Audit Gate (Phase 3)
 
 - Sprint 30: ABW bridge contract audit
 - Sprint 36: Evidence or Audit trust audit
@@ -186,7 +197,7 @@ Sprint range: Sprint 29-40
 
 Sprint range: Sprint 41-52
 
-### Sprint List
+### Sprint List (Phase 4)
 
 - Sprint 41: Governed Knowledge Ingest Pipeline
 - Sprint 42: Source Trust / Citation Scoring
@@ -201,7 +212,7 @@ Sprint range: Sprint 41-52
 - Sprint 51: Knowledge Versioning / Rollback
 - Sprint 52: Self-Growth Evaluation Harness
 
-### Capability Target
+### Capability Target (Phase 4)
 
 - System can detect missing knowledge.
 - System can propose knowledge updates.
@@ -221,7 +232,7 @@ Sprint range: Sprint 41-52
 - Conflict means human review.
 - Unknown means gap, not fake answer.
 
-### Required Audit Gate
+### Required Audit Gate (Phase 4)
 
 - Sprint 44: governed ingest readiness audit
 - Sprint 49: verification gate audit
@@ -231,7 +242,7 @@ Sprint range: Sprint 41-52
 
 Sprint range: Sprint 53-60
 
-### Sprint List
+### Sprint List (Phase 5)
 
 - Sprint 53: Agent IDE Self-Improvement Loop
 - Sprint 54: Safe Code Change Proposal
@@ -242,7 +253,7 @@ Sprint range: Sprint 53-60
 - Sprint 59: Regression + Rollback Automation
 - Sprint 60: Self-Improving Platform Beta
 
-### Capability Target
+### Capability Target (Phase 5)
 
 - System can propose improvements to itself.
 - System can generate patches.
@@ -253,11 +264,11 @@ Sprint range: Sprint 53-60
 ### Production Tool Capability
 
 - By Sprint 53-60, the system may propose and generate internal production support tools:
-  image comparison against master image, print defect detection helper, log or image investigation helper, report or export tools, and Python or OpenCV or HALCON helper tools.
+image comparison against master image, print defect detection helper, log or image investigation helper, report or export tools, and Python or OpenCV or HALCON helper tools.
 - These must go through:
-  test data, ground truth, human review, audit, and rollback plan.
+test data, ground truth, human review, audit, and rollback plan.
 
-### Required Audit Gate
+### Required Audit Gate (Phase 5)
 
 - Sprint 55: auto-test or auto-audit gate
 - Sprint 60: self-improving platform beta audit
@@ -266,7 +277,7 @@ Sprint range: Sprint 53-60
 
 Sprint range: Sprint 61-80
 
-### Sprint List
+### Sprint List (Phase 6)
 
 - Sprint 61: Multi-tenant Workspace Model
 - Sprint 62: Enterprise Auth / SSO
@@ -289,7 +300,7 @@ Sprint range: Sprint 61-80
 - Sprint 79: Pilot Hardening
 - Sprint 80: Cognitive OS Enterprise Beta
 
-### Capability Target
+### Capability Target (Phase 6)
 
 - Enterprise Cognitive OS Beta.
 - Department-level workflows.
@@ -306,7 +317,7 @@ Sprint range: Sprint 61-80
 - Sprint 69 is the manufacturing fault investigation runtime.
 - This is the realistic phase for production-grade workflow using printer logs, print images, master images, machine parameters, SOP, defect history, ABW evidence, and internal tools generated earlier.
 
-### Required Audit Gate
+### Required Audit Gate (Phase 6)
 
 - Sprint 69: manufacturing fault investigation audit
 - Sprint 78: compliance or safety audit
@@ -343,7 +354,7 @@ This track is optional, parallel, or later. It is not required for the Cognitive
 ## 10. Capability Milestone Table
 
 | Sprint range | Capability name | What the system can do | What it still cannot claim | Required audit gate |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Sprint 1-16 | Internal Daily-Use Agent IDE candidate | Builder-facing internal IDE workflows become daily-use candidates after hardening, smoke coverage, and regression pack work | Not ABW-governed Cognitive OS, not VS Code parity, not Cursor parity, not daily-use proven before Sprint 16 audit passes | Sprint 16 daily-use readiness audit |
 | Sprint 17-28 | Cursor/Antigravity-like internal agent candidate | Better planning, edits, routing, approvals, recovery, and workflow continuity | Not VS Code parity, not Cognitive OS, not enterprise runtime | Sprint 28 Cursor-like UX capability review |
 | Sprint 29-36 | IDE + ABW trusted technical workspace | Evidence-aware technical workspace with ABW route, ask, evidence, and audit visibility | Not self-growing wiki, not production runtime, not enterprise beta | Sprint 36 evidence or audit trust audit |
@@ -359,7 +370,7 @@ This track is optional, parallel, or later. It is not required for the Cognitive
 The assistant or agent should warn the user when approaching these milestones:
 
 | Trigger | Expected capability | Required evidence | What cannot be claimed yet | Roadmap review required |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Approaching Sprint 9 | Browser smoke baseline for the existing NVIDIA prototype | Browser smoke flow, visible UI path checks, artifact capture if safe | Full E2E coverage, daily-use readiness, ABW integration | Yes |
 | Approaching Sprint 16 | Internal daily-use Agent IDE candidate | Regression pack, browser smoke, stability evidence, cleanup audit, documented limitations | ABW-governed Cognitive OS, Cursor parity, VS Code parity | Yes |
 | Approaching Sprint 28 | Cursor/Antigravity-like internal agent candidate | Planner, apply, routing, recovery, and approval evidence with audit | VS Code parity, Cognitive OS runtime | Yes |
@@ -375,21 +386,21 @@ The assistant or agent should warn the user when approaching these milestones:
 
 - Review after every 4 sprints.
 - Mandatory reviews:
-  - after Sprint 9
-  - after Sprint 16
-  - after Sprint 28
-  - after Sprint 36
-  - after Sprint 40
-  - after Sprint 52
-  - after Sprint 60
-  - after Sprint 69
-  - after Sprint 80
+- after Sprint 9
+- after Sprint 16
+- after Sprint 28
+- after Sprint 36
+- after Sprint 40
+- after Sprint 52
+- after Sprint 60
+- after Sprint 69
+- after Sprint 80
 - If sprint outcomes do not match plan:
-  - update `ROADMAP.md`
-  - add `DECISIONS.md` entry
-  - add `RISKS.md` entry
-  - update `HANDOFF.md`
-  - do not silently change direction in chat
+- update `ROADMAP.md`
+- add `DECISIONS.md` entry
+- add `RISKS.md` entry
+- update `HANDOFF.md`
+- do not silently change direction in chat
 
 ## 13. Full Audit / Clean Code Checkpoints
 
@@ -435,5 +446,3 @@ Each audit must check:
 - If ABW evidence is missing, do not claim grounded answer.
 - If self-learning has no verification gate, do not merge knowledge.
 - If tool generation has no test dataset or ground truth, do not call it production-ready.
-
-
