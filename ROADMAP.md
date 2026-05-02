@@ -25,7 +25,7 @@
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
 - Control repo latest recorded NVIDIA remote main: 3f8159fc80c4061ab5b87a337b1aab9a80d97252.
-- Control repo latest recorded control remote main: `f3423f4558c06f8ccf33a1f84f0abd62f50fde02`.
+- Control repo latest recorded control remote main: `680ec634105b48810e9cb17a8711bf3bdde6880b`.
 
 ## 2. Roadmap Governance Rules
 
@@ -66,6 +66,195 @@ A sprint or phase only achieved its promised capability when all of the followin
 - Audit does not find a trust, security, rollback, or overclaim failure that invalidates the milestone.
 - Commit and push evidence exist for implementation work.
 - The control repo records what was achieved, what was not achieved, and what cannot yet be claimed.
+
+## 2A. Long-Term Sustainable Development Doctrine
+
+- The project must remain usable, maintainable, and understandable as it grows from Sprint 17 to Sprint 80+.
+- Feature growth is not allowed to outrun architecture, runtime hygiene, performance control, or trust boundaries.
+- Every phase must preserve performance, modularity, bounded runtime data, test reliability, security boundaries, rollback ability, and evidence-backed claims.
+- Sprint 80 is not dangerous by itself.
+- Sprint 80 without architecture and load control is dangerous.
+- Heavy future features must not all run inside the IDE process.
+- The correct gate question before Sprint 17 is not only "What is Sprint 17?" but "Is the system light, clean, modular, bounded, and controlled enough to be allowed into Sprint 17?"
+
+## 2B. Mandatory Performance & Bloat Budget Gate After Sprint 16
+
+After Sprint 16, Phase 1 Gate Review must include a mandatory Performance & Bloat Budget Gate before any Sprint 17 implementation.
+
+The gate must evaluate:
+
+- `D:\Sandbox\Nvidia\nvidia_playground.html` size and monolith risk.
+- `D:\Sandbox\Nvidia\tools\browser-smoke.mjs` size and fragility.
+- `D:\Sandbox\Nvidia\tools\nvidia-server.mjs` route/API growth.
+- Server startup time, if measurable.
+- Browser smoke runtime.
+- Node idle memory or process memory estimate, if measurable.
+- `.nvidia-agent` runtime data growth.
+- Reports, tasks, index, security, rules, diagnostics rotation.
+- Lazy loading behavior.
+- Module split plan.
+- Runtime artifact staging safety.
+- Feature off-switch strategy.
+- Heavy future service/worker separation.
+- Whether Sprint 16.5 cleanup is needed before Sprint 17.
+
+### Phase 1 Gate Decision Matrix
+
+After Phase 1 Gate Review, choose exactly one:
+
+| Decision | Meaning | Constraint |
+| --- | --- | --- |
+| `A. PROCEED_TO_SPRINT_17` | System is light enough, clean enough, and controlled enough to enter Sprint 17. | Limitations remain documented. |
+| `B. INSERT_SPRINT_16_5_CLEANUP` | Performance, bloat, or modularization risk is significant but fixable. | Focus on cleanup, split, rotation, performance budget, and test harness organization. |
+| `C. INSERT_BUGFIX_HARDENING_SPRINT` | Functional, safety, or regression blockers exist. | Fix blockers before feature growth. |
+| `D. DOWNGRADE_PHASE_1_READINESS` | `INTERNAL_DAILY_USE_CANDIDATE` is not justified. | Downgrade readiness and record evidence. |
+
+Sprint 17 cannot start unless decision `A. PROCEED_TO_SPRINT_17` is explicitly selected and recorded.
+
+## 2C. Performance Budget Policy
+
+Each sprint after Sprint 16 should record, where practical:
+
+- Server cold start time.
+- Browser smoke duration.
+- Number of browser smoke checks.
+- Node idle memory or process memory estimate.
+- Size of `nvidia_playground.html`.
+- Size of `tools/browser-smoke.mjs`.
+- Size and count of runtime artifacts in `.nvidia-agent`.
+- Whether the new feature is lazy-loaded.
+- Whether the new feature has an off-switch or safe mode.
+- Whether runtime data has cap or rotation.
+
+Initial budget suggestions:
+
+- Local server cold start target: <= 5-8 seconds.
+- Browser smoke default suite target: <= 60-90 seconds unless explicitly running a full suite.
+- Runtime reports should rotate.
+- Tasks, security, rules, diagnostics, and index state must be bounded.
+- Screenshots and reports must not grow forever.
+- Heavy features must run on-demand or in a worker/service.
+
+These numbers are initial budgets, not permanent truth. Revise them only with evidence.
+
+## 2D. Modularization Policy
+
+`nvidia_playground.html` should gradually become a thin shell. Do not require an immediate full rewrite, but every future sprint must avoid making monolith risk worse.
+
+Future direction:
+
+- `settings-ui.js`
+- `scm-ui.js`
+- `tasks-ui.js`
+- `rules-ui.js`
+- `security-ui.js`
+- `diagnostics-ui.js`
+- `composer-ui.js`
+- Browser-smoke modules.
+- Server route modules.
+- Worker/service layer for heavy tasks.
+
+## 2E. Lazy Loading Policy
+
+Features should load on demand.
+
+Examples:
+
+- SCM refresh only when the SCM panel opens.
+- Problems fetch only when Problems opens.
+- Project Rules load only when Settings or Rules opens.
+- Index search does not rebuild automatically on app start.
+- Reports do not load full history.
+- Browser automation runs only when requested.
+- ABW bridge remains disabled/off until explicitly enabled.
+
+## 2F. Runtime Data Bound Policy
+
+`.nvidia-agent` data must be bounded.
+
+Runtime areas:
+
+- reports
+- tasks
+- rules
+- security logs
+- diagnostics
+- index
+- profile
+- tmp
+- screenshots
+
+Rules:
+
+- No infinite growth.
+- Cap count or size.
+- Rotate or cleanup.
+- Never stage runtime artifacts.
+- No secrets in runtime reports.
+- No raw API keys in committed artifacts.
+- Stale runtime state must not corrupt app startup.
+
+## 2G. Feature Off-Switch Policy
+
+Large or risky features must have a way to disable, degrade, or run in safe mode.
+
+Examples:
+
+- Semantic index on/off.
+- Browser automation on/off.
+- Project rules context injection on/off.
+- ABW bridge on/off.
+- Extension host safe mode.
+- Diagnostics sync on/off.
+- Provider integrations configurable.
+- Future self-growing wiki disabled by default until governed.
+
+## 2H. Worker / Service Separation Policy
+
+Heavy future workloads must not be forced into the IDE UI/server process.
+
+Heavy workloads include:
+
+- Self-growing wiki.
+- Auto research.
+- Knowledge ingest.
+- Tool generation.
+- Manufacturing fault investigation.
+- Image evaluation.
+- OCR/vision.
+- Local LLM, reranker, or embedding jobs.
+- ABW governance bridge.
+
+Preferred architecture:
+
+- IDE = control panel.
+- Worker/service = heavy work.
+- ABW = governance, evidence, and trust layer.
+- Indexer = search/index work.
+- Image tools = separate job when needed.
+
+## 2I. Cleanup / Audit Cadence
+
+Not every sprint is a feature sprint.
+
+Recommended cadence:
+
+- Every 4 sprints: review/cleanup checkpoint.
+- Phase boundaries: full gate review.
+- Before bridge, self-growing wiki, or tool-generation phases: trust/safety audit.
+- If performance or bloat risk is high: insert cleanup sprint before new features.
+
+Explicit future checkpoints:
+
+- Sprint 16: Phase 1 Gate Review.
+- Sprint 20: cleanup / modularization review.
+- Sprint 24: performance audit.
+- Sprint 28: phase audit.
+- Sprint 36: bridge + governance audit.
+- Sprint 40: full system audit.
+- Sprint 52: knowledge ingestion audit.
+- Sprint 60: self-improvement safety audit.
+- Sprint 80: enterprise beta audit.
 
 ## 3. Phase 1 - Internal Daily-Use Agent IDE
 

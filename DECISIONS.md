@@ -92,3 +92,88 @@ Status:
 Consequence:
 
 - Do not issue Sprint 17 builder prompts until gate review is completed and recorded.
+
+## 2026-05-02: Mandatory Performance & Bloat Budget Gate Before Sprint 17
+
+Decision:
+
+- After Sprint 16, Phase 1 Gate Review must include a mandatory Performance & Bloat Budget Gate before any Sprint 17 implementation.
+
+Required gate checks:
+
+- `nvidia_playground.html` size and monolith risk.
+- `tools/browser-smoke.mjs` size and fragility.
+- `tools/nvidia-server.mjs` route/API growth.
+- Server startup time, browser smoke runtime, and Node memory where measurable.
+- `.nvidia-agent` runtime data growth, caps, rotation, and staging safety.
+- Lazy loading behavior, module split plan, feature off-switches, and worker/service separation.
+- Whether Sprint 16.5 cleanup is needed before Sprint 17.
+
+Status:
+
+- Accepted.
+
+Consequence:
+
+- Sprint 17 is blocked until this gate is completed and recorded.
+
+## 2026-05-02: Sprint 17 Requires Explicit Phase 1 Gate Decision
+
+Decision:
+
+- No Sprint 17 implementation may start until Phase 1 Gate Review selects exactly one allowed decision.
+
+Allowed decisions:
+
+- `A. PROCEED_TO_SPRINT_17`
+- `B. INSERT_SPRINT_16_5_CLEANUP`
+- `C. INSERT_BUGFIX_HARDENING_SPRINT`
+- `D. DOWNGRADE_PHASE_1_READINESS`
+
+Status:
+
+- Accepted.
+
+Consequence:
+
+- Sprint 17 can start only if `A. PROCEED_TO_SPRINT_17` is explicitly selected and limitations remain documented.
+
+## 2026-05-02: Prefer Modular Shell Plus Workers/Services Over Monolithic IDE Process
+
+Decision:
+
+- Long-term architecture must prefer a modular IDE shell with route/UI modules and separate workers/services for heavy workloads.
+
+Rationale:
+
+- Feature-first growth inside one HTML file or one server process risks performance decay, fragile tests, hard debugging, and AI-edit regressions.
+
+Status:
+
+- Accepted.
+
+Consequence:
+
+- `nvidia_playground.html` should gradually become a thin shell.
+- Browser smoke and server routes should become modular over time.
+- Heavy future workloads should run on demand in workers/services rather than inside the IDE UI/server process.
+
+## 2026-05-02: Bound Runtime Data Under .nvidia-agent
+
+Decision:
+
+- Runtime data under `.nvidia-agent` must be bounded, rotated, ignored, and never treated as source truth unless explicitly validated.
+
+Rationale:
+
+- Runtime state can contain stale, sensitive, large, or corrupted artifacts. It must support recovery and evidence, not become an unmanaged database or accidental source of truth.
+
+Status:
+
+- Accepted.
+
+Consequence:
+
+- Reports, tasks, security logs, rules, diagnostics, index, profile, tmp, and screenshots need caps or rotation plans.
+- Runtime artifacts must never be staged unless a specific sanitized artifact is intentionally promoted.
+- Stale runtime state must not corrupt app startup.

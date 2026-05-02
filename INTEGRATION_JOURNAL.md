@@ -2,6 +2,32 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-02 - Long-Term Sustainable Development Governance Upgrade
+
+Reason:
+
+- The project is entering the long-road phase after Sprint 16 and needs stronger governance before Phase 2 feature growth.
+- Feature-first sprint growth without performance budget, modularization, lazy loading, runtime cleanup, off-switches, and service separation could make the system slow, bloated, fragile, and hard to maintain.
+
+Governance update:
+
+- Added Long-Term Sustainable Development Doctrine.
+- Added mandatory Performance & Bloat Budget Gate to Phase 1 Gate Review before Sprint 17.
+- Added Phase 1 Gate Decision Matrix: proceed, insert Sprint 16.5 cleanup, insert bugfix hardening, or downgrade readiness.
+- Added performance budget policy, modularization policy, lazy-loading policy, runtime data bound policy, feature off-switch policy, worker/service separation policy, and cleanup/audit cadence.
+- Added architecture decisions for the Sprint 17 gate, modular shell + workers/services direction, and bounded `.nvidia-agent` runtime data.
+- Added long-horizon risks for monolith growth, test-monolith growth, unbounded runtime data, feature-first growth, weak performance budgets, lazy-loading failure, missing off-switches, and AI edit blast radius.
+
+Boundaries:
+
+- This was a control-doc-only governance upgrade.
+- No rewrite and no revolution were started.
+- Sprint 17 was not started.
+- ABW bridge was not implemented.
+- NVIDIA repo was left untouched.
+- ABW repo was left untouched.
+- Sprint 16.5 cleanup is now an explicit possible gate outcome if performance/bloat/modularization risk is significant but fixable.
+
 ## 2026-05-02 - NVIDIA Sprint 16 Daily-use hardening / E2E regression pack committed and pushed
 
 NVIDIA Sprint 16 is completed and pushed in `D:\Sandbox\Nvidia`.

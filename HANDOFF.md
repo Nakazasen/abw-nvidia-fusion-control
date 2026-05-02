@@ -25,6 +25,11 @@ Reality-synced state as of 2026-05-02:
 - Latest NVIDIA remote main is 3f8159fc80c4061ab5b87a337b1aab9a80d97252.
 - Current readiness verdict is INTERNAL_DAILY_USE_CANDIDATE.
 - Next step is Phase 1 Gate Review before Sprint 17.
+- Phase 1 Gate Review now includes the mandatory Performance & Bloat Budget Gate.
+- Do not prepare or issue a Sprint 17 Builder prompt until the gate review completes and records an allowed decision.
+- Sprint 17 can start only if the gate explicitly selects `A. PROCEED_TO_SPRINT_17`.
+- Sprint 16.5 cleanup, bugfix hardening, or readiness downgrade remain valid gate outcomes.
+- System must remain lightweight, modular, bounded, and controllable.
 - Current system is an internal daily-use candidate, not production-ready.
 - Sprint 9 browser smoke is a baseline gate, not full E2E coverage.
 - Sprint 10 returned the project to the daily-use track after the browser smoke baseline.
@@ -67,12 +72,16 @@ Reality-synced state as of 2026-05-02:
 
 - Master Roadmap v1 has been recorded.
 - Current next step is Phase 1 Gate Review before Sprint 17.
+- Phase 1 Gate Review includes mandatory performance/bloat evaluation before any Sprint 17 implementation.
 - Daily-use track status:
   - Sprint 13: Git / SCM Panel tot hon (done)
   - Sprint 14: Security Permission Model co ban (done)
   - Sprint 15: Project Rules / Memory UI toi thieu (done)
   - Sprint 16: Daily-use hardening / E2E regression pack (done)
 - Sprint 17 must not start before the Phase 1 Gate Review decision.
+- Do not prepare a Sprint 17 Builder prompt until Phase 1 Gate Review completes.
+- INTERNAL_DAILY_USE_CANDIDATE is not production readiness.
+- The system must remain lightweight, modular, bounded, and controllable before entering Phase 2 feature growth.
 - Do not claim Sprint 15 as autonomous self-learning, self-growing wiki, or ABW governance/proof.
 - ABW bridge still not implemented.
 - Cognitive OS not yet achieved.
@@ -94,9 +103,19 @@ Read these in order:
 11. `D:\Sandbox\Nvidia\.nvidia-agent\reports\audit-nvidia-abw-fusion-2026-04-30.md`
 12. `D:\Sandbox\Nvidia\README.md`
 
+## Phase 1 Gate Addendum
+
+Performance/bloat gate requirements for the next review:
+
+- Measure or estimate server cold start, browser smoke runtime, browser smoke check count, and Node idle/process memory where practical.
+- Inspect `nvidia_playground.html`, `tools/browser-smoke.mjs`, and `tools/nvidia-server.mjs` for monolith and fragility risk.
+- Inspect `.nvidia-agent` runtime reports/tasks/rules/security/diagnostics/index/profile/tmp/screenshots for growth, cap, rotation, stale-state, and staging safety.
+- Evaluate lazy loading, feature off-switches, module split direction, and worker/service separation for heavy future work.
+- Choose exactly one gate decision: `A. PROCEED_TO_SPRINT_17`, `B. INSERT_SPRINT_16_5_CLEANUP`, `C. INSERT_BUGFIX_HARDENING_SPRINT`, or `D. DOWNGRADE_PHASE_1_READINESS`.
+
 ## Immediate Next Action
 
-Prepare Phase 1 Gate Review prompt while preserving current truth: Sprint 1-16 are pushed, readiness is INTERNAL_DAILY_USE_CANDIDATE only, bridge implementation does not exist yet, and Sprint 17 must not start until gate review is completed.
+Prepare Phase 1 Gate Review prompt while preserving current truth: Sprint 1-16 are pushed, readiness is INTERNAL_DAILY_USE_CANDIDATE only, bridge implementation does not exist yet, and Sprint 17 must not start until the gate review is completed and explicitly selects `A. PROCEED_TO_SPRINT_17`. The gate must include the Performance & Bloat Budget Gate before any Sprint 17 Builder prompt is prepared.
 
 Constraints for the next builder:
 

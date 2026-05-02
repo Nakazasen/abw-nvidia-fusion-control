@@ -542,3 +542,113 @@ Mitigation:
 
 - Keep capability language explicit and conservative.
 - Require provider-specific real execution evidence before readiness upgrade claims.
+
+## Sprint 80 Monolith Risk
+
+Risk:
+
+- Sprint 80 is safe only if architecture/load control keeps pace; Sprint 80 without modularization, runtime budgets, and service separation could produce a heavy, fragile, unusable system.
+
+Mitigation:
+
+- Use recurring cleanup gates, performance budgets, module split plans, and phase audits before major capability jumps.
+
+## nvidia_playground.html Monolith Risk
+
+Risk:
+
+- `nvidia_playground.html` can become a large all-in-one UI where unrelated features break each other and AI edits become unsafe.
+
+Mitigation:
+
+- Gradually move toward a thin shell with focused UI modules such as settings, SCM, tasks, rules, security, diagnostics, and composer modules.
+
+## browser-smoke.mjs Test-Monolith Risk
+
+Risk:
+
+- `tools/browser-smoke.mjs` can become a fragile test monolith where one failure hides unrelated regressions or makes smoke runs too slow for daily use.
+
+Mitigation:
+
+- Split browser smoke into organized modules/suites while preserving a fast default gate and a fuller optional suite.
+
+## Unbounded .nvidia-agent Runtime Data Risk
+
+Risk:
+
+- `.nvidia-agent` reports, tasks, rules, security logs, diagnostics, index, profile, tmp, and screenshots can grow forever, leak sensitive data, or corrupt startup through stale state.
+
+Mitigation:
+
+- Cap count or size, rotate artifacts, cleanup stale state, keep runtime ignored, and scan for secrets before any evidence promotion.
+
+## Feature-First Growth Outrunning Architecture Risk
+
+Risk:
+
+- Future sprints may add features faster than architecture, test organization, security boundaries, and rollback paths can support.
+
+Mitigation:
+
+- Treat Performance & Bloat Budget Gate as mandatory after Sprint 16 and insert cleanup/hardening sprints when gate evidence requires it.
+
+## Heavy Worker Tasks Running In IDE Process Risk
+
+Risk:
+
+- Self-growing wiki, auto research, ingest, tool generation, OCR/vision, local model jobs, or ABW bridge work may block or destabilize the IDE process if run inline.
+
+Mitigation:
+
+- Prefer worker/service separation; keep the IDE as a control panel and run heavy work on demand with observable job boundaries.
+
+## ABW Bridge / Self-Growing Wiki / Tool-Generation Bloat Risk
+
+Risk:
+
+- Bridge, knowledge growth, and tool-generation phases can add large trust, data, and execution surfaces that overwhelm the current shell if not governed.
+
+Mitigation:
+
+- Require trust/safety audits before those phases and keep ABW bridge disabled/off until explicitly enabled and audited.
+
+## Weak Performance Budget Risk
+
+Risk:
+
+- Without budgets, startup time, smoke runtime, memory use, and runtime artifact growth can decay slowly until the system becomes unpleasant to use.
+
+Mitigation:
+
+- Record practical metrics after Sprint 16 and revise budgets only with evidence.
+
+## Lazy-Loading Failure Risk
+
+Risk:
+
+- Features may load or refresh eagerly at startup, creating slow boot, noisy API calls, and hidden dependency chains.
+
+Mitigation:
+
+- Load SCM, Problems, Project Rules, Reports, Index search, browser automation, and ABW bridge only on demand unless a gate explicitly accepts the cost.
+
+## Missing Feature Off-Switch Risk
+
+Risk:
+
+- Large or risky features without safe mode/off switches can block normal work when they fail or become expensive.
+
+Mitigation:
+
+- Require off-switches or degraded modes for semantic index, browser automation, project rules injection, ABW bridge, extension host, diagnostics sync, provider integrations, and future self-growing wiki.
+
+## AI Edit Blast Radius Risk
+
+Risk:
+
+- Poor modular boundaries let an AI agent modify one area and accidentally break distant UI, server, or test behavior.
+
+Mitigation:
+
+- Split modules, keep file ownership clear in builder prompts, expand focused smoke checks, and require auditor review after builder sprints.
