@@ -327,3 +327,21 @@ Rationale:
 - Closes carry-over risk before Sprint 20-22 ABW ingest hardening.
 - Lower product behavior regression risk than route/UI refactor.
 - Strengthens governance evidence.
+
+## 2026-05-02: Record NVIDIA Sprint 19 Runtime Hygiene / Budget Follow-up Completion
+
+Decision:
+
+- Accept Sprint 19 as runtime hygiene/budget evidence hardening.
+- Accept idle memory startup measurement as best-effort evidence, not continuous monitoring.
+- Accept security log reporting improvement while keeping securityRotation as `NOT_ROTATED_YET`.
+- Sprint 20 may be planned only after this control update is committed/pushed.
+
+Status:
+
+- Accepted.
+
+Consequence:
+
+- Sprint 20 should shift to ABW v1.2 Ingest Kernel Hardening per strategic dependency adjustment.
+- Deep NVIDIA<->ABW bridge remains blocked until ABW ingest baseline proof.

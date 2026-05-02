@@ -5,6 +5,7 @@
 - NVIDIA Sprint 1-16 are completed and pushed.
 - NVIDIA Sprint 17 Route Modularization Foundation is completed and pushed.
 - NVIDIA Sprint 18 Browser Smoke Modularization is completed and pushed.
+- NVIDIA Sprint 19 Runtime Hygiene / Budget Follow-up is completed and pushed.
 - Sprint 9 `Browser E2E Smoke Harness` is complete.
 - Sprint 10 Settings / Provider Manager / API Key UI is complete.
 - Sprint 11 Inline Edit kieu Cursor is complete.
@@ -26,7 +27,7 @@
 - Current capability is not VS Code parity.
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
-- Control repo latest recorded NVIDIA remote main: a5d976090dd99fd76a39474fd475f6f03582c27c.
+- Control repo latest recorded NVIDIA remote main: 875c0e1ae6fa033fee3b348d3ea52f738bebfa52.
 - Control repo latest recorded control remote main: `680ec634105b48810e9cb17a8711bf3bdde6880b`.
 - Sprint 17 scope summary:
   - server route modularization foundation
@@ -38,7 +39,12 @@
   - stable entrypoint preserved
   - `tools/smoke` modules added
   - browser smoke validation remained `99/0`
-- Sprint 19 must not start until this Sprint 18 control record is committed and pushed.
+- Sprint 19 scope summary:
+  - idle memory measurement/reporting added
+  - security log reporting improved
+  - dry-run hygiene behavior preserved
+  - `securityRotation` remains `NOT_ROTATED_YET`
+- Sprint 20 must not start until this Sprint 19 control record is committed and pushed.
 - Carry-over constraints remain active:
   - `securityRotation: NOT_ROTATED_YET`
   - `idleMemoryEstimateMb: NOT_MEASURED_YET`

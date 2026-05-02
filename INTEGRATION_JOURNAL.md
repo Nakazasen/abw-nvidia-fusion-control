@@ -2,6 +2,95 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-02 - NVIDIA Sprint 19 Runtime Hygiene / Budget Follow-up Committed And Pushed
+
+NVIDIA Sprint 19 is completed and pushed in `D:\Sandbox\Nvidia`.
+
+Push evidence:
+
+- Previous NVIDIA main before Sprint 19: `a5d976090dd99fd76a39474fd475f6f03582c27c`
+- Commit hash: `875c0e1ae6fa033fee3b348d3ea52f738bebfa52`
+- Commit short hash: `875c0e1`
+- Commit message: `chore: harden Sprint 19 runtime budget evidence`
+- Push result: `a5d9760..875c0e1 main -> main`
+- Local HEAD after push: `875c0e1ae6fa033fee3b348d3ea52f738bebfa52`
+- Remote `origin/main` after push: `875c0e1ae6fa033fee3b348d3ea52f738bebfa52`
+- Local HEAD equals remote main: `YES`
+- `git status --short` after push: clean
+- `git status --short .nvidia-agent` after push: clean
+
+Files committed:
+
+- `docs/sprint-19-runtime-hardening.md`
+- `tools/performance-budget.mjs`
+- `tools/runtime-hygiene.mjs`
+
+Audit/Fix verdict before commit:
+
+- `AUDIT_FIXED_READY_FOR_COMMIT`
+
+Runtime/budget hardening summary:
+
+- Improved idle memory measurement/reporting in `tools/performance-budget.mjs`.
+- Improved security log evidence/reporting in `tools/runtime-hygiene.mjs`.
+- Added Sprint 19 doc: `docs/sprint-19-runtime-hardening.md`.
+- `getSecurityLogDetails(...)` hardened for readdir/stat/read failure paths.
+- Security log structured states supported: `OK`, `LARGE`, `EMPTY`, `PARTIAL`, `UNREADABLE`.
+- `securityLogErrors` reported when applicable.
+- `securityRotation` remains `NOT_ROTATED_YET` (detection/reporting only).
+- `idleMemoryStatus` becomes `MEASURED` when Windows tasklist parse succeeds.
+- Idle memory method: `tasklist /FI (Windows) working-set K -> MB`.
+
+Validation evidence:
+
+- `node --check tools/performance-budget.mjs` passed
+- `node --check tools/runtime-hygiene.mjs` passed
+- `node --check tools/nvidia-server.mjs` passed
+- `node --check tools/browser-smoke.mjs` passed
+- `node --check tools/agent-core.mjs` passed
+- `npm run budget:check` passed
+- `npm run runtime:hygiene` passed in DRY-RUN mode
+- `npm run agent:audit` passed `25/25`
+- `npm run browser:smoke -- --start-server --port 3456` passed `99/0`
+
+Performance/runtime evidence:
+
+- `coldStartTimeMs`: `143`
+- `reachabilityTimeMs`: `246`
+- `idleMemoryEstimateMb`: `43.11`
+- `idleMemoryStatus`: `MEASURED`
+- `idleMemoryMethod`: `tasklist /FI (Windows) working-set K -> MB`
+- runtime hygiene dry-run:
+  - scanned `364`
+  - toDelete `292`
+  - deleted `0`
+  - boundaryRejected `0`
+  - `securityRotation: NOT_ROTATED_YET`
+  - `securityLogStatus: OK`
+  - `securityLogBytes: 359192`
+  - `securityLogLines: 1230`
+
+Remaining limitations and non-claims preserved:
+
+- `securityRotation` remains `NOT_ROTATED_YET`, detection/reporting only
+- idle memory is startup-point measurement, not continuous monitoring
+- memory measurement is Windows tasklist-based and best-effort
+- browser smoke remains baseline evidence, not full E2E proof
+- ABW bridge not implemented
+- ABW ingest not implemented
+- not production-ready
+- not Cognitive OS achieved
+- not VS Code parity
+- not Cursor parity
+- not enterprise-grade security
+- not full sandboxing
+
+Next sequence reaffirmed:
+
+- Sprint 20-22: ABW v1.2 Ingest Kernel Hardening
+- Sprint 23-26: Bridge Phase 1 only after ABW ingest baseline proof
+- Sprint 27-30: bridge hardening and E2E/governance regression
+
 ## 2026-05-02 - Sprint 19 Scope Planning Completed
 
 Selected option:

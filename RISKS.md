@@ -800,3 +800,22 @@ Mitigation:
 - Require machine-readable evidence artifacts for reported metrics.
 - Require GPT audit/fix before commit.
 - Preserve non-claims and do not escalate capability language.
+
+## Post-Sprint 19 Carry-Over Risk Cluster (Active)
+
+Risk:
+
+- `idleMemoryEstimateMb` risk is partially mitigated by startup-point measurement, but not eliminated.
+- `securityRotation: NOT_ROTATED_YET` remains active (detection/reporting only).
+- Runtime hygiene destructive cleanup risk remains if dry-run-first invariant is violated.
+- Browser smoke remains baseline evidence, not full E2E proof.
+- ABW bridge remains dependency-gated on ABW ingest maturity.
+- ABW ingest maturity is now the next-phase focus/risk for Sprint 20-22.
+
+Mitigation:
+
+- Keep runtime hygiene default as dry-run.
+- Require explicit `--apply` only under safe audited workflow.
+- Preserve strict `.nvidia-agent` boundary guard for cleanup/rotation paths.
+- Require machine-readable evidence for memory/runtime claims.
+- Keep ABW bridge blocked until ABW ingest baseline proof is demonstrated.
