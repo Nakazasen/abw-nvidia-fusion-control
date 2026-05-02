@@ -745,3 +745,21 @@ Mitigation:
 - Require drafts/manifests/reports/review queue outputs with visible failed/skipped files.
 - Require no blind auto-promote and no grounded claim without valid source.
 - Keep Sprint 18-19 focused on NVIDIA modularization/runtime hardening.
+
+## Sprint 18 Browser Smoke Modularization Risk Cluster (Active)
+
+Risk:
+
+- Browser smoke monolith risk is an active Sprint 18 target.
+- Regression risk if smoke semantics/check count/pass-fail behavior changes during split.
+- Flaky test risk can increase if modularization introduces timing/order drift.
+- False confidence risk remains: browser smoke is not full E2E proof.
+- Bridge risk remains dependency-gated on ABW ingest maturity.
+
+Mitigation:
+
+- Preserve `tools/browser-smoke.mjs` as stable entrypoint.
+- Preserve current `99/0` behavior or explicitly document intentional check-count changes.
+- Require GPT audit/fix before commit.
+- Preserve runtime artifact staging safety and reporting boundaries.
+- Preserve non-claims and do not escalate readiness claims from smoke-only evidence.

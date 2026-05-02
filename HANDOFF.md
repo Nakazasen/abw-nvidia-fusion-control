@@ -31,6 +31,7 @@ Reality-synced state as of 2026-05-02:
 - Post-cleanup re-gate is completed with verdict `A. PROCEED_TO_SPRINT_17`.
 - Sprint 17 is completed and pushed.
 - Sprint 18 has not started.
+- Sprint 18 scope decision is recorded: `B. Browser Smoke Modularization`.
 - Sprint 16.5 cleanup, bugfix hardening, or readiness downgrade were valid gate outcomes; gate selected cleanup (`B`).
 - System must remain lightweight, modular, bounded, and controllable.
 - Current system is an internal daily-use candidate, not production-ready.
@@ -69,12 +70,12 @@ Reality-synced state as of 2026-05-02:
 - Do not claim project rules are ABW governance/proof.
 - Do not claim VS Code SCM parity.
 - Do not claim VS Code parity.
-- Do not start Sprint 18 from this strategic-adjustment control update task.
+- Do not start Sprint 18 implementation from this control-doc update task.
 
 ## Current Strategic Roadmap Status
 
 - Master Roadmap v1 has been recorded.
-- Current next step is committing/pushing this strategic dependency-adjustment control update.
+- Current next step is committing/pushing this Sprint 18 scope-decision control update.
 - Phase 1 Gate Review selected cleanup verdict `B`, and post-cleanup re-gate selected `A`.
 - Daily-use track status:
   - Sprint 13: Git / SCM Panel tot hon (done)
@@ -85,6 +86,7 @@ Reality-synced state as of 2026-05-02:
 - Sprint 18 remains blocked until this strategic adjustment is committed/pushed.
 - Carry-over risks remain active: `securityRotation: NOT_ROTATED_YET`, `idleMemoryEstimateMb: NOT_MEASURED_YET`, server monolith still large, and runtime hygiene dry-run safety posture.
 - ABW bridge remains delayed/dependency-gated on ABW ingest maturity proof.
+- Sprint 18 selected scope is browser-smoke modularization only; no bridge work.
 - INTERNAL_DAILY_USE_CANDIDATE is not production readiness.
 - The system must remain lightweight, modular, bounded, and controllable before entering Phase 2 feature growth.
 - Do not claim Sprint 15 as autonomous self-learning, self-growing wiki, or ABW governance/proof.
@@ -120,7 +122,7 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Commit and push this control repo update to record the post-Sprint 17 strategic dependency adjustment. After that push, Sprint 18 planning should stay focused on NVIDIA modularization/runtime hardening, not deep ABW bridge work.
+Commit and push this control repo update that records Sprint 18 scope decision. After that push, prepare Sprint 18 Builder prompt for Browser Smoke Modularization. Builder output is not final truth and requires GPT audit/fix before commit.
 
 Constraints for the next builder:
 

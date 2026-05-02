@@ -2,6 +2,55 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-02 - Sprint 18 Scope Planning Completed
+
+Selected option:
+
+- `B. Browser Smoke Modularization`
+
+Rationale:
+
+- Aligns with post-Sprint 17 strategic dependency adjustment.
+- Sprint 18 is not bridge-first.
+- Reduces test-monolith risk and strengthens the current quality gate.
+- Lower trust-boundary risk than additional server route refactor.
+- Avoids broad UI blast radius and keeps Sprint 18 inside NVIDIA modularization/runtime hardening.
+
+Rejected options:
+
+- `A. Server Route Modularization Batch 2`: aligned but higher runtime/API trust regression risk.
+- `C. Runtime Hygiene Follow-up`: valuable but safety-sensitive, better as separate explicitly scoped sprint.
+- `D. UI Monolith Prep`: directionally useful but higher UI blast radius and lower short-term value.
+
+Allowed Sprint 18 scope:
+
+- Keep `tools/browser-smoke.mjs` as stable entrypoint.
+- Extract suites/helpers into smaller modules.
+- Preserve API/UI check semantics and pass/fail behavior.
+- Preserve server lifecycle/orphan cleanup behavior.
+- Preserve reporting behavior.
+- Add Sprint 18 modularization/hardening documentation.
+
+Forbidden Sprint 18 scope:
+
+- No deep ABW bridge.
+- No ABW ingest implementation.
+- No self-growing wiki.
+- No provider secret encryption.
+- No broad UI rewrite.
+- No mutation/security-sensitive route refactor.
+- No production/Cognitive OS claim.
+- No Sprint 19 work.
+
+Model orchestration:
+
+- Builder model later: `Gemini 3.1 Pro`
+- Required audit/fix model later: `GPT-5.3-Codex / GPT-5.4 / GPT-5.5`
+
+Governance requirement:
+
+- This control-repo scope decision record must be committed/pushed before Sprint 18 Builder prompt issuance.
+
 ## 2026-05-02 - Post-Sprint 17 Strategic Dependency Adjustment
 
 Decision recorded:

@@ -270,3 +270,23 @@ Rationale:
 - ABW ingest is not yet mature enough as a robust self-ingesting knowledge/governance runtime.
 - Early bridge would risk an integrated-looking system with weak governed knowledge input.
 - This would create Cognitive OS overclaim risk.
+
+## 2026-05-02: Sprint 18 Scope Decision - Browser Smoke Modularization
+
+Decision:
+
+- Sprint 18 will focus on Browser Smoke Modularization.
+- Keep `tools/browser-smoke.mjs` as stable entrypoint.
+- Extract suites/helpers without reducing current coverage.
+- Do not implement deep ABW bridge.
+
+Status:
+
+- Accepted.
+
+Rationale:
+
+- Reduces test monolith risk.
+- Strengthens quality gate for later modularization.
+- Lower trust-boundary risk than server/mutation route work.
+- Aligns with Sprint 18-19 NVIDIA modularization/runtime hardening.

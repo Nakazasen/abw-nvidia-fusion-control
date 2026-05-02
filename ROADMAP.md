@@ -348,6 +348,15 @@ Required ABW ingest baseline proof before deep bridge work:
 - No blind auto-promote.
 - No grounded claim without valid source.
 
+## 2K. Sprint 18 Scope Decision (2026-05-02)
+
+- Selected scope: `B. Browser Smoke Modularization`.
+- Sprint 18 remains within NVIDIA modularization/runtime hardening.
+- Sprint 18 is not bridge-first.
+- Sprint 18 objective: split `tools/browser-smoke.mjs` into smaller suites/helpers while preserving current smoke coverage and behavior.
+- Keep Sprint 20-22 target: ABW v1.2 Ingest Kernel Hardening.
+- Keep Sprint 23-26 target: Bridge Phase 1 only after ABW ingest baseline proof.
+
 ## 3. Phase 1 - Internal Daily-Use Agent IDE
 
 Sprint range: Sprint 1-16
