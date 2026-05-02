@@ -840,3 +840,23 @@ Mitigation:
 - Require no blind auto-promote.
 - Require explicit failed/skipped visibility in outputs.
 - Require GPT audit/fix before accepting Sprint 20 result.
+
+## Post-ABW Sprint 20 Carry-Over Risk Cluster (Active)
+
+Risk:
+
+- ABW ingest maturity remains unresolved after Sprint 20 (docs-only baseline, no implementation hardening yet).
+- Domain contamination guard remains missing.
+- Blind auto-promote path remains an active trust-boundary risk.
+- Gap report is not fully tied to ingest output as an automatic machine-readable contract.
+- Two test failures remain documented as pre-existing/out-of-scope:
+  - `tests/test_abw_inspect.py::test_inspect_docx_heavy_workspace`
+  - `tests/test_abw_gaps.py::test_xls_heavy_workspace_reports_format_block`
+- Sprint 20 gap map is evidence/planning baseline, not an implementation fix.
+
+Mitigation:
+
+- Keep Sprint 21-22 focused on targeted ingest hardening from the Sprint 20 gap map.
+- Add contamination guard and manual-mode no-blind-auto-promote enforcement tests.
+- Add ingest-bound machine-readable gap output contract.
+- Keep bridge blocked until ingest baseline proof is implementation-backed and audited.

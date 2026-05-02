@@ -6,6 +6,7 @@
 - NVIDIA Sprint 17 Route Modularization Foundation is completed and pushed.
 - NVIDIA Sprint 18 Browser Smoke Modularization is completed and pushed.
 - NVIDIA Sprint 19 Runtime Hygiene / Budget Follow-up is completed and pushed.
+- ABW Sprint 20 Ingest Baseline Audit / Gap Map is completed and pushed.
 - Sprint 9 `Browser E2E Smoke Harness` is complete.
 - Sprint 10 Settings / Provider Manager / API Key UI is complete.
 - Sprint 11 Inline Edit kieu Cursor is complete.
@@ -28,7 +29,8 @@
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
 - Control repo latest recorded NVIDIA remote main: 875c0e1ae6fa033fee3b348d3ea52f738bebfa52.
-- Control repo latest recorded control remote main: `680ec634105b48810e9cb17a8711bf3bdde6880b`.
+- Control repo latest recorded ABW remote main: `0bf89eca9ee141aa1aba147185d31691340ac2b9`.
+- Control repo latest recorded control remote main: `fb1c4bb948e2bad21475dbcd35627a22da5c8ccc`.
 - Sprint 17 scope summary:
   - server route modularization foundation
   - extracted read-only GET route group (`/api/workspace`, `/api/pending_edits`, `/api/tools`, `/api/rate_limit`)
@@ -44,7 +46,15 @@
   - security log reporting improved
   - dry-run hygiene behavior preserved
   - `securityRotation` remains `NOT_ROTATED_YET`
-- Sprint 20 must not start until this Sprint 19 control record is committed and pushed.
+- Sprint 20 scope summary:
+  - docs-only ingest baseline gap map
+  - ABW v1.2 ingest acceptance criteria
+  - no source behavior changes
+  - no bridge
+  - no ingest implementation code
+- Sprint 21 must not start until this ABW Sprint 20 control record is committed and pushed.
+- Sprint 21-22 should target ABW ingest hardening based on Sprint 20 gap map.
+- Bridge Phase 1 remains blocked until ABW ingest baseline proof.
 - Carry-over constraints remain active:
   - `securityRotation: NOT_ROTATED_YET`
   - `idleMemoryEstimateMb: NOT_MEASURED_YET`
@@ -403,6 +413,17 @@ Required ABW ingest baseline proof before deep bridge work:
   - define acceptance criteria for Sprint 21-22 targeted hardening
 - Sprint 21-22 should use this gap map for targeted hardening.
 - Sprint 23-26 Bridge Phase 1 remains blocked until ABW ingest baseline proof.
+
+## 2O. ABW Sprint 20 Completion Record (2026-05-02)
+
+- ABW Sprint 20 Ingest Baseline Audit / Gap Map is completed and pushed.
+- Latest ABW remote main is `0bf89eca9ee141aa1aba147185d31691340ac2b9`.
+- Sprint 20 delivered docs-only baseline artifacts:
+  - `docs/sprint-20-ingest-baseline-gap-map.md`
+  - `docs/abw-v1.2-ingest-acceptance-criteria.md`
+- No ABW source behavior changes were introduced by Sprint 20.
+- No bridge implementation and no ingest implementation code were added in Sprint 20.
+- Sprint 21 remains blocked until this control record is committed/pushed.
 
 ## 3. Phase 1 - Internal Daily-Use Agent IDE
 

@@ -364,3 +364,20 @@ Rationale:
 - Establishes evidence baseline before implementation-heavy Sprint 21-22 work.
 - Prevents overbuild and false Cognitive OS/bridge readiness claims.
 - Supports bridge dependency gate.
+
+## 2026-05-02: Record ABW Sprint 20 Ingest Baseline Gap Map Completion
+
+Decision:
+
+- Accept Sprint 20 as docs-only baseline/gap-map sprint.
+- Accept Sprint 20 output as planning baseline, not proof that ingest maturity is solved.
+- Use Sprint 20 gap map and acceptance criteria to guide Sprint 21-22.
+
+Status:
+
+- Accepted.
+
+Consequence:
+
+- Sprint 21 may be planned only after this control update is committed/pushed.
+- Deep NVIDIA<->ABW bridge remains blocked until ABW ingest baseline proof.

@@ -2,6 +2,66 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-02 - ABW Sprint 20 Ingest Baseline Audit / Gap Map Committed And Pushed
+
+ABW Sprint 20 is completed and pushed in `D:\Sandbox\skill-Anti-brain-wiki_note`.
+
+Push evidence:
+
+- Previous ABW main before Sprint 20: `4f35b10`
+- Commit hash: `0bf89eca9ee141aa1aba147185d31691340ac2b9`
+- Commit short hash: `0bf89ec`
+- Commit message: `docs: add Sprint 20 ingest baseline gap map`
+- Push result: `4f35b10..0bf89ec main -> main`
+- Local HEAD after push: `0bf89eca9ee141aa1aba147185d31691340ac2b9`
+- Remote `origin/main` after push: `0bf89eca9ee141aa1aba147185d31691340ac2b9`
+- Local HEAD equals remote main: `YES`
+- ABW final git status after push:
+  - `?? README.proposed.md`
+  - `?? docs/ABW_ARCHITECTURE_AUDIT_2026-04-30.md`
+
+Files committed:
+
+- `docs/sprint-20-ingest-baseline-gap-map.md`
+- `docs/abw-v1.2-ingest-acceptance-criteria.md`
+
+Audit/Fix verdict before commit:
+
+- `AUDIT_FIXED_READY_FOR_COMMIT`
+
+Mojibake/encoding evidence:
+
+- check result: `NO_MOJIBAKE_MATCH`
+- docs cleaned to UTF-8
+
+Validation evidence:
+
+- `py -m pytest tests/test_abw_ingest.py -v --tb=short` -> `48 passed`
+- `py -m pytest tests/test_abw_health.py tests/test_abw_inspect.py tests/test_abw_gaps.py tests/test_promotion_engine.py -v --tb=short` -> `29 passed, 2 failed`
+
+Pre-existing/out-of-scope failures:
+
+- `tests/test_abw_inspect.py::test_inspect_docx_heavy_workspace`
+- `tests/test_abw_gaps.py::test_xls_heavy_workspace_reports_format_block`
+
+Remaining limitations and non-claims preserved:
+
+- ABW ingest maturity is not solved
+- domain contamination guard not implemented
+- manual-only no-blind-auto-promote invariant not enforced across all paths
+- gap reports are not fully tied to ingest output
+- bridge not implemented
+- self-growing wiki not implemented
+- not production-ready
+- not Cognitive OS
+- not enterprise-grade security
+- not full NVIDIA<->ABW bridge
+
+Next sequence reaffirmed:
+
+- Sprint 21-22: targeted ABW ingest hardening from Sprint 20 gap-map baseline
+- Bridge Phase 1 remains blocked until ABW ingest baseline proof
+
 ## 2026-05-02 - Sprint 20 Scope Planning Completed
 
 Selected option:
