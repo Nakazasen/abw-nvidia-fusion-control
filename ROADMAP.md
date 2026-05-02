@@ -392,6 +392,18 @@ Required ABW ingest baseline proof before deep bridge work:
 - Keep Sprint 20-22 target: ABW v1.2 Ingest Kernel Hardening.
 - Keep Sprint 23-26 target: Bridge Phase 1 only after ABW ingest baseline proof.
 
+## 2N. Sprint 20 Scope Decision (2026-05-02)
+
+- Selected scope: `A. ABW Ingest Baseline Audit / Gap Map`.
+- Sprint 20 starts ABW v1.2 Ingest Kernel Hardening phase.
+- Sprint 20 is audit/gap-map first, not implementation-heavy bridge work.
+- Sprint 20 objective:
+  - map `raw/ -> parse -> normalize -> draft -> manifest -> report -> review/gap` behavior from current ABW reality
+  - produce evidence-backed gap matrix for `implemented / partial / missing`
+  - define acceptance criteria for Sprint 21-22 targeted hardening
+- Sprint 21-22 should use this gap map for targeted hardening.
+- Sprint 23-26 Bridge Phase 1 remains blocked until ABW ingest baseline proof.
+
 ## 3. Phase 1 - Internal Daily-Use Agent IDE
 
 Sprint range: Sprint 1-16

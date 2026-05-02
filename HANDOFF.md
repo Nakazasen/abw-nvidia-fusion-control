@@ -132,7 +132,15 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Commit and push this control repo update that records Sprint 19 completion. After that push, prepare Sprint 20 planning focused on ABW v1.2 Ingest Kernel Hardening.
+Commit and push this control repo update that records Sprint 20 scope decision. After that push, prepare Sprint 20 Builder prompt focused on `A. ABW Ingest Baseline Audit / Gap Map`.
+
+Sprint 20 status and governance constraints:
+
+- Sprint 20 has not started until Builder begins.
+- Builder result is not final truth.
+- GPT audit/fix is required before commit.
+- No bridge work in Sprint 20 scope.
+- No production/Cognitive OS claim.
 
 Constraints for the next builder:
 

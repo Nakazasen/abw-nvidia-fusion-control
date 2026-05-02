@@ -819,3 +819,24 @@ Mitigation:
 - Preserve strict `.nvidia-agent` boundary guard for cleanup/rotation paths.
 - Require machine-readable evidence for memory/runtime claims.
 - Keep ABW bridge blocked until ABW ingest baseline proof is demonstrated.
+
+## Sprint 20 Ingest Baseline/Governance Risk Cluster (Active)
+
+Risk:
+
+- ABW ingest maturity risk is now the active Sprint 20 focus.
+- Prompt/agent-dependent ingest behavior remains a governance risk.
+- Missing/partial `manifest/report/review/gap` behavior can create false confidence if not mapped explicitly.
+- Blind auto-promote risk remains forbidden.
+- Domain contamination risk remains active.
+- Bridge remains dependency-gated on ingest baseline proof.
+- Gap-map inaccuracy risk can misdirect Sprint 21-22 hardening.
+
+Mitigation:
+
+- Require an evidence-backed gap matrix (`implemented / partial / missing`) with source references.
+- Require a validation/test plan for failed/skipped visibility and provenance checks.
+- Require no grounded claim without valid source.
+- Require no blind auto-promote.
+- Require explicit failed/skipped visibility in outputs.
+- Require GPT audit/fix before accepting Sprint 20 result.

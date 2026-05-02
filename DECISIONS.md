@@ -345,3 +345,22 @@ Consequence:
 
 - Sprint 20 should shift to ABW v1.2 Ingest Kernel Hardening per strategic dependency adjustment.
 - Deep NVIDIA<->ABW bridge remains blocked until ABW ingest baseline proof.
+
+## 2026-05-02: Sprint 20 Scope Decision - ABW Ingest Baseline Audit / Gap Map
+
+Decision:
+
+- Sprint 20 will focus on ABW ingest baseline audit and gap mapping.
+- No deep NVIDIA<->ABW bridge.
+- No blind auto-promote.
+- No claim that ingest maturity is solved.
+
+Status:
+
+- Accepted.
+
+Rationale:
+
+- Establishes evidence baseline before implementation-heavy Sprint 21-22 work.
+- Prevents overbuild and false Cognitive OS/bridge readiness claims.
+- Supports bridge dependency gate.

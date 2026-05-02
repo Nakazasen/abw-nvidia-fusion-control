@@ -2,6 +2,67 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-02 - Sprint 20 Scope Planning Completed
+
+Selected option:
+
+- `A. ABW Ingest Baseline Audit / Gap Map`
+
+Rationale:
+
+- Safely opens Sprint 20-22 ABW v1.2 Ingest Kernel Hardening.
+- Establishes an evidence baseline before implementation-heavy hardening.
+- Avoids overclaiming ABW ingest maturity.
+- Reduces trust-boundary risk before NVIDIA<->ABW bridge work.
+- Produces a gap matrix and acceptance criteria for Sprint 21-22.
+
+Rejected options:
+
+- `B. ABW Ingest Manifest + Evidence Hardening`: valuable, but should follow a baseline gap map.
+- `C. ABW Ingest Review Queue Hardening`: valuable, but depends on mapping current review/promote behavior first.
+- `D. ABW Ingest E2E Baseline Command`: high value, but orchestration risk is high before gap mapping.
+- `E. ABW Ingest Domain Contamination Guard`: important, but should follow baseline ingest behavior mapping.
+
+Allowed Sprint 20 scope:
+
+- Audit current ABW ingest pipeline.
+- Map actual `raw/ -> parse -> normalize -> draft -> manifest -> report -> review/gap` behavior.
+- Produce gap matrix with:
+  - implemented / partial / missing
+  - evidence references
+  - risk level
+  - recommended Sprint 21-22 follow-up
+- Define v1.2 acceptance criteria.
+- Design validation/test cases for:
+  - failed/skipped visibility
+  - source evidence and hash/source provenance
+  - no blind auto-promote
+  - domain contamination warnings
+  - no grounded claim without valid source
+- Produce governance-ready summary.
+
+Forbidden Sprint 20 scope:
+
+- No deep NVIDIA<->ABW bridge.
+- No NVIDIA UI bridge.
+- No self-growing wiki.
+- No blind auto-promote.
+- No grounded claim without valid source.
+- No domain contamination.
+- No broad ABW rewrite.
+- No productionization.
+- No claim that ABW ingest maturity is solved.
+- No Sprint 21 implementation work unless later explicitly scoped.
+
+Model orchestration:
+
+- Builder model: `Gemini 3.1 Pro`
+- Required audit/fix model: `GPT-5.3-Codex / GPT-5.4 / GPT-5.5`
+
+Governance requirement:
+
+- This control repo update must be committed/pushed before Sprint 20 Builder prompt issuance.
+
 ## 2026-05-02 - NVIDIA Sprint 19 Runtime Hygiene / Budget Follow-up Committed And Pushed
 
 NVIDIA Sprint 19 is completed and pushed in `D:\Sandbox\Nvidia`.
