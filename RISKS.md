@@ -879,3 +879,21 @@ Mitigation:
 - Audit all promote/write paths in ingest and knowledge flows.
 - Require GPT audit/fix before commit.
 - Preserve non-claims.
+
+## Post-ABW Sprint 21 Carry-Over Risk Cluster (Active)
+
+Risk:
+
+- Blind auto-promote default risk is mitigated, but explicit `promotion_mode:auto` remains a carry-over risk.
+- Domain contamination guard remains unresolved.
+- Gap report not fully tied to ingest output remains an active risk.
+- ABW ingest maturity remains incomplete.
+- Two test failures remain documented as pre-existing/out-of-scope:
+  - `tests/test_abw_inspect.py::test_inspect_docx_heavy_workspace`
+  - `tests/test_abw_gaps.py::test_xls_heavy_workspace_reports_format_block`
+
+Mitigation:
+
+- Keep manual-first default as invariant and treat `promotion_mode:auto` as explicit high-risk opt-in.
+- Prioritize domain contamination guard and ingest-bound gap/report contract in Sprint 22 planning.
+- Preserve non-claims and require GPT audit/fix before commit.

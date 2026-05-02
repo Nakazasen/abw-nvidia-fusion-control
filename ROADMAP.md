@@ -438,6 +438,24 @@ Required ABW ingest baseline proof before deep bridge work:
 - Sprint 22 should continue ABW ingest hardening based on remaining Sprint 20/Sprint 21 gaps.
 - Sprint 23-26 Bridge Phase 1 remains blocked until ABW ingest baseline proof.
 
+## 2Q. ABW Sprint 21 Completion Record (2026-05-03)
+
+- ABW Sprint 21 Disable / Gate Blind Auto-Promotion is completed and pushed.
+- Latest ABW remote main is `e129a906f4df5f541fc3105e9fc04ce791addc79`.
+- Sprint 21 scope summary:
+  - default blind auto-promote path removed/gated
+  - `_review_decision` is now manual-review oriented
+  - `run_promote_drafts` is fail-closed by default
+  - explicit approval path is preserved
+  - promotion safety tests are added/updated
+- Sprint 22 must not start until this control repo update is committed/pushed.
+- Sprint 22 should continue ABW ingest hardening based on remaining gaps:
+  - domain contamination guard
+  - manifest/source evidence contract
+  - aggregate ingest report
+  - machine-readable gap output
+- Bridge Phase 1 remains blocked until ABW ingest baseline proof.
+
 ## 3. Phase 1 - Internal Daily-Use Agent IDE
 
 Sprint range: Sprint 1-16

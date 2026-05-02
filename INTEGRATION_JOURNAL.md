@@ -2,6 +2,82 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - ABW Sprint 21 Disable / Gate Blind Auto-Promotion Committed And Pushed
+
+ABW Sprint 21 is completed and pushed in `D:\Sandbox\skill-Anti-brain-wiki_note`.
+
+Push evidence:
+
+- Previous ABW main before Sprint 21: `0bf89eca9ee141aa1aba147185d31691340ac2b9`
+- Commit hash: `e129a906f4df5f541fc3105e9fc04ce791addc79`
+- Commit short hash: `e129a90`
+- Commit message: `fix: gate blind auto-promotion by default`
+- Push result: `0bf89ec..e129a90 main -> main`
+- Local HEAD after push: `e129a906f4df5f541fc3105e9fc04ce791addc79`
+- Remote `origin/main` after push: `e129a906f4df5f541fc3105e9fc04ce791addc79`
+- Local HEAD equals remote main: `YES`
+- ABW final git status after push:
+  - `?? README.proposed.md`
+  - `?? docs/ABW_ARCHITECTURE_AUDIT_2026-04-30.md`
+
+Files committed:
+
+- `docs/sprint-21-promotion-safety.md`
+- `scripts/abw_ingest.py`
+- `scripts/abw_knowledge.py`
+- `tests/test_abw_ingest.py`
+- `tests/test_promotion_engine.py`
+
+Audit/Fix verdict before commit:
+
+- `AUDIT_PASS_READY_FOR_COMMIT`
+
+Promotion safety hardening summary:
+
+- `_review_decision` no longer returns `candidate_promoted` / `candidate_ready`.
+- `run_promote_drafts` is blocked by default unless `providers.promotion_mode == "auto"`.
+- config parse/read errors fail closed.
+- explicit approval path in `scripts/abw_review.py` remained unchanged.
+- tests prove no default silent wiki write.
+
+Mojibake/encoding evidence:
+
+- check result: `NO_MOJIBAKE_MATCH`
+
+Validation evidence:
+
+- `py -m py_compile scripts/abw_ingest.py` -> PASS
+- `py -m py_compile scripts/abw_knowledge.py` -> PASS
+- `py -m py_compile scripts/abw_review.py` -> PASS
+- `py -m py_compile scripts/abw_runner.py` -> PASS
+- `py -m py_compile scripts/abw_entry.py` -> PASS
+- `py -m pytest tests/test_promotion_engine.py -v --tb=short` -> `13 passed`
+- `py -m pytest tests/test_abw_ingest.py -v --tb=short` -> `48 passed`
+- `py -m pytest tests/test_abw_health.py tests/test_abw_inspect.py tests/test_abw_gaps.py tests/test_promotion_engine.py -v --tb=short` -> `37 passed, 2 failed`
+
+Pre-existing/out-of-scope failures:
+
+- `tests/test_abw_inspect.py::test_inspect_docx_heavy_workspace`
+- `tests/test_abw_gaps.py::test_xls_heavy_workspace_reports_format_block`
+
+Remaining limitations and non-claims preserved:
+
+- `promotion_mode:auto` still permits auto-promote when explicitly enabled.
+- domain contamination guard remains unresolved.
+- ABW ingest maturity is not fully solved.
+- gap report not fully tied to ingest output.
+- bridge not implemented.
+- self-growing wiki not implemented.
+- not production-ready.
+- not Cognitive OS.
+- not enterprise-grade security.
+- not full NVIDIA<->ABW bridge.
+
+Next sequence reaffirmed:
+
+- Sprint 22: targeted ABW ingest hardening on remaining gaps.
+- Bridge Phase 1 remains blocked until ABW ingest baseline proof.
+
 ## 2026-05-02 - Sprint 21 Scope Planning Completed
 
 Selected option:

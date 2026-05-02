@@ -399,3 +399,21 @@ Rationale:
 
 - Silent promotion is the highest-risk trust-boundary failure from Sprint 20.
 - Promotion safety must be hardened before bridge-facing reports/manifest expansion.
+
+## 2026-05-03: Record ABW Sprint 21 Promotion Safety Completion
+
+Decision:
+
+- Accept Sprint 21 as promotion safety hardening.
+- Accept manual-first default promotion behavior.
+- Accept `promotion_mode:auto` only as explicit opt-in, not default.
+- Do not treat Sprint 21 as full ingest maturity.
+
+Status:
+
+- Accepted.
+
+Consequence:
+
+- Sprint 22 may be planned only after this control update is committed/pushed.
+- Deep NVIDIA<->ABW bridge remains blocked until ABW ingest baseline proof.

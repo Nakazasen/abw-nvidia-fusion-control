@@ -27,8 +27,9 @@ Reality-synced state as of 2026-05-02:
 - NVIDIA Sprint 18 Browser Smoke Modularization is complete and pushed.
 - NVIDIA Sprint 19 Runtime Hygiene / Budget Follow-up is complete and pushed.
 - ABW Sprint 20 Ingest Baseline Audit / Gap Map is complete and pushed.
+- ABW Sprint 21 Disable / Gate Blind Auto-Promotion is complete and pushed.
 - Latest NVIDIA remote main is 875c0e1ae6fa033fee3b348d3ea52f738bebfa52.
-- Latest ABW remote main is 0bf89eca9ee141aa1aba147185d31691340ac2b9.
+- Latest ABW remote main is e129a906f4df5f541fc3105e9fc04ce791addc79.
 - Current readiness verdict is INTERNAL_DAILY_USE_CANDIDATE.
 - Phase 1 Gate Review is completed.
 - Phase 1 Gate Review verdict is `B. INSERT_SPRINT_16_5_CLEANUP`.
@@ -85,7 +86,7 @@ Reality-synced state as of 2026-05-02:
 ## Current Strategic Roadmap Status
 
 - Master Roadmap v1 has been recorded.
-- Current next step is committing/pushing this Sprint 21 scope-decision control update.
+- Current next step is committing/pushing this ABW Sprint 21 completion control update.
 - Phase 1 Gate Review selected cleanup verdict `B`, and post-cleanup re-gate selected `A`.
 - Daily-use track status:
   - Sprint 13: Git / SCM Panel tot hon (done)
@@ -93,13 +94,13 @@ Reality-synced state as of 2026-05-02:
   - Sprint 15: Project Rules / Memory UI toi thieu (done)
   - Sprint 16: Daily-use hardening / E2E regression pack (done)
 - Sprint 16.5 cleanup is complete and recorded.
-- Sprint 21 remains blocked until this Sprint 21 scope-decision control update is committed/pushed.
+- Sprint 22 remains blocked until this ABW Sprint 21 completion control update is committed/pushed.
 - Carry-over risks remain active: `securityRotation: NOT_ROTATED_YET`, `idleMemoryEstimateMb: NOT_MEASURED_YET`, server monolith still large, and runtime hygiene dry-run safety posture.
 - ABW bridge remains delayed/dependency-gated on ABW ingest maturity proof.
 - Sprint 18 selected scope (browser-smoke modularization) is complete.
 - Sprint 19 selected scope is Runtime Hygiene / Budget Follow-up.
 - Sprint 19 should remain NVIDIA modularization/runtime hardening only (no bridge work).
-- Sprint 21 planning should focus on targeted ABW ingest hardening from Sprint 20 gap-map evidence, not deep bridge work.
+- Sprint 22 planning should focus on remaining ABW ingest hardening gaps, not deep bridge work.
 - INTERNAL_DAILY_USE_CANDIDATE is not production readiness.
 - The system must remain lightweight, modular, bounded, and controllable before entering Phase 2 feature growth.
 - Do not claim Sprint 15 as autonomous self-learning, self-growing wiki, or ABW governance/proof.
@@ -135,15 +136,15 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Commit and push this control repo update that records Sprint 21 scope decision. After that push, prepare Sprint 21 Builder prompt focused on `A. Disable / Gate Blind Auto-Promotion`.
+Commit and push this control repo update that records ABW Sprint 21 completion. After that push, prepare Sprint 22 planning focused on remaining ABW ingest hardening gaps from Sprint 20-21 evidence.
 
-Sprint 21 status and governance constraints:
+Sprint 22 status and governance constraints:
 
-- Sprint 21 has not started until Builder begins.
+- Sprint 22 has not started until Builder begins.
 - Builder result is not final truth.
 - GPT audit/fix is required before commit.
-- No deep bridge work in Sprint 21 scope.
-- No NVIDIA work in Sprint 21 scope.
+- No deep bridge work in Sprint 22 scope.
+- No NVIDIA work in Sprint 22 scope.
 - No production/Cognitive OS claim.
 
 Constraints for the next builder:
