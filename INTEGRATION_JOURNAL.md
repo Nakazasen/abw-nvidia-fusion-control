@@ -2,6 +2,105 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-02 - NVIDIA Sprint 15 Project Rules / Memory UI tối thiểu committed and pushed
+
+NVIDIA Sprint 15 is completed and pushed in `D:\Sandbox\Nvidia`.
+
+Push evidence:
+
+- Commit hash: `40eaf7b5679146666b5a47a6d2c0900f474a41c2`
+- Commit short hash: `40eaf7b`
+- Commit message: `feat: add Sprint 15 project rules memory`
+- Push result: `165a181..40eaf7b main -> main`
+- Local HEAD after push: `40eaf7b5679146666b5a47a6d2c0900f474a41c2`
+- Remote `origin/main` after push: `40eaf7b5679146666b5a47a6d2c0900f474a41c2`
+- Local HEAD equals remote main: `YES`
+- `git status --short` after push: clean
+
+Verification evidence recorded from NVIDIA Sprint 15 close:
+
+- `node --check tools\nvidia-server.mjs` passed
+- `node --check tools\nvidia-cli-agent.mjs` passed
+- `node --check tools\extension-host.mjs` passed
+- `node --check tools\agent-core.mjs` passed
+- `node --check tools\browser-smoke.mjs` passed
+- `npm run agent:audit` passed `25/25`
+- inline HTML parse check passed (`openDiv=313`, `closeDiv=313`, `balanced=true`)
+- browser smoke passed:
+  - command: `npm run browser:smoke -- --start-server --port 3456`
+  - exit code: `0`
+  - `ok=true`
+  - `mode=real-browser`
+  - `checks=52 passed / 0 failed`
+  - project rules checks included
+  - permission checks included
+  - server stopped cleanly
+  - orphan=`false`
+- project rules API smoke passed:
+  - `GET /api/project_rules` -> `200`
+  - `GET /api/project_rules/context` -> `200`
+  - enterprise mode project_rules mutation denied -> `403`
+  - IDE mode project_rules mutation denied without approval -> `403`
+  - IDE + approval project_rules add valid rule accepted -> `200`
+  - toggle project rule works -> `200`
+  - delete project rule works -> `200`
+  - oversized rule content rejected -> `413`
+- permission regression passed:
+  - provider mutation enterprise -> `403`
+  - inline edit enterprise -> `403`
+  - task mutation enterprise -> `403`
+  - git mutation enterprise -> `403`
+  - terminal/job mutation enterprise -> `403`
+  - unknown action fail closed -> `400`
+  - `git.commit` denied -> `403`
+  - `git.push` denied -> `403`
+  - `abw.bridge.reserved` denied -> `403`
+- secret rejection/persistence checks passed:
+  - invalid category/priority/source/visibility rejected
+  - secret-like content rejected and not persisted
+  - full-save/import secret persistence blocked
+  - normal Vietnamese/Japanese text accepted
+  - normal Windows path/glob accepted
+- disabled rules/memory excluded from context
+- corrupted JSON fallback safe and non-crashing
+- runtime secrets/artifacts were not staged
+
+Sprint 15 scope implemented:
+
+- Project Rules / Memory UI in Settings
+- runtime persistence under ignored `.nvidia-agent/rules/project-rules.json`
+- Project Rules APIs
+- memory flows integrated with project rules endpoints
+- `@rules` context integration
+- enabled rules/memory bounded context summary
+- `project_rules.read` / `project_rules.mutate` / `memory.read` / `memory.mutate` permissions
+- explicit warnings:
+  - project rules are not a proof system and not ABW governance
+  - no automatic self-learning
+
+Codex audit/fix highlights:
+
+- enterprise mutation guard fixed/verified
+- invalid enum validation fixed (category/priority/source/visibility)
+- memory mutation endpoints enforce `memory.mutate`
+- oversized rule content returns `413`
+- secret-like full-save/import persistence blocked
+- export error path maps permission status
+- `saveProjectRules` uses temp-write + rename
+- browser smoke oversized-status check updated to `413`
+
+Explicit limitations:
+
+- no autonomous self-learning
+- no self-growing wiki
+- project rules are guidance only, not ABW governance/proof
+- daily-use readiness is not achieved
+- browser smoke is not full E2E coverage
+- no ABW bridge is implemented
+- Sprint 16 has not started
+- Cognitive OS is not achieved
+- VS Code parity is not achieved
+
 ## 2026-05-02 - NVIDIA Sprint 14 Security Permission Model co ban committed and pushed
 
 NVIDIA Sprint 14 is completed and pushed in `D:\Sandbox\Nvidia`.

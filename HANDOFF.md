@@ -20,8 +20,9 @@ Reality-synced state as of 2026-05-02:
 - NVIDIA Sprint 12 Task Timeline + Recovery / Resume is complete and pushed.
 - NVIDIA Sprint 13 Git / SCM Panel tot hon is complete and pushed.
 - NVIDIA Sprint 14 Security Permission Model co ban is complete and pushed.
-- Latest NVIDIA remote main is 165a1819190d205e266549d4d83388b33fb368d9.
-- NVIDIA next planned sprint is Sprint 15: Project Rules / Memory UI toi thieu.
+- NVIDIA Sprint 15 Project Rules / Memory UI toi thieu is complete and pushed.
+- Latest NVIDIA remote main is 40eaf7b5679146666b5a47a6d2c0900f474a41c2.
+- NVIDIA next planned sprint is Sprint 16: Daily-use hardening / E2E regression pack.
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
 - Sprint 9 browser smoke is a baseline gate, not full E2E coverage.
 - Sprint 10 returned the project to the daily-use track after the browser smoke baseline.
@@ -33,6 +34,10 @@ Reality-synced state as of 2026-05-02:
 - Sprint 14 creates a basic centralized permission model and audit logging.
 - Sprint 14 is not enterprise-grade security.
 - Sprint 14 is not full sandboxing.
+- Sprint 15 adds explicit project rules/memory UI and bounded @rules context.
+- Sprint 15 is not autonomous self-learning.
+- Sprint 15 is not a self-growing wiki.
+- Sprint 15 is not ABW governance/proof.
 - Daily-use readiness is still not achieved.
 - Fusion bridge contract exists, but bridge implementation is not implemented yet.
 - Integration strategy remains bridge-first, not source-merge-first.
@@ -49,19 +54,22 @@ Reality-synced state as of 2026-05-02:
 - Do not claim enterprise-grade security.
 - Do not claim full sandboxing.
 - Do not claim full autonomous recovery.
+- Do not claim autonomous self-learning.
+- Do not claim self-growing wiki.
+- Do not claim project rules are ABW governance/proof.
 - Do not claim VS Code SCM parity.
-- Do not start Sprint 15 from this control update task.
+- Do not start Sprint 16 from this control update task.
 
 ## Current Strategic Roadmap Status
 
 - Master Roadmap v1 has been recorded.
-- Current next sprint remains Sprint 15: Project Rules / Memory UI toi thieu.
+- Current next sprint remains Sprint 16: Daily-use hardening / E2E regression pack.
 - After Sprint 12, the roadmap continues on the daily-use track:
   - Sprint 13: Git / SCM Panel tot hon (done)
   - Sprint 14: Security Permission Model co ban (done)
-  - Sprint 15: Project Rules / Memory UI toi thieu
+  - Sprint 15: Project Rules / Memory UI toi thieu (done)
   - Sprint 16: Daily-use hardening
-- Do not claim Sprint 14 as enterprise-grade security or full sandboxing.
+- Do not claim Sprint 15 as autonomous self-learning, self-growing wiki, or ABW governance/proof.
 - ABW bridge still not implemented.
 - Cognitive OS not yet achieved.
 
@@ -84,7 +92,7 @@ Read these in order:
 
 ## Immediate Next Action
 
-Prepare Sprint 15 builder planning while preserving current truth: Sprint 1-14 are pushed, bridge implementation does not exist yet, and next sprint remains Sprint 15: Project Rules / Memory UI toi thieu.
+Prepare Sprint 16 builder planning while preserving current truth: Sprint 1-15 are pushed, bridge implementation does not exist yet, and next sprint remains Sprint 16: Daily-use hardening / E2E regression pack.
 
 Constraints for the next builder:
 

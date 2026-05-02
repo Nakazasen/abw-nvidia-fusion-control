@@ -2,13 +2,13 @@
 
 ## 1. Current State
 
-- NVIDIA Sprint 1-14 are completed and pushed.
+- NVIDIA Sprint 1-15 are completed and pushed.
 - Sprint 9 `Browser E2E Smoke Harness` is complete.
 - Sprint 10 Settings / Provider Manager / API Key UI is complete.
 - Sprint 11 Inline Edit kieu Cursor is complete.
 - Sprint 12 Task Timeline + Recovery / Resume is complete.
 - Sprint 13 Git / SCM Panel tot hon is complete.
-- Next sprint is Sprint 15: Project Rules / Memory UI toi thieu.
+- Next sprint is Sprint 16: Daily-use hardening / E2E regression pack.
 - ABW bridge is not implemented.
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
 - Browser smoke baseline now exists and passed in real-browser mode.
@@ -23,7 +23,7 @@
 - Current capability is not VS Code parity.
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
-- Control repo latest recorded NVIDIA remote main: 165a1819190d205e266549d4d83388b33fb368d9.
+- Control repo latest recorded NVIDIA remote main: 40eaf7b5679146666b5a47a6d2c0900f474a41c2.
 - Control repo latest recorded control remote main: `f3423f4558c06f8ccf33a1f84f0abd62f50fde02`.
 
 ## 2. Roadmap Governance Rules
@@ -43,7 +43,7 @@ implementation exists, audit passes, commit exists, push exists, and the control
 
 ### Planning Horizons
 
-- Short-term plan: Sprint 15-16, continue memory UI and daily-use hardening after Sprint 14 security completion.
+- Short-term plan: Sprint 16, daily-use hardening/regression/readiness gate after Sprint 15 completion.
 - Mid-term plan: Sprint 17-40, move from a stronger internal agent IDE into an ABW-governed internal Cognitive Workspace and internal pilot.
 - Long-term plan: Sprint 41-60, add governed knowledge ingestion, self-growing wiki controls, self-improvement controls, and controlled tool generation.
 - End-state plan: Sprint 61-80, reach Enterprise Cognitive OS Beta with enterprise runtime, orchestration, evidence ledger, compliance, and department workflows.
@@ -86,7 +86,7 @@ Sprint range: Sprint 1-16
 - Sprint 12: Task Timeline + Recovery / Resume - done
 - Sprint 13: Git / SCM Panel tot hon - done
 - Sprint 14: Security Permission Model co ban - done
-- Sprint 15: Project Rules / Memory UI toi thieu
+- Sprint 15: Project Rules / Memory UI toi thieu - done
 - Sprint 16: Daily-use hardening / E2E regression pack
 
 ### Capability Target (Phase 1)
@@ -98,8 +98,8 @@ Sprint range: Sprint 1-16
 
 ### Capability Warning
 
-- Sprint 9, Sprint 10, Sprint 11, Sprint 12, Sprint 13, and Sprint 14 are complete; the next track continues daily-use features, not deeper foundation work.
-- Around Sprint 15-16, warn that this is the daily-use readiness gate.
+- Sprint 9, Sprint 10, Sprint 11, Sprint 12, Sprint 13, Sprint 14, and Sprint 15 are complete; the next track continues daily-use features, not deeper foundation work.
+- Around Sprint 16, warn that this is the daily-use readiness gate.
 - Daily-use readiness is still not achieved until Sprint 16 audit passes.
 
 
@@ -111,7 +111,7 @@ Sprint range: Sprint 1-16
 - Sprint 12 Task Timeline + Recovery / Resume complete.
 - Sprint 13 Git / SCM Panel tot hon complete.
 - Sprint 14 Security Permission Model co ban complete.
-- Sprint 15 Project Rules / Memory UI toi thieu next.
+- Sprint 15 Project Rules / Memory UI toi thieu complete.
 - Sprint 16 Daily-use hardening / E2E regression pack.
 
 ### Sprint 13 Capability Note
@@ -135,6 +135,23 @@ Sprint range: Sprint 1-16
 - Reserved actions deny/fail closed (abw.bridge.reserved, git.commit, git.push).
 - This is not enterprise-grade security and not full sandboxing.
 - ABW bridge remains planned and not implemented.
+
+### Sprint 15 Capability Note
+
+- Project Rules / Memory UI exists in Settings.
+- Rules persist under ignored runtime state (`.nvidia-agent/rules/project-rules.json`).
+- Project rules APIs exist.
+- `@rules` context exists and is bounded.
+- Enabled rules/memory are included; disabled rules/memory are excluded from context.
+- Secret-like content is rejected.
+- No automatic self-learning.
+- Not a self-growing wiki.
+- Not ABW governance/proof.
+- ABW bridge remains planned and not implemented.
+
+### Sprint 16 Gate Note
+
+- Sprint 16 is a major hardening/regression/readiness evaluation gate, not a normal feature sprint.
 
 ### Required Audit Gate (Phase 1)
 

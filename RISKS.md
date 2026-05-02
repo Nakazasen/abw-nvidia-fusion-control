@@ -421,3 +421,69 @@ Mitigation:
 
 - Treat smoke as baseline evidence only.
 - Add deeper provider-backed E2E checks before stronger inline-edit claims.
+
+## Project Rules Overclaim Risk
+
+Risk:
+
+- Sprint 15 Project Rules / Memory may be overclaimed as governance proof or ABW-equivalent control.
+
+Mitigation:
+
+- Keep explicit language: rules are guidance only, not ABW governance/proof.
+- Require ABW bridge implementation and audit evidence before governance-level claims.
+
+## Hidden/Accidental Self-Learning Risk
+
+Risk:
+
+- Runtime rules/memory updates may be misinterpreted as autonomous learning.
+
+Mitigation:
+
+- Keep explicit save-only behavior (user-triggered mutation only).
+- Keep explicit warning text: no automatic self-learning.
+
+## Secret Persistence In Rules/Memory Risk
+
+Risk:
+
+- Secret-like content could be saved in project rules/memory runtime files.
+
+Mitigation:
+
+- Keep secret-like detection and reject persistence paths.
+- Re-run secret persistence smoke checks during sprint close.
+
+## Rules Context Poisoning Risk
+
+Risk:
+
+- Malicious or low-quality rules could bias agent behavior through context injection.
+
+Mitigation:
+
+- Keep bounded context summaries and category/priority/source validation.
+- Keep review and approval requirements for mutations.
+
+## Disabled Rules Leakage Into Context Risk
+
+Risk:
+
+- Disabled rules/memory may still leak into active agent context.
+
+Mitigation:
+
+- Keep enabled-only filtering in context builders.
+- Re-verify with marker-based include/exclude smoke checks.
+
+## Browser Smoke Coverage Gap For Long-Horizon Rule Behavior
+
+Risk:
+
+- Browser smoke can pass while long-horizon rule behavior remains under-tested.
+
+Mitigation:
+
+- Treat browser smoke as baseline only, not full E2E.
+- Add longer-horizon evaluation scenarios before daily-use readiness claims.
