@@ -652,3 +652,21 @@ Risk:
 Mitigation:
 
 - Split modules, keep file ownership clear in builder prompts, expand focused smoke checks, and require auditor review after builder sprints.
+
+## Phase 1 Gate Result B Risk Carry-Over (Active)
+
+Risk:
+
+- Phase 1 Gate selected `B. INSERT_SPRINT_16_5_CLEANUP`, so key growth risks remain active until cleanup is completed and re-gated.
+
+Active risk cluster:
+
+- Monolith growth risk remains active (`nvidia_playground.html`, `tools/nvidia-server.mjs`, `tools/browser-smoke.mjs`).
+- Runtime artifact growth remains active (`.nvidia-agent/reports`, `.nvidia-agent/security`, `.nvidia-agent/index`).
+- Plaintext runtime provider secret storage remains a documented trust risk.
+- Inline edit deep observability remains warn-level in smoke.
+
+Mitigation:
+
+- Sprint 16.5 cleanup must add baseline measurements, runtime rotation/caps, modular split plan, and recurring audit checks.
+- Do not start Sprint 17 until post-cleanup gate explicitly records `A. PROCEED_TO_SPRINT_17`.

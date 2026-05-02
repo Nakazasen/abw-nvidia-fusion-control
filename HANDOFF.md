@@ -24,11 +24,11 @@ Reality-synced state as of 2026-05-02:
 - NVIDIA Sprint 16 Daily-use hardening / E2E regression pack is complete and pushed.
 - Latest NVIDIA remote main is 3f8159fc80c4061ab5b87a337b1aab9a80d97252.
 - Current readiness verdict is INTERNAL_DAILY_USE_CANDIDATE.
-- Next step is Phase 1 Gate Review before Sprint 17.
-- Phase 1 Gate Review now includes the mandatory Performance & Bloat Budget Gate.
-- Do not prepare or issue a Sprint 17 Builder prompt until the gate review completes and records an allowed decision.
-- Sprint 17 can start only if the gate explicitly selects `A. PROCEED_TO_SPRINT_17`.
-- Sprint 16.5 cleanup, bugfix hardening, or readiness downgrade remain valid gate outcomes.
+- Phase 1 Gate Review is completed.
+- Phase 1 Gate Review verdict is `B. INSERT_SPRINT_16_5_CLEANUP`.
+- Sprint 17 remains blocked pending Sprint 16.5 cleanup and re-gate.
+- Do not prepare or issue a Sprint 17 Builder prompt before re-gate explicitly selects `A. PROCEED_TO_SPRINT_17`.
+- Sprint 16.5 cleanup, bugfix hardening, or readiness downgrade were valid gate outcomes; gate selected cleanup (`B`).
 - System must remain lightweight, modular, bounded, and controllable.
 - Current system is an internal daily-use candidate, not production-ready.
 - Sprint 9 browser smoke is a baseline gate, not full E2E coverage.
@@ -71,15 +71,15 @@ Reality-synced state as of 2026-05-02:
 ## Current Strategic Roadmap Status
 
 - Master Roadmap v1 has been recorded.
-- Current next step is Phase 1 Gate Review before Sprint 17.
-- Phase 1 Gate Review includes mandatory performance/bloat evaluation before any Sprint 17 implementation.
+- Current next step is Sprint 16.5 cleanup planning/execution.
+- Phase 1 Gate Review has completed and selected cleanup verdict `B`.
 - Daily-use track status:
   - Sprint 13: Git / SCM Panel tot hon (done)
   - Sprint 14: Security Permission Model co ban (done)
   - Sprint 15: Project Rules / Memory UI toi thieu (done)
   - Sprint 16: Daily-use hardening / E2E regression pack (done)
-- Sprint 17 must not start before the Phase 1 Gate Review decision.
-- Do not prepare a Sprint 17 Builder prompt until Phase 1 Gate Review completes.
+- Sprint 16.5 cleanup must run before Sprint 17.
+- Sprint 17 must not start until post-cleanup re-gate explicitly records `A. PROCEED_TO_SPRINT_17`.
 - INTERNAL_DAILY_USE_CANDIDATE is not production readiness.
 - The system must remain lightweight, modular, bounded, and controllable before entering Phase 2 feature growth.
 - Do not claim Sprint 15 as autonomous self-learning, self-growing wiki, or ABW governance/proof.
@@ -115,13 +115,10 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Prepare Phase 1 Gate Review prompt while preserving current truth: Sprint 1-16 are pushed, readiness is INTERNAL_DAILY_USE_CANDIDATE only, bridge implementation does not exist yet, and Sprint 17 must not start until the gate review is completed and explicitly selects `A. PROCEED_TO_SPRINT_17`. The gate must include the Performance & Bloat Budget Gate before any Sprint 17 Builder prompt is prepared.
+Prepare Sprint 16.5 cleanup plan and execution scope while preserving current truth: Sprint 1-16 are pushed, readiness remains INTERNAL_DAILY_USE_CANDIDATE only, bridge implementation does not exist yet, and Sprint 17 must stay blocked until post-cleanup re-gate explicitly selects `A. PROCEED_TO_SPRINT_17`.
 
 Constraints for the next builder:
 
 - Keep bridge work CLI-first and API-second.
 - Do not modify NVIDIA source or ABW source during control-doc work.
 - Do not claim integration exists until a real bridge is implemented and verified.
-
-
-

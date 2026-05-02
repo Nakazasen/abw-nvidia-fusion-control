@@ -9,7 +9,7 @@
 - Sprint 12 Task Timeline + Recovery / Resume is complete.
 - Sprint 13 Git / SCM Panel tot hon is complete.
 - Current readiness verdict: INTERNAL_DAILY_USE_CANDIDATE.
-- Next immediate work is Phase 1 Gate Review before Sprint 17.
+- Next immediate work is Sprint 16.5 cleanup after Phase 1 Gate Review verdict B.
 - ABW bridge is not implemented.
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
 - Browser smoke baseline now exists and passed in real-browser mode.
@@ -110,6 +110,24 @@ After Phase 1 Gate Review, choose exactly one:
 | `D. DOWNGRADE_PHASE_1_READINESS` | `INTERNAL_DAILY_USE_CANDIDATE` is not justified. | Downgrade readiness and record evidence. |
 
 Sprint 17 cannot start unless decision `A. PROCEED_TO_SPRINT_17` is explicitly selected and recorded.
+
+### 2026-05-02 Phase 1 Gate Review Result
+
+- Gate verdict: `B. INSERT_SPRINT_16_5_CLEANUP`.
+- Sprint 17 remains blocked.
+- Current readiness remains `INTERNAL_DAILY_USE_CANDIDATE` (candidate-only, not production readiness).
+
+Sprint 16.5 cleanup objective:
+
+- Establish repeatable performance budget baseline (startup, smoke runtime/check-count, memory where practical).
+- Define and execute initial monolith reduction plan for UI/server/smoke surfaces.
+- Bound runtime data with explicit cap/rotation/cleanup policy and audit checks.
+- Harden feature off-switch and safe-mode behavior.
+- Produce post-cleanup re-gate evidence pack.
+
+Unblock condition:
+
+- Sprint 17 can start only after post-cleanup Phase 1 re-gate explicitly records `A. PROCEED_TO_SPRINT_17`.
 
 ## 2C. Performance Budget Policy
 

@@ -2,6 +2,61 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-02 - Phase 1 Gate Review Completed (Performance/Bloat Budget Gate)
+
+Gate result:
+
+- Phase 1 Gate Review completed.
+- Final verdict: `B. INSERT_SPRINT_16_5_CLEANUP`.
+- Sprint 17 was not started.
+
+Evidence summary:
+
+- NVIDIA repo synced/clean at gate time:
+  - `HEAD`: `3f8159fc80c4061ab5b87a337b1aab9a80d97252`
+  - `origin/main`: `3f8159fc80c4061ab5b87a337b1aab9a80d97252`
+- Control repo synced at gate time:
+  - `HEAD`: `2b0a40b5e9295b30df241753e3cb89af09b8bf48`
+  - `origin/main`: `2b0a40b5e9295b30df241753e3cb89af09b8bf48`
+- Browser smoke passed: `97/0`
+- `npm run agent:audit` passed: `25/25`
+- permission/guard matrix passed: `16/16`
+- Syntax checks passed:
+  - `node --check tools/nvidia-server.mjs`
+  - `node --check tools/browser-smoke.mjs`
+  - `node --check tools/agent-core.mjs`
+
+Measured monolith/performance signals:
+
+- `nvidia_playground.html` = `286,578` bytes / `5,704` lines
+- `tools/browser-smoke.mjs` = `57,046` bytes / `1,141` lines
+- `tools/nvidia-server.mjs` = `180,997` bytes / `3,578` lines
+- `tools/agent-core.mjs` = `53,608` bytes / `942` lines
+- `.nvidia-agent/reports` = `291` files / `4,465,218` bytes
+- `.nvidia-agent/security` = `1` file / `156,992` bytes / `540` lines
+- `.nvidia-agent/index` = `3` files / `2,721,919` bytes
+
+Not measured:
+
+- isolated server cold-start baseline
+- idle Node memory baseline
+- separate API audit runtime beyond harness elapsed
+
+Rationale summary:
+
+- System is stable enough to keep `INTERNAL_DAILY_USE_CANDIDATE`.
+- No critical blocker forces bugfix-only sprint.
+- Direct Sprint 17 entry is not allowed yet because performance/bloat/modularity/runtime-data boundaries are not sufficiently proven.
+
+Non-claims preserved:
+
+- not production-ready
+- not Cognitive OS
+- not VS Code parity
+- browser smoke is not full E2E proof
+- ABW bridge is not implemented
+- non-NVIDIA providers are not fully wired for real chat execution
+
 ## 2026-05-02 - Long-Term Sustainable Development Governance Upgrade
 
 Reason:
@@ -1128,5 +1183,3 @@ Current state:
 Warning:
 
 - control repo is the source of truth, not chat memory
-
-

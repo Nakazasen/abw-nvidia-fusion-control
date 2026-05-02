@@ -177,3 +177,25 @@ Consequence:
 - Reports, tasks, security logs, rules, diagnostics, index, profile, tmp, and screenshots need caps or rotation plans.
 - Runtime artifacts must never be staged unless a specific sanitized artifact is intentionally promoted.
 - Stale runtime state must not corrupt app startup.
+
+## 2026-05-02: Phase 1 Gate Review Selects Sprint 16.5 Cleanup
+
+Decision:
+
+- Phase 1 Gate Review selects `B. INSERT_SPRINT_16_5_CLEANUP`.
+
+Rationale:
+
+- Stability/readiness evidence is strong enough to keep `INTERNAL_DAILY_USE_CANDIDATE`.
+- Direct Sprint 17 entry is not allowed yet because performance/bloat/modularity/runtime-data boundaries are not sufficiently proven for long-horizon growth.
+
+Status:
+
+- Accepted.
+
+Consequence:
+
+- Sprint 17 remains blocked.
+- Sprint 16.5 cleanup must run first.
+- A post-cleanup re-gate is required before Sprint 17.
+- Sprint 17 can start only if re-gate explicitly records `A. PROCEED_TO_SPRINT_17`.
