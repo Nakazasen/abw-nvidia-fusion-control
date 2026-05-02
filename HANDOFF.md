@@ -18,9 +18,10 @@ Reality-synced state as of 2026-05-02:
 - NVIDIA Sprint 10 Settings / Provider Manager / API Key UI is complete and pushed.
 - NVIDIA Sprint 11 Inline Edit kieu Cursor is complete and pushed.
 - NVIDIA Sprint 12 Task Timeline + Recovery / Resume is complete and pushed.
-- NVIDIA Sprint 13 Git / SCM Panel tốt hơn is complete and pushed.
-- Latest NVIDIA remote `main` is `3806664dba0ac36588e9e47a8054be6fd0af885a`.
-- NVIDIA next planned sprint is `Sprint 14: Security Permission Model cơ bản`.
+- NVIDIA Sprint 13 Git / SCM Panel tot hon is complete and pushed.
+- NVIDIA Sprint 14 Security Permission Model co ban is complete and pushed.
+- Latest NVIDIA remote main is 165a1819190d205e266549d4d83388b33fb368d9.
+- NVIDIA next planned sprint is Sprint 15: Project Rules / Memory UI toi thieu.
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
 - Sprint 9 browser smoke is a baseline gate, not full E2E coverage.
 - Sprint 10 returned the project to the daily-use track after the browser smoke baseline.
@@ -29,6 +30,10 @@ Reality-synced state as of 2026-05-02:
 - Inline edit is proposal/pending-edit based, not direct-write based.
 - Sprint 12 adds task timeline and marker-based/manual recovery/resume, not full autonomous recovery.
 - Sprint 13 improves practical Git/SCM visibility and guarded mutation controls; it is not VS Code SCM parity.
+- Sprint 14 creates a basic centralized permission model and audit logging.
+- Sprint 14 is not enterprise-grade security.
+- Sprint 14 is not full sandboxing.
+- Daily-use readiness is still not achieved.
 - Fusion bridge contract exists, but bridge implementation is not implemented yet.
 - Integration strategy remains bridge-first, not source-merge-first.
 - Control workspace remains `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL`.
@@ -41,20 +46,22 @@ Reality-synced state as of 2026-05-02:
 - Do not claim full LSP server integration.
 - Do not treat `npm run agent:audit` as full E2E proof.
 - Do not treat browser smoke as full E2E proof.
+- Do not claim enterprise-grade security.
+- Do not claim full sandboxing.
 - Do not claim full autonomous recovery.
 - Do not claim VS Code SCM parity.
-- Do not start Sprint 14 from this control update task.
+- Do not start Sprint 15 from this control update task.
 
 ## Current Strategic Roadmap Status
 
 - Master Roadmap v1 has been recorded.
-- Current next sprint remains `Sprint 14: Security Permission Model cơ bản`.
+- Current next sprint remains Sprint 15: Project Rules / Memory UI toi thieu.
 - After Sprint 12, the roadmap continues on the daily-use track:
-  - Sprint 13: Git / SCM Panel tốt hơn (done)
-  - Sprint 14: Security Permission Model cơ bản
-  - Sprint 15: Project Rules/Memory
+  - Sprint 13: Git / SCM Panel tot hon (done)
+  - Sprint 14: Security Permission Model co ban (done)
+  - Sprint 15: Project Rules / Memory UI toi thieu
   - Sprint 16: Daily-use hardening
-- Do not claim Sprint 13 as VS Code SCM parity or daily-use readiness completion.
+- Do not claim Sprint 14 as enterprise-grade security or full sandboxing.
 - ABW bridge still not implemented.
 - Cognitive OS not yet achieved.
 
@@ -77,7 +84,7 @@ Read these in order:
 
 ## Immediate Next Action
 
-Prepare Sprint 14 builder planning while preserving current truth: Sprint 1-13 are pushed, bridge implementation does not exist yet, and next sprint remains `Sprint 14: Security Permission Model cơ bản`.
+Prepare Sprint 15 builder planning while preserving current truth: Sprint 1-14 are pushed, bridge implementation does not exist yet, and next sprint remains Sprint 15: Project Rules / Memory UI toi thieu.
 
 Constraints for the next builder:
 

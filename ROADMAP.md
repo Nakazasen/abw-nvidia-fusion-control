@@ -2,13 +2,13 @@
 
 ## 1. Current State
 
-- NVIDIA Sprint 1-13 are completed and pushed.
+- NVIDIA Sprint 1-14 are completed and pushed.
 - Sprint 9 `Browser E2E Smoke Harness` is complete.
 - Sprint 10 Settings / Provider Manager / API Key UI is complete.
 - Sprint 11 Inline Edit kieu Cursor is complete.
 - Sprint 12 Task Timeline + Recovery / Resume is complete.
-- Sprint 13 Git / SCM Panel tốt hơn is complete.
-- Next sprint is `Sprint 14: Security Permission Model cơ bản`.
+- Sprint 13 Git / SCM Panel tot hon is complete.
+- Next sprint is Sprint 15: Project Rules / Memory UI toi thieu.
 - ABW bridge is not implemented.
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
 - Browser smoke baseline now exists and passed in real-browser mode.
@@ -23,7 +23,7 @@
 - Current capability is not VS Code parity.
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
-- Control repo latest recorded NVIDIA remote main: `3806664dba0ac36588e9e47a8054be6fd0af885a`.
+- Control repo latest recorded NVIDIA remote main: 165a1819190d205e266549d4d83388b33fb368d9.
 - Control repo latest recorded control remote main: `f3423f4558c06f8ccf33a1f84f0abd62f50fde02`.
 
 ## 2. Roadmap Governance Rules
@@ -43,7 +43,7 @@ implementation exists, audit passes, commit exists, push exists, and the control
 
 ### Planning Horizons
 
-- Short-term plan: Sprint 14-16, finish security, memory UI, and daily-use hardening.
+- Short-term plan: Sprint 15-16, continue memory UI and daily-use hardening after Sprint 14 security completion.
 - Mid-term plan: Sprint 17-40, move from a stronger internal agent IDE into an ABW-governed internal Cognitive Workspace and internal pilot.
 - Long-term plan: Sprint 41-60, add governed knowledge ingestion, self-growing wiki controls, self-improvement controls, and controlled tool generation.
 - End-state plan: Sprint 61-80, reach Enterprise Cognitive OS Beta with enterprise runtime, orchestration, evidence ledger, compliance, and department workflows.
@@ -84,8 +84,8 @@ Sprint range: Sprint 1-16
 - Sprint 10: Settings / Provider Manager / API Key UI - done
 - Sprint 11: Inline Edit kieu Cursor - done
 - Sprint 12: Task Timeline + Recovery / Resume - done
-- Sprint 13: Git / SCM Panel tốt hơn - done
-- Sprint 14: Security Permission Model co ban
+- Sprint 13: Git / SCM Panel tot hon - done
+- Sprint 14: Security Permission Model co ban - done
 - Sprint 15: Project Rules / Memory UI toi thieu
 - Sprint 16: Daily-use hardening / E2E regression pack
 
@@ -98,9 +98,21 @@ Sprint range: Sprint 1-16
 
 ### Capability Warning
 
-- Sprint 9, Sprint 10, Sprint 11, Sprint 12, and Sprint 13 are complete; the next track continues daily-use features, not deeper foundation work.
-- Around Sprint 14-16, warn that this is the daily-use readiness gate.
+- Sprint 9, Sprint 10, Sprint 11, Sprint 12, Sprint 13, and Sprint 14 are complete; the next track continues daily-use features, not deeper foundation work.
+- Around Sprint 15-16, warn that this is the daily-use readiness gate.
 - Daily-use readiness is still not achieved until Sprint 16 audit passes.
+
+
+### Phase 1 Daily-use Track Status
+
+- Sprint 9 Browser E2E Smoke Harness complete.
+- Sprint 10 Settings / Provider Manager / API Key UI complete.
+- Sprint 11 Inline Edit kieu Cursor complete.
+- Sprint 12 Task Timeline + Recovery / Resume complete.
+- Sprint 13 Git / SCM Panel tot hon complete.
+- Sprint 14 Security Permission Model co ban complete.
+- Sprint 15 Project Rules / Memory UI toi thieu next.
+- Sprint 16 Daily-use hardening / E2E regression pack.
 
 ### Sprint 13 Capability Note
 
@@ -110,6 +122,18 @@ Sprint range: Sprint 1-16
 - Commit draft is template-only.
 - No git commit/push product flow exists.
 - This is not VS Code SCM parity.
+- ABW bridge remains planned and not implemented.
+
+
+### Sprint 14 Capability Note
+
+- Basic centralized permission model exists.
+- Permission APIs exist (/api/permissions, /api/permissions/check, /api/security/summary, /api/security/audit_log).
+- Security/Permissions UI exists in Settings.
+- Permission audit log exists under ignored runtime state (.nvidia-agent/security).
+- Endpoint guards are centralized/improved across mutation routes.
+- Reserved actions deny/fail closed (abw.bridge.reserved, git.commit, git.push).
+- This is not enterprise-grade security and not full sandboxing.
 - ABW bridge remains planned and not implemented.
 
 ### Required Audit Gate (Phase 1)

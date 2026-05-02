@@ -2,7 +2,103 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
-## 2026-05-02 - NVIDIA Sprint 13 Git / SCM Panel tốt hơn committed and pushed
+## 2026-05-02 - NVIDIA Sprint 14 Security Permission Model co ban committed and pushed
+
+NVIDIA Sprint 14 is completed and pushed in `D:\Sandbox\Nvidia`.
+
+Push evidence:
+
+- Commit hash: `165a1819190d205e266549d4d83388b33fb368d9`
+- Commit short hash: `165a181`
+- Commit message: `feat: add Sprint 14 permission model`
+- Push result: `3806664..165a181 main -> main`
+- Local HEAD after push: `165a1819190d205e266549d4d83388b33fb368d9`
+- Remote `origin/main` after push: `165a1819190d205e266549d4d83388b33fb368d9`
+- Local HEAD equals remote main: `YES`
+- `git status --short` after push: clean
+
+Verification evidence recorded from NVIDIA Sprint 14 close:
+
+- `node --check tools\nvidia-server.mjs` passed
+- `node --check tools\nvidia-cli-agent.mjs` passed
+- `node --check tools\extension-host.mjs` passed
+- `node --check tools\agent-core.mjs` passed
+- `node --check tools\browser-smoke.mjs` passed
+- `npm run agent:audit` passed `25/25`
+- inline HTML parse check passed (`openDiv=286`, `closeDiv=286`)
+- browser smoke passed:
+  - command: `npm run browser:smoke -- --start-server --port 3456`
+  - exit code: `0`
+  - `ok=true`
+  - `mode=real-browser`
+  - `checks=40 passed / 0 failed`
+  - permission checks included
+  - server stopped cleanly
+  - orphan=`false`
+- permission API smoke passed:
+  - `GET /api/permissions` -> `200`
+  - `GET /api/security/summary` -> `200`
+  - `GET /api/security/audit_log` -> `200`
+  - check `git.read` -> `200`
+  - enterprise + approved `git.stage` -> `403`
+  - ide without approval `git.stage` -> `403`
+  - ide + approval + trusted `git.stage` -> `200`
+  - unknown action -> `400`
+  - `abw.bridge.reserved` -> `403`
+  - `git.commit` -> `403`
+  - `git.push` -> `403`
+- endpoint guard regression passed:
+  - provider mutation enterprise -> `403`
+  - inline edit enterprise -> `403`
+  - task mutation enterprise -> `403`
+  - extension mutation enterprise -> `403`
+  - write_file enterprise -> `403`
+  - terminal command run enterprise -> `403`
+  - git stage enterprise -> `403`
+  - git stage ide without approval -> `403`
+  - git discard without `confirm:true` -> `400`
+- permission audit log exists under `.nvidia-agent/security/permission-audit.jsonl`
+- audit log redaction/staging safety checked
+- runtime secrets/artifacts were not staged
+
+Sprint 14 scope implemented:
+
+- central permission model
+- permission check/enforce flow
+- `GET /api/permissions`
+- `POST /api/permissions/check`
+- `GET /api/security/summary`
+- `GET /api/security/audit_log`
+- permission audit log under ignored `.nvidia-agent/security`
+- Security/Permissions UI in Settings
+- guard integration across provider/extension/inline_edit/task/git/file/tool mutation routes
+- browser smoke permission checks
+
+Codex audit/fix highlights:
+
+- `git.commit` / `git.push` marked reserved-deny
+- `abw.bridge.reserved` denied
+- unknown actions fail closed
+- provider/settings mutation catch blocks now honor central permission statusCode
+- accidental staged `README.md` during smoke was unstaged before commit
+- final index clean before commit
+
+Explicit limitations:
+
+- basic permission model only, not enterprise-grade security
+- not full sandboxing
+- daily-use readiness is not achieved
+- browser smoke is not full E2E coverage
+- no ABW bridge is implemented
+- Sprint 15 has not started
+- Cognitive OS is not achieved
+- VS Code parity is not achieved
+- `GET /api/git/file_diff` is not separate; use `GET /api/git/diff?file=...`
+- invalid/outside path rejects but may return `500` instead of clearer `400`
+- no git commit product flow
+- no git push product flow
+- no branch switching/stash/conflict UI
+## 2026-05-02 - NVIDIA Sprint 13 Git / SCM Panel t盻奏 hﾆ｡n committed and pushed
 
 NVIDIA Sprint 13 is completed and pushed in `D:\Sandbox\Nvidia`.
 
@@ -819,5 +915,3 @@ Current state:
 Warning:
 
 - control repo is the source of truth, not chat memory
-
-
