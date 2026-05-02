@@ -781,3 +781,22 @@ Mitigation:
 - Preserve dry-run-first runtime hygiene posture.
 - Keep non-claim language explicit in governance and sprint-close records.
 - Keep ABW bridge/ingest implementation claims blocked until audited proof exists.
+
+## Sprint 19 Runtime Hygiene/Budget Target Risk Cluster (Active)
+
+Risk:
+
+- `securityRotation: NOT_ROTATED_YET` remains active and is now a Sprint 19 target.
+- `idleMemoryEstimateMb: NOT_MEASURED_YET` remains active and is now a Sprint 19 target.
+- Destructive cleanup risk increases if dry-run-first invariant is violated.
+- False confidence risk exists if measurement claims are recorded without machine-readable evidence.
+- Bridge risk remains dependency-gated on ABW ingest maturity.
+
+Mitigation:
+
+- Preserve dry-run default behavior.
+- Require explicit `--apply` only when safe and audited.
+- Restrict cleanup/rotation strictly under `.nvidia-agent`.
+- Require machine-readable evidence artifacts for reported metrics.
+- Require GPT audit/fix before commit.
+- Preserve non-claims and do not escalate capability language.

@@ -308,3 +308,22 @@ Consequence:
 
 - Builder result remains non-final until audit/fix + commit/push + control repo record.
 - Future smoke growth should prefer suite/helper modules, not monolith expansion.
+
+## 2026-05-02: Sprint 19 Scope Decision - Runtime Hygiene / Budget Follow-up
+
+Decision:
+
+- Sprint 19 will focus on runtime hygiene and performance budget follow-up.
+- The scope targets `securityRotation` and idle memory evidence.
+- Sprint 19 must preserve dry-run-first hygiene behavior.
+- No deep ABW bridge or ABW ingest implementation.
+
+Status:
+
+- Accepted.
+
+Rationale:
+
+- Closes carry-over risk before Sprint 20-22 ABW ingest hardening.
+- Lower product behavior regression risk than route/UI refactor.
+- Strengthens governance evidence.

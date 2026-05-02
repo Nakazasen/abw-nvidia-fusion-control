@@ -2,6 +2,55 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-02 - Sprint 19 Scope Planning Completed
+
+Selected option:
+
+- `C. Runtime Hygiene / Budget Follow-up`
+
+Rationale:
+
+- Aligns with Sprint 18-19 NVIDIA modularization/runtime hardening window.
+- Directly addresses active carry-over governance risks:
+  - `securityRotation: NOT_ROTATED_YET`
+  - `idleMemoryEstimateMb: NOT_MEASURED_YET`
+- Lower product behavior regression risk than route/UI refactor when dry-run-first and boundary guards remain strict.
+- Strengthens evidence baseline before Sprint 20-22 ABW v1.2 Ingest Kernel Hardening.
+
+Rejected options:
+
+- `A. Browser Smoke Modularization Batch 2`: good direction, but repeats Sprint 18 axis and does not directly address securityRotation/idle-memory risk.
+- `B. Server Route Modularization Batch 2`: valuable but higher API/trust-boundary regression risk.
+- `D. UI Monolith Prep`: higher UI blast radius and not optimal for this hardening window.
+
+Allowed Sprint 19 scope:
+
+- Safe runtime hygiene enhancements with strict `.nvidia-agent` boundary guards.
+- Security log rotation policy/mechanism only if non-destructive by default and auditable.
+- Idle memory measurement/reporting improvement.
+- Budget/hygiene reporting clarity improvements.
+- Sprint 19 documentation and validation evidence capture.
+
+Forbidden Sprint 19 scope:
+
+- No deep ABW bridge.
+- No ABW ingest implementation.
+- No self-growing wiki.
+- No provider secret encryption unless explicitly scoped later.
+- No mutation/security-sensitive refactor unless explicitly justified.
+- No broad UI rewrite.
+- No Sprint 20 work.
+- No production/Cognitive OS claim.
+
+Model orchestration:
+
+- Builder model later: `Gemini 3.1 Pro`
+- Required audit/fix model later: `GPT-5.3-Codex / GPT-5.4 / GPT-5.5`
+
+Governance requirement:
+
+- This Sprint 19 scope-decision control update must be committed/pushed before issuing Sprint 19 Builder prompt.
+
 ## 2026-05-02 - NVIDIA Sprint 18 Browser Smoke Modularization Committed And Pushed
 
 NVIDIA Sprint 18 is completed and pushed in `D:\Sandbox\Nvidia`.

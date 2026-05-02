@@ -374,6 +374,18 @@ Required ABW ingest baseline proof before deep bridge work:
   - Sprint 27-30: bridge hardening/E2E governance validation
 - Sprint 19 is blocked until this control repo Sprint 18 completion record is committed/pushed.
 
+## 2M. Sprint 19 Scope Decision (2026-05-02)
+
+- Selected scope: `C. Runtime Hygiene / Budget Follow-up`.
+- Sprint 19 remains within NVIDIA modularization/runtime hardening.
+- Sprint 19 is not bridge-first.
+- Sprint 19 objective:
+  - improve runtime hygiene/budget evidence
+  - address `securityRotation: NOT_ROTATED_YET` safely
+  - improve idle memory measurement/reporting
+- Keep Sprint 20-22 target: ABW v1.2 Ingest Kernel Hardening.
+- Keep Sprint 23-26 target: Bridge Phase 1 only after ABW ingest baseline proof.
+
 ## 3. Phase 1 - Internal Daily-Use Agent IDE
 
 Sprint range: Sprint 1-16
