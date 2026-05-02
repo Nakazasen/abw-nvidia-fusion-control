@@ -290,3 +290,21 @@ Rationale:
 - Strengthens quality gate for later modularization.
 - Lower trust-boundary risk than server/mutation route work.
 - Aligns with Sprint 18-19 NVIDIA modularization/runtime hardening.
+
+## 2026-05-02: Record NVIDIA Sprint 18 Browser Smoke Modularization Completion
+
+Decision:
+
+- Accept Sprint 18 as browser smoke modularization/hardening, not feature growth.
+- Keep browser-smoke entrypoint stable.
+- Accept `tools/smoke` module boundary as first smoke harness split.
+- Sprint 19 may be planned only after this control update is committed/pushed.
+
+Status:
+
+- Accepted.
+
+Consequence:
+
+- Builder result remains non-final until audit/fix + commit/push + control repo record.
+- Future smoke growth should prefer suite/helper modules, not monolith expansion.

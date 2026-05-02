@@ -763,3 +763,21 @@ Mitigation:
 - Require GPT audit/fix before commit.
 - Preserve runtime artifact staging safety and reporting boundaries.
 - Preserve non-claims and do not escalate readiness claims from smoke-only evidence.
+
+## Post-Sprint 18 Carry-Over Risk Cluster (Active)
+
+Risk:
+
+- Browser smoke monolith risk is partially mitigated, not eliminated.
+- Browser smoke remains baseline evidence, not full E2E proof.
+- `securityRotation: NOT_ROTATED_YET` remains active.
+- Idle memory remains unresolved/not fully measured.
+- Runtime hygiene apply remains caution-sensitive.
+- ABW bridge remains dependency-gated on ABW ingest maturity.
+
+Mitigation:
+
+- Continue Sprint 19 in NVIDIA modularization/runtime hardening scope only.
+- Preserve dry-run-first runtime hygiene posture.
+- Keep non-claim language explicit in governance and sprint-close records.
+- Keep ABW bridge/ingest implementation claims blocked until audited proof exists.

@@ -4,6 +4,7 @@
 
 - NVIDIA Sprint 1-16 are completed and pushed.
 - NVIDIA Sprint 17 Route Modularization Foundation is completed and pushed.
+- NVIDIA Sprint 18 Browser Smoke Modularization is completed and pushed.
 - Sprint 9 `Browser E2E Smoke Harness` is complete.
 - Sprint 10 Settings / Provider Manager / API Key UI is complete.
 - Sprint 11 Inline Edit kieu Cursor is complete.
@@ -25,14 +26,19 @@
 - Current capability is not VS Code parity.
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
-- Control repo latest recorded NVIDIA remote main: 988f8a6e625112a406ab4d1d957991c9f9ac9286.
+- Control repo latest recorded NVIDIA remote main: a5d976090dd99fd76a39474fd475f6f03582c27c.
 - Control repo latest recorded control remote main: `680ec634105b48810e9cb17a8711bf3bdde6880b`.
 - Sprint 17 scope summary:
   - server route modularization foundation
   - extracted read-only GET route group (`/api/workspace`, `/api/pending_edits`, `/api/tools`, `/api/rate_limit`)
   - added safe read-only endpoint `GET /api/health`
   - browser smoke regression now passes `99/0`
-- Sprint 18 must not start until this Sprint 17 control record is committed and pushed.
+- Sprint 18 scope summary:
+  - browser smoke modularization
+  - stable entrypoint preserved
+  - `tools/smoke` modules added
+  - browser smoke validation remained `99/0`
+- Sprint 19 must not start until this Sprint 18 control record is committed and pushed.
 - Carry-over constraints remain active:
   - `securityRotation: NOT_ROTATED_YET`
   - `idleMemoryEstimateMb: NOT_MEASURED_YET`
@@ -356,6 +362,17 @@ Required ABW ingest baseline proof before deep bridge work:
 - Sprint 18 objective: split `tools/browser-smoke.mjs` into smaller suites/helpers while preserving current smoke coverage and behavior.
 - Keep Sprint 20-22 target: ABW v1.2 Ingest Kernel Hardening.
 - Keep Sprint 23-26 target: Bridge Phase 1 only after ABW ingest baseline proof.
+
+## 2L. Sprint 18 Completion Record / Sprint 19 Gate (2026-05-02)
+
+- Sprint 18 Browser Smoke Modularization is completed and pushed in NVIDIA repo.
+- Latest NVIDIA remote main is `a5d976090dd99fd76a39474fd475f6f03582c27c`.
+- Near-term sequence remains:
+  - Sprint 18-19: NVIDIA modularization/runtime hardening
+  - Sprint 20-22: ABW v1.2 Ingest Kernel Hardening
+  - Sprint 23-26: Bridge Phase 1 only after ABW ingest baseline proof
+  - Sprint 27-30: bridge hardening/E2E governance validation
+- Sprint 19 is blocked until this control repo Sprint 18 completion record is committed/pushed.
 
 ## 3. Phase 1 - Internal Daily-Use Agent IDE
 

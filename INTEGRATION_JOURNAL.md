@@ -2,6 +2,106 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-02 - NVIDIA Sprint 18 Browser Smoke Modularization Committed And Pushed
+
+NVIDIA Sprint 18 is completed and pushed in `D:\Sandbox\Nvidia`.
+
+Push evidence:
+
+- Previous NVIDIA main before Sprint 18: `988f8a6e625112a406ab4d1d957991c9f9ac9286`
+- Commit hash: `a5d976090dd99fd76a39474fd475f6f03582c27c`
+- Commit short hash: `a5d9760`
+- Commit message: `test: modularize Sprint 18 browser smoke`
+- Push result: `988f8a6..a5d9760 main -> main`
+- Local HEAD after push: `a5d976090dd99fd76a39474fd475f6f03582c27c`
+- Remote `origin/main` after push: `a5d976090dd99fd76a39474fd475f6f03582c27c`
+- Local HEAD equals remote main: `YES`
+- `git status --short` after push: clean
+- `git status --short .nvidia-agent` after push: clean
+
+Files committed:
+
+- `docs/sprint-18-smoke-modularization.md`
+- `tools/browser-smoke.mjs`
+- `tools/smoke/api-regression.mjs`
+- `tools/smoke/core.mjs`
+- `tools/smoke/guard-matrix.mjs`
+
+Audit/Fix verdict before commit:
+
+- `AUDIT_FIXED_READY_FOR_COMMIT`
+
+Module boundary summary:
+
+- Kept `tools/browser-smoke.mjs` as stable entrypoint.
+- Added smoke modules:
+  - `tools/smoke/core.mjs`
+  - `tools/smoke/api-regression.mjs`
+  - `tools/smoke/guard-matrix.mjs`
+- Extracted:
+  - `sleep`
+  - `fetchText`
+  - `requestJson`
+  - `waitForServer`
+  - API regression checks
+  - guard matrix checks
+- Preserved:
+  - server lifecycle
+  - Playwright flow
+  - summary/reporting
+  - DOM checks
+  - artifact/report generation
+
+Validation evidence:
+
+- `node --check tools/browser-smoke.mjs` passed
+- `node --check tools/smoke/core.mjs` passed
+- `node --check tools/smoke/api-regression.mjs` passed
+- `node --check tools/smoke/guard-matrix.mjs` passed
+- `node --check tools/nvidia-server.mjs` passed
+- `node --check tools/agent-core.mjs` passed
+- `node --check tools/performance-budget.mjs` passed
+- `node --check tools/runtime-hygiene.mjs` passed
+- `npm run budget:check` passed
+- `npm run runtime:hygiene` passed in DRY-RUN mode only
+- `npm run agent:audit` passed `25/25`
+- `npm run browser:smoke -- --start-server --port 3456` passed `99/0`, server stopped cleanly
+
+Runtime/performance evidence:
+
+- runtime hygiene dry-run summary:
+  - scanned `349`
+  - would delete `277`
+  - deleted `0`
+  - boundary confined to `.nvidia-agent`
+  - `securityRotation: NOT_ROTATED_YET`
+- idle memory gate: no failing idle-memory gate surfaced in this sprint-close validation.
+
+Audit/fix findings recorded:
+
+- Removed unused `http/https` imports from smoke entrypoint after extraction.
+- Corrected Sprint 18 doc to reject unproven `100/0` claim.
+- Confirmed actual smoke count remained `99 passed / 0 failed`.
+- Confirmed guard matrix stayed `16/16`.
+- Confirmed real endpoint guard regression pack: all 10 checks passed.
+- Confirmed no `patch.js` / `patch.py` in NVIDIA repo.
+- Confirmed no `.nvidia-agent` dirty/staged state.
+
+Remaining limitations and non-claims preserved:
+
+- browser smoke is baseline evidence, not full E2E proof
+- `securityRotation: NOT_ROTATED_YET`
+- idle-memory baseline remains not fully resolved
+- smoke/server monolith risk reduced, not eliminated
+- ABW bridge not implemented
+- ABW ingest not implemented
+- not production-ready
+- not Cognitive OS achieved
+- not VS Code parity
+- not Cursor parity
+- not enterprise-grade security
+- not full sandboxing
+
 ## 2026-05-02 - Sprint 18 Scope Planning Completed
 
 Selected option:
