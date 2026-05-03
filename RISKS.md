@@ -958,3 +958,26 @@ Mitigation:
 - Require contract-level regression tests.
 - Require GPT audit/fix before commit.
 - No Bridge Builder until a future control repo gate verdict explicitly selects `A. PROCEED_TO_BRIDGE_PHASE_1`.
+
+## Sprint 23 Scope-Execution Risk Cluster (Active)
+
+Risk:
+
+- Bridge-ready overclaim risk remains active.
+- Evidence contract ambiguity remains the active Sprint 23 target until implemented/audited.
+- Gap output not first-class post-ingest contract remains active until Sprint 23 completion.
+- Broad gaps-engine rewrite risk must be avoided.
+- Bridge implementation creep risk remains forbidden during Sprint 23.
+- Carry-over constraints remain active:
+  - `promotion_mode:auto` explicit opt-in risk
+  - `NOT_CONFIGURED` non-protective behavior
+  - keyword-rule domain guard false positives/negatives
+
+Mitigation:
+
+- Require a versioned machine-readable pair: `ingest_report.json` + `ingest_gaps.json`.
+- Require shared run id/timestamp correlation across both artifacts.
+- Require contract/schema regression tests.
+- Require no bridge implementation in Sprint 23 scope.
+- Require GPT audit/fix before commit.
+- Preserve non-claims.

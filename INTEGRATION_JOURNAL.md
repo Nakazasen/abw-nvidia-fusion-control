@@ -2,6 +2,67 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - Sprint 23 Evidence Reporting Scope Planning Completed
+
+Selected option:
+
+- `C. Evidence Report + Gap Output Minimal Pair`
+
+Rationale:
+
+- Directly addresses the bridge blocker from Sprint 23 gate review.
+- Prevents bridge from consuming ambiguous/partial ABW evidence.
+- Creates smallest useful stable machine-readable contract for a future read-only/evidence-only bridge phase.
+- Keeps scope bounded by avoiding broad gaps-engine rewrite and avoiding bridge implementation.
+
+Rejected options:
+
+- `A. Ingest Run Aggregate Evidence Report Contract`: useful, but lacks ingest-bound gap output tied to the same run.
+- `B. Ingest-Bound Gap Output v1`: useful for gaps, but lacks aggregate ingest report as main contract.
+- `D. Manifest/Queue Schema Stabilization`: foundational, but insufficient to close current bridge blocker.
+- `E. Read-Only Bridge Preflight Contract Spec Only`: low risk but too weak without runtime implementation evidence.
+
+Allowed Sprint 23 scope:
+
+- Create minimal pair artifacts per ingest run:
+  - `ingest_report.json`
+  - `ingest_gaps.json`
+- Add schema/version and shared run correlation id/timestamp.
+- Include fields:
+  - ingested/skipped/failed/quarantined counts
+  - source path/hash/id/status
+  - domain_check
+  - review state
+  - promotion state
+- Add contract-level regression tests.
+- Add Sprint 23 docs for evidence/reporting contract and limitations.
+- Keep gap mapping limited to ingest-relevant categories.
+- Do not rewrite whole gaps engine.
+
+Forbidden Sprint 23 scope:
+
+- No deep NVIDIA<->ABW bridge.
+- No NVIDIA UI bridge.
+- No bridge implementation.
+- No Bridge Builder prompt.
+- No blind/hidden auto-promote.
+- No grounded claim without valid source.
+- No silent domain contamination acceptance.
+- No broad rewrite.
+- No productionization.
+- No bridge-ready claim without later gate proof.
+- No Sprint 24 implementation work unless later explicitly scoped.
+
+Model orchestration:
+
+- Builder model: `Gemini 3.1 Pro`
+- Required audit/fix model: `GPT-5.3-Codex / GPT-5.4 / GPT-5.5`
+
+Governance requirement:
+
+- This control repo update must be committed/pushed before Sprint 23 Builder prompt issuance.
+- Bridge Phase 1 remains blocked pending later explicit gate review.
+
 ## 2026-05-03 - Sprint 23 Explicit Gate Review Completed
 
 Gate verdict:

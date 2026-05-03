@@ -471,3 +471,24 @@ Rationale:
 - Safety baseline improved after Sprint 20-22.
 - Remaining blocker is evidence/reporting maturity, not immediate safety break.
 - Bridge must not consume partial/ambiguous evidence contracts.
+
+## 2026-05-03: Sprint 23 Scope Decision - Evidence Report + Gap Output Minimal Pair
+
+Decision:
+
+- Sprint 23 will implement a minimal paired evidence-reporting contract.
+- Required artifacts:
+  - `ingest_report.json`
+  - `ingest_gaps.json`
+- The pair must be machine-readable, versioned, and run-correlated.
+- This is not bridge implementation.
+- This does not authorize Bridge Phase 1.
+
+Status:
+
+- Accepted.
+
+Rationale:
+
+- Gate review selected evidence reporting before bridge.
+- The minimal pair directly addresses the missing bridge-facing evidence contract while staying bounded.

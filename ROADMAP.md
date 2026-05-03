@@ -512,6 +512,20 @@ Required ABW ingest baseline proof before deep bridge work:
 - Sprint 23 remains pre-bridge.
 - Bridge Phase 1 may be reconsidered only after Sprint 23 completion and a later explicit gate review.
 
+## 2U. Sprint 23 Scope Decision (2026-05-03)
+
+- Selected scope: `C. Evidence Report + Gap Output Minimal Pair`.
+- Sprint 23 remains a pre-bridge Evidence Reporting Sprint.
+- Bridge Phase 1 remains NOT authorized.
+- Sprint 23 objective:
+  - implement stable machine-readable `ingest_report.json`
+  - implement stable machine-readable `ingest_gaps.json`
+  - correlate both artifacts by shared run id/timestamp
+  - include ingest outcome + gap classification
+  - include failed/skipped/quarantined/source/hash/domain_check/review/promotion state
+  - add contract/schema regression tests
+- Future Bridge Phase 1 may be reconsidered only after Sprint 23 completion and another explicit gate review.
+
 ## 3. Phase 1 - Internal Daily-Use Agent IDE
 
 Sprint range: Sprint 1-16
