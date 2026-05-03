@@ -71,7 +71,8 @@
 - Sprint 21-22 should target ABW ingest hardening based on Sprint 20 gap map.
 - Bridge Phase 1 remains blocked until ABW ingest baseline proof.
 - Sprint 23 gate review selected `C. INSERT_EVIDENCE_REPORTING_SPRINT`.
-- Bridge Phase 1 is not authorized yet.
+- Post-Sprint-23 explicit gate review selected `A. PROCEED_TO_BRIDGE_PHASE_1` for scope planning only.
+- Bridge Phase 1 builder implementation is still not authorized at this point.
 - Carry-over constraints remain active:
   - `securityRotation: NOT_ROTATED_YET`
   - `idleMemoryEstimateMb: NOT_MEASURED_YET`
@@ -552,6 +553,23 @@ Required ABW ingest baseline proof before deep bridge work:
 - Sprint 24 must not start until this control repo Sprint 23 completion record is committed/pushed.
 - Bridge Phase 1 remains blocked until a later explicit gate review selects `A. PROCEED_TO_BRIDGE_PHASE_1`.
 - After this record is committed, next step is explicit post-Sprint 23 gate review, not automatic Bridge Builder.
+
+## 2W. Post-Sprint-23 Gate Review Verdict A (2026-05-03)
+
+- Gate verdict selected: `A. PROCEED_TO_BRIDGE_PHASE_1`.
+- Authorization level: Bridge Phase 1 scope planning only, after this control update is committed/pushed.
+- This verdict does NOT authorize Bridge Builder implementation yet.
+- Required Bridge Phase 1 constraints:
+  - read-only
+  - evidence-only
+  - no write-back
+  - no auto-promote
+  - no autonomous sync
+  - no production claim
+  - no Cognitive OS claim
+  - no enterprise-grade security claim
+- Next step is Bridge Phase 1 scope planning and scope-record commit, not implementation.
+- Sprint 24 should be treated as Bridge Phase 1 planning/scope gate unless later governance explicitly renames scope.
 
 ## 3. Phase 1 - Internal Daily-Use Agent IDE
 

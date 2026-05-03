@@ -2,6 +2,80 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - Explicit Post-Sprint-23 Gate Review Completed (Verdict A)
+
+Gate verdict:
+
+- `A. PROCEED_TO_BRIDGE_PHASE_1`
+
+Gate meaning:
+
+- Bridge Phase 1 may proceed to scope planning only after this control repo update is committed/pushed.
+- This verdict does not authorize Bridge Builder implementation yet.
+
+Evidence reviewed:
+
+- `docs/sprint-20-ingest-baseline-gap-map.md`
+- `docs/abw-v1.2-ingest-acceptance-criteria.md`
+- `docs/sprint-21-promotion-safety.md`
+- `docs/sprint-22-domain-contamination-guard.md`
+- `docs/sprint-23-evidence-reporting-contract.md`
+- `scripts/abw_ingest.py`
+- `scripts/abw_knowledge.py`
+- `scripts/abw_review.py`
+- `tests/test_abw_ingest_evidence_reporting.py`
+- `tests/test_abw_ingest.py`
+- `tests/test_abw_domain_contamination.py`
+- `tests/test_promotion_engine.py`
+
+Required Bridge Phase 1 constraints:
+
+- read-only
+- evidence-only
+- no write-back
+- no auto-promote
+- no autonomous sync
+- no production claim
+- no Cognitive OS claim
+- no enterprise-grade security claim
+
+Validation evidence snapshot:
+
+- `tests/test_abw_ingest_evidence_reporting.py` -> `16 passed`
+- `tests/test_abw_ingest.py` -> `48 passed`
+- `tests/test_abw_domain_contamination.py` -> `17 passed`
+- `tests/test_promotion_engine.py` -> `13 passed`
+- broader suite -> `37 passed, 2 failed`
+
+Pre-existing/out-of-scope failures:
+
+- `tests/test_abw_inspect.py::test_inspect_docx_heavy_workspace`
+- `tests/test_abw_gaps.py::test_xls_heavy_workspace_reports_format_block`
+
+Remaining carry-over gaps (non-blocking for bounded read-only/evidence-only Phase 1):
+
+- `promotion_mode:auto` remains explicit opt-in risk.
+- `NOT_CONFIGURED` remains non-protective unless domain_guard is configured.
+- domain guard is keyword-rule based and may produce false positives/negatives.
+- gap semantics remain minimal/bounded.
+- `content_hash` may be `NOT_RECORDED` for skipped/failed.
+- `promotion_state` reflects ingest-time assessment.
+
+Non-claims preserved:
+
+- not bridge-ready/full trust
+- not production-ready
+- not Cognitive OS achieved
+- not enterprise-grade security
+- not full NVIDIA<->ABW bridge
+
+Next sequence:
+
+1. commit/push this control repo gate record
+2. Bridge Phase 1 scope planning
+3. record/commit Bridge Phase 1 scope decision
+4. only then Bridge Builder prompt if scope explicitly authorizes implementation
+
 ## 2026-05-03 - ABW Sprint 23 Evidence Report + Gap Output Minimal Pair Committed And Pushed
 
 ABW Sprint 23 is completed and pushed in `D:\Sandbox\skill-Anti-brain-wiki_note`.

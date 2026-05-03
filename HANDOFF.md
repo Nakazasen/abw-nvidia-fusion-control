@@ -105,9 +105,9 @@ Reality-synced state as of 2026-05-03:
 - Sprint 22 selected scope `A. Domain Contamination Guard v1` is completed and pushed in ABW.
 - Sprint 23 gate review verdict is `C. INSERT_EVIDENCE_REPORTING_SPRINT`.
 - Sprint 23 selected scope is `C. Evidence Report + Gap Output Minimal Pair`.
-- Sprint 23 remains pre-bridge; Bridge Phase 1 is not authorized.
+- Post-Sprint-23 explicit gate review selected `A. PROCEED_TO_BRIDGE_PHASE_1` for scope planning only.
 - Sprint 23 is completed in ABW and pushed with commit `fe0520626d8f254476424242e29ea2bef4807f73`.
-- Bridge Phase 1 remains blocked until explicit gate verdict `A. PROCEED_TO_BRIDGE_PHASE_1`.
+- Bridge Builder implementation remains blocked until Bridge Phase 1 scope planning is recorded and committed.
 - INTERNAL_DAILY_USE_CANDIDATE is not production readiness.
 - The system must remain lightweight, modular, bounded, and controllable before entering Phase 2 feature growth.
 - Do not claim Sprint 15 as autonomous self-learning, self-growing wiki, or ABW governance/proof.
@@ -143,14 +143,14 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Commit and push this control repo update that records ABW Sprint 23 completion and push evidence. After that push, run an explicit post-Sprint 23 gate review to decide whether Bridge Phase 1 can be reconsidered.
+Commit and push this control repo update that records post-Sprint-23 gate verdict `A. PROCEED_TO_BRIDGE_PHASE_1` with explicit Bridge Phase 1 boundaries. After that push, start Bridge Phase 1 scope planning.
 
-Sprint 23 completion constraints:
+Bridge Phase 1 gate constraints:
 
-- Sprint 24 must not start until this control update is committed/pushed.
-- Sprint 23 completion does not authorize Bridge Phase 1.
-- No automatic Bridge Builder trigger is allowed from Sprint 23 completion.
-- Bridge Phase 1 remains blocked pending a later explicit gate review.
+- Bridge Phase 1 currently authorizes scope planning only.
+- Do not create Bridge Builder prompt until scope planning is recorded and committed.
+- Bridge must remain read-only/evidence-only.
+- No write-back, no auto-promote, no autonomous sync.
 - No production/Cognitive OS claim.
 
 Constraints for the next builder:

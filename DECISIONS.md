@@ -511,3 +511,22 @@ Consequence:
 - Sprint 24 planning may start only after this control update is committed/pushed.
 - First post-Sprint 23 action should be gate-aware review of bridge readiness.
 - Bridge Phase 1 remains blocked unless a later gate explicitly records `A. PROCEED_TO_BRIDGE_PHASE_1`.
+
+## 2026-05-03: Post-Sprint-23 Gate Review - Proceed to Bridge Phase 1 Scope Planning
+
+Decision:
+
+- Accept gate verdict `A. PROCEED_TO_BRIDGE_PHASE_1`.
+- Authorize Bridge Phase 1 scope planning only.
+- Do not authorize Bridge Builder implementation yet.
+- Bridge Phase 1 must be read-only/evidence-only.
+
+Status:
+
+- Accepted.
+
+Consequence:
+
+- Bridge Builder prompt remains forbidden until scope decision is recorded and committed.
+- Any bridge implementation must preserve no write-back/no auto-promote/no autonomous sync.
+- Non-claims remain active.

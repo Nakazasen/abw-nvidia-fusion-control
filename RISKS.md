@@ -1001,3 +1001,25 @@ Mitigation:
 - Preserve non-claims: not bridge-ready, not production-ready, not Cognitive OS, not full bridge.
 - Keep runtime artifact stage guard mandatory for `.brain/*`.
 - Treat Sprint 23 output as bounded v1 contract evidence, not full bridge authorization.
+
+## Post-Sprint-23 Gate A Bridge Scope Risk Cluster (Active)
+
+Risk:
+
+- Bridge over-scope risk is now active after verdict `A. PROCEED_TO_BRIDGE_PHASE_1`.
+- Bridge-ready/full-trust overclaim risk remains active.
+- Read-only/evidence-only boundary can be violated if scope is not locked before Builder.
+- Missing evidence fields or schema mismatch can be mishandled unless fail-closed behavior is required.
+- Carry-over risks remain active:
+  - `promotion_mode:auto` explicit opt-in risk
+  - `NOT_CONFIGURED` non-protective domain state
+  - keyword-rule domain guard false positive/negative risk
+  - minimal/bounded gap semantics
+
+Mitigation:
+
+- Bridge Phase 1 scope planning must be completed and recorded before any Builder implementation.
+- No Bridge Builder prompt until control repo records Bridge Phase 1 scope decision and that update is committed.
+- Bridge read path must fail closed on missing/invalid evidence fields or schema mismatch.
+- Keep Bridge Phase 1 constrained to read-only/evidence-only semantics.
+- Require GPT audit/fix before any bridge implementation commit.
