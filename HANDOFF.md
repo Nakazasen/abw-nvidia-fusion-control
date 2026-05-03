@@ -111,6 +111,9 @@ Reality-synced state as of 2026-05-03:
 - Bridge Phase 1 scope is now selected: `C. Bridge Preflight Reader + Contract Tests`.
 - NVIDIA Bridge Phase 1 `Preflight Reader + Contract Tests` is completed and pushed in NVIDIA repo.
 - Bridge Phase 1 completion gate verdict `C. INSERT_BRIDGE_PREFLIGHT_E2E_PROOF_SPRINT` is completed by NVIDIA bounded E2E proof.
+- Latest gate selected: `C. PROCEED_TO_NVIDIA_UI_USABILITY_AND_DAILY_USE_REPAIR`.
+- Bridge expansion is paused after bounded preflight E2E completion.
+- Next main sprint returns to NVIDIA-only UI usability and daily-use repair.
 - Bridge Phase 1 implementation boundaries were preserved:
   - no UI
   - no write-back
@@ -153,12 +156,12 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Run gate review / next-scope planning after recording NVIDIA Bridge Preflight E2E Proof completion in this control repo.
+Create NVIDIA UI Usability and Daily-Use Repair Builder prompt after this control commit/push.
 
 Bridge next-scope constraints:
 
 - Do not start Bridge UI, write-back, sync, or Phase 2 automatically.
-- Next scope must be explicitly approved by gate review.
+- Bridge UI remains forbidden in this next builder scope.
 - Bridge must remain read-only/evidence-only.
 - No write-back, no auto-promote, no autonomous sync.
 - ABW repo must remain untouched in Bridge Phase 1 implementation.

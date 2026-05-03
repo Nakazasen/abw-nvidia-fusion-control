@@ -626,3 +626,37 @@ Consequence:
 - Does not mutate ABW.
 - Does not claim production-ready.
 - Does not claim Cognitive OS achieved.
+
+## DECISION: Pause bridge expansion and repair NVIDIA UI daily-use usability
+
+- Status: Accepted
+- Date: 2026-05-03
+
+### Context
+
+- Bridge Preflight E2E Proof passed and was recorded.
+- User-observed NVIDIA UI issues show daily-use usability is still weak.
+
+### Decision
+
+- Proceed next with NVIDIA-only UI usability and daily-use repair before adding bridge UI.
+
+### Evidence
+
+- Bridge E2E proof completed and recorded.
+- User observed English-heavy UI, clipped/hidden controls, confusing layout, chatbot-like experience, and unclear file edit/apply workflow.
+
+### Consequences
+
+- Bridge UI is not opened yet.
+- NVIDIA UI usability becomes the next main sprint.
+- Sprint 9-16 reconciliation remains a secondary follow-up.
+- Packaging remains premature.
+
+### Non-goals
+
+- Does not implement bridge UI.
+- Does not implement write-back/sync/auto-promote.
+- Does not mutate ABW.
+- Does not claim daily-use readiness yet.
+- Does not claim production-ready/Cognitive OS/full bridge.

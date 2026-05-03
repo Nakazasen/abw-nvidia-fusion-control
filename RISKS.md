@@ -1092,3 +1092,23 @@ Mitigation:
 - Keep next scope read-only/evidence-only and bounded to NVIDIA harness/tests/docs.
 - Keep no write-back/no sync/no auto-promote/no autonomous bridge constraints active.
 - Keep ABW repo mutation forbidden in next builder scope.
+
+## NVIDIA UI Daily-Use Usability Debt Risk Cluster (Active)
+
+Risk:
+
+- NVIDIA UI usability debt now blocks practical daily-use adoption.
+- English-heavy UI increases operator confusion for primary working flow.
+- Hidden/clipped controls can make smoke pass while real user UX still fails.
+- Chatbot-like experience creates a false Agent IDE impression.
+- File edit/apply workflow remains unclear in practical usage.
+- Bridge UI overclaim risk remains active if UI bridge is started before core UX repair.
+- Packaging too early risk remains active while usability and workflow clarity are weak.
+- Sprint 9-16 claim reconciliation is still needed as secondary follow-up.
+
+Mitigation:
+
+- Select next sprint scope as NVIDIA-only UI usability and daily-use repair.
+- Keep bridge expansion paused until usability repair evidence exists.
+- Extend smoke/usability checks for visibility, overflow, and workflow discoverability regressions.
+- Preserve non-claims and keep bridge/UI/write-back/sync/auto-promote boundaries explicit.

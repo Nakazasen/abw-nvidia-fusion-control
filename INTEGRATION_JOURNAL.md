@@ -2,6 +2,44 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - Bridge E2E completion gate selects NVIDIA UI usability repair
+
+Gate result:
+
+- `C. PROCEED_TO_NVIDIA_UI_USABILITY_AND_DAILY_USE_REPAIR`
+
+Summary:
+
+- Bridge Preflight E2E proof is accepted for bounded scope (`PASS/WARN/FAIL` and no-mutation are sufficient for this phase).
+- User-observed NVIDIA UI issues now change priority for next-scope planning:
+  - English-heavy UI
+  - hidden/covered controls
+  - clipped text/layout confusion
+  - chatbot-centric feel
+  - unclear file edit/apply workflow
+
+Decision:
+
+- Pause bridge expansion.
+- Do not start bridge UI yet.
+- Proceed next with NVIDIA-only UI usability and daily-use repair.
+
+Next sequence:
+
+1. record this gate decision in control repo and commit/push
+2. create NVIDIA UI Usability and Daily-Use Repair Builder prompt
+3. keep Sprint 9-16 reconciliation as secondary follow-up
+
+Boundaries preserved:
+
+- no ABW repo changes
+- no bridge UI
+- no write-back
+- no sync
+- no auto-promote
+- no ABW mutation
+- no production/Cognitive-OS/full-bridge/security overclaim
+
 ## 2026-05-03 - Bridge Preflight E2E Proof completed
 
 NVIDIA Bridge Preflight E2E Proof is completed, audited, committed, and pushed in `D:\Sandbox\Nvidia`.

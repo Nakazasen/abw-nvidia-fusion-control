@@ -88,6 +88,11 @@
   - bounded NVIDIA changes only: `package.json`, `tests/bridge-preflight-e2e.test.mjs`
 - Bridge Preflight E2E Proof does NOT unlock UI/write-back/sync/auto-promote automatically.
 - Next scope must be decided by explicit gate review / next-scope planning.
+- Latest next-scope gate verdict: `C. PROCEED_TO_NVIDIA_UI_USABILITY_AND_DAILY_USE_REPAIR`.
+- Bridge expansion is paused after bounded preflight E2E completion.
+- Next work returns to NVIDIA UI daily-use usability repair before any bridge UI scope.
+- Current NVIDIA UI is not yet daily-use ready based on user-observed usability issues (English-heavy UI, hidden/clipped controls, unclear layout/workflow).
+- Bridge UI/write-back/sync/auto-promote remain forbidden unless a later gate explicitly authorizes them.
 - Carry-over constraints remain active:
   - `securityRotation: NOT_ROTATED_YET`
   - `idleMemoryEstimateMb: NOT_MEASURED_YET`
