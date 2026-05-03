@@ -739,3 +739,44 @@ Consequence:
 - Does not claim production-ready.
 - Does not claim full bridge.
 - Does not claim Cognitive OS achieved.
+
+## DECISION: Accept NVIDIA File Edit/Apply Workflow Proof completion
+
+- Status: Accepted
+- Date: 2026-05-03
+
+### Context
+
+- Gate previously selected `C. PROCEED_TO_NVIDIA_FILE_EDIT_APPLY_WORKFLOW_PROOF` after NVIDIA UI usability smoke repair.
+- The file edit/apply workflow was identified as the most important Agent IDE credibility gap.
+
+### Decision
+
+- Accept the bounded NVIDIA File Edit/Apply Workflow Proof as completed for the current visibility/honesty/testability scope.
+
+### Evidence
+
+- NVIDIA commit: `3f46cd0cd12de749d529a5df864e50711d600c42`
+- `npm run browser:smoke -- --start-server --port 3456` PASS `104/0`
+- guard matrix PASS `16/16`
+- `npm run agent:audit` PASS `25/25`
+- `npm run bridge:preflight:test` PASS `38/38`
+- `npm run bridge:preflight:e2e` PASS `22/22`
+- encoding/mojibake clean
+
+### Consequences
+
+- The file edit/apply workflow is now more visible and honestly described.
+- NVIDIA UI remains only a candidate for daily-use.
+- More usability/localization/inline-edit proof work may still be required.
+- Next action is gate review / next-scope planning.
+
+### Non-goals
+
+- Does not prove daily-use readiness.
+- Does not complete Vietnamese localization.
+- Does not implement bridge UI.
+- Does not expand write-back/sync/auto-promote.
+- Does not mutate ABW.
+- Does not claim production-ready.
+- Does not claim Cognitive OS achieved.

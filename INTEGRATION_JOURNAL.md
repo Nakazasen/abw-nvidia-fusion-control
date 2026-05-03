@@ -2,6 +2,61 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - NVIDIA File Edit/Apply Workflow Proof completed
+
+NVIDIA File Edit/Apply Workflow Proof is completed, audited, committed, and pushed in `D:\Sandbox\Nvidia`.
+
+Commit/push evidence:
+
+- NVIDIA commit: `3f46cd0cd12de749d529a5df864e50711d600c42`
+- Commit message: `test: prove NVIDIA file edit apply workflow visibility`
+- Push result: `e9e7846..3f46cd0 main -> main`
+
+Files changed in NVIDIA:
+
+- `nvidia_playground.html`
+- `tools/browser-smoke.mjs`
+- `tools/agent-capability-harness.mjs`
+
+Validation evidence:
+
+- `npm run browser:smoke -- --start-server --port 3456` -> PASS `104/0`
+- guard matrix -> PASS `16/16`
+- div balance -> `open=330 close=330`
+- `npm run agent:audit` -> PASS `25/25`
+- `npm run bridge:preflight:test` -> PASS `38/38`
+- `npm run bridge:preflight:e2e` -> PASS `22/22`, including no-mutation checks
+- encoding/mojibake check -> clean
+
+Audit verdict before commit:
+
+- `AUDIT_FIXED_READY_FOR_COMMIT`
+
+What was proven:
+
+- File edit/apply workflow is more visible.
+- File context, edit proposal, diff/review, apply/review, and task/log areas are easier to discover.
+- Workflow wording is more honest.
+- Apply path remains guarded.
+- Smoke/usability checks prove workflow markers are visible/testable.
+- Guard matrix remains meaningful.
+- Bridge regressions remain passing.
+
+What remains limited:
+
+- Daily-use readiness is not proven.
+- Full Vietnamese localization is not complete.
+- Full Agent IDE UX is not proven.
+- Inline-edit widget remains not observable in current smoke path.
+- This proof does not implement bridge UI.
+- This proof does not expand write-back/sync/auto-promote.
+- This proof does not mutate ABW.
+- This proof does not prove production readiness.
+
+Next action:
+
+- Run gate review / next-scope planning before choosing the next sprint.
+
 ## 2026-05-03 - NVIDIA UI repair gate selects file edit/apply workflow proof
 
 Gate result:

@@ -189,3 +189,24 @@ Constraints for the next builder:
 - Do not claim integration exists until a real bridge is implemented and verified.
 - Keep `securityRotation: NOT_ROTATED_YET` and `idleMemoryEstimateMb: NOT_MEASURED_YET` as active carry-over constraints in Sprint 17 planning.
 
+## 2026-05-03 Update - NVIDIA File Edit/Apply Workflow Proof Completion
+
+- NVIDIA File Edit/Apply Workflow Proof is completed and pushed.
+- Latest NVIDIA main: `3f46cd0cd12de749d529a5df864e50711d600c42`.
+- Latest control main will be updated by this task after commit.
+- Validation snapshot:
+  - browser smoke PASS `104/0`
+  - guard matrix PASS `16/16`
+  - `agent:audit` PASS `25/25`
+  - `bridge:preflight:test` PASS `38/38`
+  - `bridge:preflight:e2e` PASS `22/22`
+- Next required action: gate review / next-scope planning.
+- Still forbidden:
+  - bridge UI
+  - write-back expansion
+  - sync
+  - auto-promote
+  - ABW mutation
+  - daily-use-ready claim
+  - production-ready/full-bridge/Cognitive-OS/security claims
+

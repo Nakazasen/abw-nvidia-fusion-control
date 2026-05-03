@@ -1101,3 +1101,39 @@ Each audit must check:
 - If self-learning has no verification gate, do not merge knowledge.
 - If tool generation has no test dataset or ground truth, do not call it production-ready.
 
+## 2026-05-03 Update - NVIDIA File Edit/Apply Workflow Proof Completed
+
+- NVIDIA File Edit/Apply Workflow Proof is completed and pushed.
+- NVIDIA commit: `3f46cd0cd12de749d529a5df864e50711d600c42`.
+- NVIDIA files changed:
+  - `nvidia_playground.html`
+  - `tools/browser-smoke.mjs`
+  - `tools/agent-capability-harness.mjs`
+- Validation recorded:
+  - `npm run browser:smoke -- --start-server --port 3456` PASS `104/0`
+  - guard matrix PASS `16/16`
+  - div balance `open=330 close=330`
+  - `npm run agent:audit` PASS `25/25`
+  - `npm run bridge:preflight:test` PASS `38/38`
+  - `npm run bridge:preflight:e2e` PASS `22/22`
+- Proven scope:
+  - file edit/apply workflow visibility improved
+  - file/proposal/diff/review/apply/task/log markers are more discoverable
+  - workflow wording is more honest
+  - apply path remains guarded
+  - smoke/usability checks prove markers are visible/testable
+  - guard matrix remains meaningful
+  - bridge regressions remain passing
+- Limitations remain:
+  - daily-use readiness not proven
+  - Vietnamese localization incomplete
+  - full Agent IDE UX not proven
+  - inline-edit widget still not observable in current smoke path
+- Boundary remains:
+  - no bridge UI
+  - no write-back expansion
+  - no sync
+  - no auto-promote
+  - no ABW mutation
+- Next scope requires explicit gate review / next-scope planning.
+

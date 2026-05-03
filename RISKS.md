@@ -1116,3 +1116,26 @@ Mitigation:
 - Extend smoke/usability checks for visibility, overflow, localization, and edit/apply workflow discoverability regressions.
 - Preserve non-claims and keep bridge/UI/write-back/sync/auto-promote boundaries explicit.
 
+## NVIDIA File Edit/Apply Workflow Proof Post-Completion Risk Cluster (Active)
+
+Risk:
+
+- Immediate risk for unclear edit/apply workflow visibility is reduced after NVIDIA commit `3f46cd0cd12de749d529a5df864e50711d600c42`.
+- Daily-use readiness is still not proven.
+- Vietnamese localization remains incomplete.
+- Full Agent IDE UX remains unproven.
+- Inline-edit widget remains not observable in current smoke path.
+- Bridge UI overclaim risk remains active.
+- Packaging too early remains active.
+- `securityRotation: NOT_ROTATED_YET` remains active.
+- Sprint 9-16 evidence reconciliation remains recommended.
+- `nvidia_playground.html` remains a large/monolithic surface.
+
+Mitigation:
+
+- Keep daily-use claims blocked until a future readiness gate proves them.
+- Keep localization and workflow proof as explicit follow-up scope.
+- Keep bridge UI/write-back/sync/auto-promote blocked unless a later gate authorizes.
+- Keep packaging blocked until usability/readiness evidence improves.
+- Continue runtime hygiene carry-over controls and monolith split discipline.
+
