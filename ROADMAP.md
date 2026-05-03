@@ -62,6 +62,8 @@
 - Sprint 23 must not start until this Sprint 22 completion control record is committed and pushed.
 - Sprint 21-22 should target ABW ingest hardening based on Sprint 20 gap map.
 - Bridge Phase 1 remains blocked until ABW ingest baseline proof.
+- Sprint 23 gate review selected `C. INSERT_EVIDENCE_REPORTING_SPRINT`.
+- Bridge Phase 1 is not authorized yet.
 - Carry-over constraints remain active:
   - `securityRotation: NOT_ROTATED_YET`
   - `idleMemoryEstimateMb: NOT_MEASURED_YET`
@@ -496,6 +498,19 @@ Required ABW ingest baseline proof before deep bridge work:
 - Sprint 23 must not start until this control repo update is committed/pushed.
 - Sprint 23-26 Bridge Phase 1 remains conditional on explicit gate review against ingest baseline proof and remaining gaps.
 - Do not claim bridge readiness only because Sprint 22 passed.
+
+## 2T. Sprint 23 Explicit Gate Review Verdict (2026-05-03)
+
+- Gate verdict selected: `C. INSERT_EVIDENCE_REPORTING_SPRINT`.
+- Bridge Phase 1 is not authorized at this point.
+- Sprint 23 becomes a pre-bridge Evidence Reporting Sprint.
+- Sprint 23 objective:
+  - define a stable ingest-bound machine-readable report contract
+  - unify ingest outcome + gap classification into a single bridge-facing contract
+  - include failed/skipped/quarantined/source/hash/domain_check/review/promotion state
+  - add contract-level regression tests
+- Sprint 23 remains pre-bridge.
+- Bridge Phase 1 may be reconsidered only after Sprint 23 completion and a later explicit gate review.
 
 ## 3. Phase 1 - Internal Daily-Use Agent IDE
 

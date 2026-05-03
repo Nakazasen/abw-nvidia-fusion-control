@@ -937,3 +937,24 @@ Mitigation:
 - Preserve non-claims: not bridge-ready, not ingest maturity solved, not production/Cognitive OS ready.
 - Keep domain guard behavior explicit in docs/tests (`PASS/WARN/BLOCKED/NOT_CONFIGURED/ERROR`).
 - Prioritize ingest-bound report/gap contract and manifest/source evidence hardening when scoped.
+
+## Sprint 23 Evidence-Reporting Gate Risk Cluster (Active)
+
+Risk:
+
+- Bridge-ready overclaim risk remains active.
+- Ingest-bound evidence/reporting contract gap is now the active Sprint 23 target.
+- Gap output is not yet tied as a first-class post-ingest contract and remains a bridge blocker.
+- Partial/ambiguous evidence contracts can cause bridge components to over-trust ABW outputs.
+- Carry-over constraints remain active:
+  - `promotion_mode:auto` explicit opt-in risk
+  - `NOT_CONFIGURED` means no active contamination protection
+  - keyword-rule guard false positive/negative risk
+
+Mitigation:
+
+- Require a stable machine-readable ingest report contract.
+- Require gap classification to be tied directly to ingest output.
+- Require contract-level regression tests.
+- Require GPT audit/fix before commit.
+- No Bridge Builder until a future control repo gate verdict explicitly selects `A. PROCEED_TO_BRIDGE_PHASE_1`.

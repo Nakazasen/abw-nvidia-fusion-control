@@ -2,6 +2,86 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - Sprint 23 Explicit Gate Review Completed
+
+Gate verdict:
+
+- `C. INSERT_EVIDENCE_REPORTING_SPRINT`
+
+Gate decision:
+
+- Do not start Bridge Phase 1 yet.
+- Insert Sprint 23 as a pre-bridge Evidence Reporting Sprint.
+- Bridge Phase 1 remains blocked until evidence/reporting contract maturity is improved and re-gated.
+
+Evidence reviewed:
+
+- `docs/sprint-20-ingest-baseline-gap-map.md`
+- `docs/abw-v1.2-ingest-acceptance-criteria.md`
+- `docs/sprint-21-promotion-safety.md`
+- `docs/sprint-22-domain-contamination-guard.md`
+- `scripts/abw_ingest.py`
+- `scripts/abw_knowledge.py`
+- `scripts/abw_review.py`
+- `src/abw/gaps.py`
+- `scripts/abw_cli.py`
+- `tests/test_abw_ingest.py`
+- `tests/test_promotion_engine.py`
+- `tests/test_abw_domain_contamination.py`
+- broader suite evidence
+
+Bridge-readiness assessment:
+
+- Safety baseline is stronger after Sprint 20-22:
+  - manual-first promotion default
+  - blind/default auto-promote gated
+  - domain contamination guard v1
+  - quarantined/skipped visibility
+- Bridge-consumable pieces exist:
+  - `processed/manifest.jsonl` fields (`source/id/status/confidence/queue/perception/domain_check`)
+  - `.brain/ingest_queue.json` fields (`status/confidence/review/domain_check`)
+  - ingest run output visibility (`ingested_count/skipped_files/quarantined_count`)
+- Remaining bridge blocker:
+  - no clearly standardized ingest-bound aggregate evidence contract
+  - no single stable machine-readable artifact that unifies ingest outcome + gap classification
+  - current gaps pipeline is eval/inspect-oriented, not guaranteed as a post-ingest contract
+
+Validation evidence:
+
+- `py -m pytest tests/test_abw_ingest.py -v --tb=short` -> `48 passed`
+- `py -m pytest tests/test_promotion_engine.py -v --tb=short` -> `13 passed`
+- `py -m pytest tests/test_abw_domain_contamination.py -v --tb=short` -> `17 passed`
+- broader suite -> `37 passed, 2 failed`
+
+Pre-existing/out-of-scope failures:
+
+- `tests/test_abw_inspect.py::test_inspect_docx_heavy_workspace`
+- `tests/test_abw_gaps.py::test_xls_heavy_workspace_reports_format_block`
+
+Remaining bridge-blocking gaps:
+
+- ingest-bound machine-readable evidence/reporting contract is not explicit/stable enough
+- gap output is not yet guaranteed as a first-class post-ingest contract
+
+Non-claims preserved:
+
+- not production-ready
+- not Cognitive OS achieved
+- not VS Code parity
+- not Cursor parity
+- not enterprise-grade security
+- not full NVIDIA<->ABW bridge
+- not self-growing wiki
+- not autonomous self-learning
+- not fully solved ingest pipeline
+- not bridge-ready yet
+
+Next sequence:
+
+- commit/push this control repo gate verdict record
+- Sprint 23 planning scope: Evidence Reporting Sprint (pre-bridge)
+- no Bridge Phase 1 start until a later explicit gate review selects `A. PROCEED_TO_BRIDGE_PHASE_1`
+
 ## 2026-05-03 - ABW Sprint 22 Domain Contamination Guard v1 Committed And Pushed
 
 ABW Sprint 22 is completed and pushed in `D:\Sandbox\skill-Anti-brain-wiki_note`.

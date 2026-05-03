@@ -87,7 +87,7 @@ Reality-synced state as of 2026-05-03:
 ## Current Strategic Roadmap Status
 
 - Master Roadmap v1 has been recorded.
-- Current next step is committing/pushing this Sprint 22 completion control update.
+- Current next step is committing/pushing this Sprint 23 gate-verdict control update.
 - Phase 1 Gate Review selected cleanup verdict `B`, and post-cleanup re-gate selected `A`.
 - Daily-use track status:
   - Sprint 13: Git / SCM Panel tot hon (done)
@@ -95,14 +95,15 @@ Reality-synced state as of 2026-05-03:
   - Sprint 15: Project Rules / Memory UI toi thieu (done)
   - Sprint 16: Daily-use hardening / E2E regression pack (done)
 - Sprint 16.5 cleanup is complete and recorded.
-- Sprint 23 remains blocked until this Sprint 22 completion control update is committed/pushed.
+- Sprint 23 remains blocked until this Sprint 23 gate-verdict control update is committed/pushed.
 - Carry-over risks remain active: `securityRotation: NOT_ROTATED_YET`, `idleMemoryEstimateMb: NOT_MEASURED_YET`, server monolith still large, and runtime hygiene dry-run safety posture.
 - ABW bridge remains delayed/dependency-gated on ABW ingest maturity proof.
 - Sprint 18 selected scope (browser-smoke modularization) is complete.
 - Sprint 19 selected scope is Runtime Hygiene / Budget Follow-up.
 - Sprint 19 should remain NVIDIA modularization/runtime hardening only (no bridge work).
 - Sprint 22 selected scope `A. Domain Contamination Guard v1` is completed and pushed in ABW.
-- Sprint 23 planning must be gate-aware: decide whether ABW ingest baseline proof is sufficient for Bridge Phase 1 opening, or more ABW ingest hardening is required first.
+- Sprint 23 gate review verdict is `C. INSERT_EVIDENCE_REPORTING_SPRINT`.
+- Sprint 23 next planning target is Evidence Reporting scope (pre-bridge), not Bridge Phase 1 implementation.
 - INTERNAL_DAILY_USE_CANDIDATE is not production readiness.
 - The system must remain lightweight, modular, bounded, and controllable before entering Phase 2 feature growth.
 - Do not claim Sprint 15 as autonomous self-learning, self-growing wiki, or ABW governance/proof.
@@ -138,13 +139,13 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Commit and push this control repo update that records ABW Sprint 22 completion. After that push, Sprint 23 planning may begin with an explicit gate-aware review.
+Commit and push this control repo update that records Sprint 23 gate verdict `C. INSERT_EVIDENCE_REPORTING_SPRINT`. After that push, Sprint 23 planning should focus on Evidence Reporting scope before any bridge work.
 
 Sprint 23 planning constraints:
 
 - Sprint 23 must not start until this control update is committed/pushed.
-- Sprint 23 is not an automatic bridge start.
-- Bridge Phase 1 remains conditional on explicit ingest baseline gate review and remaining gap assessment.
+- Sprint 23 is not an automatic bridge start and not a Bridge Builder trigger.
+- Bridge Phase 1 remains blocked pending Sprint 23 evidence/reporting work and a later explicit gate review.
 - No production/Cognitive OS claim.
 
 Constraints for the next builder:

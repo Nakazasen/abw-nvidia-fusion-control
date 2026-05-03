@@ -453,3 +453,21 @@ Consequence:
 
 - Sprint 23 may be planned only after this control update is committed/pushed.
 - Before Bridge Phase 1, run explicit gate review against ABW ingest baseline proof and remaining gaps.
+
+## 2026-05-03: Sprint 23 Gate Review - Insert Evidence Reporting Sprint
+
+Decision:
+
+- Do not proceed to Bridge Phase 1 yet.
+- Insert Sprint 23 Evidence Reporting Sprint.
+- Treat bridge-facing reporting contract as blocker before Bridge Phase 1.
+
+Status:
+
+- Accepted.
+
+Rationale:
+
+- Safety baseline improved after Sprint 20-22.
+- Remaining blocker is evidence/reporting maturity, not immediate safety break.
+- Bridge must not consume partial/ambiguous evidence contracts.
