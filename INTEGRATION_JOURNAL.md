@@ -3286,3 +3286,21 @@ Warning:
   - full bridge is not implemented
 - Next action:
   - gate review / next-scope planning
+## 2026-05-04 - Apply-to-disk gate selects full manual create/apply E2E proof
+
+- API/harness apply-to-disk proof accepted for bounded scope.
+- Remaining gap:
+  - user prompt in UI -> pending edit visible -> Review + Apply -> file exists on disk
+- Decision:
+  - proceed to NVIDIA full manual create/apply E2E proof
+- Required proof:
+  - user-facing UI path creates visible pending edit, applies it, and verifies file content on disk
+- Boundaries preserved:
+  - no bridge UI
+  - no sync
+  - no auto-promote
+  - no ABW mutation
+  - no packaging
+  - no weakening of trust or approval enforcement
+- Next action:
+  - record decision, then create Builder prompt

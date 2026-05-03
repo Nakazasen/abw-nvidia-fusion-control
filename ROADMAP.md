@@ -1297,3 +1297,11 @@ Each audit must check:
   - daily-use readiness is still not proven
 - Next action:
   - run gate review / next-scope planning
+## 2026-05-04 Update - NVIDIA Full Manual Create/Apply E2E Proof Next Scope
+
+- Latest next-scope verdict: `A. PROCEED_TO_NVIDIA_FULL_MANUAL_CREATE_APPLY_E2E_PROOF`
+- NVIDIA Apply Pending Edit To Disk Proof is complete.
+- API/harness apply-to-disk is proven.
+- Full manual UI E2E create/apply remains unproven.
+- Next work focuses on user-facing UI proof only.
+- Daily-use readiness, packaging, bridge UI, sync, auto-promote, and ABW mutation remain forbidden or unproven.

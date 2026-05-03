@@ -1091,3 +1091,31 @@ Consequence:
   - Does not mutate ABW.
   - Does not claim production-ready.
   - Does not claim Cognitive OS achieved.
+## DECISION: Prove NVIDIA Full Manual Create/Apply E2E Next
+
+- Status: Accepted
+- Date: 2026-05-04
+- Context:
+  - NVIDIA Apply Pending Edit To Disk Proof proved the backend/API path from `write_file` to pending edit to `apply_pending_edit` to disk file.
+  - The user-facing UI flow remains unproven.
+- Decision:
+  - Proceed next with a NVIDIA-only sprint to prove the full manual UI create/apply E2E path.
+- Evidence:
+  - `apply:proof` PASS `30/0`
+  - `write:create:proof` PASS `19/0`
+  - `browser:smoke` PASS `109/0`
+  - guard matrix PASS `16/16`
+  - `agent:audit` PASS `25/25`
+  - bridge tests PASS `38/38` and `22/22`
+  - gate confirmed pending edit UI wiring exists, but full prompt-to-apply-to-disk UI proof is missing
+- Consequences:
+  - This remains bounded to proving the user-facing file workflow.
+  - No bridge UI, packaging, sync, auto-promote, ABW mutation, broad refactor, or localization pass is allowed.
+  - Daily-use readiness remains unclaimed until a later readiness gate.
+- Non-goals:
+  - Does not implement bridge UI.
+  - Does not add sync or auto-promote.
+  - Does not mutate ABW.
+  - Does not claim daily-use readiness.
+  - Does not claim production-ready.
+  - Does not claim Cognitive OS achieved.

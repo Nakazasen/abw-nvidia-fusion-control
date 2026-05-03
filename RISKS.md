@@ -1294,3 +1294,14 @@ Mitigation:
   - packaging is still premature
   - bridge UI overclaim risk remains
   - `securityRotation: NOT_ROTATED_YET`
+## 2026-05-04 Update - Full Manual UI E2E Gap
+
+- full manual UI E2E create/apply remains unproven
+- UI may show pending edits but not complete actual user-facing apply flow unless proven
+- manual workflow proof must not bypass trust or approval boundaries
+- daily-use readiness remains blocked until full manual UI E2E is proven
+- packaging too early remains blocked
+- bridge UI overclaim risk remains
+- Vietnamese localization remains incomplete
+- `nvidia_playground.html` remains monolithic
+- `securityRotation: NOT_ROTATED_YET`

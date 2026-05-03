@@ -343,3 +343,18 @@ Constraints for the next builder:
   - packaging
   - daily-use-ready claim
   - production/full bridge/Cognitive OS/security claims
+## 2026-05-04 Status Update - Full Manual Create/Apply E2E Next
+
+- NVIDIA Apply Pending Edit To Disk Proof completed and recorded.
+- Latest gate selected:
+  - `A. PROCEED_TO_NVIDIA_FULL_MANUAL_CREATE_APPLY_E2E_PROOF`
+- Next required action after this control commit:
+  - create NVIDIA Full Manual Create/Apply E2E Proof Builder prompt
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim
+  - production/full bridge/Cognitive OS/security claims
