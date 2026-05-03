@@ -215,8 +215,44 @@ Constraints for the next builder:
 - Latest gate selected: `A. PROCEED_TO_NVIDIA_UI_MONOLITH_DECOMPOSITION`.
 - NVIDIA Inline-Edit Visibility Proof is completed and recorded.
 - `nvidia_playground.html` remains large/monolithic and is now the main repeated UI regression source.
-- Next required action after this control commit: create NVIDIA UI Monolith Decomposition Builder prompt.
-- Builder scope must be tiny/staged and NVIDIA-only.
+- Next required action after this control commit: run NVIDIA Real File Write/Create Flow Failure Gate.
+- Still forbidden:
+  - bridge UI
+  - write-back expansion
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim
+  - production-ready/full-bridge/Cognitive-OS/security claims
+
+## 2026-05-03 Update - NVIDIA UI Structure Guardrails Completion
+
+- NVIDIA UI Structure Guardrails are completed and pushed.
+- Latest NVIDIA main: `b5b6b9c06ada2dc499fc8d0b1f5e29885bd43405`.
+- Validation snapshot:
+  - browser smoke PASS `109/0`
+  - warnings `[]`
+  - div balance `open=330 close=330`
+  - new checks pass:
+    - `Critical UI shell roots exist`
+    - `Critical editor workflow roots exist`
+    - `Critical bottom-panel roots exist`
+  - `agent:audit` PASS `25/25`
+  - `bridge:preflight:test` PASS `38/38`
+  - `bridge:preflight:e2e` PASS `22/22`
+- What was proven:
+  - critical UI root sections now have explicit smoke protection
+  - structure guardrails were added without moving major DOM sections
+  - no new feature was added
+  - no bridge UI/write-back expansion/sync/auto-promote was added
+- What remains limited:
+  - physical monolith size is not reduced
+  - UI monolith still exists
+  - real file write/create remains unproven and has direct negative manual-use evidence
+  - daily-use readiness remains unproven
+- Next required action after this control commit:
+  - run NVIDIA Real File Write/Create Flow Failure Gate
 - Still forbidden:
   - bridge UI
   - write-back expansion
@@ -240,7 +276,7 @@ Constraints for the next builder:
   - `agent:audit` PASS `25/25`
   - `bridge:preflight:test` PASS `38/38`
   - `bridge:preflight:e2e` PASS `22/22`
-- Next required action: create NVIDIA UI Monolith Decomposition Builder prompt after this control commit.
+- Next required action: run NVIDIA Real File Write/Create Flow Failure Gate after this control commit.
 - Still forbidden:
   - bridge UI
   - write-back expansion

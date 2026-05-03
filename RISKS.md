@@ -1202,3 +1202,21 @@ Mitigation:
 - Keep bridge UI/write-back expansion/sync/auto-promote blocked unless a later gate authorizes them explicitly.
 - Keep localization, trust-boundary hardening, and evidence reconciliation as later follow-up scopes.
 
+## NVIDIA UI Structure Guardrails Post-Completion Risk Cluster (Active)
+
+Risk:
+
+- Smoke now reduces risk of silent deletion of critical UI roots, but `nvidia_playground.html` still remains large/monolithic.
+- Real file write/create failure now has direct user evidence from manual use.
+- Daily-use readiness remains unproven.
+- Vietnamese localization remains incomplete.
+- Packaging too early remains blocked.
+- Bridge UI overclaim risk remains active.
+- `securityRotation: NOT_ROTATED_YET` remains active.
+
+Mitigation:
+
+- Keep the new critical-root smoke checks as guardrails against accidental UI section loss.
+- Run a separate NVIDIA gate for real file write/create flow failure before stronger daily-use claims.
+- Keep packaging and bridge UI blocked until broader UX/readiness evidence improves.
+

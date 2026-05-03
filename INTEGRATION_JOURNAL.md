@@ -2,6 +2,61 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - NVIDIA UI structure guardrails completed
+
+NVIDIA UI Structure Guardrails are completed, audited, committed, and pushed in `D:\Sandbox\Nvidia`.
+
+Commit/push evidence:
+
+- NVIDIA commit: `b5b6b9c06ada2dc499fc8d0b1f5e29885bd43405`
+- Commit message: `test: add NVIDIA UI structure guardrails`
+- Push result: `05dcb6c..b5b6b9c main -> main`
+
+Files changed in NVIDIA:
+
+- `nvidia_playground.html`
+- `tools/browser-smoke.mjs`
+
+Validation evidence:
+
+- `npm run browser:smoke -- --start-server --port 3456` -> PASS `109/0`
+- warnings `[]`
+- div balance -> `open=330 close=330`
+- new checks pass:
+  - `Critical UI shell roots exist`
+  - `Critical editor workflow roots exist`
+  - `Critical bottom-panel roots exist`
+- `npm run agent:audit` -> PASS `25/25`
+- `npm run bridge:preflight:test` -> PASS `38/38`
+- `npm run bridge:preflight:e2e` -> PASS `22/22`
+- encoding/mojibake check -> clean
+
+Audit verdict before commit:
+
+- `AUDIT_FIXED_READY_FOR_COMMIT`
+
+What was proven:
+
+- Critical UI root sections are now protected by smoke checks.
+- Structure guardrails were added without moving major DOM sections.
+- No new feature was added.
+- No bridge UI was added.
+- No write-back expansion, sync, or auto-promote was added.
+- Bridge regressions remain passing.
+
+What remains limited:
+
+- This does not reduce physical size of `nvidia_playground.html`.
+- UI monolith still exists.
+- Real file write/create still fails or remains unproven in manual use.
+- Daily-use readiness is not proven.
+- Vietnamese localization remains incomplete.
+- Full Agent IDE UX is not proven.
+
+Next action:
+
+- Run NVIDIA Real File Write/Create Flow Failure Gate.
+
 ## 2026-05-03 - Inline-edit gate selects NVIDIA UI monolith decomposition
 
 Gate result:

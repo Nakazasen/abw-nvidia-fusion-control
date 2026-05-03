@@ -1147,6 +1147,39 @@ Each audit must check:
 - Daily-use readiness remains unproven.
 - Bridge UI, packaging, write-back expansion, sync, and auto-promote remain forbidden unless a later gate explicitly authorizes them.
 
+## 2026-05-03 Update - NVIDIA UI Structure Guardrails Completed
+
+- NVIDIA UI Structure Guardrails are completed and pushed.
+- NVIDIA commit: `b5b6b9c06ada2dc499fc8d0b1f5e29885bd43405`.
+- NVIDIA files changed:
+  - `nvidia_playground.html`
+  - `tools/browser-smoke.mjs`
+- Validation recorded:
+  - `npm run browser:smoke -- --start-server --port 3456` PASS `109/0`
+  - warnings `[]`
+  - div balance `open=330 close=330`
+  - new checks pass:
+    - `Critical UI shell roots exist`
+    - `Critical editor workflow roots exist`
+    - `Critical bottom-panel roots exist`
+  - `npm run agent:audit` PASS `25/25`
+  - `npm run bridge:preflight:test` PASS `38/38`
+  - `npm run bridge:preflight:e2e` PASS `22/22`
+- Proven scope:
+  - critical UI root sections now have explicit smoke protection
+  - structure guardrails were added without moving major DOM sections
+  - no new feature was added
+  - no bridge UI/write-back expansion/sync/auto-promote was added
+  - bridge regressions remain passing
+- Limitations remain:
+  - physical monolith size is not reduced
+  - UI monolith still exists
+  - real file write/create remains unproven and has direct negative manual-use evidence
+  - daily-use readiness remains unproven
+  - Vietnamese localization remains incomplete
+- Next action:
+  - run separate gate for NVIDIA Real File Write/Create Flow Failure
+
 ## 2026-05-03 Update - NVIDIA Inline-Edit Visibility Proof Completed
 
 - NVIDIA Inline-Edit Visibility Proof is completed and pushed.

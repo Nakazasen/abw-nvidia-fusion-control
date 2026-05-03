@@ -906,3 +906,41 @@ Consequence:
 - Does not claim production-ready.
 - Does not claim full bridge.
 - Does not claim Cognitive OS achieved.
+
+## DECISION: Accept NVIDIA UI structure guardrails completion
+
+- Status: Accepted
+- Date: 2026-05-03
+
+### Context
+
+- Gate selected NVIDIA UI monolith decomposition, but Builder implemented a tiny structure-guardrail pass rather than a broad refactor.
+
+### Decision
+
+- Accept the bounded structure guardrails as completed for this scope.
+
+### Evidence
+
+- NVIDIA commit: `b5b6b9c06ada2dc499fc8d0b1f5e29885bd43405`
+- `npm run browser:smoke -- --start-server --port 3456` PASS `109/0`
+- warnings `[]`
+- new critical UI root checks pass
+- `npm run agent:audit` PASS `25/25`
+- bridge tests pass
+- encoding/mojibake clean
+
+### Consequences
+
+- Critical UI sections now have stronger smoke protection.
+- The UI monolith still remains.
+- Real file write/create failure must be handled by a separate next gate.
+- Daily-use readiness remains unclaimed.
+
+### Non-goals
+
+- Does not physically decompose the monolith.
+- Does not fix real file write/create.
+- Does not implement bridge UI.
+- Does not expand write-back/sync/auto-promote.
+- Does not claim production-ready or Cognitive OS achieved.
