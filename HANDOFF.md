@@ -328,3 +328,18 @@ Constraints for the next builder:
   - daily-use-ready claim
   - production-ready/full-bridge/Cognitive-OS/security claims
 
+## 2026-05-04 Status Update - NVIDIA Apply Pending Edit To Disk Proof
+
+- NVIDIA Apply Pending Edit To Disk Proof completed and pushed.
+- Latest NVIDIA main: `ae2b26649d97d62e08dc3e25e851d468ed05f23f`
+- Latest control main will be updated by this task after commit.
+- Next required action:
+  - gate review / next-scope planning
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim
+  - production/full bridge/Cognitive OS/security claims

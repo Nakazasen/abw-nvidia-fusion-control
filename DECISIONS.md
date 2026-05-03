@@ -1060,3 +1060,34 @@ Consequence:
 - Does not claim daily-use readiness.
 - Does not claim production-ready.
 - Does not claim Cognitive OS achieved.
+## DECISION: Accept NVIDIA Apply Pending Edit To Disk Proof Completion
+
+- Status: Accepted
+- Date: 2026-05-04
+- Context:
+  - NVIDIA Real File Write/Create Repair proved safe explicit create-file intent reaches `write_file` and creates a pending edit.
+  - The next missing step was proving reviewed apply-to-disk behavior.
+- Decision:
+  - Accept the bounded NVIDIA Apply Pending Edit To Disk Proof as completed for API/harness-level apply-to-disk behavior.
+- Evidence:
+  - NVIDIA commit: `ae2b26649d97d62e08dc3e25e851d468ed05f23f`
+  - `apply:proof` PASS `30/0`
+  - `write:create:proof` PASS `19/0`
+  - `browser:smoke` PASS `109/0`
+  - guard matrix PASS `16/16`
+  - `agent:audit` PASS `25/25`
+  - `bridge:preflight:test` PASS `38/38`
+  - `bridge:preflight:e2e` PASS `22/22`
+  - encoding/mojibake clean
+- Consequences:
+  - Pending edits can now be applied to disk under guarded proof.
+  - Outside-workspace, no-approval, and untrusted cases remain blocked.
+  - Full manual UI E2E remains unproven.
+  - Daily-use readiness remains unclaimed.
+- Non-goals:
+  - Does not prove full manual UI E2E.
+  - Does not implement bridge UI.
+  - Does not add sync or auto-promote.
+  - Does not mutate ABW.
+  - Does not claim production-ready.
+  - Does not claim Cognitive OS achieved.

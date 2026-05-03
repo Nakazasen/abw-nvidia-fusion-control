@@ -3244,3 +3244,45 @@ Current state:
 Warning:
 
 - control repo is the source of truth, not chat memory
+## 2026-05-04 - NVIDIA Apply Pending Edit To Disk Proof completed
+
+- NVIDIA commit: `ae2b26649d97d62e08dc3e25e851d468ed05f23f`
+- NVIDIA commit message: `test: prove NVIDIA apply pending edit to disk`
+- NVIDIA push result: `9e14a2d..ae2b266  main -> main`
+- Files changed:
+  - `package.json`
+  - `tools/nvidia-server.mjs`
+  - `tests/apply-pending-edit-to-disk.test.mjs`
+- Validation evidence:
+  - `apply:proof` PASS `30/0`
+  - `write:create:proof` PASS `19/0`
+  - `browser:smoke` PASS `109/0`
+  - warnings `[]`
+  - div balance `330/330`
+  - guard matrix `16/16`
+  - `agent:audit` PASS `25/25`
+  - `bridge:preflight:test` PASS `38/38`
+  - `bridge:preflight:e2e` PASS `22/22`
+  - encoding/mojibake clean
+- Audit result:
+  - `AUDIT_FIXED_READY_FOR_COMMIT`
+- What was proven:
+  - `write_file` creates a pending edit
+  - `apply_pending_edit` applies the pending edit to disk
+  - the file exists on disk after apply
+  - on-disk content is verified
+  - the pending edit is removed after successful apply
+  - outside-workspace write/apply remains blocked
+  - no-approval apply remains blocked
+  - untrusted workspace apply remains blocked
+  - blocked API responses remain explicit failures, not fake success
+  - bridge regressions remain passing
+- What remains limited:
+  - this is API/harness-level apply-to-disk proof, not full manual UI E2E
+  - daily-use readiness is not proven
+  - full Vietnamese localization is not complete
+  - full Agent IDE UX is not proven
+  - production readiness is not proven
+  - full bridge is not implemented
+- Next action:
+  - gate review / next-scope planning

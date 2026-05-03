@@ -1281,3 +1281,16 @@ Mitigation:
 - Preserve trust, approval, and workspace-boundary enforcement in both happy-path and blocked-path proof cases.
 - Keep bridge UI, sync, auto-promote, and packaging blocked unless a later gate explicitly authorizes them.
 
+## 2026-05-04 Update - Apply To Disk Proof Risk Status
+
+- Reduced risk:
+  - the previously unproven apply-to-disk path now has guarded API/harness proof
+- Remaining risks:
+  - full manual UI E2E is not proven
+  - daily-use readiness is not proven
+  - Vietnamese localization remains incomplete
+  - full Agent IDE UX is not proven
+  - `nvidia_playground.html` remains monolithic
+  - packaging is still premature
+  - bridge UI overclaim risk remains
+  - `securityRotation: NOT_ROTATED_YET`

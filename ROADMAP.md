@@ -1279,3 +1279,21 @@ Each audit must check:
   - no auto-promote
   - no ABW mutation
 
+## 2026-05-04 Update - NVIDIA Apply Pending Edit To Disk Proof Completed
+
+- Completed and recorded NVIDIA Apply Pending Edit To Disk Proof in the NVIDIA repo.
+- NVIDIA commit: `ae2b26649d97d62e08dc3e25e851d468ed05f23f`
+- Validation:
+  - `apply:proof` PASS `30/0`
+  - `write:create:proof` PASS `19/0`
+  - `browser:smoke` PASS `109/0`
+  - `agent:audit` PASS `25/25`
+  - `bridge:preflight:test` PASS `38/38`
+  - `bridge:preflight:e2e` PASS `22/22`
+- Proven:
+  - `write_file -> pending edit -> apply_pending_edit -> file exists on disk`
+- Limitations:
+  - full manual UI E2E is still not proven
+  - daily-use readiness is still not proven
+- Next action:
+  - run gate review / next-scope planning
