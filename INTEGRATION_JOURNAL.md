@@ -2,6 +2,42 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - Inline-edit gate selects NVIDIA UI monolith decomposition
+
+Gate result:
+
+- `A. PROCEED_TO_NVIDIA_UI_MONOLITH_DECOMPOSITION`
+
+Summary:
+
+- Inline-edit visibility proof is accepted for its bounded smoke-observability scope.
+- Inline-edit warnings are gone.
+- `nvidia_playground.html` remains large/monolithic.
+
+Decision:
+
+- Proceed next to bounded NVIDIA UI monolith decomposition.
+
+Rationale:
+
+- Reduce repeated UI regression risk before more features, bridge UI, localization, or packaging.
+- Keep the next sprint focused on tiny staged decomposition / structure hardening rather than feature expansion.
+
+Boundaries preserved:
+
+- NVIDIA repo only
+- no ABW mutation
+- no bridge UI
+- no write-back expansion
+- no sync
+- no auto-promote
+- no packaging work
+- no broad daily-use feature expansion
+
+Next action:
+
+- Record this decision in control repo, then create the NVIDIA UI Monolith Decomposition Builder prompt.
+
 ## 2026-05-03 - NVIDIA Inline-Edit Visibility Proof completed
 
 NVIDIA Inline-Edit Visibility Proof is completed, audited, committed, and pushed in `D:\Sandbox\Nvidia`.

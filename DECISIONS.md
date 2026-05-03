@@ -864,3 +864,45 @@ Consequence:
 - Does not mutate ABW.
 - Does not claim production-ready.
 - Does not claim Cognitive OS achieved.
+
+## DECISION: Proceed to bounded NVIDIA UI monolith decomposition
+
+- Status: Accepted
+- Date: 2026-05-03
+
+### Context
+
+- NVIDIA Inline-Edit Visibility Proof passed and was recorded.
+- Inline-edit warnings are gone, but `nvidia_playground.html` remains a large monolithic UI file and recent fixes repeatedly touched it directly.
+
+### Decision
+
+- Proceed next with a NVIDIA-only bounded UI monolith decomposition / structure hardening sprint.
+
+### Evidence
+
+- NVIDIA Inline-Edit Visibility Proof completed and recorded.
+- `npm run browser:smoke -- --start-server --port 3456` PASS `106/0`
+- warnings `[]`
+- guard matrix PASS `16/16`
+- bridge tests remain passing
+- `nvidia_playground.html` remains about `298,383` bytes / `6,053` lines
+- recent UI fixes repeatedly edited `nvidia_playground.html` directly
+
+### Consequences
+
+- Next Builder sprint must stay tightly focused on tiny staged decomposition and structure hardening.
+- No feature expansion is allowed.
+- Bridge UI and packaging remain blocked.
+- Daily-use readiness remains unclaimed.
+- Localization remains a later follow-up.
+
+### Non-goals
+
+- Does not implement bridge UI.
+- Does not expand write-back/sync/auto-promote.
+- Does not mutate ABW.
+- Does not claim daily-use readiness.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.

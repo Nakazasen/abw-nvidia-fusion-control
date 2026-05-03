@@ -212,19 +212,18 @@ Constraints for the next builder:
 
 ## 2026-05-03 Update - Next Scope Selected
 
-- Latest gate selected: `A. PROCEED_TO_FIX_REMAINING_INLINE_EDIT_VISIBILITY_WARNINGS`.
-- NVIDIA File Edit/Apply Workflow Proof is completed and recorded.
-- Two inline-edit smoke warnings remain:
-  - `Inline edit action exists - action not observable in current smoke state`
-  - `Inline edit widget opens from selection - widget not observable in current smoke state`
-- Next required action after this control commit: create NVIDIA Inline-Edit Visibility Warnings Builder prompt.
-- Secondary follow-up: NVIDIA UI monolith decomposition.
+- Latest gate selected: `A. PROCEED_TO_NVIDIA_UI_MONOLITH_DECOMPOSITION`.
+- NVIDIA Inline-Edit Visibility Proof is completed and recorded.
+- `nvidia_playground.html` remains large/monolithic and is now the main repeated UI regression source.
+- Next required action after this control commit: create NVIDIA UI Monolith Decomposition Builder prompt.
+- Builder scope must be tiny/staged and NVIDIA-only.
 - Still forbidden:
   - bridge UI
   - write-back expansion
   - sync
   - auto-promote
   - ABW mutation
+  - packaging
   - daily-use-ready claim
   - production-ready/full-bridge/Cognitive-OS/security claims
 
@@ -241,13 +240,14 @@ Constraints for the next builder:
   - `agent:audit` PASS `25/25`
   - `bridge:preflight:test` PASS `38/38`
   - `bridge:preflight:e2e` PASS `22/22`
-- Next required action: gate review / next-scope planning.
+- Next required action: create NVIDIA UI Monolith Decomposition Builder prompt after this control commit.
 - Still forbidden:
   - bridge UI
   - write-back expansion
   - sync
   - auto-promote
   - ABW mutation
+  - packaging
   - daily-use-ready claim
   - production-ready/full-bridge/Cognitive-OS/security claims
 

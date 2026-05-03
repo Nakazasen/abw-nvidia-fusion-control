@@ -1182,3 +1182,23 @@ Mitigation:
 - Keep packaging blocked until broader UX/readiness evidence improves.
 - Keep runtime hygiene carry-over controls active.
 
+## NVIDIA UI Monolith Decomposition Follow-up Risk Cluster (Active)
+
+Risk:
+
+- `nvidia_playground.html` remains large/monolithic and regression-prone.
+- Direct monolith edits can delete DOM sections, break div balance, hide controls, or reintroduce mojibake/degraded UI text.
+- Refactor/decomposition itself can cause regressions if scope is too broad.
+- Vietnamese localization remains incomplete.
+- Daily-use readiness remains unproven.
+- Bridge UI overclaim risk remains active.
+- Packaging too early remains blocked.
+- Trust-boundary smoke hardening remains a later follow-up.
+
+Mitigation:
+
+- Keep the next NVIDIA sprint tiny, staged, and structure-focused rather than feature-focused.
+- Require smoke/guard/div-balance revalidation after each bounded extraction or cleanup change.
+- Keep bridge UI/write-back expansion/sync/auto-promote blocked unless a later gate authorizes them explicitly.
+- Keep localization, trust-boundary hardening, and evidence reconciliation as later follow-up scopes.
+

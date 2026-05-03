@@ -1137,17 +1137,15 @@ Each audit must check:
   - no ABW mutation
 - Next scope requires explicit gate review / next-scope planning.
 
-## 2026-05-03 Update - Next Scope: Inline-Edit Visibility Warnings
+## 2026-05-03 Update - Next Scope: NVIDIA UI Monolith Decomposition
 
-- Latest next-scope gate verdict: `A. PROCEED_TO_FIX_REMAINING_INLINE_EDIT_VISIBILITY_WARNINGS`.
-- NVIDIA File Edit/Apply Workflow Proof is completed and recorded.
-- Two non-fatal inline-edit smoke warnings remain:
-  - `Inline edit action exists - action not observable in current smoke state`
-  - `Inline edit widget opens from selection - widget not observable in current smoke state`
-- Next sprint scope is narrow and NVIDIA-only: make inline-edit action/widget observability explicit in smoke, or honestly prove why full observability is unavailable without unsafe assumptions.
+- Latest next-scope gate verdict: `A. PROCEED_TO_NVIDIA_UI_MONOLITH_DECOMPOSITION`.
+- NVIDIA Inline-Edit Visibility Proof is completed and recorded.
+- `nvidia_playground.html` remains large/monolithic at about `298,383` bytes / `6,053` lines.
+- Next sprint scope is narrow and NVIDIA-only: tiny staged decomposition / structure hardening only, not feature expansion.
+- Expected focus is `nvidia_playground.html` plus directly related smoke/structure checks.
 - Daily-use readiness remains unproven.
-- NVIDIA UI monolith decomposition remains a strong secondary follow-up.
-- Bridge UI/write-back/sync/auto-promote remain forbidden unless a later gate explicitly authorizes them.
+- Bridge UI, packaging, write-back expansion, sync, and auto-promote remain forbidden unless a later gate explicitly authorizes them.
 
 ## 2026-05-03 Update - NVIDIA Inline-Edit Visibility Proof Completed
 
