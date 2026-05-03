@@ -1061,3 +1061,18 @@ Mitigation:
 - Preserve read-only/evidence-only boundary.
 - Continue fail-closed behavior for missing/invalid evidence.
 - Require GPT audit/fix before commit.
+
+## Bridge Preflight Next-Scope Gate Risk Cluster (Active)
+
+Risk:
+
+- Unit/contract tests are strong, but cross-repo E2E proof is still missing.
+- Starting Bridge UI before E2E proof would increase overclaim risk.
+- Bridge status output can be misinterpreted as full bridge readiness without ABW-artifact-to-NVIDIA-preflight end-to-end evidence.
+
+Mitigation:
+
+- Insert `C. INSERT_BRIDGE_PREFLIGHT_E2E_PROOF_SPRINT` before any UI scope.
+- Keep next scope read-only/evidence-only and bounded to NVIDIA harness/tests/docs.
+- Keep no write-back/no sync/no auto-promote/no autonomous bridge constraints active.
+- Keep ABW repo mutation forbidden in next builder scope.

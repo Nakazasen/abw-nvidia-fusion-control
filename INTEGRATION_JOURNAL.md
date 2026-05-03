@@ -2,6 +2,57 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - Explicit Bridge Phase 1 Completion Gate Verdict Recorded
+
+Gate verdict:
+
+- `C. INSERT_BRIDGE_PREFLIGHT_E2E_PROOF_SPRINT`
+
+Decision meaning:
+
+- Bridge Phase 1 preflight reader is accepted as bounded/read-only/fail-closed.
+- UI/write-back/sync/auto-promote must NOT start yet.
+- One bounded E2E proof sprint is required before any UI-facing bridge scope.
+
+Rationale:
+
+- Bridge Phase 1 implementation is read-only/evidence-only and fail-closed.
+- Unit/contract evidence is strong.
+- Missing layer: real ABW artifact generation consumed by NVIDIA preflight and asserted end-to-end (`PASS`/`WARN`/`FAIL`).
+
+Evidence reviewed:
+
+- NVIDIA:
+  - `tools/bridge-preflight.mjs`
+  - `tests/bridge-preflight.test.mjs`
+  - `docs/bridge-phase-1-preflight.md`
+  - `package.json`
+- ABW:
+  - `docs/sprint-23-evidence-reporting-contract.md`
+  - `scripts/abw_ingest.py`
+  - `tests/test_abw_ingest_evidence_reporting.py`
+
+Rerun gate evidence:
+
+- `npm run bridge:preflight:test` -> PASS `38/38`
+- `npm run agent:audit` -> PASS `25/25`
+- `npm run budget:check` -> PASS
+- `npm run runtime:hygiene` -> PASS dry-run
+- `npm run browser:smoke -- --start-server --port 3456` -> PASS `99/0` (2 non-fatal warnings)
+
+Repo safety observed during gate review:
+
+- NVIDIA: clean, no staged.
+- ABW: pre-existing untracked only (`README.proposed.md`, `docs/ABW_ARCHITECTURE_AUDIT_2026-04-30.md`), no staged.
+- Control: pre-existing dirty/untracked (`FILE_INDEX.md`, `AGENTS.md`, `patch.js`, `patch.py`), no staged.
+- No commit/push performed during review phase.
+
+Required next sequence:
+
+1. commit/push this control repo gate verdict record
+2. plan bounded Bridge Preflight E2E Proof Sprint
+3. no UI/write-back/sync/auto-promote scope unless later explicitly approved by governance decision
+
 ## 2026-05-03 - NVIDIA Bridge Phase 1 Preflight Reader + Contract Tests Committed And Pushed
 
 NVIDIA Bridge Phase 1 is completed and pushed in `D:\Sandbox\Nvidia`.

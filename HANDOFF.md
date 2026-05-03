@@ -110,6 +110,7 @@ Reality-synced state as of 2026-05-03:
 - Bridge Builder implementation remains blocked until Bridge Phase 1 scope planning is recorded and committed.
 - Bridge Phase 1 scope is now selected: `C. Bridge Preflight Reader + Contract Tests`.
 - NVIDIA Bridge Phase 1 `Preflight Reader + Contract Tests` is completed and pushed in NVIDIA repo.
+- Bridge Phase 1 completion gate verdict is selected: `C. INSERT_BRIDGE_PREFLIGHT_E2E_PROOF_SPRINT`.
 - Bridge Phase 1 implementation boundaries were preserved:
   - no UI
   - no write-back
@@ -152,12 +153,12 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Commit and push this control repo update that records NVIDIA Bridge Phase 1 completion (`86abf49025d14138a97fc8706e94c245fcad1002`).
+Commit and push this control repo update that records Bridge Phase 1 completion gate verdict `C. INSERT_BRIDGE_PREFLIGHT_E2E_PROOF_SPRINT`.
 
 Bridge Phase 1 gate constraints:
 
 - Do not start Bridge UI, write-back, sync, or Phase 2 automatically.
-- After this control push, run explicit Bridge Phase 1 completion gate / next-scope planning.
+- After this control push, next step is Bridge Preflight E2E Proof Sprint planning only.
 - Bridge must remain read-only/evidence-only.
 - No write-back, no auto-promote, no autonomous sync.
 - ABW repo must remain untouched in Bridge Phase 1 implementation.

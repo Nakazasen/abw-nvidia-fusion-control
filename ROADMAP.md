@@ -630,6 +630,19 @@ Required ABW ingest baseline proof before deep bridge work:
   - No further bridge/UI work may start until this control repo completion record is committed/pushed.
   - Next sequence must be explicit Bridge Phase 1 completion gate / next-scope planning.
 
+## 2Z. Bridge Phase 1 Completion Gate Verdict (2026-05-03)
+
+- Gate verdict selected: `C. INSERT_BRIDGE_PREFLIGHT_E2E_PROOF_SPRINT`.
+- Bridge Phase 1 preflight reader is accepted as bounded/read-only/fail-closed.
+- UI/write-back/sync/auto-promote scope remains NOT authorized.
+- Next required sprint is bounded E2E proof:
+  - ABW generates real `.brain/ingest_report.json` + `.brain/ingest_gaps.json`
+  - NVIDIA preflight consumes those artifacts
+  - PASS/WARN/FAIL paths are asserted end-to-end
+- Governance sequence requirement:
+  - No Builder prompt may be issued until this gate verdict record is committed/pushed.
+  - No automatic Bridge UI follow-up.
+
 ## 3. Phase 1 - Internal Daily-Use Agent IDE
 
 Sprint range: Sprint 1-16

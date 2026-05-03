@@ -570,3 +570,23 @@ Consequence:
 - Any further bridge work requires new scope planning and governance record.
 - UI/write-back/sync/auto-promote remain forbidden unless explicitly scoped later.
 - GPT audit/fix remains required before future commits.
+
+## 2026-05-03: Bridge Phase 1 Completion Gate - Insert Preflight E2E Proof Sprint
+
+Decision:
+
+- Select verdict `C. INSERT_BRIDGE_PREFLIGHT_E2E_PROOF_SPRINT`.
+- Accept Bridge Phase 1 preflight reader as completed and bounded.
+- Do not authorize Bridge UI/write-back/sync/auto-promote scope yet.
+- Require one additional bounded E2E proof sprint before any UI-facing bridge scope.
+
+Status:
+
+- Accepted.
+
+Consequence:
+
+- Next builder scope is limited to NVIDIA repo E2E harness/tests/docs for ABW-artifact-to-NVIDIA-preflight proof.
+- ABW repo remains read-only reference during next builder sprint.
+- Builder prompt is forbidden until this governance decision is committed/pushed.
+- GPT audit/fix remains mandatory before any next-scope commit.
