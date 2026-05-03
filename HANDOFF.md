@@ -30,7 +30,7 @@ Reality-synced state as of 2026-05-03:
 - ABW Sprint 21 Disable / Gate Blind Auto-Promotion is complete and pushed.
 - ABW Sprint 22 Domain Contamination Guard v1 is complete and pushed.
 - ABW Sprint 23 Evidence Report + Gap Output Minimal Pair is complete and pushed.
-- Latest NVIDIA remote main is 1ae4515e8ba405c970ec23b5af5d00c8daa38f65.
+- Latest NVIDIA remote main is e9e78460c37649a76019780d9180a7d6abbbd580.
 - Latest ABW remote main is fe0520626d8f254476424242e29ea2bef4807f73.
 - Current readiness verdict is INTERNAL_DAILY_USE_CANDIDATE.
 - Phase 1 Gate Review is completed.
@@ -88,7 +88,7 @@ Reality-synced state as of 2026-05-03:
 ## Current Strategic Roadmap Status
 
 - Master Roadmap v1 has been recorded.
-- Current next step is committing/pushing this control repo Sprint 23 completion record update.
+- Current next step is gate review / next-scope planning after the NVIDIA UI usability smoke repair completion record is committed/pushed.
 - Phase 1 Gate Review selected cleanup verdict `B`, and post-cleanup re-gate selected `A`.
 - Daily-use track status:
   - Sprint 13: Git / SCM Panel tot hon (done)
@@ -111,9 +111,12 @@ Reality-synced state as of 2026-05-03:
 - Bridge Phase 1 scope is now selected: `C. Bridge Preflight Reader + Contract Tests`.
 - NVIDIA Bridge Phase 1 `Preflight Reader + Contract Tests` is completed and pushed in NVIDIA repo.
 - Bridge Phase 1 completion gate verdict `C. INSERT_BRIDGE_PREFLIGHT_E2E_PROOF_SPRINT` is completed by NVIDIA bounded E2E proof.
-- Latest gate selected: `C. PROCEED_TO_NVIDIA_UI_USABILITY_AND_DAILY_USE_REPAIR`.
-- Bridge expansion is paused after bounded preflight E2E completion.
-- Next main sprint returns to NVIDIA-only UI usability and daily-use repair.
+- NVIDIA UI usability smoke repair is completed and pushed in NVIDIA repo.
+- Latest recorded NVIDIA completion commit is `e9e78460c37649a76019780d9180a7d6abbbd580`.
+- Latest gate selected was `C. PROCEED_TO_NVIDIA_UI_USABILITY_AND_DAILY_USE_REPAIR`, and that bounded scope is now completed.
+- Bridge expansion remains paused after bounded preflight E2E completion and bounded UI smoke repair.
+- NVIDIA UI remains a daily-use candidate only; daily-use readiness is not yet proven.
+- More usability/localization/file-edit workflow hardening may still be required.
 - Bridge Phase 1 implementation boundaries were preserved:
   - no UI
   - no write-back
@@ -156,7 +159,16 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Create NVIDIA UI Usability and Daily-Use Repair Builder prompt after this control commit/push.
+Run gate review / next-scope planning before choosing the next sprint.
+
+Still forbidden while awaiting the next gate:
+
+- bridge UI
+- write-back
+- sync
+- auto-promote
+- ABW mutation
+- production-ready/full-bridge/Cognitive-OS/security claims
 
 Bridge next-scope constraints:
 
@@ -174,3 +186,4 @@ Constraints for the next builder:
 - Do not modify NVIDIA source or ABW source during control-doc work.
 - Do not claim integration exists until a real bridge is implemented and verified.
 - Keep `securityRotation: NOT_ROTATED_YET` and `idleMemoryEstimateMb: NOT_MEASURED_YET` as active carry-over constraints in Sprint 17 planning.
+

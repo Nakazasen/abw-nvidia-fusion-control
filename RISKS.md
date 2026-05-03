@@ -1097,18 +1097,19 @@ Mitigation:
 
 Risk:
 
-- NVIDIA UI usability debt now blocks practical daily-use adoption.
-- English-heavy UI increases operator confusion for primary working flow.
-- Hidden/clipped controls can make smoke pass while real user UX still fails.
-- Chatbot-like experience creates a false Agent IDE impression.
-- File edit/apply workflow remains unclear in practical usage.
-- Bridge UI overclaim risk remains active if UI bridge is started before core UX repair.
+- Immediate session-list/SCM smoke regressions were repaired, but daily-use readiness is still not proven.
+- Vietnamese localization remains incomplete and still increases operator confusion for primary working flow.
+- Hidden/clipped controls can still regress in ways smoke may miss if usability checks drift.
+- Chatbot-like experience and unclear file edit/apply workflow still create a false Agent IDE impression.
+- Bridge UI overclaim risk remains active if UI bridge is started before broader UX proof.
 - Packaging too early risk remains active while usability and workflow clarity are weak.
-- Sprint 9-16 claim reconciliation is still needed as secondary follow-up.
+- `securityRotation: NOT_ROTATED_YET` remains active as carry-over runtime hygiene risk.
+- Sprint 9-16 claim reconciliation is still recommended as secondary follow-up.
 
 Mitigation:
 
-- Select next sprint scope as NVIDIA-only UI usability and daily-use repair.
-- Keep bridge expansion paused until usability repair evidence exists.
-- Extend smoke/usability checks for visibility, overflow, and workflow discoverability regressions.
+- Treat the current NVIDIA repair as bounded smoke/usability regression closure, not daily-use proof.
+- Require gate review / next-scope planning before choosing the next sprint.
+- Extend smoke/usability checks for visibility, overflow, localization, and workflow discoverability regressions.
 - Preserve non-claims and keep bridge/UI/write-back/sync/auto-promote boundaries explicit.
+

@@ -660,3 +660,42 @@ Consequence:
 - Does not mutate ABW.
 - Does not claim daily-use readiness yet.
 - Does not claim production-ready/Cognitive OS/full bridge.
+## DECISION: Accept NVIDIA UI usability smoke repair completion
+
+- Status: Accepted
+- Date: 2026-05-03
+
+### Context
+
+- Gate previously selected `C. PROCEED_TO_NVIDIA_UI_USABILITY_AND_DAILY_USE_REPAIR` after Bridge Preflight E2E Proof.
+- NVIDIA UI had user-observed issues including hidden/clipped controls, SCM/session UI regressions, mojibake risk, confusing flow, and incomplete localization.
+
+### Decision
+
+- Accept the bounded NVIDIA UI usability smoke repair as completed for the current smoke regression scope.
+
+### Evidence
+
+- NVIDIA commit: `e9e78460c37649a76019780d9180a7d6abbbd580`
+- `npm run browser:smoke -- --start-server --port 3456` PASS `99/0`
+- guard matrix PASS `16/16`
+- `npm run agent:audit` PASS `25/25`
+- `npm run bridge:preflight:test` PASS `38/38`
+- `npm run bridge:preflight:e2e` PASS `22/22`
+- encoding/mojibake clean
+
+### Consequences
+
+- The immediate smoke regressions are repaired.
+- NVIDIA UI remains only a daily-use candidate.
+- More usability/localization/file-edit workflow work may still be required.
+- Next action is gate review / next-scope planning.
+
+### Non-goals
+
+- Does not prove daily-use readiness.
+- Does not complete Vietnamese localization.
+- Does not implement bridge UI.
+- Does not implement write-back/sync/auto-promote.
+- Does not claim production-ready.
+- Does not claim Cognitive OS achieved.

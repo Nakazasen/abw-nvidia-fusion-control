@@ -2,6 +2,60 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - NVIDIA UI usability smoke repair completed
+
+NVIDIA UI usability smoke repair is completed, audited, committed, and pushed in `D:\Sandbox\Nvidia`.
+
+Commit/push evidence:
+
+- NVIDIA commit: `e9e78460c37649a76019780d9180a7d6abbbd580`
+- Commit message: `fix: repair NVIDIA UI usability smoke regressions`
+- Push result: `1ae4515..e9e7846 main -> main`
+
+Files changed in NVIDIA:
+
+- `nvidia_playground.html`
+- `tools/browser-smoke.mjs`
+
+Validation evidence:
+
+- `npm run browser:smoke -- --start-server --port 3456` -> PASS `99/0`
+- guard matrix -> PASS `16/16`
+- SCM panel opens on click
+- code hygiene/mojibake check -> clean
+- div balance -> `open=314 close=314`
+- `npm run agent:audit` -> PASS `25/25`
+- `npm run bridge:preflight:test` -> PASS `38/38`
+- `npm run bridge:preflight:e2e` -> PASS `22/22`, including no-mutation checks
+
+Audit verdict before commit:
+
+- `AUDIT_FIXED_READY_FOR_COMMIT`
+
+What was fixed:
+
+- Restored missing session list UI path.
+- Restored SCM panel smoke visibility.
+- Fixed div balance.
+- Restored mojibake detector after Builder weakened it.
+- Removed corrupted UI text from touched areas.
+- Kept smoke guard matrix meaningful.
+- Kept bridge preflight regression tests passing.
+
+What remains limited:
+
+- Daily-use readiness is not proven.
+- Full Vietnamese localization is not complete.
+- Full Agent IDE UX is not proven.
+- This repair does not implement bridge UI.
+- This repair does not implement write-back, sync, or auto-promote.
+- This repair does not mutate ABW.
+- This repair does not prove production readiness.
+
+Next action:
+
+- Run gate review / next-scope planning before choosing the next sprint.
+
 ## 2026-05-03 - Bridge E2E completion gate selects NVIDIA UI usability repair
 
 Gate result:

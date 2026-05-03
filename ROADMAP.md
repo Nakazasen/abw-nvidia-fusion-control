@@ -30,7 +30,7 @@
 - Current capability is not VS Code parity.
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
-- Control repo latest recorded NVIDIA remote main: 1ae4515e8ba405c970ec23b5af5d00c8daa38f65.
+- Control repo latest recorded NVIDIA remote main: e9e78460c37649a76019780d9180a7d6abbbd580.
 - Control repo latest recorded ABW remote main: `fe0520626d8f254476424242e29ea2bef4807f73`.
 - Control repo latest recorded control remote main: `6f8df242b499382360f7a9214c596fc022fbf8f1`.
 - Sprint 17 scope summary:
@@ -88,11 +88,16 @@
   - bounded NVIDIA changes only: `package.json`, `tests/bridge-preflight-e2e.test.mjs`
 - Bridge Preflight E2E Proof does NOT unlock UI/write-back/sync/auto-promote automatically.
 - Next scope must be decided by explicit gate review / next-scope planning.
-- Latest next-scope gate verdict: `C. PROCEED_TO_NVIDIA_UI_USABILITY_AND_DAILY_USE_REPAIR`.
-- Bridge expansion is paused after bounded preflight E2E completion.
-- Next work returns to NVIDIA UI daily-use usability repair before any bridge UI scope.
-- Current NVIDIA UI is not yet daily-use ready based on user-observed usability issues (English-heavy UI, hidden/clipped controls, unclear layout/workflow).
+- Latest next-scope gate verdict was `C. PROCEED_TO_NVIDIA_UI_USABILITY_AND_DAILY_USE_REPAIR`, and the bounded NVIDIA repair is now completed and pushed.
+- NVIDIA UI usability smoke repair record:
+  - NVIDIA commit `e9e78460c37649a76019780d9180a7d6abbbd580`
+  - files changed: `nvidia_playground.html`, `tools/browser-smoke.mjs`
+  - validation: browser smoke `99/0`, guard `16/16`, `agent:audit` `25/25`, `bridge:preflight:test` `38/38`, `bridge:preflight:e2e` `22/22`
+- Immediate smoke regressions are repaired, but current NVIDIA UI is still not daily-use proven.
+- Daily-use readiness is not proven, Vietnamese localization remains incomplete, and full Agent IDE UX is not proven.
+- Bridge expansion remains paused after bounded preflight E2E completion and bounded UI smoke repair.
 - Bridge UI/write-back/sync/auto-promote remain forbidden unless a later gate explicitly authorizes them.
+- Next scope now requires explicit gate review / next-scope planning.
 - Carry-over constraints remain active:
   - `securityRotation: NOT_ROTATED_YET`
   - `idleMemoryEstimateMb: NOT_MEASURED_YET`
@@ -1094,3 +1099,4 @@ Each audit must check:
 - If ABW evidence is missing, do not claim grounded answer.
 - If self-learning has no verification gate, do not merge knowledge.
 - If tool generation has no test dataset or ground truth, do not call it production-ready.
+
