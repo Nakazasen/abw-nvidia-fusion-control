@@ -2,6 +2,41 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - Real file write/create failure gate selects repair sprint
+
+Gate result:
+
+- `A. PROCEED_TO_NVIDIA_REAL_FILE_WRITE_CREATE_REPAIR`
+
+Summary:
+
+- User manual evidence showed a create-file request failed and `retrying_missing_write_file` was observed.
+- Gate concluded this is a core Agent IDE blocker.
+
+Decision:
+
+- Proceed next to NVIDIA real file write/create repair.
+
+Required proof:
+
+- `user request -> write_file -> workspace file/pending edit exists`
+- blocked outside-workspace path
+- preserved trust/approval/workspace-boundary protections
+
+Boundaries preserved:
+
+- NVIDIA repo only
+- no ABW mutation
+- no bridge UI
+- no write-back expansion beyond existing guarded semantics
+- no sync
+- no auto-promote
+- no packaging work
+
+Next action:
+
+- Record this decision in control repo, then create the NVIDIA Real File Write/Create Repair Builder prompt.
+
 ## 2026-05-03 - NVIDIA UI structure guardrails completed
 
 NVIDIA UI Structure Guardrails are completed, audited, committed, and pushed in `D:\Sandbox\Nvidia`.

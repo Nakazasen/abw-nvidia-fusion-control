@@ -944,3 +944,40 @@ Consequence:
 - Does not implement bridge UI.
 - Does not expand write-back/sync/auto-promote.
 - Does not claim production-ready or Cognitive OS achieved.
+
+## DECISION: Prioritize NVIDIA real file write/create repair
+
+- Status: Accepted
+- Date: 2026-05-03
+
+### Context
+
+- The user manually tested NVIDIA UI and found that a request to create a Python file failed because no `write_file` command completed successfully.
+- Logs showed `retrying_missing_write_file`.
+
+### Decision
+
+- Proceed next with a NVIDIA-only sprint to diagnose and repair the guarded real file write/create path in the autonomous agent flow.
+
+### Evidence
+
+- User manual evidence showed real create/write failure.
+- Gate inspection found guarded `write_file` exists, but autonomous chat/agent flow can end without successful `write_file`.
+- Real file creation is central to Agent IDE credibility.
+- Prior smoke tests did not prove `user request -> write_file -> file exists`.
+
+### Consequences
+
+- This blocks any daily-use readiness claim.
+- Bridge UI and packaging remain blocked.
+- Next Builder sprint must preserve trust/approval/workspace boundary protections.
+- No unsafe write outside workspace is allowed.
+
+### Non-goals
+
+- Does not implement bridge UI.
+- Does not expand write-back beyond existing guarded write/create semantics.
+- Does not add sync or auto-promote.
+- Does not mutate ABW.
+- Does not claim production-ready.
+- Does not claim Cognitive OS achieved.

@@ -212,13 +212,13 @@ Constraints for the next builder:
 
 ## 2026-05-03 Update - Next Scope Selected
 
-- Latest gate selected: `A. PROCEED_TO_NVIDIA_UI_MONOLITH_DECOMPOSITION`.
-- NVIDIA Inline-Edit Visibility Proof is completed and recorded.
-- `nvidia_playground.html` remains large/monolithic and is now the main repeated UI regression source.
-- Next required action after this control commit: run NVIDIA Real File Write/Create Flow Failure Gate.
+- Latest gate selected: `A. PROCEED_TO_NVIDIA_REAL_FILE_WRITE_CREATE_REPAIR`.
+- NVIDIA UI Structure Guardrails are completed and recorded.
+- Real file write/create is now a core Agent IDE blocker with direct negative manual-use evidence.
+- Next required action after this control commit: create NVIDIA Real File Write/Create Repair Builder prompt.
 - Still forbidden:
   - bridge UI
-  - write-back expansion
+  - write-back expansion beyond existing guarded semantics
   - sync
   - auto-promote
   - ABW mutation
@@ -252,10 +252,10 @@ Constraints for the next builder:
   - real file write/create remains unproven and has direct negative manual-use evidence
   - daily-use readiness remains unproven
 - Next required action after this control commit:
-  - run NVIDIA Real File Write/Create Flow Failure Gate
+  - create NVIDIA Real File Write/Create Repair Builder prompt
 - Still forbidden:
   - bridge UI
-  - write-back expansion
+  - write-back expansion beyond existing guarded semantics
   - sync
   - auto-promote
   - ABW mutation
@@ -276,7 +276,7 @@ Constraints for the next builder:
   - `agent:audit` PASS `25/25`
   - `bridge:preflight:test` PASS `38/38`
   - `bridge:preflight:e2e` PASS `22/22`
-- Next required action: run NVIDIA Real File Write/Create Flow Failure Gate after this control commit.
+- Next required action: create NVIDIA Real File Write/Create Repair Builder prompt after this control commit.
 - Still forbidden:
   - bridge UI
   - write-back expansion

@@ -1180,6 +1180,20 @@ Each audit must check:
 - Next action:
   - run separate gate for NVIDIA Real File Write/Create Flow Failure
 
+## 2026-05-03 Update - Next Scope: NVIDIA Real File Write/Create Repair
+
+- Latest next-scope gate verdict: `A. PROCEED_TO_NVIDIA_REAL_FILE_WRITE_CREATE_REPAIR`.
+- NVIDIA UI Structure Guardrails are completed and recorded.
+- Real file write/create remains unproven and has direct negative user evidence from manual use.
+- Next sprint scope is NVIDIA-only and must focus on guarded real file write/create repair in the autonomous agent flow.
+- Required proof must cover:
+  - user request -> `write_file`
+  - workspace file or pending edit exists
+  - blocked outside-workspace path
+  - preserved trust/approval/workspace-boundary protections
+- Daily-use readiness remains blocked.
+- Bridge UI, packaging, sync, auto-promote, and ABW mutation remain forbidden unless a later gate explicitly authorizes them.
+
 ## 2026-05-03 Update - NVIDIA Inline-Edit Visibility Proof Completed
 
 - NVIDIA Inline-Edit Visibility Proof is completed and pushed.

@@ -1220,3 +1220,23 @@ Mitigation:
 - Run a separate NVIDIA gate for real file write/create flow failure before stronger daily-use claims.
 - Keep packaging and bridge UI blocked until broader UX/readiness evidence improves.
 
+## NVIDIA Real File Write/Create Failure Risk Cluster (Active)
+
+Risk:
+
+- Real file write/create fails or remains unproven in manual use.
+- Agent can answer without successful `write_file` for file-creation intent.
+- Missing `write_file` dispatch undermines Agent IDE credibility.
+- Repair touches the safety-sensitive write path and must preserve guard/approval/trust boundaries.
+- Daily-use readiness remains blocked.
+- Packaging too early remains blocked.
+- Bridge UI overclaim risk remains active.
+- `nvidia_playground.html` remains monolithic.
+- Vietnamese localization remains incomplete.
+
+Mitigation:
+
+- Prioritize a NVIDIA-only repair sprint that proves `user request -> write_file -> workspace file/pending edit exists`.
+- Preserve trust/approval/workspace-boundary protections and guard matrix coverage.
+- Keep packaging and bridge UI blocked until the guarded real write/create path is proven.
+
