@@ -86,7 +86,7 @@ Reality-synced state as of 2026-05-02:
 ## Current Strategic Roadmap Status
 
 - Master Roadmap v1 has been recorded.
-- Current next step is committing/pushing this ABW Sprint 21 completion control update.
+- Current next step is committing/pushing this Sprint 22 scope-decision control update.
 - Phase 1 Gate Review selected cleanup verdict `B`, and post-cleanup re-gate selected `A`.
 - Daily-use track status:
   - Sprint 13: Git / SCM Panel tot hon (done)
@@ -94,13 +94,14 @@ Reality-synced state as of 2026-05-02:
   - Sprint 15: Project Rules / Memory UI toi thieu (done)
   - Sprint 16: Daily-use hardening / E2E regression pack (done)
 - Sprint 16.5 cleanup is complete and recorded.
-- Sprint 22 remains blocked until this ABW Sprint 21 completion control update is committed/pushed.
+- Sprint 22 remains blocked until this Sprint 22 scope-decision control update is committed/pushed.
 - Carry-over risks remain active: `securityRotation: NOT_ROTATED_YET`, `idleMemoryEstimateMb: NOT_MEASURED_YET`, server monolith still large, and runtime hygiene dry-run safety posture.
 - ABW bridge remains delayed/dependency-gated on ABW ingest maturity proof.
 - Sprint 18 selected scope (browser-smoke modularization) is complete.
 - Sprint 19 selected scope is Runtime Hygiene / Budget Follow-up.
 - Sprint 19 should remain NVIDIA modularization/runtime hardening only (no bridge work).
-- Sprint 22 planning should focus on remaining ABW ingest hardening gaps, not deep bridge work.
+- Sprint 22 selected scope is `A. Domain Contamination Guard v1`.
+- Sprint 22 should focus on contamination guard hardening and preserving Sprint 21 promotion-safety invariants.
 - INTERNAL_DAILY_USE_CANDIDATE is not production readiness.
 - The system must remain lightweight, modular, bounded, and controllable before entering Phase 2 feature growth.
 - Do not claim Sprint 15 as autonomous self-learning, self-growing wiki, or ABW governance/proof.
@@ -136,7 +137,7 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Commit and push this control repo update that records ABW Sprint 21 completion. After that push, prepare Sprint 22 planning focused on remaining ABW ingest hardening gaps from Sprint 20-21 evidence.
+Commit and push this control repo update that records Sprint 22 scope decision. After that push, prepare Sprint 22 Builder prompt focused on `A. Domain Contamination Guard v1`.
 
 Sprint 22 status and governance constraints:
 

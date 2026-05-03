@@ -29,8 +29,8 @@
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
 - Control repo latest recorded NVIDIA remote main: 875c0e1ae6fa033fee3b348d3ea52f738bebfa52.
-- Control repo latest recorded ABW remote main: `0bf89eca9ee141aa1aba147185d31691340ac2b9`.
-- Control repo latest recorded control remote main: `fb1c4bb948e2bad21475dbcd35627a22da5c8ccc`.
+- Control repo latest recorded ABW remote main: `e129a906f4df5f541fc3105e9fc04ce791addc79`.
+- Control repo latest recorded control remote main: `6f8df242b499382360f7a9214c596fc022fbf8f1`.
 - Sprint 17 scope summary:
   - server route modularization foundation
   - extracted read-only GET route group (`/api/workspace`, `/api/pending_edits`, `/api/tools`, `/api/rate_limit`)
@@ -52,7 +52,7 @@
   - no source behavior changes
   - no bridge
   - no ingest implementation code
-- Sprint 21 must not start until this ABW Sprint 20 control record is committed and pushed.
+- Sprint 22 must not start until this Sprint 22 scope-decision control record is committed and pushed.
 - Sprint 21-22 should target ABW ingest hardening based on Sprint 20 gap map.
 - Bridge Phase 1 remains blocked until ABW ingest baseline proof.
 - Carry-over constraints remain active:
@@ -455,6 +455,19 @@ Required ABW ingest baseline proof before deep bridge work:
   - aggregate ingest report
   - machine-readable gap output
 - Bridge Phase 1 remains blocked until ABW ingest baseline proof.
+
+## 2R. Sprint 22 Scope Decision (2026-05-02)
+
+- Selected scope: `A. Domain Contamination Guard v1`.
+- Sprint 22 remains within ABW v1.2 Ingest Kernel Hardening.
+- Sprint 22 is not bridge-first.
+- Sprint 22 objective:
+  - detect domain/workspace mismatch during ingest
+  - enforce domain profile checks where available
+  - warn/quarantine/skip instead of silent accept
+  - add contamination regression tests
+  - preserve Sprint 21 promotion safety invariants
+- Sprint 23-26 Bridge Phase 1 remains blocked until ABW ingest baseline proof.
 
 ## 3. Phase 1 - Internal Daily-Use Agent IDE
 

@@ -417,3 +417,21 @@ Consequence:
 
 - Sprint 22 may be planned only after this control update is committed/pushed.
 - Deep NVIDIA<->ABW bridge remains blocked until ABW ingest baseline proof.
+
+## 2026-05-02: Sprint 22 Scope Decision - Domain Contamination Guard v1
+
+Decision:
+
+- Sprint 22 will focus on Domain Contamination Guard v1.
+- Domain/workspace mismatch must not be silently accepted.
+- Fail-safe behavior should warn/quarantine/skip.
+- No bridge work.
+
+Status:
+
+- Accepted.
+
+Rationale:
+
+- Domain contamination is the largest remaining trust-boundary gap after blind auto-promotion was gated.
+- Reports/manifests/bridge-facing outputs are unsafe if the knowledge boundary is contaminated.

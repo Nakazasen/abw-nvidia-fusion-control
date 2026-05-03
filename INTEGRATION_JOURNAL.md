@@ -2,6 +2,67 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - Sprint 22 Scope Planning Completed
+
+Selected option:
+
+- `A. Domain Contamination Guard v1`
+
+Rationale:
+
+- This is the largest remaining trust-boundary gap after Sprint 21 promotion-safety hardening.
+- Sprint 21 gated blind/default auto-promotion, but contamination risk can still invalidate ingest boundaries.
+- Reports/manifests/bridge-facing outputs are unsafe if domain/workspace boundaries are contaminated.
+- Safety is prioritized before reporting/demo/bridge-proof work.
+
+Rejected options:
+
+- `B. Aggregate Ingest Report + Machine-Readable Gap Output`: valuable, but does not address contamination root risk.
+- `C. Manifest + Source Evidence Contract Hardening`: foundational, but does not block cross-domain ingest.
+- `D. Gap Report Bound to Ingest Output`: improves visibility, but does not lock trust boundary.
+- `E. Pre-Bridge Ingest Baseline Proof Harness`: useful later, but risks looking like proof while contamination guard is still missing.
+
+Allowed Sprint 22 scope:
+
+- Implement domain/workspace contamination detection in ABW ingest path.
+- Enforce domain profile checks where available.
+- Add fail-safe behavior:
+  - warn
+  - quarantine
+  - skip
+  - no silent accept
+- Add regression tests for:
+  - contamination positive cases
+  - clean same-domain cases
+  - missing/empty profile fallback
+  - no hidden bypass
+- Add Sprint 22 docs/evidence.
+- Preserve Sprint 21 invariants:
+  - manual-first promotion
+  - no default auto-promote
+  - config error fail-closed
+
+Forbidden Sprint 22 scope:
+
+- No deep NVIDIA<->ABW bridge.
+- No NVIDIA UI bridge.
+- No blind/hidden auto-promote path.
+- No grounded claim without valid source.
+- No silent domain contamination acceptance.
+- No broad ABW rewrite.
+- No productionization.
+- No bridge-ready claim without exact proof.
+- No Sprint 23 implementation work unless later explicitly scoped.
+
+Model orchestration:
+
+- Builder model: `Gemini 3.1 Pro`
+- Required audit/fix model: `GPT-5.3-Codex / GPT-5.4 / GPT-5.5`
+
+Governance requirement:
+
+- This control repo update must be committed/pushed before Sprint 22 Builder prompt issuance.
+
 ## 2026-05-03 - ABW Sprint 21 Disable / Gate Blind Auto-Promotion Committed And Pushed
 
 ABW Sprint 21 is completed and pushed in `D:\Sandbox\skill-Anti-brain-wiki_note`.

@@ -897,3 +897,22 @@ Mitigation:
 - Keep manual-first default as invariant and treat `promotion_mode:auto` as explicit high-risk opt-in.
 - Prioritize domain contamination guard and ingest-bound gap/report contract in Sprint 22 planning.
 - Preserve non-claims and require GPT audit/fix before commit.
+
+## Sprint 22 Domain-Contamination Hardening Risk Cluster (Active)
+
+Risk:
+
+- Domain contamination risk is now the active Sprint 22 target.
+- Domain profile enforcement gap remains active until Sprint 22 is implemented/audited.
+- Bridge-ready overclaim risk remains active.
+- Silent accept of cross-domain data is forbidden but still a potential regression risk.
+- `promotion_mode:auto` remains an explicit opt-in carry-over risk.
+- Gap/reporting gaps remain carry-over unless explicitly scoped in a later sprint.
+
+Mitigation:
+
+- Require fail-safe contamination behavior (`warn`, `quarantine`, `skip`) with no silent accept.
+- Require tests for contamination-positive and clean same-domain cases.
+- Require fallback tests for missing/empty domain profile and no hidden bypass.
+- Require GPT audit/fix before commit.
+- Preserve non-claims.
