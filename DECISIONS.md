@@ -1021,3 +1021,42 @@ Consequence:
 - Does not mutate ABW.
 - Does not claim production-ready.
 - Does not claim Cognitive OS achieved.
+
+## DECISION: Prove NVIDIA pending edit apply-to-disk path next
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- NVIDIA Real File Write/Create Repair proved that safe explicit create-file intent reaches `write_file` and creates a pending edit.
+- However, the reviewed apply-to-disk path remains unproven.
+
+### Decision
+
+- Proceed next with a NVIDIA-only sprint to prove and, if necessary, repair the `apply_pending_edit` path so that a pending edit can be reviewed/applied and produce a real file on disk.
+
+### Evidence
+
+- `write:create:proof` PASS `19/0`
+- `browser:smoke` PASS `109/0`
+- guard matrix PASS `16/16`
+- `agent:audit` PASS `25/25`
+- bridge tests PASS `38/38` and `22/22`
+- gate confirmed `applyPendingEditTool` exists but apply-to-disk proof is missing
+
+### Consequences
+
+- This remains safety-sensitive because it touches the final disk-write path.
+- The next sprint must preserve trust/approval/workspace boundaries.
+- No bridge UI or packaging is allowed.
+- Daily-use readiness remains unclaimed.
+
+### Non-goals
+
+- Does not implement bridge UI.
+- Does not add sync or auto-promote.
+- Does not mutate ABW.
+- Does not claim daily-use readiness.
+- Does not claim production-ready.
+- Does not claim Cognitive OS achieved.

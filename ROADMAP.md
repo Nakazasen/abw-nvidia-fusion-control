@@ -1259,3 +1259,23 @@ Each audit must check:
 - Next action:
   - run gate review / next-scope planning
 
+## 2026-05-04 Update - NVIDIA Apply Pending Edit To Disk Proof Selected
+
+- Latest next-scope verdict: `A. PROCEED_TO_NVIDIA_APPLY_PENDING_EDIT_TO_DISK_PROOF`.
+- NVIDIA Real File Write/Create Repair is complete.
+- Proven so far:
+  - `write_file -> pending edit` is proven for safe explicit create-file intent
+  - outside-workspace, no-approval, and untrusted write paths remain blocked
+- Remaining gap:
+  - `pending edit -> apply_pending_edit -> file exists on disk` is not yet proven
+- Next work focus:
+  - reviewed apply-to-disk proof for the guarded pending edit path
+- Readiness status:
+  - daily-use readiness remains blocked
+- Boundary remains:
+  - no bridge UI
+  - no packaging
+  - no sync
+  - no auto-promote
+  - no ABW mutation
+

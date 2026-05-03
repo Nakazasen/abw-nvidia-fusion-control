@@ -312,3 +312,19 @@ Constraints for the next builder:
   - daily-use-ready claim
   - production-ready/full-bridge/Cognitive-OS/security claims
 
+## 2026-05-04 Update - NVIDIA Apply Pending Edit To Disk Proof Selected
+
+- NVIDIA Real File Write/Create Repair is completed and recorded.
+- Latest gate selected:
+  - `A. PROCEED_TO_NVIDIA_APPLY_PENDING_EDIT_TO_DISK_PROOF`
+- Next required action after this control commit:
+  - create NVIDIA Apply Pending Edit To Disk Proof Builder prompt
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim
+  - production-ready/full-bridge/Cognitive-OS/security claims
+

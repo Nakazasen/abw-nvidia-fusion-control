@@ -2,6 +2,39 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-04 - Real file write/create gate selects apply-to-disk proof
+
+Gate result:
+
+- `A. PROCEED_TO_NVIDIA_APPLY_PENDING_EDIT_TO_DISK_PROOF`
+
+Summary:
+
+- Pending-edit creation was accepted for its bounded scope.
+- The remaining gap is `pending edit -> apply_pending_edit -> file exists on disk`.
+
+Decision:
+
+- Proceed next to NVIDIA apply pending edit to disk proof.
+
+Required proof:
+
+- `write_file -> pending edit -> apply_pending_edit -> file exists on disk with expected content`
+
+Boundaries preserved:
+
+- NVIDIA repo only
+- no bridge UI
+- no sync
+- no auto-promote
+- no ABW mutation
+- no packaging
+- no daily-use-ready claim
+
+Next action:
+
+- Record decision, then create Builder prompt.
+
 ## 2026-05-04 - NVIDIA Real File Write/Create Repair completed
 
 NVIDIA Real File Write/Create Repair is completed, audited, committed, and pushed in `D:\Sandbox\Nvidia`.

@@ -1260,3 +1260,24 @@ Mitigation:
 - Keep bridge UI/sync/auto-promote blocked unless a later gate authorizes them explicitly.
 - Keep packaging blocked until the broader workflow surface is proven.
 
+## NVIDIA Apply Pending Edit To Disk Proof Risk Cluster (Active)
+
+Risk:
+
+- `apply_pending_edit` to disk remains unproven.
+- The final reviewed disk-write path is safety-sensitive.
+- The next sprint must not allow writes outside the workspace.
+- Approval and trusted-workspace guards must remain intact.
+- Daily-use readiness remains blocked until reviewed apply-to-disk is proven.
+- Packaging too early remains blocked.
+- Bridge UI overclaim risk remains active.
+- Vietnamese localization remains incomplete.
+- `nvidia_playground.html` remains monolithic.
+- `securityRotation: NOT_ROTATED_YET` remains active.
+
+Mitigation:
+
+- Keep the next NVIDIA sprint narrowly focused on proving `pending edit -> apply_pending_edit -> file exists on disk`.
+- Preserve trust, approval, and workspace-boundary enforcement in both happy-path and blocked-path proof cases.
+- Keep bridge UI, sync, auto-promote, and packaging blocked unless a later gate explicitly authorizes them.
+
