@@ -2,6 +2,46 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - File edit/apply gate selects inline-edit visibility warning fix
+
+Gate result:
+
+- `A. PROCEED_TO_FIX_REMAINING_INLINE_EDIT_VISIBILITY_WARNINGS`
+
+Summary:
+
+- NVIDIA File Edit/Apply Workflow Proof is accepted for its bounded visibility/honesty/testability scope.
+- Two inline-edit smoke warnings remain:
+  - `Inline edit action exists - action not observable in current smoke state`
+  - `Inline edit widget opens from selection - widget not observable in current smoke state`
+
+Decision:
+
+- Fix inline-edit visibility warnings next in a tightly bounded NVIDIA-only sprint.
+
+Rationale:
+
+- Inline edit remains a core Agent IDE workflow credibility gap.
+- Closing these warnings is higher-value immediately than broad scope expansion.
+
+Secondary follow-up:
+
+- NVIDIA UI monolith decomposition remains a strong secondary follow-up.
+
+Boundaries preserved:
+
+- no ABW repo changes
+- no bridge UI
+- no write-back expansion
+- no sync
+- no auto-promote
+- no ABW mutation
+- no daily-use-ready/production/full-bridge/Cognitive-OS/security overclaim
+
+Next action:
+
+- Record this gate decision in control repo, then create NVIDIA Inline-Edit Visibility Warnings Builder prompt.
+
 ## 2026-05-03 - NVIDIA File Edit/Apply Workflow Proof completed
 
 NVIDIA File Edit/Apply Workflow Proof is completed, audited, committed, and pushed in `D:\Sandbox\Nvidia`.

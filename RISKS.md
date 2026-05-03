@@ -1139,3 +1139,23 @@ Mitigation:
 - Keep packaging blocked until usability/readiness evidence improves.
 - Continue runtime hygiene carry-over controls and monolith split discipline.
 
+## Inline-Edit Visibility Warning Risk Cluster (Active)
+
+Risk:
+
+- Inline-edit action/widget remain partially unobserved in current smoke path.
+- Inline-edit is central to Agent IDE workflow credibility and trust.
+- Fixing observability can accidentally bypass approval/trust guards if implemented unsafely.
+- `nvidia_playground.html` remains large/monolithic and increases regression risk.
+- Daily-use readiness remains unproven.
+- Vietnamese localization remains incomplete.
+- Bridge UI overclaim risk remains active.
+- Packaging too early remains blocked.
+
+Mitigation:
+
+- Keep next sprint narrowly scoped to inline-edit observability only.
+- Preserve guard matrix semantics and approval/trust boundaries.
+- Require honest unavailable/partial labeling when full observability cannot be safely achieved.
+- Keep monolith decomposition as a secondary follow-up after inline-edit warning closure.
+

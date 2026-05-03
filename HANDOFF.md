@@ -210,3 +210,21 @@ Constraints for the next builder:
   - daily-use-ready claim
   - production-ready/full-bridge/Cognitive-OS/security claims
 
+## 2026-05-03 Update - Next Scope Selected
+
+- Latest gate selected: `A. PROCEED_TO_FIX_REMAINING_INLINE_EDIT_VISIBILITY_WARNINGS`.
+- NVIDIA File Edit/Apply Workflow Proof is completed and recorded.
+- Two inline-edit smoke warnings remain:
+  - `Inline edit action exists - action not observable in current smoke state`
+  - `Inline edit widget opens from selection - widget not observable in current smoke state`
+- Next required action after this control commit: create NVIDIA Inline-Edit Visibility Warnings Builder prompt.
+- Secondary follow-up: NVIDIA UI monolith decomposition.
+- Still forbidden:
+  - bridge UI
+  - write-back expansion
+  - sync
+  - auto-promote
+  - ABW mutation
+  - daily-use-ready claim
+  - production-ready/full-bridge/Cognitive-OS/security claims
+

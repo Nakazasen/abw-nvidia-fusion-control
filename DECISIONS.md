@@ -780,3 +780,45 @@ Consequence:
 - Does not mutate ABW.
 - Does not claim production-ready.
 - Does not claim Cognitive OS achieved.
+
+## DECISION: Fix remaining NVIDIA inline-edit visibility warnings next
+
+- Status: Accepted
+- Date: 2026-05-03
+
+### Context
+
+- NVIDIA File Edit/Apply Workflow Proof passed and was recorded.
+- The workflow is now more visible and honest, but two inline-edit smoke warnings remain.
+
+### Decision
+
+- Proceed next with a NVIDIA-only sprint to fix the remaining inline-edit visibility warnings or honestly document/prove why they cannot be removed safely.
+
+### Evidence
+
+- NVIDIA File Edit/Apply Workflow Proof completed and recorded.
+- `npm run browser:smoke -- --start-server --port 3456` PASS `104/0`
+- guard matrix PASS `16/16`
+- bridge tests remain passing
+- remaining warnings:
+  - `Inline edit action exists - action not observable in current smoke state`
+  - `Inline edit widget opens from selection - widget not observable in current smoke state`
+- `nvidia_playground.html` remains large/monolithic, but decomposition is deferred as secondary follow-up.
+
+### Consequences
+
+- Next Builder sprint must stay tightly focused on inline-edit observability.
+- Guard/approval/trust boundaries must be preserved.
+- No bridge UI or write-back expansion is allowed.
+- Daily-use readiness remains unclaimed.
+
+### Non-goals
+
+- Does not implement bridge UI.
+- Does not expand write-back/sync/auto-promote.
+- Does not mutate ABW.
+- Does not claim daily-use readiness.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
