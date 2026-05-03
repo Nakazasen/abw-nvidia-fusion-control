@@ -30,7 +30,7 @@
 - Current capability is not VS Code parity.
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
-- Control repo latest recorded NVIDIA remote main: 875c0e1ae6fa033fee3b348d3ea52f738bebfa52.
+- Control repo latest recorded NVIDIA remote main: 86abf49025d14138a97fc8706e94c245fcad1002.
 - Control repo latest recorded ABW remote main: `fe0520626d8f254476424242e29ea2bef4807f73`.
 - Control repo latest recorded control remote main: `6f8df242b499382360f7a9214c596fc022fbf8f1`.
 - Sprint 17 scope summary:
@@ -73,6 +73,16 @@
 - Sprint 23 gate review selected `C. INSERT_EVIDENCE_REPORTING_SPRINT`.
 - Post-Sprint-23 explicit gate review selected `A. PROCEED_TO_BRIDGE_PHASE_1` for scope planning only.
 - Bridge Phase 1 builder implementation is still not authorized at this point.
+- NVIDIA Bridge Phase 1 Preflight Reader + Contract Tests is completed and pushed.
+- Bridge Phase 1 scope summary:
+  - preflight reader
+  - contract tests
+  - local status model `PASS` / `WARN` / `FAIL`
+  - fail-closed on missing/invalid ABW evidence
+  - reads `.brain/ingest_report.json` + `.brain/ingest_gaps.json`
+  - no UI / no write-back / no sync / no auto-promote
+- No further bridge/UI work may start until this control repo update is committed/pushed.
+- Future next step is explicit Bridge Phase 1 completion gate / next-scope planning, not automatic UI/write-back scope.
 - Carry-over constraints remain active:
   - `securityRotation: NOT_ROTATED_YET`
   - `idleMemoryEstimateMb: NOT_MEASURED_YET`
@@ -590,6 +600,35 @@ Required ABW ingest baseline proof before deep bridge work:
   - no auto-promote
   - no ABW mutation
   - no production/Cognitive OS/enterprise-grade security claim
+
+## 2Y. NVIDIA Bridge Phase 1 Completion Record (2026-05-03)
+
+- NVIDIA Bridge Phase 1 `Preflight Reader + Contract Tests` is completed and pushed.
+- Previous NVIDIA main before Bridge Phase 1:
+  - `875c0e1ae6fa033fee3b348d3ea52f738bebfa52`
+- Latest NVIDIA main after Bridge Phase 1:
+  - `86abf49025d14138a97fc8706e94c245fcad1002`
+- Commit:
+  - `86abf49025d14138a97fc8706e94c245fcad1002`
+  - `feat: add Bridge Phase 1 preflight reader`
+- Push evidence:
+  - `875c0e1..86abf49 main -> main`
+  - `HEAD == origin/main: yes`
+- Files committed:
+  - `docs/bridge-phase-1-preflight.md`
+  - `package.json`
+  - `tests/bridge-preflight.test.mjs`
+  - `tools/bridge-preflight.mjs`
+- Boundaries preserved:
+  - no UI
+  - no write-back
+  - no sync
+  - no auto-promote
+  - no ABW mutation
+  - no server route integration
+- Governance guardrail:
+  - No further bridge/UI work may start until this control repo completion record is committed/pushed.
+  - Next sequence must be explicit Bridge Phase 1 completion gate / next-scope planning.
 
 ## 3. Phase 1 - Internal Daily-Use Agent IDE
 

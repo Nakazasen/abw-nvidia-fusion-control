@@ -30,7 +30,7 @@ Reality-synced state as of 2026-05-03:
 - ABW Sprint 21 Disable / Gate Blind Auto-Promotion is complete and pushed.
 - ABW Sprint 22 Domain Contamination Guard v1 is complete and pushed.
 - ABW Sprint 23 Evidence Report + Gap Output Minimal Pair is complete and pushed.
-- Latest NVIDIA remote main is 875c0e1ae6fa033fee3b348d3ea52f738bebfa52.
+- Latest NVIDIA remote main is 86abf49025d14138a97fc8706e94c245fcad1002.
 - Latest ABW remote main is fe0520626d8f254476424242e29ea2bef4807f73.
 - Current readiness verdict is INTERNAL_DAILY_USE_CANDIDATE.
 - Phase 1 Gate Review is completed.
@@ -109,6 +109,14 @@ Reality-synced state as of 2026-05-03:
 - Sprint 23 is completed in ABW and pushed with commit `fe0520626d8f254476424242e29ea2bef4807f73`.
 - Bridge Builder implementation remains blocked until Bridge Phase 1 scope planning is recorded and committed.
 - Bridge Phase 1 scope is now selected: `C. Bridge Preflight Reader + Contract Tests`.
+- NVIDIA Bridge Phase 1 `Preflight Reader + Contract Tests` is completed and pushed in NVIDIA repo.
+- Bridge Phase 1 implementation boundaries were preserved:
+  - no UI
+  - no write-back
+  - no sync
+  - no auto-promote
+  - no ABW mutation
+  - no server route integration
 - INTERNAL_DAILY_USE_CANDIDATE is not production readiness.
 - The system must remain lightweight, modular, bounded, and controllable before entering Phase 2 feature growth.
 - Do not claim Sprint 15 as autonomous self-learning, self-growing wiki, or ABW governance/proof.
@@ -144,12 +152,12 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Commit and push this control repo update that records Bridge Phase 1 scope decision `C. Bridge Preflight Reader + Contract Tests`. After that push, prepare Bridge Phase 1 Builder prompt.
+Commit and push this control repo update that records NVIDIA Bridge Phase 1 completion (`86abf49025d14138a97fc8706e94c245fcad1002`).
 
 Bridge Phase 1 gate constraints:
 
-- Bridge Phase 1 currently authorizes scope planning only.
-- Bridge Builder prompt may be prepared only after this scope decision update is committed/pushed.
+- Do not start Bridge UI, write-back, sync, or Phase 2 automatically.
+- After this control push, run explicit Bridge Phase 1 completion gate / next-scope planning.
 - Bridge must remain read-only/evidence-only.
 - No write-back, no auto-promote, no autonomous sync.
 - ABW repo must remain untouched in Bridge Phase 1 implementation.

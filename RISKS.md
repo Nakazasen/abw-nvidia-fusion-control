@@ -1043,3 +1043,21 @@ Mitigation:
 - Keep UI out of Bridge Phase 1.
 - Keep ABW repo untouched during Bridge Phase 1 implementation.
 - Require GPT audit/fix before any bridge commit.
+
+## Post-Bridge-Phase-1 Completion Carry-Over Risk Cluster (Active)
+
+Risk:
+
+- Bridge over-scope risk remains active after Bridge Phase 1 completion.
+- UI overclaim risk remains active.
+- Write-back/sync/auto-promote remain forbidden and can regress if scope drifts.
+- Preflight validates contract structure, not semantic correctness.
+- PASS/WARN/FAIL output can be misrepresented as production-grade bridge readiness.
+- Runtime artifact path assumptions remain a carry-over risk.
+
+Mitigation:
+
+- Require explicit next-scope planning before further bridge work.
+- Preserve read-only/evidence-only boundary.
+- Continue fail-closed behavior for missing/invalid evidence.
+- Require GPT audit/fix before commit.

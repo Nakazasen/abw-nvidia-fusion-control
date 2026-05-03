@@ -2,6 +2,107 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - NVIDIA Bridge Phase 1 Preflight Reader + Contract Tests Committed And Pushed
+
+NVIDIA Bridge Phase 1 is completed and pushed in `D:\Sandbox\Nvidia`.
+
+Commit/push evidence:
+
+- Previous NVIDIA main before Bridge Phase 1: `875c0e1ae6fa033fee3b348d3ea52f738bebfa52`
+- Commit hash: `86abf49025d14138a97fc8706e94c245fcad1002`
+- Commit short hash: `86abf49`
+- Commit message: `feat: add Bridge Phase 1 preflight reader`
+- Push result: `875c0e1..86abf49 main -> main`
+- Local HEAD after push: `86abf49025d14138a97fc8706e94c245fcad1002`
+- Remote `origin/main` after push: `86abf49025d14138a97fc8706e94c245fcad1002`
+- Local HEAD equals remote main: `YES`
+- NVIDIA final git status after push: clean
+- `.nvidia-agent` status after push: clean
+
+Files committed:
+
+- `docs/bridge-phase-1-preflight.md`
+- `package.json`
+- `tests/bridge-preflight.test.mjs`
+- `tools/bridge-preflight.mjs`
+
+Audit/fix verdict before commit:
+
+- `AUDIT_FIXED_READY_FOR_COMMIT`
+
+Bridge Phase 1 delivered scope:
+
+- Preflight Reader + Contract Tests.
+- Read ABW evidence artifacts:
+  - `.brain/ingest_report.json`
+  - `.brain/ingest_gaps.json`
+- Validate:
+  - file existence
+  - JSON validity
+  - schema versions
+  - required fields
+  - run correlation (`run_id`, `created_at`, `workspace`)
+  - `safety.auto_promote_default === false`
+- Local status model:
+  - `PASS`
+  - `WARN`
+  - `FAIL`
+- Fail-closed on missing/invalid evidence.
+- WARN for valid-but-risky evidence:
+  - blocking/warning gaps
+  - `domain_guard_active=false`
+  - `promotion_mode=auto`
+  - `NOT_RECORDED/UNKNOWN` hash
+  - skipped/failed/quarantined counts
+- No UI / no write-back / no sync / no auto-promote.
+- No ABW mutation.
+- No server route integration.
+
+Validation evidence:
+
+- `node --check tools/bridge-preflight.mjs` -> PASS
+- `node --check tests/bridge-preflight.test.mjs` -> PASS
+- `node --check tools/nvidia-server.mjs` -> PASS
+- `node --check tools/browser-smoke.mjs` -> PASS
+- `node --check tools/agent-core.mjs` -> PASS
+- `npm run bridge:preflight:test` -> PASS `38/38`
+- `npm run agent:audit` -> PASS `25/25`
+- `npm run budget:check` -> PASS
+- `npm run runtime:hygiene` -> PASS dry-run
+- `npm run browser:smoke -- --start-server --port 3456` -> PASS `99 passed, 0 failed`
+- mojibake check -> clean
+
+Runtime artifact stage-guard evidence:
+
+- Staged file allow-list before commit was exactly:
+  - `docs/bridge-phase-1-preflight.md`
+  - `package.json`
+  - `tests/bridge-preflight.test.mjs`
+  - `tools/bridge-preflight.mjs`
+- `.nvidia-agent` runtime artifacts were not staged.
+- No UI files were staged.
+- No server-route files were staged.
+- No forbidden files were staged.
+
+Remaining limitations / non-claims:
+
+- Bridge Phase 1 is preflight CLI/local check only.
+- No bridge UI.
+- No write-back.
+- No sync.
+- No auto-promote.
+- Not production-ready.
+- Not Cognitive OS.
+- Not enterprise-grade security.
+- Not full NVIDIA<->ABW bridge.
+- Does not validate semantic content correctness, only evidence contract structure.
+
+Next sequence:
+
+1. commit/push this control repo completion record
+2. run explicit Bridge Phase 1 completion gate / next-scope planning
+3. no UI/write-back/sync unless later explicitly scoped
+
 ## 2026-05-03 - Bridge Phase 1 Scope Planning Completed
 
 Selected option:
