@@ -981,3 +981,23 @@ Mitigation:
 - Require no bridge implementation in Sprint 23 scope.
 - Require GPT audit/fix before commit.
 - Preserve non-claims.
+
+## Post-ABW Sprint 23 Carry-Over Risk Cluster (Active)
+
+Risk:
+
+- Evidence contract ambiguity is partially mitigated by Sprint 23 minimal pair, not fully eliminated.
+- Bridge-ready overclaim risk remains active.
+- Minimal evidence/gap contract may still be insufficient for full bridge without another explicit gate review.
+- Semantic gap classification remains bounded/minimal.
+- Existing broader-suite failures remain pre-existing/out-of-scope and unresolved:
+  - `tests/test_abw_inspect.py::test_inspect_docx_heavy_workspace`
+  - `tests/test_abw_gaps.py::test_xls_heavy_workspace_reports_format_block`
+- Runtime artifacts under `.brain` can still be accidentally staged/committed if stage guard discipline is violated.
+
+Mitigation:
+
+- Keep Bridge Phase 1 blocked until a later explicit gate review selects `A. PROCEED_TO_BRIDGE_PHASE_1`.
+- Preserve non-claims: not bridge-ready, not production-ready, not Cognitive OS, not full bridge.
+- Keep runtime artifact stage guard mandatory for `.brain/*`.
+- Treat Sprint 23 output as bounded v1 contract evidence, not full bridge authorization.

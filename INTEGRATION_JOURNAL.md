@@ -2,6 +2,106 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - ABW Sprint 23 Evidence Report + Gap Output Minimal Pair Committed And Pushed
+
+ABW Sprint 23 is completed and pushed in `D:\Sandbox\skill-Anti-brain-wiki_note`.
+
+Push evidence:
+
+- Previous ABW main before Sprint 23: `4829b4bcea25ff70bd14a9b1f9470539bc82e569`
+- Commit hash: `fe0520626d8f254476424242e29ea2bef4807f73`
+- Commit short hash: `fe05206`
+- Commit message: `feat: add Sprint 23 ingest evidence reports`
+- Push result: `4829b4b..fe05206 main -> main`
+- Push note:
+  - first push attempt returned `Everything up-to-date` despite local ahead state
+  - explicit refspec push succeeded
+- Local HEAD after push: `fe0520626d8f254476424242e29ea2bef4807f73`
+- Remote `origin/main` after push: `fe0520626d8f254476424242e29ea2bef4807f73`
+- Local HEAD equals remote main: `YES`
+- ABW final git status after push:
+  - `?? README.proposed.md`
+  - `?? docs/ABW_ARCHITECTURE_AUDIT_2026-04-30.md`
+  - no staged changes
+  - `.brain` runtime artifacts were not staged
+
+Files committed:
+
+- `docs/sprint-23-evidence-reporting-contract.md`
+- `scripts/abw_ingest.py`
+- `tests/test_abw_ingest_evidence_reporting.py`
+
+Audit/Fix verdict before commit:
+
+- `AUDIT_PASS_READY_FOR_COMMIT`
+
+Sprint 23 implemented summary:
+
+- Evidence Report + Gap Output Minimal Pair implemented.
+- Runtime generation added for:
+  - `.brain/ingest_report.json`
+  - `.brain/ingest_gaps.json`
+- Both artifacts are machine-readable JSON, schema-versioned, and run-correlated per ingest run.
+- Schema versions:
+  - `abw.ingest_report.v1`
+  - `abw.ingest_gaps.v1`
+- Both artifacts share `run_id` and `created_at`.
+- No bridge code/import/dependency.
+- No source-controlled runtime artifacts intended.
+- No control repo changes during ABW commit flow.
+- No NVIDIA repo changes.
+
+Validation evidence:
+
+- `py_compile` required files -> PASS
+- `py -m pytest tests/test_abw_ingest_evidence_reporting.py -v --tb=short` -> `16 passed`
+- `py -m pytest tests/test_abw_ingest.py -v --tb=short` -> `48 passed`
+- `py -m pytest tests/test_abw_domain_contamination.py -v --tb=short` -> `17 passed`
+- `py -m pytest tests/test_promotion_engine.py -v --tb=short` -> `13 passed`
+- broader suite -> `37 passed, 2 failed`
+
+Mojibake/encoding evidence:
+
+- Regex/mojibake scan on:
+  - `docs/sprint-23-evidence-reporting-contract.md`
+  - `scripts/abw_ingest.py`
+  - `tests/test_abw_ingest_evidence_reporting.py`
+- Result: clean (no mojibake matches).
+
+Runtime artifact staging guard evidence:
+
+- Only 3 allow-list files were staged and committed.
+- `README.proposed.md` and `docs/ABW_ARCHITECTURE_AUDIT_2026-04-30.md` were not staged.
+- `.brain/*` runtime artifacts were not staged.
+- No forbidden files were staged.
+
+Pre-existing/out-of-scope failures:
+
+- `tests/test_abw_inspect.py::test_inspect_docx_heavy_workspace`
+- `tests/test_abw_gaps.py::test_xls_heavy_workspace_reports_format_block`
+
+Remaining limitations and non-claims:
+
+- Bridge Phase 1 remains blocked.
+- Sprint 23 does not make ABW bridge-ready by itself.
+- Evidence/gap contract is minimal and bounded.
+- Semantic gap classification remains bounded/minimal.
+- Does not replace full eval/inspect gap pipeline.
+- `content_hash` may be `NOT_RECORDED` for skipped/failed items.
+- `promotion_state` reflects ingest-time assessment only.
+- No NVIDIA UI bridge.
+- No self-growing wiki.
+- Not production-ready.
+- Not Cognitive OS.
+- Not enterprise-grade security.
+- Not full NVIDIA↔ABW bridge.
+
+Next sequence:
+
+- Commit/push this control repo Sprint 23 completion record.
+- Run explicit post-Sprint 23 gate review.
+- Do not issue Bridge Builder prompt unless a later gate explicitly selects `A. PROCEED_TO_BRIDGE_PHASE_1`.
+
 ## 2026-05-03 - Sprint 23 Evidence Reporting Scope Planning Completed
 
 Selected option:

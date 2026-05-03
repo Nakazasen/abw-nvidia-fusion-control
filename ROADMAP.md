@@ -8,6 +8,7 @@
 - NVIDIA Sprint 19 Runtime Hygiene / Budget Follow-up is completed and pushed.
 - ABW Sprint 20 Ingest Baseline Audit / Gap Map is completed and pushed.
 - ABW Sprint 22 Domain Contamination Guard v1 is completed and pushed.
+- ABW Sprint 23 Evidence Report + Gap Output Minimal Pair is completed and pushed.
 - Sprint 9 `Browser E2E Smoke Harness` is complete.
 - Sprint 10 Settings / Provider Manager / API Key UI is complete.
 - Sprint 11 Inline Edit kieu Cursor is complete.
@@ -30,7 +31,7 @@
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
 - Control repo latest recorded NVIDIA remote main: 875c0e1ae6fa033fee3b348d3ea52f738bebfa52.
-- Control repo latest recorded ABW remote main: `4829b4bcea25ff70bd14a9b1f9470539bc82e569`.
+- Control repo latest recorded ABW remote main: `fe0520626d8f254476424242e29ea2bef4807f73`.
 - Control repo latest recorded control remote main: `6f8df242b499382360f7a9214c596fc022fbf8f1`.
 - Sprint 17 scope summary:
   - server route modularization foundation
@@ -59,7 +60,14 @@
   - quarantine behavior for blocked domain mismatch
   - `domain_check` evidence in draft/manifest/queue
   - contamination regression tests added
-- Sprint 23 must not start until this Sprint 22 completion control record is committed and pushed.
+- Sprint 23 scope summary:
+  - runtime artifact `.brain/ingest_report.json`
+  - runtime artifact `.brain/ingest_gaps.json`
+  - schema versions `abw.ingest_report.v1` and `abw.ingest_gaps.v1`
+  - shared `run_id` / `created_at` correlation
+  - contract-level regression tests added
+  - no bridge implementation
+- Sprint 24 must not start until this Sprint 23 completion control record is committed and pushed.
 - Sprint 21-22 should target ABW ingest hardening based on Sprint 20 gap map.
 - Bridge Phase 1 remains blocked until ABW ingest baseline proof.
 - Sprint 23 gate review selected `C. INSERT_EVIDENCE_REPORTING_SPRINT`.
@@ -525,6 +533,25 @@ Required ABW ingest baseline proof before deep bridge work:
   - include failed/skipped/quarantined/source/hash/domain_check/review/promotion state
   - add contract/schema regression tests
 - Future Bridge Phase 1 may be reconsidered only after Sprint 23 completion and another explicit gate review.
+
+## 2V. ABW Sprint 23 Completion Record (2026-05-03)
+
+- ABW Sprint 23 Evidence Report + Gap Output Minimal Pair is completed and pushed.
+- Latest ABW remote main is `fe0520626d8f254476424242e29ea2bef4807f73`.
+- Sprint 23 completion evidence:
+  - commit: `fe0520626d8f254476424242e29ea2bef4807f73`
+  - message: `feat: add Sprint 23 ingest evidence reports`
+  - push: `4829b4b..fe05206 main -> main`
+  - HEAD equals origin/main: `yes`
+- Sprint 23 implemented summary:
+  - runtime generation of `.brain/ingest_report.json` and `.brain/ingest_gaps.json`
+  - stable schema versions `abw.ingest_report.v1` and `abw.ingest_gaps.v1`
+  - shared run-correlation fields `run_id` and `created_at`
+  - contract tests and contract docs added
+  - no bridge code/import/dependency
+- Sprint 24 must not start until this control repo Sprint 23 completion record is committed/pushed.
+- Bridge Phase 1 remains blocked until a later explicit gate review selects `A. PROCEED_TO_BRIDGE_PHASE_1`.
+- After this record is committed, next step is explicit post-Sprint 23 gate review, not automatic Bridge Builder.
 
 ## 3. Phase 1 - Internal Daily-Use Agent IDE
 

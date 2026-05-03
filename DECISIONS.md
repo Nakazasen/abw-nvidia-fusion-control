@@ -492,3 +492,22 @@ Rationale:
 
 - Gate review selected evidence reporting before bridge.
 - The minimal pair directly addresses the missing bridge-facing evidence contract while staying bounded.
+
+## 2026-05-03: Record ABW Sprint 23 Evidence Reporting Completion
+
+Decision:
+
+- Accept Sprint 23 as Evidence Report + Gap Output Minimal Pair.
+- Accept `ingest_report.json` and `ingest_gaps.json` as bounded v1 machine-readable runtime artifacts.
+- Do not treat Sprint 23 completion as Bridge Phase 1 authorization.
+- Require a later explicit gate review before any bridge implementation.
+
+Status:
+
+- Accepted.
+
+Consequence:
+
+- Sprint 24 planning may start only after this control update is committed/pushed.
+- First post-Sprint 23 action should be gate-aware review of bridge readiness.
+- Bridge Phase 1 remains blocked unless a later gate explicitly records `A. PROCEED_TO_BRIDGE_PHASE_1`.
