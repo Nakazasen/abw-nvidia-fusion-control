@@ -435,3 +435,21 @@ Rationale:
 
 - Domain contamination is the largest remaining trust-boundary gap after blind auto-promotion was gated.
 - Reports/manifests/bridge-facing outputs are unsafe if the knowledge boundary is contaminated.
+
+## 2026-05-03: Record ABW Sprint 22 Domain Contamination Guard Completion
+
+Decision:
+
+- Accept Sprint 22 as Domain Contamination Guard v1.
+- Accept rule-based domain guard as bounded v1 protection, not complete semantic isolation.
+- Accept `NOT_CONFIGURED` as non-protective by design.
+- Do not treat Sprint 22 as proof that ABW ingest baseline is fully mature or bridge-ready.
+
+Status:
+
+- Accepted.
+
+Consequence:
+
+- Sprint 23 may be planned only after this control update is committed/pushed.
+- Before Bridge Phase 1, run explicit gate review against ABW ingest baseline proof and remaining gaps.

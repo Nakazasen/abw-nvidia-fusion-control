@@ -916,3 +916,24 @@ Mitigation:
 - Require fallback tests for missing/empty domain profile and no hidden bypass.
 - Require GPT audit/fix before commit.
 - Preserve non-claims.
+
+## Post-ABW Sprint 22 Carry-Over Risk Cluster (Active)
+
+Risk:
+
+- Domain contamination risk is partially mitigated by Sprint 22 v1 guard, not eliminated.
+- Rule-based keyword guard can still produce false positives/negatives.
+- `NOT_CONFIGURED` means no active contamination protection.
+- Aggregate ingest report/machine-readable gap output remains unresolved.
+- Manifest/source evidence contract hardening remains an active follow-up risk.
+- Bridge-ready overclaim risk remains active.
+- Two broader-suite failures remain pre-existing/out-of-scope and unresolved:
+  - `tests/test_abw_inspect.py::test_inspect_docx_heavy_workspace`
+  - `tests/test_abw_gaps.py::test_xls_heavy_workspace_reports_format_block`
+
+Mitigation:
+
+- Keep Sprint 23 planning gate-aware and evidence-first before any Bridge Phase 1 start.
+- Preserve non-claims: not bridge-ready, not ingest maturity solved, not production/Cognitive OS ready.
+- Keep domain guard behavior explicit in docs/tests (`PASS/WARN/BLOCKED/NOT_CONFIGURED/ERROR`).
+- Prioritize ingest-bound report/gap contract and manifest/source evidence hardening when scoped.

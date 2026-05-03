@@ -2,6 +2,101 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - ABW Sprint 22 Domain Contamination Guard v1 Committed And Pushed
+
+ABW Sprint 22 is completed and pushed in `D:\Sandbox\skill-Anti-brain-wiki_note`.
+
+Push evidence:
+
+- Previous ABW main before Sprint 22: `e129a906f4df5f541fc3105e9fc04ce791addc79`
+- Commit hash: `4829b4bcea25ff70bd14a9b1f9470539bc82e569`
+- Commit short hash: `4829b4b`
+- Commit message: `feat: add Sprint 22 domain contamination guard`
+- Push result: `e129a90..4829b4b main -> main`
+- Local HEAD after push: `4829b4bcea25ff70bd14a9b1f9470539bc82e569`
+- Remote `origin/main` after push: `4829b4bcea25ff70bd14a9b1f9470539bc82e569`
+- Local HEAD equals remote main: `YES`
+- ABW final git status after push:
+  - `?? README.proposed.md`
+  - `?? docs/ABW_ARCHITECTURE_AUDIT_2026-04-30.md`
+
+Files committed:
+
+- `scripts/abw_ingest.py`
+- `tests/test_abw_domain_contamination.py`
+- `docs/sprint-22-domain-contamination-guard.md`
+
+Audit/Fix verdict before commit:
+
+- `AUDIT_PASS_READY_FOR_COMMIT`
+
+Sprint 22 outcome summary:
+
+- Domain Contamination Guard v1 implemented in ABW ingest path.
+- Added bounded rule-based `check_domain_contamination()` and optional `domain_guard` config support.
+- Status/action model implemented:
+  - `PASS` / `WARN` / `BLOCKED` / `NOT_CONFIGURED` / `ERROR`
+  - `accept` / `warn` / `quarantine`
+- `NOT_CONFIGURED` is non-protective by design.
+- malformed config/guard returns `ERROR` + `warn` (not silent PASS).
+- blocked path quarantines and exits before draft/manifest/queue writes.
+- warning path preserves draft flow with warning evidence.
+- `domain_check` evidence propagated into draft/manifest/queue, with quarantine visibility and `quarantined_count`.
+- batch ingest continues safely after quarantined files.
+- Sprint 21 promotion safety invariants preserved.
+- no bridge implemented.
+- no wiki write path added.
+
+Mojibake/encoding evidence:
+
+- `rg` scan on
+  - `docs/sprint-22-domain-contamination-guard.md`
+  - `scripts/abw_ingest.py`
+  - `tests/test_abw_domain_contamination.py`
+  returned no mojibake matches.
+
+Validation evidence:
+
+- `py -m py_compile scripts/abw_ingest.py` -> PASS
+- `py -m py_compile scripts/abw_health.py` -> PASS
+- `py -m py_compile scripts/abw_runner.py` -> PASS
+- `py -m py_compile scripts/abw_entry.py` -> PASS
+- `py -m py_compile scripts/abw_knowledge.py` -> PASS
+- `py -m py_compile scripts/abw_review.py` -> PASS
+- `py -m pytest tests/test_abw_domain_contamination.py -v --tb=short` -> `17 passed`
+- `py -m pytest tests/test_abw_ingest.py -v --tb=short` -> `48 passed`
+- `py -m pytest tests/test_promotion_engine.py -v --tb=short` -> `13 passed`
+- `py -m pytest tests/test_abw_health.py tests/test_abw_inspect.py tests/test_abw_gaps.py tests/test_promotion_engine.py -v --tb=short` -> `37 passed, 2 failed`
+
+Pre-existing/out-of-scope failures:
+
+- `tests/test_abw_inspect.py::test_inspect_docx_heavy_workspace`
+- `tests/test_abw_gaps.py::test_xls_heavy_workspace_reports_format_block`
+
+Baseline proof for failure classification:
+
+- Both failures were reproduced on clean baseline `e129a906f4df5f541fc3105e9fc04ce791addc79`.
+- These failures are pre-existing and out-of-scope for Sprint 22.
+
+Remaining limitations and non-claims preserved:
+
+- rule-based keyword guard can still yield false positives/negatives.
+- `NOT_CONFIGURED` remains non-protective by design.
+- aggregate ingest report/gap-output remains unresolved.
+- manifest/source evidence contract may still need hardening.
+- bridge not implemented.
+- self-growing wiki not implemented.
+- not production-ready.
+- not Cognitive OS.
+- not enterprise-grade security.
+- not full NVIDIA<->ABW bridge.
+- bridge readiness not proven.
+
+Next sequence reaffirmed:
+
+- Sprint 23 planning must be gate-aware, not automatic bridge start.
+- Bridge Phase 1 may open only after explicit gate review against ABW ingest baseline proof and remaining gaps.
+
 ## 2026-05-03 - Sprint 22 Scope Planning Completed
 
 Selected option:

@@ -7,6 +7,7 @@
 - NVIDIA Sprint 18 Browser Smoke Modularization is completed and pushed.
 - NVIDIA Sprint 19 Runtime Hygiene / Budget Follow-up is completed and pushed.
 - ABW Sprint 20 Ingest Baseline Audit / Gap Map is completed and pushed.
+- ABW Sprint 22 Domain Contamination Guard v1 is completed and pushed.
 - Sprint 9 `Browser E2E Smoke Harness` is complete.
 - Sprint 10 Settings / Provider Manager / API Key UI is complete.
 - Sprint 11 Inline Edit kieu Cursor is complete.
@@ -29,7 +30,7 @@
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
 - Control repo latest recorded NVIDIA remote main: 875c0e1ae6fa033fee3b348d3ea52f738bebfa52.
-- Control repo latest recorded ABW remote main: `e129a906f4df5f541fc3105e9fc04ce791addc79`.
+- Control repo latest recorded ABW remote main: `4829b4bcea25ff70bd14a9b1f9470539bc82e569`.
 - Control repo latest recorded control remote main: `6f8df242b499382360f7a9214c596fc022fbf8f1`.
 - Sprint 17 scope summary:
   - server route modularization foundation
@@ -52,7 +53,13 @@
   - no source behavior changes
   - no bridge
   - no ingest implementation code
-- Sprint 22 must not start until this Sprint 22 scope-decision control record is committed and pushed.
+- Sprint 22 scope summary:
+  - optional `domain_guard` config support
+  - `PASS` / `WARN` / `BLOCKED` / `NOT_CONFIGURED` / `ERROR` status model
+  - quarantine behavior for blocked domain mismatch
+  - `domain_check` evidence in draft/manifest/queue
+  - contamination regression tests added
+- Sprint 23 must not start until this Sprint 22 completion control record is committed and pushed.
 - Sprint 21-22 should target ABW ingest hardening based on Sprint 20 gap map.
 - Bridge Phase 1 remains blocked until ABW ingest baseline proof.
 - Carry-over constraints remain active:
@@ -468,6 +475,27 @@ Required ABW ingest baseline proof before deep bridge work:
   - add contamination regression tests
   - preserve Sprint 21 promotion safety invariants
 - Sprint 23-26 Bridge Phase 1 remains blocked until ABW ingest baseline proof.
+
+## 2S. ABW Sprint 22 Completion Record (2026-05-03)
+
+- ABW Sprint 22 Domain Contamination Guard v1 is completed and pushed.
+- Latest ABW remote main is `4829b4bcea25ff70bd14a9b1f9470539bc82e569`.
+- Sprint 22 completion evidence:
+  - commit: `4829b4bcea25ff70bd14a9b1f9470539bc82e569`
+  - message: `feat: add Sprint 22 domain contamination guard`
+  - push: `e129a90..4829b4b main -> main`
+  - HEAD equals origin/main: `yes`
+- Sprint 22 implemented summary:
+  - bounded rule-based domain contamination guard in ingest path
+  - `NOT_CONFIGURED` is explicitly non-protective by design
+  - malformed config/guard fails to `ERROR` + `warn`, not silent PASS
+  - blocked path quarantines before draft/manifest/queue writes
+  - warning path preserves ingest with warning evidence
+  - quarantine visibility via `skipped_domain_quarantine` and `quarantined_count`
+  - regression tests and sprint docs added
+- Sprint 23 must not start until this control repo update is committed/pushed.
+- Sprint 23-26 Bridge Phase 1 remains conditional on explicit gate review against ingest baseline proof and remaining gaps.
+- Do not claim bridge readiness only because Sprint 22 passed.
 
 ## 3. Phase 1 - Internal Daily-Use Agent IDE
 

@@ -2,7 +2,7 @@
 
 ## Current State
 
-Reality-synced state as of 2026-05-02:
+Reality-synced state as of 2026-05-03:
 
 - ABW baseline is `v1.1.0` and should be treated as the current governance/runtime truth.
 - ABW is intended as a governance, evidence, and reliability layer to reduce hallucination, unsupported answers, and overclaiming from weaker agents.
@@ -28,8 +28,9 @@ Reality-synced state as of 2026-05-02:
 - NVIDIA Sprint 19 Runtime Hygiene / Budget Follow-up is complete and pushed.
 - ABW Sprint 20 Ingest Baseline Audit / Gap Map is complete and pushed.
 - ABW Sprint 21 Disable / Gate Blind Auto-Promotion is complete and pushed.
+- ABW Sprint 22 Domain Contamination Guard v1 is complete and pushed.
 - Latest NVIDIA remote main is 875c0e1ae6fa033fee3b348d3ea52f738bebfa52.
-- Latest ABW remote main is e129a906f4df5f541fc3105e9fc04ce791addc79.
+- Latest ABW remote main is 4829b4bcea25ff70bd14a9b1f9470539bc82e569.
 - Current readiness verdict is INTERNAL_DAILY_USE_CANDIDATE.
 - Phase 1 Gate Review is completed.
 - Phase 1 Gate Review verdict is `B. INSERT_SPRINT_16_5_CLEANUP`.
@@ -86,7 +87,7 @@ Reality-synced state as of 2026-05-02:
 ## Current Strategic Roadmap Status
 
 - Master Roadmap v1 has been recorded.
-- Current next step is committing/pushing this Sprint 22 scope-decision control update.
+- Current next step is committing/pushing this Sprint 22 completion control update.
 - Phase 1 Gate Review selected cleanup verdict `B`, and post-cleanup re-gate selected `A`.
 - Daily-use track status:
   - Sprint 13: Git / SCM Panel tot hon (done)
@@ -94,14 +95,14 @@ Reality-synced state as of 2026-05-02:
   - Sprint 15: Project Rules / Memory UI toi thieu (done)
   - Sprint 16: Daily-use hardening / E2E regression pack (done)
 - Sprint 16.5 cleanup is complete and recorded.
-- Sprint 22 remains blocked until this Sprint 22 scope-decision control update is committed/pushed.
+- Sprint 23 remains blocked until this Sprint 22 completion control update is committed/pushed.
 - Carry-over risks remain active: `securityRotation: NOT_ROTATED_YET`, `idleMemoryEstimateMb: NOT_MEASURED_YET`, server monolith still large, and runtime hygiene dry-run safety posture.
 - ABW bridge remains delayed/dependency-gated on ABW ingest maturity proof.
 - Sprint 18 selected scope (browser-smoke modularization) is complete.
 - Sprint 19 selected scope is Runtime Hygiene / Budget Follow-up.
 - Sprint 19 should remain NVIDIA modularization/runtime hardening only (no bridge work).
-- Sprint 22 selected scope is `A. Domain Contamination Guard v1`.
-- Sprint 22 should focus on contamination guard hardening and preserving Sprint 21 promotion-safety invariants.
+- Sprint 22 selected scope `A. Domain Contamination Guard v1` is completed and pushed in ABW.
+- Sprint 23 planning must be gate-aware: decide whether ABW ingest baseline proof is sufficient for Bridge Phase 1 opening, or more ABW ingest hardening is required first.
 - INTERNAL_DAILY_USE_CANDIDATE is not production readiness.
 - The system must remain lightweight, modular, bounded, and controllable before entering Phase 2 feature growth.
 - Do not claim Sprint 15 as autonomous self-learning, self-growing wiki, or ABW governance/proof.
@@ -137,15 +138,13 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Commit and push this control repo update that records Sprint 22 scope decision. After that push, prepare Sprint 22 Builder prompt focused on `A. Domain Contamination Guard v1`.
+Commit and push this control repo update that records ABW Sprint 22 completion. After that push, Sprint 23 planning may begin with an explicit gate-aware review.
 
-Sprint 22 status and governance constraints:
+Sprint 23 planning constraints:
 
-- Sprint 22 has not started until Builder begins.
-- Builder result is not final truth.
-- GPT audit/fix is required before commit.
-- No deep bridge work in Sprint 22 scope.
-- No NVIDIA work in Sprint 22 scope.
+- Sprint 23 must not start until this control update is committed/pushed.
+- Sprint 23 is not an automatic bridge start.
+- Bridge Phase 1 remains conditional on explicit ingest baseline gate review and remaining gap assessment.
 - No production/Cognitive OS claim.
 
 Constraints for the next builder:
