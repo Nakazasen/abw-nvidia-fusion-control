@@ -2,6 +2,72 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - Bridge Phase 1 Scope Planning Completed
+
+Selected option:
+
+- `C. Bridge Preflight Reader + Contract Tests`
+
+Rationale:
+
+- Smallest runtime implementation that proves bridge can read ABW evidence without inventing truth.
+- Adds fail-closed contract tests to reduce schema drift and missing-evidence trust risk.
+- Avoids UI blast radius and overclaim risk in Phase 1.
+
+Rejected options:
+
+- `A. Bridge Preflight Reader Only`: lacks test rigor and schema drift protection.
+- `B. Bridge Evidence Adapter Contract`: mostly spec/design; lacks runtime proof.
+- `D. Bridge UI Status Stub`: UI-first path increases blast radius and overclaim risk.
+- `E. Bridge Phase 1 Spec Only`: under-delivers after gate A because no runtime proof.
+
+Allowed Bridge Phase 1 scope:
+
+- Read ABW evidence artifacts:
+  - `.brain/ingest_report.json`
+  - `.brain/ingest_gaps.json`
+- Validate:
+  - JSON validity
+  - schema versions
+  - required fields
+  - `run_id` correlation
+  - `created_at` correlation
+- Return local status:
+  - `PASS`
+  - `WARN`
+  - `FAIL`
+- Fail closed on missing/invalid evidence.
+- Add contract tests.
+
+Forbidden Bridge Phase 1 scope:
+
+- No UI.
+- No write-back.
+- No sync.
+- No auto-promote.
+- No ABW mutation.
+- No production/Cognitive OS/enterprise-grade security claim.
+- No full NVIDIA<->ABW bridge claim.
+
+Repo boundary:
+
+- Expected implementation repo later: `D:\Sandbox\Nvidia`.
+- ABW repo must remain untouched during Bridge Phase 1 implementation.
+- This control repo update must be committed/pushed before Builder prompt issuance.
+
+Model orchestration:
+
+- Builder model later: `Gemini 3.1 Pro`.
+- Required audit/fix model later: `GPT-5.3-Codex / GPT-5.4 / GPT-5.5`.
+
+Next sequence:
+
+1. commit/push this control repo scope-decision record
+2. prepare Bridge Phase 1 Builder prompt
+3. run Builder in NVIDIA repo only within bounded scope
+4. run GPT audit/fix before any bridge commit
+5. no bridge-ready overclaim
+
 ## 2026-05-03 - Explicit Post-Sprint-23 Gate Review Completed (Verdict A)
 
 Gate verdict:

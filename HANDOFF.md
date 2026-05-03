@@ -108,6 +108,7 @@ Reality-synced state as of 2026-05-03:
 - Post-Sprint-23 explicit gate review selected `A. PROCEED_TO_BRIDGE_PHASE_1` for scope planning only.
 - Sprint 23 is completed in ABW and pushed with commit `fe0520626d8f254476424242e29ea2bef4807f73`.
 - Bridge Builder implementation remains blocked until Bridge Phase 1 scope planning is recorded and committed.
+- Bridge Phase 1 scope is now selected: `C. Bridge Preflight Reader + Contract Tests`.
 - INTERNAL_DAILY_USE_CANDIDATE is not production readiness.
 - The system must remain lightweight, modular, bounded, and controllable before entering Phase 2 feature growth.
 - Do not claim Sprint 15 as autonomous self-learning, self-growing wiki, or ABW governance/proof.
@@ -143,14 +144,16 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Commit and push this control repo update that records post-Sprint-23 gate verdict `A. PROCEED_TO_BRIDGE_PHASE_1` with explicit Bridge Phase 1 boundaries. After that push, start Bridge Phase 1 scope planning.
+Commit and push this control repo update that records Bridge Phase 1 scope decision `C. Bridge Preflight Reader + Contract Tests`. After that push, prepare Bridge Phase 1 Builder prompt.
 
 Bridge Phase 1 gate constraints:
 
 - Bridge Phase 1 currently authorizes scope planning only.
-- Do not create Bridge Builder prompt until scope planning is recorded and committed.
+- Bridge Builder prompt may be prepared only after this scope decision update is committed/pushed.
 - Bridge must remain read-only/evidence-only.
 - No write-back, no auto-promote, no autonomous sync.
+- ABW repo must remain untouched in Bridge Phase 1 implementation.
+- Builder result is not final truth; GPT audit/fix is required before commit.
 - No production/Cognitive OS claim.
 
 Constraints for the next builder:

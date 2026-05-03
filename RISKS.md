@@ -1023,3 +1023,23 @@ Mitigation:
 - Bridge read path must fail closed on missing/invalid evidence fields or schema mismatch.
 - Keep Bridge Phase 1 constrained to read-only/evidence-only semantics.
 - Require GPT audit/fix before any bridge implementation commit.
+
+## Bridge Phase 1 Scope-Implementation Risk Cluster (Active)
+
+Risk:
+
+- Bridge over-scope risk remains active during transition from scope planning to Builder.
+- Schema drift/missing evidence risk is now an active implementation concern.
+- Missing/invalid evidence can cause false trust unless fail-closed behavior is strictly implemented.
+- UI overclaim risk remains active; UI is forbidden in Phase 1 scope.
+- Write-back/sync/auto-promote paths remain forbidden.
+- Carry-over non-claims remain active and can be eroded by weak messaging.
+
+Mitigation:
+
+- Keep implementation bounded to preflight reader only.
+- Require contract tests with `PASS` / `WARN` / `FAIL` status behavior.
+- Require explicit fail-closed behavior on missing/invalid evidence.
+- Keep UI out of Bridge Phase 1.
+- Keep ABW repo untouched during Bridge Phase 1 implementation.
+- Require GPT audit/fix before any bridge commit.

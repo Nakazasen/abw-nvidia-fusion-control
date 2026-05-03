@@ -571,6 +571,26 @@ Required ABW ingest baseline proof before deep bridge work:
 - Next step is Bridge Phase 1 scope planning and scope-record commit, not implementation.
 - Sprint 24 should be treated as Bridge Phase 1 planning/scope gate unless later governance explicitly renames scope.
 
+## 2X. Bridge Phase 1 Scope Decision (2026-05-03)
+
+- Selected scope: `C. Bridge Preflight Reader + Contract Tests`.
+- Bridge Phase 1 is now scope-planned, but implementation has not started.
+- Implementation may start only after this control update is committed/pushed and Builder prompt is issued.
+- Allowed scope:
+  - read `.brain/ingest_report.json`
+  - read `.brain/ingest_gaps.json`
+  - validate schema versions, required fields, and run correlation (`run_id` / `created_at`)
+  - return local preflight status: `PASS` / `WARN` / `FAIL`
+  - fail closed on missing/invalid evidence
+  - add contract tests
+- Forbidden in Bridge Phase 1:
+  - no UI
+  - no write-back
+  - no sync
+  - no auto-promote
+  - no ABW mutation
+  - no production/Cognitive OS/enterprise-grade security claim
+
 ## 3. Phase 1 - Internal Daily-Use Agent IDE
 
 Sprint range: Sprint 1-16

@@ -530,3 +530,24 @@ Consequence:
 - Bridge Builder prompt remains forbidden until scope decision is recorded and committed.
 - Any bridge implementation must preserve no write-back/no auto-promote/no autonomous sync.
 - Non-claims remain active.
+
+## 2026-05-03: Bridge Phase 1 Scope Decision - Preflight Reader + Contract Tests
+
+Decision:
+
+- Bridge Phase 1 will implement a bounded preflight reader with contract tests.
+- The reader must be read-only/evidence-only.
+- It must fail closed on missing/invalid ABW evidence.
+- It must not write to ABW or NVIDIA project state.
+- It must not include UI.
+
+Status:
+
+- Accepted.
+
+Consequence:
+
+- Bridge Builder prompt may be prepared only after this control update is committed/pushed.
+- Implementation should target NVIDIA repo.
+- ABW repo remains untouched.
+- GPT audit/fix required before any bridge commit.
