@@ -1159,3 +1159,26 @@ Mitigation:
 - Require honest unavailable/partial labeling when full observability cannot be safely achieved.
 - Keep monolith decomposition as a secondary follow-up after inline-edit warning closure.
 
+## Inline-Edit Visibility Post-Completion Risk Cluster (Active)
+
+Risk:
+
+- Immediate inline-edit smoke observability gap is reduced after NVIDIA commit `05dcb6c59d98675e01c200c5a78e86ec5640d185`.
+- Daily-use readiness remains unproven.
+- Vietnamese localization remains incomplete.
+- Full Agent IDE UX remains unproven.
+- `nvidia_playground.html` remains large/monolithic.
+- `window.editor` exposure is broader than ideal.
+- Bridge UI overclaim risk remains active.
+- Packaging too early remains blocked.
+- `securityRotation: NOT_ROTATED_YET` remains active.
+- Sprint 9-16 evidence reconciliation remains recommended.
+
+Mitigation:
+
+- Keep daily-use-ready claims blocked until a future readiness gate proves them.
+- Keep localization/usability/monolith cleanup as explicit follow-up scope.
+- Keep bridge UI/write-back expansion/sync/auto-promote blocked unless a later gate authorizes.
+- Keep packaging blocked until broader UX/readiness evidence improves.
+- Keep runtime hygiene carry-over controls active.
+

@@ -1149,3 +1149,41 @@ Each audit must check:
 - NVIDIA UI monolith decomposition remains a strong secondary follow-up.
 - Bridge UI/write-back/sync/auto-promote remain forbidden unless a later gate explicitly authorizes them.
 
+## 2026-05-03 Update - NVIDIA Inline-Edit Visibility Proof Completed
+
+- NVIDIA Inline-Edit Visibility Proof is completed and pushed.
+- NVIDIA commit: `05dcb6c59d98675e01c200c5a78e86ec5640d185`.
+- NVIDIA files changed:
+  - `nvidia_playground.html`
+  - `tools/browser-smoke.mjs`
+- Validation recorded:
+  - `npm run browser:smoke -- --start-server --port 3456` PASS `106/0`
+  - warnings `[]`
+  - inline-edit action/widget checks pass
+  - guard matrix PASS `16/16`
+  - div balance `open=330 close=330`
+  - `npm run agent:audit` PASS `25/25`
+  - `npm run bridge:preflight:test` PASS `38/38`
+  - `npm run bridge:preflight:e2e` PASS `22/22`
+- Proven scope:
+  - two remaining inline-edit smoke warnings are removed
+  - inline-edit action is observable through real Monaco action state
+  - inline-edit widget is observable through real visible UI state
+  - smoke checks remain meaningful and non-fake
+  - no silent write path added
+  - no approval/trust bypass added
+  - bridge regressions remain passing
+- Limitations remain:
+  - daily-use readiness not proven
+  - Vietnamese localization incomplete
+  - full Agent IDE UX not proven
+  - `nvidia_playground.html` remains large/monolithic
+  - `window.editor` exposure is broader than ideal (accepted for current smoke-proof scope)
+- Boundary remains:
+  - no bridge UI
+  - no write-back expansion
+  - no sync
+  - no auto-promote
+  - no ABW mutation
+- Next scope requires explicit gate review / next-scope planning.
+

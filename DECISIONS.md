@@ -822,3 +822,45 @@ Consequence:
 - Does not claim production-ready.
 - Does not claim full bridge.
 - Does not claim Cognitive OS achieved.
+
+## DECISION: Accept NVIDIA Inline-Edit Visibility Proof completion
+
+- Status: Accepted
+- Date: 2026-05-03
+
+### Context
+
+- Gate previously selected `A. PROCEED_TO_FIX_REMAINING_INLINE_EDIT_VISIBILITY_WARNINGS` after NVIDIA File Edit/Apply Workflow Proof.
+- Two non-fatal inline-edit smoke warnings remained.
+
+### Decision
+
+- Accept the bounded NVIDIA Inline-Edit Visibility Proof as completed for the current smoke-observability scope.
+
+### Evidence
+
+- NVIDIA commit: `05dcb6c59d98675e01c200c5a78e86ec5640d185`
+- `npm run browser:smoke -- --start-server --port 3456` PASS `106/0`
+- warnings `[]`
+- guard matrix PASS `16/16`
+- `npm run agent:audit` PASS `25/25`
+- `npm run bridge:preflight:test` PASS `38/38`
+- `npm run bridge:preflight:e2e` PASS `22/22`
+- encoding/mojibake clean
+
+### Consequences
+
+- The explicit inline-edit smoke warnings are resolved.
+- NVIDIA UI remains only a candidate for daily-use.
+- More usability/localization/monolith cleanup work may still be required.
+- Next action is gate review / next-scope planning.
+
+### Non-goals
+
+- Does not prove daily-use readiness.
+- Does not complete Vietnamese localization.
+- Does not implement bridge UI.
+- Does not expand write-back/sync/auto-promote.
+- Does not mutate ABW.
+- Does not claim production-ready.
+- Does not claim Cognitive OS achieved.

@@ -2,6 +2,64 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - NVIDIA Inline-Edit Visibility Proof completed
+
+NVIDIA Inline-Edit Visibility Proof is completed, audited, committed, and pushed in `D:\Sandbox\Nvidia`.
+
+Commit/push evidence:
+
+- NVIDIA commit: `05dcb6c59d98675e01c200c5a78e86ec5640d185`
+- Commit message: `test: prove NVIDIA inline edit visibility`
+- Push result: `3f46cd0..05dcb6c main -> main`
+
+Files changed in NVIDIA:
+
+- `nvidia_playground.html`
+- `tools/browser-smoke.mjs`
+
+Validation evidence:
+
+- `npm run browser:smoke -- --start-server --port 3456` -> PASS `106/0`
+- warnings `[]`
+- inline-edit action/widget checks pass
+- guard matrix -> PASS `16/16`
+- div balance -> `open=330 close=330`
+- `npm run agent:audit` -> PASS `25/25`
+- `npm run bridge:preflight:test` -> PASS `38/38`
+- `npm run bridge:preflight:e2e` -> PASS `22/22`, including no-mutation checks
+- encoding/mojibake check -> clean
+
+Audit verdict before commit:
+
+- `AUDIT_FIXED_READY_FOR_COMMIT`
+
+What was proven:
+
+- Two remaining inline-edit smoke warnings are removed.
+- Inline-edit action is observable through real Monaco action state.
+- Inline-edit widget is observable through real visible UI state.
+- Smoke checks remain meaningful and not static/fake checks.
+- Guard matrix remains meaningful.
+- No silent write path was added.
+- No approval/trust bypass was added.
+- Bridge regressions remain passing.
+
+What remains limited:
+
+- Daily-use readiness is not proven.
+- Full Vietnamese localization is not complete.
+- Full Agent IDE UX is not proven.
+- `nvidia_playground.html` remains large/monolithic.
+- `window.editor` exposure is acceptable for current smoke-proof scope but broader than ideal.
+- This proof does not implement bridge UI.
+- This proof does not expand write-back/sync/auto-promote.
+- This proof does not mutate ABW.
+- This proof does not prove production readiness.
+
+Next action:
+
+- Run gate review / next-scope planning before choosing the next sprint.
+
 ## 2026-05-03 - File edit/apply gate selects inline-edit visibility warning fix
 
 Gate result:

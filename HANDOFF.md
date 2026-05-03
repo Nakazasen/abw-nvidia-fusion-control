@@ -228,3 +228,26 @@ Constraints for the next builder:
   - daily-use-ready claim
   - production-ready/full-bridge/Cognitive-OS/security claims
 
+## 2026-05-03 Update - NVIDIA Inline-Edit Visibility Proof Completion
+
+- NVIDIA Inline-Edit Visibility Proof is completed and pushed.
+- Latest NVIDIA main: `05dcb6c59d98675e01c200c5a78e86ec5640d185`.
+- Latest control main will be updated by this task after commit.
+- Validation snapshot:
+  - browser smoke PASS `106/0`
+  - warnings `[]`
+  - inline-edit action/widget checks pass
+  - guard matrix PASS `16/16`
+  - `agent:audit` PASS `25/25`
+  - `bridge:preflight:test` PASS `38/38`
+  - `bridge:preflight:e2e` PASS `22/22`
+- Next required action: gate review / next-scope planning.
+- Still forbidden:
+  - bridge UI
+  - write-back expansion
+  - sync
+  - auto-promote
+  - ABW mutation
+  - daily-use-ready claim
+  - production-ready/full-bridge/Cognitive-OS/security claims
+
