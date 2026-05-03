@@ -1232,3 +1232,30 @@ Each audit must check:
   - no ABW mutation
 - Next scope requires explicit gate review / next-scope planning.
 
+## 2026-05-04 Update - NVIDIA Real File Write/Create Repair Completed
+
+- NVIDIA Real File Write/Create Repair is completed and pushed.
+- NVIDIA commit: `9e14a2d26f049cb81a3af3dffc941b598bb1aeea`.
+- Validation recorded:
+  - `npm run write:create:proof` PASS `19/0`
+  - `npm run browser:smoke -- --start-server --port 3456` PASS `109/0`
+  - warnings `[]`
+  - div balance `330/330`
+  - guard matrix `16/16`
+  - `npm run agent:audit` PASS `25/25`
+  - `npm run bridge:preflight:test` PASS `38/38`
+  - `npm run bridge:preflight:e2e` PASS `22/22`
+- Semantics confirmed:
+  - `write_file` creates a pending edit proposal
+  - `apply_pending_edit` writes the reviewed edit to disk after review/apply
+- What was proven:
+  - safe explicit create-file intent now reaches `write_file`
+  - a pending edit artifact is created inside the workspace
+  - outside-workspace, no-approval, and untrusted paths remain blocked
+- Limitations remain:
+  - automatic disk write without apply is not proven
+  - daily-use readiness is not proven
+  - full Agent IDE UX is not proven
+- Next action:
+  - run gate review / next-scope planning
+

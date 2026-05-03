@@ -981,3 +981,43 @@ Consequence:
 - Does not mutate ABW.
 - Does not claim production-ready.
 - Does not claim Cognitive OS achieved.
+
+## DECISION: Accept NVIDIA Real File Write/Create Repair completion
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- A user-observed manual failure showed that NVIDIA could end with `retrying_missing_write_file` and no successful `write_file` command for an explicit create-file request.
+
+### Decision
+
+- Accept the bounded NVIDIA Real File Write/Create Repair as completed for pending-edit-level create/write proof.
+
+### Evidence
+
+- NVIDIA commit: `9e14a2d26f049cb81a3af3dffc941b598bb1aeea`
+- `write:create:proof` PASS `19/0`
+- `browser:smoke` PASS `109/0`
+- guard matrix PASS `16/16`
+- `agent:audit` PASS `25/25`
+- `bridge:preflight:test` PASS `38/38`
+- `bridge:preflight:e2e` PASS `22/22`
+- encoding/mojibake clean
+
+### Consequences
+
+- Safe explicit create-file intent now reaches `write_file` and creates a pending edit.
+- Outside-workspace/no-approval/untrusted paths remain blocked.
+- Daily-use readiness remains unclaimed.
+- Automatic disk write without review/apply remains unproven.
+
+### Non-goals
+
+- Does not prove automatic disk write without apply.
+- Does not implement bridge UI.
+- Does not add sync or auto-promote.
+- Does not mutate ABW.
+- Does not claim production-ready.
+- Does not claim Cognitive OS achieved.

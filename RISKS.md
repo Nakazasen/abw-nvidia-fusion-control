@@ -1240,3 +1240,23 @@ Mitigation:
 - Preserve trust/approval/workspace-boundary protections and guard matrix coverage.
 - Keep packaging and bridge UI blocked until the guarded real write/create path is proven.
 
+## NVIDIA Real File Write/Create Post-Repair Risk Cluster (Active)
+
+Risk:
+
+- The specific `retrying_missing_write_file` risk for safe explicit create-file intent is reduced, but automatic disk write without apply is still not proven.
+- Daily-use readiness remains unproven.
+- Vietnamese localization remains incomplete.
+- Full Agent IDE UX remains unproven.
+- `nvidia_playground.html` remains monolithic.
+- Packaging too early remains blocked.
+- Bridge UI overclaim risk remains active.
+- `securityRotation: NOT_ROTATED_YET` remains active.
+
+Mitigation:
+
+- Keep the semantics explicit: `write_file` creates a pending edit and `apply_pending_edit` performs the reviewed disk write.
+- Keep daily-use-ready claims blocked until broader manual-use evidence exists.
+- Keep bridge UI/sync/auto-promote blocked unless a later gate authorizes them explicitly.
+- Keep packaging blocked until the broader workflow surface is proven.
+

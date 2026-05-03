@@ -2,6 +2,68 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-04 - NVIDIA Real File Write/Create Repair completed
+
+NVIDIA Real File Write/Create Repair is completed, audited, committed, and pushed in `D:\Sandbox\Nvidia`.
+
+Commit/push evidence:
+
+- NVIDIA commit: `9e14a2d26f049cb81a3af3dffc941b598bb1aeea`
+- Commit message: `fix: repair NVIDIA real file write create flow`
+- Push result: `b5b6b9c..9e14a2d main -> main`
+
+Files changed in NVIDIA:
+
+- `package.json`
+- `tools/nvidia-server.mjs`
+- `tests/real-write-create-flow.test.mjs`
+
+Validation evidence:
+
+- `npm run write:create:proof` -> PASS `19/0`
+- `npm run browser:smoke -- --start-server --port 3456` -> PASS `109/0`
+- warnings `[]`
+- div balance `330/330`
+- guard matrix `16/16`
+- `npm run agent:audit` -> PASS `25/25`
+- `npm run bridge:preflight:test` -> PASS `38/38`
+- `npm run bridge:preflight:e2e` -> PASS `22/22`
+- encoding/mojibake check -> clean
+
+Audit verdict before commit:
+
+- `AUDIT_FIXED_READY_FOR_COMMIT`
+
+What was proven:
+
+- Explicit safe create-file request reaches `write_file`.
+- `write_file` creates a pending edit artifact inside the workspace.
+- Pending edit content is verified.
+- Outside-workspace write attempt is blocked.
+- No-approval path is blocked.
+- Untrusted workspace path is blocked.
+- `retrying_missing_write_file` is resolved for safe explicit-path create intent.
+- Guard matrix remains meaningful.
+- Bridge regressions remain passing.
+
+Pending-edit semantics:
+
+- `write_file` creates a pending edit proposal.
+- `apply_pending_edit` writes the reviewed edit to disk after review/apply.
+
+What remains limited:
+
+- This proves pending-edit creation, not automatic disk write.
+- Vague create/write requests may still need clarification or normal retry handling.
+- Daily-use readiness is not proven.
+- Full Vietnamese localization is not complete.
+- Full Agent IDE UX is not proven.
+- Production readiness is not proven.
+
+Next action:
+
+- Run gate review / next-scope planning before choosing the next sprint.
+
 ## 2026-05-03 - Real file write/create failure gate selects repair sprint
 
 Gate result:

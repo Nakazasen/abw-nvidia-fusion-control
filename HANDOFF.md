@@ -287,3 +287,28 @@ Constraints for the next builder:
   - daily-use-ready claim
   - production-ready/full-bridge/Cognitive-OS/security claims
 
+## 2026-05-04 Update - NVIDIA Real File Write/Create Repair Completion
+
+- NVIDIA Real File Write/Create Repair is completed and pushed.
+- Latest NVIDIA main: `9e14a2d26f049cb81a3af3dffc941b598bb1aeea`.
+- Latest control main will be updated by this task after commit.
+- Validation snapshot:
+  - `write:create:proof` PASS `19/0`
+  - `browser:smoke` PASS `109/0`
+  - warnings `[]`
+  - div balance `330/330`
+  - guard matrix `16/16`
+  - `agent:audit` PASS `25/25`
+  - `bridge:preflight:test` PASS `38/38`
+  - `bridge:preflight:e2e` PASS `22/22`
+- Next required action:
+  - gate review / next-scope planning
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim
+  - production-ready/full-bridge/Cognitive-OS/security claims
+
