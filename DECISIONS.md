@@ -590,3 +590,39 @@ Consequence:
 - ABW repo remains read-only reference during next builder sprint.
 - Builder prompt is forbidden until this governance decision is committed/pushed.
 - GPT audit/fix remains mandatory before any next-scope commit.
+
+## DECISION: Accept Bridge Preflight E2E Proof completion
+
+- Status: Accepted
+- Date: 2026-05-03
+
+### Context
+
+- Control repo previously recorded verdict `C. INSERT_BRIDGE_PREFLIGHT_E2E_PROOF_SPRINT`.
+- NVIDIA has now implemented and committed the bounded E2E proof.
+
+### Decision
+
+- Accept the Bridge Preflight E2E Proof as completed for the bounded preflight scope.
+
+### Evidence
+
+- NVIDIA commit: `1ae4515e8ba405c970ec23b5af5d00c8daa38f65`
+- `npm run bridge:preflight:e2e` PASS `22/22`
+- `npm run bridge:preflight:test` PASS `38/38`
+- `npm run agent:audit` PASS `25/25`
+- mojibake clean
+
+### Consequences
+
+- Bridge preflight now has unit/contract tests and E2E proof.
+- Next step is gate review / next-scope planning.
+- UI/write-back/sync/auto-promote remain forbidden unless explicitly scoped later.
+
+### Non-goals
+
+- Does not implement UI.
+- Does not implement full bridge.
+- Does not mutate ABW.
+- Does not claim production-ready.
+- Does not claim Cognitive OS achieved.

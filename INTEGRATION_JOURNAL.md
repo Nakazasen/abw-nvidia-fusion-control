@@ -2,6 +2,54 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - Bridge Preflight E2E Proof completed
+
+NVIDIA Bridge Preflight E2E Proof is completed, audited, committed, and pushed in `D:\Sandbox\Nvidia`.
+
+Commit/push evidence:
+
+- NVIDIA commit: `1ae4515e8ba405c970ec23b5af5d00c8daa38f65`
+- Commit message: `test: add Bridge preflight E2E proof`
+- Push result: `86abf49..1ae4515 main -> main`
+
+Files changed in NVIDIA:
+
+- `package.json`
+- `tests/bridge-preflight-e2e.test.mjs`
+
+Validation evidence:
+
+- `npm run bridge:preflight:e2e` -> PASS `22/22`
+- `npm run bridge:preflight:test` -> PASS `38/38`
+- `npm run agent:audit` -> PASS `25/25`
+- encoding/mojibake check -> clean
+
+Audit verdict before commit:
+
+- `AUDIT_FIXED_READY_FOR_COMMIT`
+
+What was proven:
+
+- ABW ingest creates real evidence artifacts in temp workspace.
+- NVIDIA bridge preflight consumes those artifacts.
+- Exact PASS path asserted.
+- Exact WARN path asserted.
+- Exact FAIL path asserted.
+- No-mutation proof was strengthened during audit.
+
+Boundary preserved:
+
+- no UI
+- no write-back
+- no sync
+- no auto-promote
+- no ABW mutation
+- no production-ready/full-bridge/Cognitive-OS claim
+
+Next action:
+
+- Run gate review / next-scope planning before choosing the next sprint.
+
 ## 2026-05-03 - Explicit Bridge Phase 1 Completion Gate Verdict Recorded
 
 Gate verdict:

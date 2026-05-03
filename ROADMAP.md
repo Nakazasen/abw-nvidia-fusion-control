@@ -30,7 +30,7 @@
 - Current capability is not VS Code parity.
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
-- Control repo latest recorded NVIDIA remote main: 86abf49025d14138a97fc8706e94c245fcad1002.
+- Control repo latest recorded NVIDIA remote main: 1ae4515e8ba405c970ec23b5af5d00c8daa38f65.
 - Control repo latest recorded ABW remote main: `fe0520626d8f254476424242e29ea2bef4807f73`.
 - Control repo latest recorded control remote main: `6f8df242b499382360f7a9214c596fc022fbf8f1`.
 - Sprint 17 scope summary:
@@ -81,8 +81,13 @@
   - fail-closed on missing/invalid ABW evidence
   - reads `.brain/ingest_report.json` + `.brain/ingest_gaps.json`
   - no UI / no write-back / no sync / no auto-promote
-- No further bridge/UI work may start until this control repo update is committed/pushed.
-- Future next step is explicit Bridge Phase 1 completion gate / next-scope planning, not automatic UI/write-back scope.
+- NVIDIA Bridge Preflight E2E Proof is completed and pushed.
+- Bridge Preflight E2E Proof record:
+  - NVIDIA commit `1ae4515e8ba405c970ec23b5af5d00c8daa38f65`
+  - validates ABW artifact generation -> NVIDIA preflight consumption -> PASS/WARN/FAIL
+  - bounded NVIDIA changes only: `package.json`, `tests/bridge-preflight-e2e.test.mjs`
+- Bridge Preflight E2E Proof does NOT unlock UI/write-back/sync/auto-promote automatically.
+- Next scope must be decided by explicit gate review / next-scope planning.
 - Carry-over constraints remain active:
   - `securityRotation: NOT_ROTATED_YET`
   - `idleMemoryEstimateMb: NOT_MEASURED_YET`

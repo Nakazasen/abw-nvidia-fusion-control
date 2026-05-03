@@ -1062,6 +1062,22 @@ Mitigation:
 - Continue fail-closed behavior for missing/invalid evidence.
 - Require GPT audit/fix before commit.
 
+## Bridge Preflight E2E Proof Gap (Mitigated 2026-05-03)
+
+Risk:
+
+- Missing ABW-artifact-to-NVIDIA-preflight E2E proof previously blocked UI-facing bridge scope.
+
+Mitigation / Current state:
+
+- Mitigated by NVIDIA commit `1ae4515e8ba405c970ec23b5af5d00c8daa38f65` with bounded E2E proof.
+- `bridge:preflight:e2e` PASS `22/22`, `bridge:preflight:test` PASS `38/38`, `agent:audit` PASS `25/25`.
+- Boundary preserved: no UI/write-back/sync/auto-promote and no ABW mutation.
+
+Residual constraint:
+
+- E2E proof completion does not authorize next bridge scope automatically; gate review is still required.
+
 ## Bridge Preflight Next-Scope Gate Risk Cluster (Active)
 
 Risk:

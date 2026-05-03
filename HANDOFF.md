@@ -30,7 +30,7 @@ Reality-synced state as of 2026-05-03:
 - ABW Sprint 21 Disable / Gate Blind Auto-Promotion is complete and pushed.
 - ABW Sprint 22 Domain Contamination Guard v1 is complete and pushed.
 - ABW Sprint 23 Evidence Report + Gap Output Minimal Pair is complete and pushed.
-- Latest NVIDIA remote main is 86abf49025d14138a97fc8706e94c245fcad1002.
+- Latest NVIDIA remote main is 1ae4515e8ba405c970ec23b5af5d00c8daa38f65.
 - Latest ABW remote main is fe0520626d8f254476424242e29ea2bef4807f73.
 - Current readiness verdict is INTERNAL_DAILY_USE_CANDIDATE.
 - Phase 1 Gate Review is completed.
@@ -110,7 +110,7 @@ Reality-synced state as of 2026-05-03:
 - Bridge Builder implementation remains blocked until Bridge Phase 1 scope planning is recorded and committed.
 - Bridge Phase 1 scope is now selected: `C. Bridge Preflight Reader + Contract Tests`.
 - NVIDIA Bridge Phase 1 `Preflight Reader + Contract Tests` is completed and pushed in NVIDIA repo.
-- Bridge Phase 1 completion gate verdict is selected: `C. INSERT_BRIDGE_PREFLIGHT_E2E_PROOF_SPRINT`.
+- Bridge Phase 1 completion gate verdict `C. INSERT_BRIDGE_PREFLIGHT_E2E_PROOF_SPRINT` is completed by NVIDIA bounded E2E proof.
 - Bridge Phase 1 implementation boundaries were preserved:
   - no UI
   - no write-back
@@ -153,12 +153,12 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Commit and push this control repo update that records Bridge Phase 1 completion gate verdict `C. INSERT_BRIDGE_PREFLIGHT_E2E_PROOF_SPRINT`.
+Run gate review / next-scope planning after recording NVIDIA Bridge Preflight E2E Proof completion in this control repo.
 
-Bridge Phase 1 gate constraints:
+Bridge next-scope constraints:
 
 - Do not start Bridge UI, write-back, sync, or Phase 2 automatically.
-- After this control push, next step is Bridge Preflight E2E Proof Sprint planning only.
+- Next scope must be explicitly approved by gate review.
 - Bridge must remain read-only/evidence-only.
 - No write-back, no auto-promote, no autonomous sync.
 - ABW repo must remain untouched in Bridge Phase 1 implementation.
