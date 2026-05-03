@@ -88,16 +88,17 @@
   - bounded NVIDIA changes only: `package.json`, `tests/bridge-preflight-e2e.test.mjs`
 - Bridge Preflight E2E Proof does NOT unlock UI/write-back/sync/auto-promote automatically.
 - Next scope must be decided by explicit gate review / next-scope planning.
-- Latest next-scope gate verdict was `C. PROCEED_TO_NVIDIA_UI_USABILITY_AND_DAILY_USE_REPAIR`, and the bounded NVIDIA repair is now completed and pushed.
+- Latest next-scope gate verdict is `C. PROCEED_TO_NVIDIA_FILE_EDIT_APPLY_WORKFLOW_PROOF`.
 - NVIDIA UI usability smoke repair record:
   - NVIDIA commit `e9e78460c37649a76019780d9180a7d6abbbd580`
   - files changed: `nvidia_playground.html`, `tools/browser-smoke.mjs`
   - validation: browser smoke `99/0`, guard `16/16`, `agent:audit` `25/25`, `bridge:preflight:test` `38/38`, `bridge:preflight:e2e` `22/22`
 - Immediate smoke regressions are repaired, but current NVIDIA UI is still not daily-use proven.
 - Daily-use readiness is not proven, Vietnamese localization remains incomplete, and full Agent IDE UX is not proven.
+- Next work focuses on NVIDIA-only file edit/apply workflow proof for `read file -> propose edit -> view diff -> review/apply -> verify result`.
 - Bridge expansion remains paused after bounded preflight E2E completion and bounded UI smoke repair.
 - Bridge UI/write-back/sync/auto-promote remain forbidden unless a later gate explicitly authorizes them.
-- Next scope now requires explicit gate review / next-scope planning.
+- Packaging remains premature until daily-use workflow proof is stronger.
 - Carry-over constraints remain active:
   - `securityRotation: NOT_ROTATED_YET`
   - `idleMemoryEstimateMb: NOT_MEASURED_YET`

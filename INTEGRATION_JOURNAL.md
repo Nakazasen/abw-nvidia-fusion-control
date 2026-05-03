@@ -2,6 +2,44 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-03 - NVIDIA UI repair gate selects file edit/apply workflow proof
+
+Gate result:
+
+- `C. PROCEED_TO_NVIDIA_FILE_EDIT_APPLY_WORKFLOW_PROOF`
+
+Summary:
+
+- NVIDIA UI usability smoke repair is accepted for bounded regression scope.
+- Daily-use readiness is still not proven.
+- The file edit/apply path remains the most important Agent IDE credibility gap.
+
+Decision:
+
+- Focus next on NVIDIA-only file edit/apply workflow proof.
+- Keep bridge UI blocked.
+- Keep packaging blocked as premature.
+
+Rationale:
+
+- `read file -> propose edit -> view diff -> review/apply -> verify result` is central to any honest Agent IDE claim.
+- Current smoke and audit evidence still prove that path only partially.
+
+Boundaries preserved:
+
+- no ABW repo changes
+- no bridge UI
+- no write-back expansion
+- no sync
+- no auto-promote
+- no ABW mutation
+- no daily-use-ready/production/full-bridge/Cognitive-OS/security overclaim
+
+Next action:
+
+- Record this gate decision in control repo and commit/push.
+- Create NVIDIA File Edit/Apply Workflow Proof Builder prompt.
+
 ## 2026-05-03 - NVIDIA UI usability smoke repair completed
 
 NVIDIA UI usability smoke repair is completed, audited, committed, and pushed in `D:\Sandbox\Nvidia`.

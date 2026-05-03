@@ -1098,6 +1098,9 @@ Mitigation:
 Risk:
 
 - Immediate session-list/SCM smoke regressions were repaired, but daily-use readiness is still not proven.
+- File edit/apply workflow remains the main Agent IDE credibility gap.
+- Smoke passing does not prove a user can safely read, propose, diff, review, and apply edits.
+- Mutation-adjacent UX can weaken trust if guards are bypassed, hidden, or falsely implied.
 - Vietnamese localization remains incomplete and still increases operator confusion for primary working flow.
 - Hidden/clipped controls can still regress in ways smoke may miss if usability checks drift.
 - Chatbot-like experience and unclear file edit/apply workflow still create a false Agent IDE impression.
@@ -1109,7 +1112,7 @@ Risk:
 Mitigation:
 
 - Treat the current NVIDIA repair as bounded smoke/usability regression closure, not daily-use proof.
-- Require gate review / next-scope planning before choosing the next sprint.
-- Extend smoke/usability checks for visibility, overflow, localization, and workflow discoverability regressions.
+- Focus the next sprint on honest file edit/apply workflow proof without expanding unsafe mutation scope.
+- Extend smoke/usability checks for visibility, overflow, localization, and edit/apply workflow discoverability regressions.
 - Preserve non-claims and keep bridge/UI/write-back/sync/auto-promote boundaries explicit.
 

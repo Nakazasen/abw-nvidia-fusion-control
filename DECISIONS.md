@@ -699,3 +699,43 @@ Consequence:
 - Does not implement write-back/sync/auto-promote.
 - Does not claim production-ready.
 - Does not claim Cognitive OS achieved.
+
+## DECISION: Focus next on NVIDIA file edit/apply workflow proof
+
+- Status: Accepted
+- Date: 2026-05-03
+
+### Context
+
+- NVIDIA UI usability smoke repair passed and was recorded.
+- However, daily-use readiness is not proven.
+- The file edit/apply workflow remains the most important Agent IDE credibility gap.
+
+### Decision
+
+- Proceed next with a NVIDIA-only file edit/apply workflow proof sprint.
+
+### Evidence
+
+- NVIDIA UI smoke repair completed and recorded.
+- browser smoke PASS `99/0`
+- guard matrix PASS `16/16`
+- bridge tests remain passing
+- gate found file edit/apply path still only partially proven and central to Agent IDE claim
+
+### Consequences
+
+- Next Builder sprint must stay in NVIDIA repo only.
+- Work must focus on visibility, discoverability, honesty, and smoke/usability proof for existing edit/apply workflow.
+- Bridge UI and packaging remain blocked.
+- Daily-use readiness remains unclaimed.
+
+### Non-goals
+
+- Does not implement bridge UI.
+- Does not expand write-back/sync/auto-promote.
+- Does not mutate ABW.
+- Does not claim daily-use readiness.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.

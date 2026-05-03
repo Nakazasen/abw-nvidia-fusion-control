@@ -113,9 +113,10 @@ Reality-synced state as of 2026-05-03:
 - Bridge Phase 1 completion gate verdict `C. INSERT_BRIDGE_PREFLIGHT_E2E_PROOF_SPRINT` is completed by NVIDIA bounded E2E proof.
 - NVIDIA UI usability smoke repair is completed and pushed in NVIDIA repo.
 - Latest recorded NVIDIA completion commit is `e9e78460c37649a76019780d9180a7d6abbbd580`.
-- Latest gate selected was `C. PROCEED_TO_NVIDIA_UI_USABILITY_AND_DAILY_USE_REPAIR`, and that bounded scope is now completed.
+- Latest gate selected is `C. PROCEED_TO_NVIDIA_FILE_EDIT_APPLY_WORKFLOW_PROOF`.
 - Bridge expansion remains paused after bounded preflight E2E completion and bounded UI smoke repair.
 - NVIDIA UI remains a daily-use candidate only; daily-use readiness is not yet proven.
+- Next main sprint should focus on file edit/apply workflow proof.
 - More usability/localization/file-edit workflow hardening may still be required.
 - Bridge Phase 1 implementation boundaries were preserved:
   - no UI
@@ -159,15 +160,16 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Run gate review / next-scope planning before choosing the next sprint.
+Create NVIDIA File Edit/Apply Workflow Proof Builder prompt after this control commit/push.
 
 Still forbidden while awaiting the next gate:
 
 - bridge UI
-- write-back
+- write-back expansion
 - sync
 - auto-promote
 - ABW mutation
+- daily-use-ready claim
 - production-ready/full-bridge/Cognitive-OS/security claims
 
 Bridge next-scope constraints:
