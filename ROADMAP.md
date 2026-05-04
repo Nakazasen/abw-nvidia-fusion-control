@@ -1460,3 +1460,15 @@ Each audit must check:
 - Readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
 - Packaging remains blocked.
 - Bridge expansion remains blocked (`bridge UI`, `sync`, `auto-promote`).
+
+## 2026-05-04 Update - NVIDIA Delete File Safety Proof Completed
+
+- NVIDIA Delete File Safety Proof is completed and pushed.
+- Delete workflow is proven in bounded workflow:
+  - fixture exists -> pending delete/approval state -> no deletion before apply -> approved delete -> disk absence verified -> cleanup/restore.
+- Create-file, existing-file edit, and delete-file safety workflows are now stronger.
+- Move/rename and multi-file edit remain unproven.
+- Daily-use readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- Next step is gate review / next-scope planning.

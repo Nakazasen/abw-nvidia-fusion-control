@@ -1463,3 +1463,20 @@ Mitigation:
   - require cleanup/restore evidence
   - require GPT audit before commit
   - require gate review before readiness upgrade
+
+## 2026-05-04 Update - Delete file safety completion follow-up risks
+
+- Current risk:
+  - move/rename workflow remains unproven
+  - multi-file edit remains unproven
+  - delete proof may be mistaken as full destructive-operation readiness
+  - daily-use readiness overclaim risk remains
+  - packaging too early remains blocked
+  - broader delete cases outside the tested fixture may still fail
+- Mitigation:
+  - keep delete pending operation / approval / apply semantics required
+  - keep directory/glob/recursive/path traversal delete blocked
+  - require separate proofs for move/rename and multi-file workflows
+  - require gate review before readiness upgrade
+  - preserve approval/trust/workspace boundaries
+  - require GPT audit before every commit

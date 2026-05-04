@@ -1547,3 +1547,65 @@ Consequence:
 - Does not claim full bridge.
 - Does not claim Cognitive OS achieved.
 - Does not claim enterprise-grade security.
+
+## DECISION: Record NVIDIA delete file safety proof without readiness upgrade
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After create-file and existing-file edit workflows were proven in bounded form, the next gate selected delete as the highest-risk destructive file operation to prove.
+
+### Decision
+
+- Accept the NVIDIA Delete File Safety Proof.
+- Do not upgrade readiness yet.
+
+### Evidence
+
+- NVIDIA commit:
+  - `e9a69ba1fb2d7ccd23aa3e4347c9d1cdb82cb47d`
+- commit message:
+  - `test: add NVIDIA delete file safety proof`
+- audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- command:
+  - `npm run delete:proof`
+- result:
+  - `PASS 44/0`
+- behavior:
+  - delete creates pending operation
+  - no disk delete before apply
+  - Auto-Accept OFF approval is explicit/actionable
+  - outside-workspace/untrusted/no-approval/directory/glob/path traversal blocked
+- regression evidence:
+  - `live:proof` PASS `27/0`
+  - `write:create:proof` PASS `31/0`
+  - `apply:proof` PASS `30/0`
+  - `manual:proof` PASS `56/0`
+  - `edit:proof` PASS `41/0`
+  - `browser:smoke` PASS `109/0`
+  - `agent:audit` PASS `25/25`
+  - bridge tests PASS `38/38` and `22/22`
+
+### Consequences
+
+- Delete file safety proof is accepted as bounded progress.
+- Move/rename and multi-file edit workflows remain unproven.
+- Daily-use readiness remains not PASS.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- Next step must be gate review / next-scope planning.
+
+### Non-goals
+
+- Does not implement move/rename workflow.
+- Does not implement multi-file edit readiness.
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not mutate ABW.
+- Does not start packaging.

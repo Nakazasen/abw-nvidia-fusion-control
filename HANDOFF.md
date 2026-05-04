@@ -571,3 +571,33 @@ Constraints for the next builder:
   - full bridge claim
   - Cognitive OS achieved claim
   - enterprise-grade security claim
+
+## 2026-05-04 Status Update - NVIDIA Delete File Safety Proof
+
+- Latest NVIDIA commit:
+  - `e9a69ba1fb2d7ccd23aa3e4347c9d1cdb82cb47d`
+- Latest completed scope:
+  - NVIDIA Delete File Safety Proof
+- New command:
+  - `npm run delete:proof`
+- Proof result:
+  - `PASS 44/0`
+- Current evidence:
+  - delete file workflow now proven through pending delete -> approval/apply -> disk deletion verification.
+- Current limitations:
+  - move/rename workflow is not proven.
+  - multi-file edit is not proven.
+  - daily-use readiness remains not PASS.
+- Next required action:
+  - run gate review / next-scope planning before choosing next sprint.
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim
+  - production-ready claim
+  - full bridge claim
+  - Cognitive OS achieved claim
+  - enterprise-grade security claim

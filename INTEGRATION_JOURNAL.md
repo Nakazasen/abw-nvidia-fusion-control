@@ -3654,3 +3654,43 @@ Warning:
   - packaging-ready
 - next action:
   - run gate review / next-scope planning before choosing the next sprint
+
+## 2026-05-04 - NVIDIA delete file safety proof completed
+
+- NVIDIA commit:
+  - `e9a69ba1fb2d7ccd23aa3e4347c9d1cdb82cb47d`
+- commit message:
+  - `test: add NVIDIA delete file safety proof`
+- push result:
+  - `0447930..e9a69ba main -> main`
+- files changed:
+  - `tools/agent-core.mjs`
+  - `tools/nvidia-server.mjs`
+  - `nvidia_playground.html`
+  - `package.json`
+  - `tests/delete-file-safety-proof.test.mjs`
+- audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- new command:
+  - `npm run delete:proof`
+- proof result:
+  - `PASS 44/0`
+- accepted:
+  - delete_file workflow exists
+  - delete creates pending operation
+  - no disk delete before apply
+  - Auto-Accept OFF delete approval is explicit/actionable
+  - approved delete removes file only through intended apply semantics
+  - outside-workspace/untrusted/no-approval/directory/glob/path traversal blocked
+  - live provider proof remains PASS `27/0` with local ignored `.env`
+- not proven:
+  - move/rename workflow
+  - multi-file edit
+  - daily-use readiness PASS
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+- next action:
+  - run gate review / next-scope planning before choosing next sprint
