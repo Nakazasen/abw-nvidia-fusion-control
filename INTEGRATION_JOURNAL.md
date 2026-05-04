@@ -2,6 +2,46 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-04 - NVIDIA existing file edit workflow proof completed
+
+- NVIDIA commit:
+  - `04479301bf0b4f3d3e4a08de1d22b5eba2193558`
+- commit message:
+  - `test: add NVIDIA existing file edit workflow proof`
+- push result:
+  - `68658ad..0447930 main -> main`
+- files changed:
+  - `package.json`
+  - `tests/existing-file-edit-workflow.test.mjs`
+- audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- new command:
+  - `npm run edit:proof`
+- proof result:
+  - `PASS 41/0`
+- accepted:
+  - existing-file edit proof exists
+  - target fixture `proof/edit_existing_target.py` validated
+  - pending edit created before disk mutation
+  - file unchanged before apply
+  - Review + Apply writes updated content
+  - content verified as `return a + b + 1`
+  - cleanup/restore verified
+  - Auto-Accept OFF approval path validated
+  - outside-workspace/no-approval/untrusted boundaries preserved
+- not proven:
+  - delete file workflow
+  - move/rename workflow
+  - multi-file edit
+  - daily-use readiness PASS
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+- next action:
+  - run gate review / next-scope planning before choosing next sprint
+
 ## 2026-05-04 - Gate selects NVIDIA existing file edit workflow proof
 
 - control head before record:

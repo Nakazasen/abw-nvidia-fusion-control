@@ -1427,3 +1427,20 @@ Mitigation:
   - restore or cleanup fixture file after proof
   - keep approval/trust/workspace guards
   - require GPT audit before commit
+
+## 2026-05-04 Update - Existing-file edit completion follow-up risks
+
+- Current risk:
+  - delete file workflow remains unproven
+  - move/rename workflow remains unproven
+  - multi-file edit remains unproven
+  - existing-file edit proof may be mistaken as full Agent IDE readiness
+  - daily-use readiness overclaim risk remains
+  - packaging too early remains blocked
+  - broader edit cases outside the tested fixture may still fail
+- Mitigation:
+  - keep pending edit / Review + Apply semantics required
+  - require separate proofs for delete, move/rename, and multi-file workflows
+  - require gate review before readiness upgrade
+  - continue preserving approval/trust/workspace boundaries
+  - require GPT audit before every commit

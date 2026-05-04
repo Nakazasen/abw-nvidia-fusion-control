@@ -1436,3 +1436,16 @@ Each audit must check:
 - Readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
 - Packaging remains blocked.
 - Bridge expansion remains blocked (`bridge UI`, `sync`, `auto-promote`).
+
+## 2026-05-04 Update - NVIDIA Existing File Edit Workflow Proof Completed
+
+- NVIDIA Existing File Edit Workflow Proof is completed and pushed.
+- NVIDIA commit: `04479301bf0b4f3d3e4a08de1d22b5eba2193558`.
+- Existing-file edit is now proven in bounded workflow:
+  - fixture exists -> pending edit -> file unchanged before apply -> Review + Apply -> disk content verified -> cleanup/restore.
+- Create-file and existing-file edit workflows are now stronger.
+- Delete, move/rename, and multi-file edit remain unproven.
+- Daily-use readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- Next step is gate review / next-scope planning.

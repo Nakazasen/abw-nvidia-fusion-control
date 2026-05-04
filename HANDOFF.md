@@ -520,3 +520,32 @@ Constraints for the next builder:
   - full bridge claim
   - Cognitive OS achieved claim
   - enterprise-grade security claim
+
+## 2026-05-04 Status Update - NVIDIA Existing File Edit Workflow Proof
+
+- Latest NVIDIA commit:
+  - `04479301bf0b4f3d3e4a08de1d22b5eba2193558`
+- Latest completed scope:
+  - NVIDIA Existing File Edit Workflow Proof
+- New command:
+  - `npm run edit:proof`
+- Proof result:
+  - `PASS 41/0`
+- Current evidence:
+  - existing file edit now proven through pending edit -> Review + Apply -> disk verification -> cleanup/restore.
+- Current limitations:
+  - delete/move/multi-file workflows are not proven.
+  - daily-use readiness remains not PASS.
+- Next required action:
+  - run gate review / next-scope planning before choosing next sprint.
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim
+  - production-ready claim
+  - full bridge claim
+  - Cognitive OS achieved claim
+  - enterprise-grade security claim

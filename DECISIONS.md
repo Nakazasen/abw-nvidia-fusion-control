@@ -1444,3 +1444,67 @@ Consequence:
 - Does not implement packaging.
 - Does not mutate ABW.
 - Does not claim daily-use-ready.
+
+## DECISION: Record NVIDIA existing file edit workflow proof without readiness upgrade
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After create-file and manual `write_file` approval flows were strengthened, the next gate selected existing-file edit as the highest-frequency core Agent IDE workflow to prove.
+
+### Decision
+
+- Accept the NVIDIA Existing File Edit Workflow Proof.
+- Do not upgrade readiness yet.
+
+### Evidence
+
+- NVIDIA commit:
+  - `04479301bf0b4f3d3e4a08de1d22b5eba2193558`
+- commit message:
+  - `test: add NVIDIA existing file edit workflow proof`
+- audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- command:
+  - `npm run edit:proof`
+- result:
+  - `PASS 41/0`
+- behavior:
+  - fixture file exists before edit
+  - pending edit created
+  - file unchanged before apply
+  - Review + Apply writes changed content
+  - content verified as `return a + b + 1`
+  - cleanup/restore verified
+  - Auto-Accept OFF approval path validated
+- regression evidence:
+  - `write:create:proof` PASS `31/0`
+  - `apply:proof` PASS `30/0`
+  - `manual:proof` PASS `56/0`
+  - `browser:smoke` PASS `109/0`
+  - `agent:audit` PASS `25/25`
+  - bridge tests PASS `38/38` and `22/22`
+
+### Consequences
+
+- Existing-file edit proof is accepted as bounded progress.
+- Delete/move/multi-file workflows remain unproven.
+- Daily-use readiness remains not PASS.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- Next step must be gate review / next-scope planning.
+
+### Non-goals
+
+- Does not implement delete workflow.
+- Does not implement move/rename workflow.
+- Does not implement multi-file edit readiness.
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not mutate ABW.
+- Does not start packaging.
