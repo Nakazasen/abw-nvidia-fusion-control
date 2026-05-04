@@ -3390,3 +3390,30 @@ Warning:
   - no code implementation
 - Next action:
   - record decision, then create readiness audit prompt
+
+## 2026-05-04 - NVIDIA daily-use readiness audit returns PARTIAL
+
+- Daily-use readiness verdict: `PARTIAL`
+- Strong evidence:
+  - guarded workflow is strong
+  - fixture-backed manual UI proof is complete
+  - browser smoke passes
+  - guard matrix passes
+  - bridge tests remain passing
+- Blocking gap:
+  - live provider-quality create/apply remains unproven
+- Additional limitations:
+  - runtime hygiene backlog remains large
+  - NVIDIA README/readiness metadata is stale in places
+  - Vietnamese localization remains incomplete
+  - `nvidia_playground.html` remains monolithic
+- Decision:
+  - proceed to NVIDIA live provider create/apply proof
+- Boundaries preserved:
+  - no bridge UI
+  - no sync
+  - no auto-promote
+  - no ABW mutation
+  - no packaging
+- Next action:
+  - record decision, then create Builder prompt

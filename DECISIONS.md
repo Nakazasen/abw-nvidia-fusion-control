@@ -1207,3 +1207,46 @@ Consequence:
 - Does not claim daily-use readiness.
 - Does not claim production-ready.
 - Does not claim Cognitive OS achieved.
+
+## DECISION: Classify NVIDIA daily-use readiness as PARTIAL and proceed to live provider create/apply proof
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- NVIDIA Daily-Use Readiness Audit reviewed the current evidence after Full Manual Create/Apply E2E Proof.
+
+### Decision
+
+- Classify NVIDIA readiness as `PARTIAL` and proceed next with a bounded NVIDIA-only live provider create/apply proof.
+
+### Evidence
+
+- `manual:proof` PASS `22/0`
+- `apply:proof` PASS `30/0`
+- `write:create:proof` PASS `19/0`
+- `browser:smoke` PASS `109/0`
+- guard matrix PASS `16/16`
+- `agent:audit` PASS `25/25`
+- bridge tests PASS `38/38` and `22/22`
+- fixture-backed UI create/apply is proven
+- live provider-quality create/apply remains unproven
+- runtime hygiene backlog and stale README/readiness metadata remain
+
+### Consequences
+
+- Daily-use-ready remains unclaimed.
+- Packaging remains blocked.
+- Bridge UI remains blocked.
+- The next sprint must prove live provider behavior or honestly block on provider/key/environment instability.
+
+### Non-goals
+
+- Does not implement code.
+- Does not start packaging.
+- Does not implement bridge UI.
+- Does not mutate ABW.
+- Does not claim daily-use readiness.
+- Does not claim production-ready.
+- Does not claim Cognitive OS achieved.

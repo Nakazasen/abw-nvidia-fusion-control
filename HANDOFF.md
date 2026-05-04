@@ -394,3 +394,21 @@ Constraints for the next builder:
   - packaging
   - daily-use-ready claim before `PASS`
   - production/full bridge/Cognitive OS/security claims
+
+## 2026-05-04 Status Update - NVIDIA Daily-Use Readiness Audit
+
+- NVIDIA Daily-Use Readiness Audit completed.
+- Readiness verdict:
+  - `PARTIAL`
+- Latest gate selected:
+  - `A. LIVE_PROVIDER_CREATE_APPLY_PROOF`
+- Next required action after this control commit:
+  - create NVIDIA Live Provider Create/Apply Proof Builder prompt
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim
+  - production/full bridge/Cognitive OS/security claims

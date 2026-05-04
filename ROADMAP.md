@@ -1350,3 +1350,22 @@ Each audit must check:
   - no sync
   - no auto-promote
   - no ABW mutation
+
+## 2026-05-04 Update - NVIDIA Daily-Use Readiness Audit Result
+
+- Readiness verdict: `PARTIAL`.
+- Latest next-scope gate verdict: `A. LIVE_PROVIDER_CREATE_APPLY_PROOF`.
+- NVIDIA has strong bounded workflow evidence, but it is not daily-use ready yet.
+- Proven so far:
+  - fixture-backed manual UI create/apply E2E is proven
+  - guarded file workflow, smoke coverage, trust boundaries, and bridge preflight tests are strong
+- Next blocker:
+  - live provider-quality create/apply remains unproven
+- Readiness wording:
+  - must remain `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY` until a future audit justifies an upgrade
+- Boundary remains:
+  - no bridge UI
+  - no packaging
+  - no sync
+  - no auto-promote
+  - no ABW mutation

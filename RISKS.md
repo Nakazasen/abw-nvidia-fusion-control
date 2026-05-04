@@ -1338,3 +1338,22 @@ Mitigation:
   - require explicit `PASS`, `PARTIAL`, or `FAIL` classification
   - if `PASS` is not justified, identify the exact blocker and next highest-value sprint
   - keep packaging, bridge UI, sync, auto-promote, and ABW mutation blocked unless a later gate explicitly authorizes them
+
+## 2026-05-04 Update - Daily-Use Readiness PARTIAL Risk Status
+
+- Current risk:
+  - live provider-quality create/apply remains unproven
+  - fixture-backed proof may be mistaken for live model/provider proof
+  - daily-use readiness is `PARTIAL`, not `PASS`
+  - runtime hygiene backlog remains large
+  - `securityRotation: NOT_ROTATED_YET` remains
+  - NVIDIA README/readiness messaging is stale in places
+  - packaging too early remains blocked
+  - bridge UI overclaim risk remains
+  - Vietnamese localization remains incomplete
+  - `nvidia_playground.html` remains monolithic
+- Mitigation:
+  - keep the next NVIDIA sprint bounded to live provider create/apply proof
+  - preserve trust/approval/workspace guards and guard matrix coverage
+  - require honest blocked/flake/key-missing classification instead of fake success
+  - keep packaging, bridge UI, sync, auto-promote, and ABW mutation blocked unless a later gate explicitly authorizes them
