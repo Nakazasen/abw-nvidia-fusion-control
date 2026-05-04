@@ -412,3 +412,30 @@ Constraints for the next builder:
   - packaging
   - daily-use-ready claim
   - production/full bridge/Cognitive OS/security claims
+
+## 2026-05-04 Status Update - NVIDIA Live Provider Create/Apply Proof Harness
+
+- Latest NVIDIA commit:
+  - `a8f52383280d3bd0de8fcd5c7264528ac21be0db`
+- Latest completed scope:
+  - NVIDIA Live Provider Create/Apply Proof harness
+- Current live provider proof result:
+  - `LIVE_PROVIDER_CREATE_APPLY_BLOCKED_PROVIDER_UNAVAILABLE`
+- Reason:
+  - `Missing NVIDIA_API_KEY for live provider proof.`
+- Readiness remains:
+  - `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Daily-use readiness remains not `PASS`.
+- Next required action:
+  - run gate review / next-scope planning before choosing next sprint
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim
+  - production-ready claim
+  - full bridge claim
+  - Cognitive OS achieved claim
+  - enterprise-grade security claim

@@ -1357,3 +1357,20 @@ Mitigation:
   - preserve trust/approval/workspace guards and guard matrix coverage
   - require honest blocked/flake/key-missing classification instead of fake success
   - keep packaging, bridge UI, sync, auto-promote, and ABW mutation blocked unless a later gate explicitly authorizes them
+
+## 2026-05-04 Update - Live Provider Proof Harness Risk Status
+
+- Current risk:
+  - live provider proof harness is blocked by missing provider env
+  - blocked provider proof may be mistaken as live provider `PASS`
+  - daily-use readiness overclaim risk remains
+  - packaging too early remains blocked
+  - bridge UI overclaim risk remains
+  - environment-dependent provider proof requires careful classification
+  - secret/API key leakage risk exists if a future live provider run is executed with a real key
+- Mitigation:
+  - classify missing key as `BLOCKED_PROVIDER_UNAVAILABLE`, not `PASS`
+  - do not print API keys or secrets
+  - require rerun with configured provider before claiming live provider `PASS`
+  - keep readiness wording `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+  - require gate review before the next sprint

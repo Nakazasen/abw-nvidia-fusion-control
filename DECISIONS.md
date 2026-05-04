@@ -1250,3 +1250,52 @@ Consequence:
 - Does not claim daily-use readiness.
 - Does not claim production-ready.
 - Does not claim Cognitive OS achieved.
+
+## DECISION: Record NVIDIA live provider create/apply proof harness without readiness upgrade
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- NVIDIA implemented and committed a bounded live provider create/apply proof harness after the daily-use readiness audit selected `A. LIVE_PROVIDER_CREATE_APPLY_PROOF`.
+
+### Decision
+
+- Accept the harness as a valid bounded proof mechanism and honest blocked-provider classification, but do not upgrade readiness because live provider-quality create/apply `PASS` was not proven in the current environment.
+
+### Evidence
+
+- NVIDIA commit:
+  - `a8f52383280d3bd0de8fcd5c7264528ac21be0db`
+- `npm run live:proof`:
+  - `LIVE_PROVIDER_CREATE_APPLY_BLOCKED_PROVIDER_UNAVAILABLE`
+- blocked reason:
+  - `Missing NVIDIA_API_KEY for live provider proof.`
+- audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- regression evidence:
+  - `write:create:proof` PASS `19/0`
+  - `apply:proof` PASS `30/0`
+  - `manual:proof` PASS `22/0`
+  - `browser:smoke` PASS `109/0`
+  - `agent:audit` PASS `25/25`
+  - bridge tests PASS `38/38` and `22/22`
+
+### Consequences
+
+- Daily-use readiness remains not `PASS`.
+- Live provider success remains unproven until a provider key/environment is available and the proof returns `PASS`.
+- Packaging remains blocked.
+- Bridge UI, sync, and auto-promote remain blocked.
+- Next step must be gate review / next-scope planning.
+
+### Non-goals
+
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not mutate ABW.
+- Does not start packaging.

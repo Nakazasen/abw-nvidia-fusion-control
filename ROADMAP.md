@@ -1369,3 +1369,15 @@ Each audit must check:
   - no sync
   - no auto-promote
   - no ABW mutation
+
+## 2026-05-04 Update - NVIDIA Live Provider Create/Apply Proof Harness Completed
+
+- NVIDIA Live Provider Create/Apply Proof harness is completed and pushed.
+- The harness is honest and blocks explicitly when provider env is unavailable.
+- Current environment result is:
+  - `LIVE_PROVIDER_CREATE_APPLY_BLOCKED_PROVIDER_UNAVAILABLE`
+- This does not prove live provider-quality create/apply `PASS`.
+- Daily-use readiness remains not `PASS`.
+- Packaging remains blocked.
+- Bridge UI, sync, and auto-promote remain blocked.
+- Next step is gate review / next-scope planning.
