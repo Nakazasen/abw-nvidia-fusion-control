@@ -1119,3 +1119,48 @@ Consequence:
   - Does not claim daily-use readiness.
   - Does not claim production-ready.
   - Does not claim Cognitive OS achieved.
+
+## DECISION: Accept NVIDIA Full Manual Create/Apply E2E Proof completion
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- NVIDIA Apply Pending Edit To Disk Proof proved the API/harness path.
+- The remaining gap was proving the user-facing UI create/apply path.
+
+### Decision
+
+- Accept the bounded NVIDIA Full Manual Create/Apply E2E Proof as completed for browser/UI-path create/apply behavior.
+
+### Evidence
+
+- NVIDIA commit: `68efc6b8437ce5d518b7ad6d4b49469b78271de6`
+- `manual:proof` PASS `22/0`
+- `apply:proof` PASS `30/0`
+- `write:create:proof` PASS `19/0`
+- `browser:smoke` PASS `109/0`
+- readiness wording `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- guard matrix PASS `16/16`
+- `agent:audit` PASS `25/25`
+- `bridge:preflight:test` PASS `38/38`
+- `bridge:preflight:e2e` PASS `22/22`
+- encoding/mojibake clean
+
+### Consequences
+
+- The core create/apply UI proof gap is reduced.
+- Live provider-quality create/apply remains unproven.
+- Daily-use readiness remains unclaimed.
+- Next scope requires gate review.
+
+### Non-goals
+
+- Does not prove live provider quality.
+- Does not prove daily-use readiness.
+- Does not implement bridge UI.
+- Does not add sync or auto-promote.
+- Does not mutate ABW.
+- Does not claim production-ready.
+- Does not claim Cognitive OS achieved.

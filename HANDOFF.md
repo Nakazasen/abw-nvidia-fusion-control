@@ -30,9 +30,9 @@ Reality-synced state as of 2026-05-03:
 - ABW Sprint 21 Disable / Gate Blind Auto-Promotion is complete and pushed.
 - ABW Sprint 22 Domain Contamination Guard v1 is complete and pushed.
 - ABW Sprint 23 Evidence Report + Gap Output Minimal Pair is complete and pushed.
-- Latest NVIDIA remote main is e9e78460c37649a76019780d9180a7d6abbbd580.
+- Latest NVIDIA remote main is 68efc6b8437ce5d518b7ad6d4b49469b78271de6.
 - Latest ABW remote main is fe0520626d8f254476424242e29ea2bef4807f73.
-- Current readiness verdict is INTERNAL_DAILY_USE_CANDIDATE.
+- Current readiness verdict is HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY.
 - Phase 1 Gate Review is completed.
 - Phase 1 Gate Review verdict is `B. INSERT_SPRINT_16_5_CLEANUP`.
 - Post-cleanup re-gate is completed with verdict `A. PROCEED_TO_SPRINT_17`.
@@ -88,7 +88,7 @@ Reality-synced state as of 2026-05-03:
 ## Current Strategic Roadmap Status
 
 - Master Roadmap v1 has been recorded.
-- Current next step is gate review / next-scope planning after the NVIDIA UI usability smoke repair completion record is committed/pushed.
+- Current next step is gate review / next-scope planning after the NVIDIA Full Manual Create/Apply E2E Proof completion record is committed/pushed.
 - Phase 1 Gate Review selected cleanup verdict `B`, and post-cleanup re-gate selected `A`.
 - Daily-use track status:
   - Sprint 13: Git / SCM Panel tot hon (done)
@@ -160,7 +160,7 @@ Performance/bloat gate requirements for the next review:
 
 ## Immediate Next Action
 
-Create NVIDIA File Edit/Apply Workflow Proof Builder prompt after this control commit/push.
+Run gate review / next-scope planning after this control commit/push.
 
 Still forbidden while awaiting the next gate:
 
@@ -343,13 +343,30 @@ Constraints for the next builder:
   - packaging
   - daily-use-ready claim
   - production/full bridge/Cognitive OS/security claims
-## 2026-05-04 Status Update - Full Manual Create/Apply E2E Next
+## 2026-05-04 Status Update - NVIDIA Full Manual Create/Apply E2E Proof
 
-- NVIDIA Apply Pending Edit To Disk Proof completed and recorded.
-- Latest gate selected:
-  - `A. PROCEED_TO_NVIDIA_FULL_MANUAL_CREATE_APPLY_E2E_PROOF`
-- Next required action after this control commit:
-  - create NVIDIA Full Manual Create/Apply E2E Proof Builder prompt
+- NVIDIA Full Manual Create/Apply E2E Proof completed and pushed.
+- Latest NVIDIA main: `68efc6b8437ce5d518b7ad6d4b49469b78271de6`
+- Latest control main will be updated by this task after commit.
+- What was proven:
+  - browser/UI path is exercised
+  - user prompt is submitted through UI
+  - pending edit is visible before apply
+  - target path is visible
+  - real Review + Apply UI control is clicked
+  - file does not exist before apply
+  - file exists on disk after apply
+  - on-disk content is verified
+  - proof file cleanup is verified
+  - UI/status wording is honest
+- What remains limited:
+  - proof is fixture-backed via `NVIDIA_TEST_CHAT_FIXTURE`
+  - live provider-quality create/apply is not proven
+  - daily-use readiness is not proven
+  - full Agent IDE UX is not proven
+  - full Vietnamese localization is not complete
+- Next required action:
+  - gate review / next-scope planning
 - Still forbidden:
   - bridge UI
   - sync

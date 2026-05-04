@@ -14,7 +14,7 @@
 - Sprint 11 Inline Edit kieu Cursor is complete.
 - Sprint 12 Task Timeline + Recovery / Resume is complete.
 - Sprint 13 Git / SCM Panel tot hon is complete.
-- Current readiness verdict: INTERNAL_DAILY_USE_CANDIDATE.
+- Current readiness verdict: HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY.
 - Sprint 16.5 cleanup is completed and pushed after Phase 1 Gate Review verdict B.
 - ABW bridge is not implemented.
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
@@ -30,7 +30,7 @@
 - Current capability is not VS Code parity.
 - Current capability is not Cursor parity.
 - Current capability is not an ABW-governed runtime.
-- Control repo latest recorded NVIDIA remote main: e9e78460c37649a76019780d9180a7d6abbbd580.
+- Control repo latest recorded NVIDIA remote main: 68efc6b8437ce5d518b7ad6d4b49469b78271de6.
 - Control repo latest recorded ABW remote main: `fe0520626d8f254476424242e29ea2bef4807f73`.
 - Control repo latest recorded control remote main: `6f8df242b499382360f7a9214c596fc022fbf8f1`.
 - Sprint 17 scope summary:
@@ -1297,11 +1297,35 @@ Each audit must check:
   - daily-use readiness is still not proven
 - Next action:
   - run gate review / next-scope planning
-## 2026-05-04 Update - NVIDIA Full Manual Create/Apply E2E Proof Next Scope
+## 2026-05-04 Update - NVIDIA Full Manual Create/Apply E2E Proof Completed
 
-- Latest next-scope verdict: `A. PROCEED_TO_NVIDIA_FULL_MANUAL_CREATE_APPLY_E2E_PROOF`
-- NVIDIA Apply Pending Edit To Disk Proof is complete.
-- API/harness apply-to-disk is proven.
-- Full manual UI E2E create/apply remains unproven.
-- Next work focuses on user-facing UI proof only.
-- Daily-use readiness, packaging, bridge UI, sync, auto-promote, and ABW mutation remain forbidden or unproven.
+- NVIDIA Full Manual Create/Apply E2E Proof is completed and pushed.
+- NVIDIA commit: `68efc6b8437ce5d518b7ad6d4b49469b78271de6`.
+- NVIDIA files changed:
+  - `package.json`
+  - `tools/browser-smoke.mjs`
+  - `tests/manual-ui-create-apply-e2e.test.mjs`
+- Validation recorded:
+  - `manual:proof` PASS `22/0`
+  - `apply:proof` PASS `30/0`
+  - `write:create:proof` PASS `19/0`
+  - `browser:smoke` PASS `109/0`
+  - readiness `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+  - guard matrix PASS `16/16`
+  - `agent:audit` PASS `25/25`
+  - `bridge:preflight:test` PASS `38/38`
+  - `bridge:preflight:e2e` PASS `22/22`
+  - encoding/mojibake clean
+- What is proven:
+  - `user prompt -> pending edit visible -> Review + Apply -> file exists on disk -> content verified`
+  - target path is visible in UI
+  - cleanup is verified
+  - UI/status wording remains honest
+- Limitations:
+  - this is fixture-backed browser/UI E2E using `NVIDIA_TEST_CHAT_FIXTURE`
+  - this does not prove live provider-quality create/apply
+  - this does not prove daily-use readiness
+  - full Vietnamese localization and full Agent IDE UX remain unproven
+  - full bridge is not implemented
+- Next action:
+  - run gate review / next-scope planning

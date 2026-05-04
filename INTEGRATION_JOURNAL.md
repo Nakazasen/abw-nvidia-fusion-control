@@ -2,6 +2,68 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-04 - NVIDIA Full Manual Create/Apply E2E Proof completed
+
+NVIDIA Full Manual Create/Apply E2E Proof is completed, audited, committed, and pushed in `D:\Sandbox\Nvidia`.
+
+Commit/push evidence:
+
+- NVIDIA commit: `68efc6b8437ce5d518b7ad6d4b49469b78271de6`
+- NVIDIA commit message: `test: prove NVIDIA manual create apply E2E`
+- NVIDIA push result: `main -> main` pushed to `https://github.com/Nakazasen/nvidia-server`
+
+Files changed in NVIDIA:
+
+- `package.json`
+- `tools/browser-smoke.mjs`
+- `tests/manual-ui-create-apply-e2e.test.mjs`
+
+Validation evidence:
+
+- `npm run manual:proof` -> PASS `22/0`
+- `npm run apply:proof` -> PASS `30/0`
+- `npm run write:create:proof` -> PASS `19/0`
+- `npm run browser:smoke -- --start-server --port 3456` -> PASS `109/0`
+- readiness `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- guard matrix `16/16`
+- `npm run agent:audit` -> PASS `25/25`
+- `npm run bridge:preflight:test` -> PASS `38/38`
+- `npm run bridge:preflight:e2e` -> PASS `22/22`
+- encoding/mojibake check -> clean
+
+Audit result:
+
+- `AUDIT_FIXED_READY_FOR_COMMIT`
+
+What was proven:
+
+- Browser/UI path is exercised.
+- User prompt is submitted through UI.
+- Pending edit appears visibly in UI.
+- Target path is visible.
+- Real Review + Apply UI control is clicked.
+- File does not exist before apply.
+- File exists on disk after apply.
+- On-disk content is verified.
+- Proof file cleanup is verified.
+- UI/status wording is honest.
+- Guard matrix remains meaningful.
+- Bridge regressions remain passing.
+
+What remains limited:
+
+- This is fixture-backed browser/UI E2E using `NVIDIA_TEST_CHAT_FIXTURE`.
+- It does not prove live provider-quality create/apply.
+- It does not prove daily-use readiness.
+- Full Vietnamese localization is not complete.
+- Full Agent IDE UX is not proven.
+- Production readiness is not proven.
+- Full bridge is not implemented.
+
+Next action:
+
+- Run gate review / next-scope planning before choosing the next sprint.
+
 ## 2026-05-04 - Real file write/create gate selects apply-to-disk proof
 
 Gate result:

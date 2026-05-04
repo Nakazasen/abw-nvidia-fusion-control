@@ -1305,3 +1305,18 @@ Mitigation:
 - Vietnamese localization remains incomplete
 - `nvidia_playground.html` remains monolithic
 - `securityRotation: NOT_ROTATED_YET`
+
+## 2026-05-04 Update - Full Manual UI E2E Proof Risk Status
+
+- Reduced risk:
+  - the previously unproven manual UI create/apply path now has bounded browser/UI E2E proof
+  - user prompt to visible pending edit to real Review + Apply to verified on-disk file is now proven with guarded test evidence
+- Remaining risks:
+  - live provider-quality create/apply is not proven
+  - daily-use readiness is not proven
+  - Vietnamese localization remains incomplete
+  - full Agent IDE UX is not proven
+  - `nvidia_playground.html` remains monolithic
+  - packaging is still premature
+  - bridge UI overclaim risk remains
+  - `securityRotation: NOT_ROTATED_YET`
