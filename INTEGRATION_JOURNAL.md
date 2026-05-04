@@ -2,6 +2,25 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-04 - Gate selects NVIDIA existing file edit workflow proof
+
+- control head before record:
+  - `49e89225debde1b4e0cfe487f97bed1a38efae11`
+- NVIDIA head:
+  - `68658ad38ba064bc91e7447ba36378cf3beecc9d`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- gate verdict:
+  - `A. PROCEED_TO_EXISTING_FILE_EDIT_WORKFLOW_PROOF`
+- accepted:
+  - create-file + approval flow is stronger
+- not accepted:
+  - daily-use readiness
+  - edit/delete/move/multi-file completeness
+  - packaging
+- next:
+  - record this gate, then create Builder prompt for Existing File Edit Workflow Proof.
+
 ## 2026-05-04 - NVIDIA manual approval flow for write_file completed
 
 NVIDIA manual approval flow fix for `write_file` is completed, audited, committed, and pushed in `D:\Sandbox\Nvidia`.

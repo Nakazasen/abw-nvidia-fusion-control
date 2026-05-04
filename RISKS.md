@@ -1408,3 +1408,22 @@ Mitigation:
   - maintain approval/trust/workspace tests
   - add future workflow proofs for edit/delete/move/multi-file before readiness upgrade
   - require gate review before next sprint
+
+## 2026-05-04 Update - Existing file edit workflow proof follow-up risks
+
+- Current risk:
+  - existing-file edit workflow remains unproven
+  - create-file proof may be mistaken as full Agent IDE readiness
+  - edit operation may overwrite user content without clear diff/apply semantics
+  - restore/cleanup evidence may be missing
+  - delete/move/multi-file workflows remain unproven
+  - daily-use readiness overclaim risk remains
+  - packaging too early remains blocked
+- Mitigation:
+  - require pending edit/diff before disk write
+  - require Review + Apply before mutation
+  - verify file unchanged before apply
+  - verify disk content after apply
+  - restore or cleanup fixture file after proof
+  - keep approval/trust/workspace guards
+  - require GPT audit before commit

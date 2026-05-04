@@ -1408,3 +1408,39 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not mutate ABW.
 - Does not start packaging.
+
+## DECISION: Proceed to NVIDIA existing file edit workflow proof
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After manual `write_file` approval flow was fixed, the gate reviewed what next capability is most important for credible Agent IDE workflow.
+
+### Decision
+
+- Proceed next with a bounded NVIDIA-only Existing File Edit Workflow Proof.
+
+### Rationale
+
+- Create-file and manual approval are strong, but not sufficient.
+- Editing existing files is the highest-frequency core Agent IDE path and should precede delete, move/rename, and multi-file mutation workflows.
+
+### Consequences
+
+- Next Builder scope must be NVIDIA repo only.
+- The next proof must validate existing-file edit end-to-end through UI/browser/API proof.
+- No daily-use-ready claim is authorized.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- ABW mutation remains forbidden.
+
+### Non-goals
+
+- Does not implement delete.
+- Does not implement move/rename.
+- Does not implement broad multi-file edit.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not claim daily-use-ready.

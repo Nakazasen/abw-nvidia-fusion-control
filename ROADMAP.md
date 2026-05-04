@@ -1425,3 +1425,14 @@ Each audit must check:
 - Packaging remains blocked.
 - Bridge UI/sync/auto-promote remain blocked.
 - Next step is gate review / next-scope planning.
+
+## 2026-05-04 Update - Gate Selects Existing File Edit Workflow Proof
+
+- Latest gate verdict:
+  - `A. PROCEED_TO_EXISTING_FILE_EDIT_WORKFLOW_PROOF`
+- Create-file + manual approval flow is accepted and stronger, but still not enough for daily-use readiness.
+- Existing-file edit is now the next core Agent IDE blocker.
+- Delete/move/multi-file workflows remain later scopes.
+- Readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
+- Packaging remains blocked.
+- Bridge expansion remains blocked (`bridge UI`, `sync`, `auto-promote`).
