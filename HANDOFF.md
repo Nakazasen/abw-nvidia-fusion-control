@@ -375,3 +375,22 @@ Constraints for the next builder:
   - packaging
   - daily-use-ready claim
   - production/full bridge/Cognitive OS/security claims
+
+## 2026-05-04 Status Update - Next Scope Selected: NVIDIA Daily-Use Readiness Audit
+
+- NVIDIA Full Manual Create/Apply E2E Proof completed and recorded.
+- Latest gate selected:
+  - `B. PROCEED_TO_NVIDIA_DAILY_USE_READINESS_AUDIT`
+- Next required action after this control commit:
+  - create NVIDIA Daily-Use Readiness Audit prompt
+- The audit must return:
+  - `PASS`, `PARTIAL`, or `FAIL`
+  - next-scope recommendation if `PASS` is not justified
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim before `PASS`
+  - production/full bridge/Cognitive OS/security claims

@@ -1164,3 +1164,46 @@ Consequence:
 - Does not mutate ABW.
 - Does not claim production-ready.
 - Does not claim Cognitive OS achieved.
+
+## DECISION: Proceed to NVIDIA daily-use readiness audit
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- NVIDIA Full Manual Create/Apply E2E Proof completed the fixture-backed browser/UI create/apply proof.
+- The remaining question is whether the NVIDIA app is ready for internal daily-use candidate status or which blockers remain.
+
+### Decision
+
+- Proceed next with a NVIDIA-only Daily-Use Readiness Audit.
+
+### Evidence
+
+- `manual:proof` PASS `22/0`
+- `apply:proof` PASS `30/0`
+- `write:create:proof` PASS `19/0`
+- `browser:smoke` PASS `109/0`
+- readiness wording `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- guard matrix PASS `16/16`
+- `agent:audit` PASS `25/25`
+- bridge tests PASS `38/38` and `22/22`
+- gate selected readiness audit over packaging, bridge UI, localization, or feature work
+
+### Consequences
+
+- The audit must classify readiness as `PASS`, `PARTIAL`, or `FAIL`.
+- If `PASS` is not justified, the audit must identify exact blockers and next highest-value sprint.
+- Daily-use-ready remains unclaimed until the audit explicitly returns `PASS`.
+- Packaging and bridge UI remain blocked.
+
+### Non-goals
+
+- Does not implement code.
+- Does not start packaging.
+- Does not implement bridge UI.
+- Does not mutate ABW.
+- Does not claim daily-use readiness.
+- Does not claim production-ready.
+- Does not claim Cognitive OS achieved.

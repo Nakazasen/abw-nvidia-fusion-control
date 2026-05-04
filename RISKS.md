@@ -1320,3 +1320,21 @@ Mitigation:
   - packaging is still premature
   - bridge UI overclaim risk remains
   - `securityRotation: NOT_ROTATED_YET`
+
+## 2026-05-04 Update - Daily-Use Readiness Audit Gate Risk Status
+
+- Current risk:
+  - daily-use readiness is not yet classified
+  - live provider-quality create/apply remains unproven
+  - Vietnamese localization remains incomplete
+  - full Agent IDE UX remains unproven
+  - packaging too early remains blocked
+  - bridge UI overclaim risk remains
+  - `nvidia_playground.html` remains monolithic
+  - runtime hygiene backlog / `securityRotation: NOT_ROTATED_YET` remains
+  - README/HANDOFF may need later current-state alignment
+- Mitigation:
+  - run a NVIDIA-only Daily-Use Readiness Audit next
+  - require explicit `PASS`, `PARTIAL`, or `FAIL` classification
+  - if `PASS` is not justified, identify the exact blocker and next highest-value sprint
+  - keep packaging, bridge UI, sync, auto-promote, and ABW mutation blocked unless a later gate explicitly authorizes them

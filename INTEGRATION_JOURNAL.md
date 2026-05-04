@@ -3366,3 +3366,27 @@ Warning:
   - no weakening of trust or approval enforcement
 - Next action:
   - record decision, then create Builder prompt
+
+## 2026-05-04 - Manual create/apply gate selects NVIDIA daily-use readiness audit
+
+- Fixture-backed manual create/apply E2E proof is accepted for its bounded scope.
+- Remaining gaps:
+  - live provider-quality create/apply
+  - daily-use readiness
+  - Vietnamese localization
+  - full Agent IDE UX
+  - packaging readiness
+- Decision:
+  - proceed to NVIDIA Daily-Use Readiness Audit
+- Required output:
+  - `PASS`, `PARTIAL`, or `FAIL` classification
+  - exact next blocker if `PASS` is not justified
+- Boundaries preserved:
+  - no bridge UI
+  - no sync
+  - no auto-promote
+  - no ABW mutation
+  - no packaging
+  - no code implementation
+- Next action:
+  - record decision, then create readiness audit prompt

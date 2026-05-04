@@ -1329,3 +1329,24 @@ Each audit must check:
   - full bridge is not implemented
 - Next action:
   - run gate review / next-scope planning
+
+## 2026-05-04 Update - Next Scope Selected: NVIDIA Daily-Use Readiness Audit
+
+- Latest next-scope gate verdict: `B. PROCEED_TO_NVIDIA_DAILY_USE_READINESS_AUDIT`.
+- NVIDIA Full Manual Create/Apply E2E Proof is complete.
+- Proven so far:
+  - fixture-backed browser/UI create/apply path is proven
+  - `user prompt -> pending edit visible -> Review + Apply -> file exists on disk -> content verified`
+- Remaining gap:
+  - live provider-quality create/apply remains unproven
+- Readiness status:
+  - daily-use readiness is not yet claimed
+- Next work focus:
+  - a NVIDIA-only readiness audit that returns `PASS`, `PARTIAL`, or `FAIL`
+  - if `PASS` is not justified, the audit must identify the next blocker and exact next sprint
+- Boundary remains:
+  - no bridge UI
+  - no packaging
+  - no sync
+  - no auto-promote
+  - no ABW mutation
