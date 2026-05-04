@@ -1354,3 +1354,57 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not mutate ABW.
 - Does not start packaging.
+
+## DECISION: Record NVIDIA manual write_file approval flow fix without readiness upgrade
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After Vietnamese create-file routing was fixed, manual UI testing showed that Auto-Accept ON worked, but Auto-Accept OFF lacked a clear approval path and could fall into a misleading failure fallback.
+
+### Decision
+
+- Accept the NVIDIA manual approval flow fix for `write_file`.
+- Do not upgrade readiness yet.
+
+### Evidence
+
+- NVIDIA commit:
+  - `68658ad38ba064bc91e7447ba36378cf3beecc9d`
+- commit message:
+  - `fix: add explicit manual approval flow for write_file`
+- audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- behavior:
+  - Auto-Accept OFF surfaces `approvalRequired` / `approvalRequest` metadata and actionable approval modal
+  - approved replay calls safe `/api/write_file`
+  - approval creates pending edit only
+  - Review + Apply still required for disk write
+- validation:
+  - `git diff --check` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tests/real-write-create-flow.test.mjs` PASS
+  - `node --check tests/manual-ui-create-apply-e2e.test.mjs` PASS
+  - secret scan found no literal key
+  - encoding/mojibake clean
+
+### Consequences
+
+- Manual create-file approval UX is stronger.
+- Edit/delete/move/multi-file workflows remain unproven.
+- Daily-use readiness remains not `PASS`.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- Next step must be gate review / next-scope planning.
+
+### Non-goals
+
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not mutate ABW.
+- Does not start packaging.

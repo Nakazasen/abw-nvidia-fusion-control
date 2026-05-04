@@ -1390,4 +1390,21 @@ Mitigation:
   - add regression tests for representative Vietnamese prompts
   - require gate review before readiness upgrade
   - remove or ignore manual test artifacts before future commits
-  - maintain stage guard before every commit
+- maintain stage guard before every commit
+
+## 2026-05-04 Update - Manual write_file approval flow follow-up risks
+
+- Current risk:
+  - `write_file` approval UX was previously a blocker and needs regression protection
+  - edit/delete/move/multi-file workflows remain unproven
+  - daily-use readiness overclaim risk remains
+  - packaging too early remains blocked
+  - approval replay could become unsafe if future changes bypass workspace/trust checks
+  - chatbot fallback risk remains for unsupported operations/intents
+- Mitigation:
+  - keep approval replay routed through safe `/api/write_file` only
+  - require pending edit before disk write
+  - keep Review + Apply required
+  - maintain approval/trust/workspace tests
+  - add future workflow proofs for edit/delete/move/multi-file before readiness upgrade
+  - require gate review before next sprint

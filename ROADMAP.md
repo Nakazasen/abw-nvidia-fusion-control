@@ -1412,3 +1412,16 @@ Each audit must check:
 - Bridge UI, sync, and auto-promote remain blocked.
 - NVIDIA has untracked out-of-scope `test.txt`; it was not committed.
 - Next step is gate review / next-scope planning.
+
+## 2026-05-04 Update - NVIDIA Manual Approval Flow Fix Completed
+
+- NVIDIA manual approval flow for `write_file` is completed and pushed.
+- NVIDIA commit: `68658ad38ba064bc91e7447ba36378cf3beecc9d`.
+- Auto-Accept OFF no longer falls into misleading chatbot fallback for `write_file` approval.
+- Approval now creates pending edit only; Review + Apply remains required for disk write.
+- Manual create-file workflow is stronger.
+- Edit/delete/move/multi-file workflows remain unproven.
+- Daily-use readiness remains not `PASS`.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- Next step is gate review / next-scope planning.

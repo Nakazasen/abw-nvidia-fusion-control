@@ -2,6 +2,55 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-04 - NVIDIA manual approval flow for write_file completed
+
+NVIDIA manual approval flow fix for `write_file` is completed, audited, committed, and pushed in `D:\Sandbox\Nvidia`.
+
+Commit/push evidence:
+
+- NVIDIA commit: `68658ad38ba064bc91e7447ba36378cf3beecc9d`
+- commit message: `fix: add explicit manual approval flow for write_file`
+- push result: `aada52c..68658ad main -> main`
+
+Files changed in NVIDIA:
+
+- `tools/nvidia-server.mjs`
+- `nvidia_playground.html`
+- `tests/real-write-create-flow.test.mjs`
+- `tests/manual-ui-create-apply-e2e.test.mjs`
+
+Audit verdict:
+
+- `AUDIT_READY_FOR_COMMIT`
+
+Accepted:
+
+- Auto-Accept OFF now has explicit approval-required state
+- approval modal is actionable
+- approved replay calls safe `/api/write_file`
+- approval creates pending edit only
+- Review + Apply still required for disk write
+- misleading fallback removed
+- Auto-Accept ON regression preserved
+- Vietnamese create-file regression preserved
+
+Not proven:
+
+- edit existing file workflow
+- delete file workflow
+- move/rename workflow
+- multi-file edit
+- daily-use readiness PASS
+- production-ready
+- full bridge
+- Cognitive OS achieved
+- enterprise-grade security
+- packaging-ready
+
+Next action:
+
+- run gate review / next-scope planning before choosing next sprint
+
 ## 2026-05-04 - NVIDIA Vietnamese create-file routing fix completed
 
 NVIDIA Vietnamese create-file routing fix is completed, audited, committed, and pushed in `D:\Sandbox\Nvidia`.

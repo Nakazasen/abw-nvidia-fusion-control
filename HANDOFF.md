@@ -469,4 +469,32 @@ Constraints for the next builder:
   - production-ready claim
   - full bridge claim
   - Cognitive OS achieved claim
+- enterprise-grade security claim
+
+## 2026-05-04 Status Update - NVIDIA Manual Approval Flow Fix
+
+- Latest NVIDIA commit:
+  - `68658ad38ba064bc91e7447ba36378cf3beecc9d`
+- Latest completed scope:
+  - NVIDIA manual approval flow fix for `write_file`
+- Manual approval UX:
+  - Auto-Accept OFF now surfaces approval-required modal and safe approved `write_file` replay.
+- Pending edit semantics:
+  - approval creates pending edit only; Review + Apply writes disk.
+- Current limitation:
+  - edit/delete/move/multi-file workflows are not proven.
+- Readiness remains:
+  - `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Next required action:
+  - run gate review / next-scope planning before choosing next sprint.
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim
+  - production-ready claim
+  - full bridge claim
+  - Cognitive OS achieved claim
   - enterprise-grade security claim
