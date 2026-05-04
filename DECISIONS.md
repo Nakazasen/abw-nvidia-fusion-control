@@ -1508,3 +1508,42 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not mutate ABW.
 - Does not start packaging.
+
+## DECISION: Proceed to NVIDIA delete file safety proof
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After create-file, manual approval, and existing-file edit workflows were proven in bounded form, the gate reviewed the next highest-risk missing Agent IDE file operation.
+
+### Decision
+
+- Proceed next with a bounded NVIDIA-only Delete File Safety Proof.
+
+### Rationale
+
+- Delete is the most destructive missing operation.
+- Its approval, workspace boundary, and apply semantics must be proven before move/rename, multi-file mutation, or any readiness upgrade.
+
+### Consequences
+
+- Next Builder scope must be NVIDIA repo only.
+- The next proof must validate safe delete end-to-end.
+- No daily-use-ready claim is authorized.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- ABW mutation remains forbidden.
+
+### Non-goals
+
+- Does not implement move/rename.
+- Does not implement multi-file edit.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.

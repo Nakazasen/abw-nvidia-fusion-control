@@ -1449,3 +1449,14 @@ Each audit must check:
 - Packaging remains blocked.
 - Bridge UI/sync/auto-promote remain blocked.
 - Next step is gate review / next-scope planning.
+
+## 2026-05-04 Update - Gate Selects Delete File Safety Proof
+
+- Latest gate verdict:
+  - `A. PROCEED_TO_DELETE_FILE_SAFETY_PROOF`
+- Create-file and existing-file edit are accepted as bounded workflow proofs.
+- Delete safety is now the next highest-risk missing file operation.
+- Delete must be proven before move/rename and multi-file mutation.
+- Readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
+- Packaging remains blocked.
+- Bridge expansion remains blocked (`bridge UI`, `sync`, `auto-promote`).

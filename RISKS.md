@@ -1444,3 +1444,22 @@ Mitigation:
   - require gate review before readiness upgrade
   - continue preserving approval/trust/workspace boundaries
   - require GPT audit before every commit
+
+## 2026-05-04 Update - Delete file safety proof follow-up risks
+
+- Current risk:
+  - delete file workflow remains unproven
+  - destructive mutation may remove user files without sufficient guard if not proven
+  - create/edit proof may be mistaken as full Agent IDE readiness
+  - move/rename workflow remains unproven
+  - multi-file edit remains unproven
+  - daily-use readiness overclaim risk remains
+  - packaging too early remains blocked
+- Mitigation:
+  - require safe fixture-based delete proof
+  - require approval/trust/workspace checks
+  - require no deletion before approval/apply
+  - require outside-workspace delete block
+  - require cleanup/restore evidence
+  - require GPT audit before commit
+  - require gate review before readiness upgrade

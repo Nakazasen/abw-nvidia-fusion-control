@@ -2,6 +2,25 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-04 - Gate selects NVIDIA delete file safety proof
+
+- control head before record:
+  - `a337863a8e12080393a50fdc225cde4708d30556`
+- NVIDIA head:
+  - `04479301bf0b4f3d3e4a08de1d22b5eba2193558`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- gate verdict:
+  - `A. PROCEED_TO_DELETE_FILE_SAFETY_PROOF`
+- accepted:
+  - create-file and existing-file edit proofs are bounded progress
+- not accepted:
+  - daily-use readiness
+  - delete/move/multi-file completeness
+  - packaging
+- next:
+  - record this gate, then create Builder prompt for Delete File Safety Proof.
+
 ## 2026-05-04 - NVIDIA existing file edit workflow proof completed
 
 - NVIDIA commit:
