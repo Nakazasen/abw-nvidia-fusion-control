@@ -2,6 +2,81 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-04 - NVIDIA Vietnamese create-file routing fix completed
+
+NVIDIA Vietnamese create-file routing fix is completed, audited, committed, and pushed in `D:\Sandbox\Nvidia`.
+
+Commit/push evidence:
+
+- NVIDIA commit: `aada52c61286a61b6766d96f181d1d38fb39d46f`
+- NVIDIA commit message: `fix: route Vietnamese create-file prompts to pending edits`
+- NVIDIA push result: `a8f5238..aada52c main -> main`
+
+Files changed in NVIDIA:
+
+- `tools/nvidia-server.mjs`
+- `tests/real-write-create-flow.test.mjs`
+- `tests/manual-ui-create-apply-e2e.test.mjs`
+
+Audit verdict:
+
+- `AUDIT_READY_FOR_COMMIT`
+
+Manual UI evidence:
+
+- prompt:
+  `viết cho tôi chương trình tính tổng 2 số A+B và đóng gói nó thành một file`
+- inferred target:
+  `proof/sum_ab.py`
+- pending edit:
+  created
+- file before apply:
+  absent
+- file after apply:
+  present
+- content:
+  `def sum_ab(a, b):`
+  `return a + b`
+
+Accepted:
+
+- real UI no longer falls back to chatbot-only behavior for this Vietnamese create-file intent
+- pending edit/review/apply semantics preserved
+- guard boundaries preserved
+
+Validation evidence:
+
+- `git diff --check` -> PASS
+- `node --check tools/nvidia-server.mjs` -> PASS
+- `node --check tests/real-write-create-flow.test.mjs` -> PASS
+- `node --check tests/manual-ui-create-apply-e2e.test.mjs` -> PASS
+- `write:create:proof` -> PASS `25/0`
+- `apply:proof` -> PASS `30/0`
+- `manual:proof` -> PASS `22/0`
+- `browser:smoke` -> PASS `109/0`
+- `agent:audit` -> PASS `25/25`
+- `bridge:preflight:test` -> PASS `38/38`
+- `bridge:preflight:e2e` -> PASS `22/0`
+- secret safety scan -> no literal NVIDIA key found; env-var references and bearer-header code paths only
+- encoding/mojibake check -> clean
+
+Not proven:
+
+- daily-use readiness PASS
+- production-ready
+- full bridge
+- Cognitive OS achieved
+- enterprise-grade security
+- packaging-ready
+
+Note:
+
+- NVIDIA has untracked out-of-scope `test.txt` after commit and it was not staged/committed.
+
+Next action:
+
+- run gate review / next-scope planning before choosing next sprint
+
 ## 2026-05-04 - NVIDIA Full Manual Create/Apply E2E Proof completed
 
 NVIDIA Full Manual Create/Apply E2E Proof is completed, audited, committed, and pushed in `D:\Sandbox\Nvidia`.

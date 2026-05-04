@@ -2,7 +2,7 @@
 
 ## Current State
 
-Reality-synced state as of 2026-05-03:
+Reality-synced state as of 2026-05-04:
 
 - ABW baseline is `v1.1.0` and should be treated as the current governance/runtime truth.
 - ABW is intended as a governance, evidence, and reliability layer to reduce hallucination, unsupported answers, and overclaiming from weaker agents.
@@ -30,7 +30,7 @@ Reality-synced state as of 2026-05-03:
 - ABW Sprint 21 Disable / Gate Blind Auto-Promotion is complete and pushed.
 - ABW Sprint 22 Domain Contamination Guard v1 is complete and pushed.
 - ABW Sprint 23 Evidence Report + Gap Output Minimal Pair is complete and pushed.
-- Latest NVIDIA remote main is 68efc6b8437ce5d518b7ad6d4b49469b78271de6.
+- Latest NVIDIA remote main is aada52c61286a61b6766d96f181d1d38fb39d46f.
 - Latest ABW remote main is fe0520626d8f254476424242e29ea2bef4807f73.
 - Current readiness verdict is HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY.
 - Phase 1 Gate Review is completed.
@@ -423,6 +423,37 @@ Constraints for the next builder:
   - `LIVE_PROVIDER_CREATE_APPLY_BLOCKED_PROVIDER_UNAVAILABLE`
 - Reason:
   - `Missing NVIDIA_API_KEY for live provider proof.`
+- Readiness remains:
+  - `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Daily-use readiness remains not `PASS`.
+- Next required action:
+  - run gate review / next-scope planning before choosing next sprint
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim
+  - production-ready claim
+  - full bridge claim
+  - Cognitive OS achieved claim
+  - enterprise-grade security claim
+
+## 2026-05-04 Status Update - NVIDIA Vietnamese Create-File Routing Fix
+
+- Latest NVIDIA commit:
+  - `aada52c61286a61b6766d96f181d1d38fb39d46f`
+- Latest completed scope:
+  - NVIDIA Vietnamese create-file routing fix
+- Manual UI issue fixed:
+  - Vietnamese filename-less create-file prompt now routes to pending edit flow.
+- Exact prompt:
+  - `viết cho tôi chương trình tính tổng 2 số A+B và đóng gói nó thành một file`
+- Inferred target:
+  - `proof/sum_ab.py`
+- Current caveat:
+  - NVIDIA repo has untracked `test.txt` not committed.
 - Readiness remains:
   - `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
 - Daily-use readiness remains not `PASS`.

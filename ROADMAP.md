@@ -15,6 +15,7 @@
 - Sprint 12 Task Timeline + Recovery / Resume is complete.
 - Sprint 13 Git / SCM Panel tot hon is complete.
 - Current readiness verdict: HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY.
+- Latest NVIDIA completion recorded in control truth: `aada52c61286a61b6766d96f181d1d38fb39d46f`.
 - Sprint 16.5 cleanup is completed and pushed after Phase 1 Gate Review verdict B.
 - ABW bridge is not implemented.
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
@@ -1380,4 +1381,34 @@ Each audit must check:
 - Daily-use readiness remains not `PASS`.
 - Packaging remains blocked.
 - Bridge UI, sync, and auto-promote remain blocked.
+- Next step is gate review / next-scope planning.
+
+## 2026-05-04 Update - NVIDIA Vietnamese Create-File Routing Fix Completed
+
+- NVIDIA Vietnamese create-file routing fix is completed and pushed.
+- NVIDIA commit: `aada52c61286a61b6766d96f181d1d38fb39d46f`.
+- User-observed chatbot-only fallback for a Vietnamese create-file prompt is addressed.
+- Exact prompt covered:
+  - `viết cho tôi chương trình tính tổng 2 số A+B và đóng gói nó thành một file`
+- The prompt now maps to `proof/sum_ab.py` through the guarded pending-edit flow.
+- Manual UI evidence confirms:
+  - pending edit is created before disk write
+  - `Review + Apply` writes the file to disk
+  - content includes `def sum_ab(a, b):` and `return a + b`
+- Validation recorded:
+  - `git diff --check` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tests/real-write-create-flow.test.mjs` PASS
+  - `node --check tests/manual-ui-create-apply-e2e.test.mjs` PASS
+  - `write:create:proof` PASS `25/0`
+  - `apply:proof` PASS `30/0`
+  - `manual:proof` PASS `22/0`
+  - `browser:smoke` PASS `109/0`
+  - `agent:audit` PASS `25/25`
+  - `bridge:preflight:test` PASS `38/38`
+  - `bridge:preflight:e2e` PASS `22/0`
+- Manual UI create-file path now has stronger evidence, but daily-use readiness remains not `PASS`.
+- Packaging remains blocked.
+- Bridge UI, sync, and auto-promote remain blocked.
+- NVIDIA has untracked out-of-scope `test.txt`; it was not committed.
 - Next step is gate review / next-scope planning.

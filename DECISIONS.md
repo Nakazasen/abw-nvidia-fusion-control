@@ -1299,3 +1299,58 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not mutate ABW.
 - Does not start packaging.
+
+## DECISION: Record NVIDIA Vietnamese create-file routing fix without readiness upgrade
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After live provider proof passed as a harness-level addition, manual real UI testing still showed chatbot-style behavior for a Vietnamese filename-less create-file request instead of a pending edit.
+
+### Decision
+
+- Accept the NVIDIA routing fix that detects the Vietnamese create-file intent, infers `proof/sum_ab.py`, and routes into the existing guarded pending-edit flow.
+- Do not upgrade readiness yet.
+
+### Evidence
+
+- NVIDIA commit:
+  - `aada52c61286a61b6766d96f181d1d38fb39d46f`
+- prompt:
+  - `viết cho tôi chương trình tính tổng 2 số A+B và đóng gói nó thành một file`
+- inferred target:
+  - `proof/sum_ab.py`
+- audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- validation:
+  - `git diff --check` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tests/real-write-create-flow.test.mjs` PASS
+  - `node --check tests/manual-ui-create-apply-e2e.test.mjs` PASS
+  - `write:create:proof` PASS `25/0`
+  - `apply:proof` PASS `30/0`
+  - `manual:proof` PASS `22/0`
+  - `browser:smoke` PASS `109/0`
+  - `agent:audit` PASS `25/25`
+  - `bridge:preflight:test` PASS `38/38`
+  - `bridge:preflight:e2e` PASS `22/0`
+
+### Consequences
+
+- Manual Vietnamese create-file routing is stronger.
+- Daily-use readiness remains not `PASS`.
+- Packaging remains blocked.
+- Bridge UI, sync, and auto-promote remain blocked.
+- Next step must be gate review / next-scope planning.
+
+### Non-goals
+
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not mutate ABW.
+- Does not start packaging.

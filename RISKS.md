@@ -1374,3 +1374,20 @@ Mitigation:
   - require rerun with configured provider before claiming live provider `PASS`
   - keep readiness wording `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
   - require gate review before the next sprint
+
+## 2026-05-04 Update - Vietnamese Create-File Routing Follow-up Risks
+
+- Current risk:
+  - multilingual create-file intent routing can still be incomplete outside the tested A+B prompt
+  - filename inference may choose an unwanted default target if intent is ambiguous
+  - chatbot-style answer risk remains for unsupported languages or intents
+  - daily-use readiness overclaim risk remains
+  - packaging too early remains blocked
+  - untracked NVIDIA `test.txt` may be accidentally committed later if not cleaned
+- Mitigation:
+  - keep inferred targets bounded and workspace-relative
+  - require pending-edit/review/apply, not direct disk write
+  - add regression tests for representative Vietnamese prompts
+  - require gate review before readiness upgrade
+  - remove or ignore manual test artifacts before future commits
+  - maintain stage guard before every commit
