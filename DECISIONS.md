@@ -1813,3 +1813,41 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not mutate ABW.
 - Does not start packaging.
+
+## DECISION: Proceed to NVIDIA manual file workflow soak audit
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After bounded proofs for create, edit, delete, move/rename, and multi-file edit guard were completed, the gate reviewed whether to add more capability or validate practical stability.
+
+### Decision
+
+- Proceed next with a NVIDIA-only Manual File Workflow Soak Audit.
+
+### Rationale
+
+- Proof-level evidence is strong but not enough for daily-use readiness.
+- A soak audit is required to test realistic prompts, repeated runs, approval UX, provider failure behavior, logs, cleanup, and practical usability before any readiness reconciliation or packaging discussion.
+
+### Consequences
+
+- Next scope must not add broad new features.
+- Next scope must gather practical evidence across file workflows.
+- No daily-use-ready claim is authorized.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- ABW mutation remains forbidden.
+
+### Non-goals
+
+- Does not raise multi-file limit.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.

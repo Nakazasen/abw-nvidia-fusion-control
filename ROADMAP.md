@@ -1521,3 +1521,14 @@ Each audit must check:
 - Packaging remains blocked.
 - Bridge UI/sync/auto-promote remain blocked.
 - Next step is gate review / next-scope planning.
+
+## 2026-05-04 Update - Gate Selects Manual File Workflow Soak Audit
+
+- Latest gate verdict:
+  - `A. PROCEED_TO_MANUAL_FILE_WORKFLOW_SOAK_AUDIT`
+- Core file-operation proof set is complete in bounded proof form.
+- Next step is practical/manual soak audit, not another feature.
+- Soak audit must evaluate repeated realistic usage, Auto-Accept ON/OFF, provider failures, UI clarity, logs, and cleanup.
+- Readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
+- Packaging remains blocked.
+- Bridge expansion remains blocked (`bridge UI`, `sync`, `auto-promote`).

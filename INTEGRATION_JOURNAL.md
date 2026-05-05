@@ -3815,3 +3815,23 @@ Warning:
   - packaging-ready
 - next action:
   - run gate review / next-scope planning before choosing next sprint
+
+## 2026-05-04 - Gate selects NVIDIA manual file workflow soak audit
+
+- control head before record:
+  - `d3afbf173b0a5384d83530f0226ed27d2e2a86a4`
+- NVIDIA head:
+  - `14a62ed21514063b0d417bb1c9927ed0f6462006`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- gate verdict:
+  - `A. PROCEED_TO_MANUAL_FILE_WORKFLOW_SOAK_AUDIT`
+- accepted:
+  - bounded proof set covers create/edit/delete/move/multi-file
+- not accepted:
+  - daily-use readiness
+  - production-ready
+  - full bridge
+  - packaging
+- next:
+  - record this gate, then create Manual File Workflow Soak Audit prompt.

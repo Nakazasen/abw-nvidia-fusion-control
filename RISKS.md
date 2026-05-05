@@ -1557,3 +1557,22 @@ Mitigation:
   - require gate review before readiness upgrade
   - preserve approval/trust/workspace boundaries
   - require GPT audit before every commit
+
+## 2026-05-04 Update - Manual Workflow Soak Audit Follow-up Risks
+
+- Current risk:
+  - proof-level evidence may be mistaken as daily-use readiness
+  - realistic prompts may expose UX/routing gaps not covered by tests
+  - Auto-Accept OFF flow may still be confusing in longer sessions
+  - provider failures may confuse users if recovery messaging is weak
+  - logs may be insufficient for auditability
+  - repeated operations may leave stale pending state or cleanup artifacts
+  - packaging too early remains blocked
+- Mitigation:
+  - run manual soak audit before readiness reconciliation
+  - include realistic Vietnamese prompts
+  - test Auto-Accept ON and OFF
+  - verify cleanup after every workflow
+  - record provider failure behavior honestly
+  - inspect logs and UI messages
+  - keep no-readiness/no-packaging claims until gate upgrade

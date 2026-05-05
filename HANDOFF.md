@@ -707,3 +707,27 @@ Constraints for the next builder:
   - full bridge claim
   - Cognitive OS achieved claim
   - enterprise-grade security claim
+
+## 2026-05-04 Status Update - Gate Selects Manual File Workflow Soak Audit
+
+- Latest gate verdict:
+  - `A. PROCEED_TO_MANUAL_FILE_WORKFLOW_SOAK_AUDIT`
+- Current readiness:
+  - `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Latest completed NVIDIA scope:
+  - Multi-File Edit Guard Proof
+- Current accepted file-operation evidence:
+  - create, edit existing, delete, move/rename, bounded multi-file edit
+- Next allowed action after this control commit:
+  - create NVIDIA Manual File Workflow Soak Audit prompt.
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim
+  - production-ready claim
+  - full bridge claim
+  - Cognitive OS achieved claim
+  - enterprise-grade security claim
