@@ -1532,3 +1532,12 @@ Each audit must check:
 - Readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
 - Packaging remains blocked.
 - Bridge expansion remains blocked (`bridge UI`, `sync`, `auto-promote`).
+
+## 2026-05-04 Update - Manual File Workflow Soak Audit Result
+
+- Manual File Workflow Soak Audit completed with `SOAK_AUDIT_PARTIAL`.
+- Core proof suite remains strong, but practical daily workflow evidence is not clean enough.
+- Do not upgrade readiness.
+- Readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
+- Packaging remains blocked.
+- Next step is gate review / next-scope planning, likely `HOLD_FOR_FIXES_BEFORE_READINESS`.

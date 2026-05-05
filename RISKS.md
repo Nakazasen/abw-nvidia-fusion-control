@@ -1576,3 +1576,20 @@ Mitigation:
   - record provider failure behavior honestly
   - inspect logs and UI messages
   - keep no-readiness/no-packaging claims until gate upgrade
+
+## 2026-05-04 Update - Manual Workflow Soak PARTIAL Result Risks
+
+- Current risk:
+  - proof-level pass may be mistaken as daily-use readiness
+  - manual soak harness is not clean enough to validate daily workflow
+  - fixture/agent-loop sequencing can blur scenario isolation
+  - provider blocked state can leave provider-failure UX under-characterized
+  - user-facing clarity for some blocked prompts remains inconclusive
+  - readiness overclaim risk remains high
+  - packaging too early remains blocked
+- Mitigation:
+  - record `SOAK_AUDIT_PARTIAL` honestly
+  - require fix/gate before readiness reconciliation
+  - improve/manualize soak harness or scenario isolation before readiness upgrade
+  - keep readiness wording `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+  - require another gate before packaging or readiness changes

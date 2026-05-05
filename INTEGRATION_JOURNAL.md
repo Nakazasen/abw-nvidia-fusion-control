@@ -3835,3 +3835,29 @@ Warning:
   - packaging
 - next:
   - record this gate, then create Manual File Workflow Soak Audit prompt.
+
+## 2026-05-04 - NVIDIA manual file workflow soak audit completed with PARTIAL result
+
+- control head before record:
+  - `9d65fb3c43d1d2b0d60f2b375dbc214b770d66ca`
+- NVIDIA head:
+  - `14a62ed21514063b0d417bb1c9927ed0f6462006`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- soak verdict:
+  - `SOAK_AUDIT_PARTIAL`
+- accepted:
+  - baseline regression/proof suite remains strong
+  - repeated-use cleanup ended clean
+  - no stale pending state at end
+  - no orphan `proof/soak` files
+  - no secret leak
+  - mojibake clean
+- partial:
+  - practical/manual soak per-scenario evidence was noisy
+  - fixture/agent-loop sequencing blurred scenario isolation
+  - live provider path blocked by missing `NVIDIA_API_KEY` in this session
+- recommended next gate:
+  - `E. HOLD_FOR_FIXES_BEFORE_READINESS`
+- next:
+  - record this result, then run gate review / next-scope planning.

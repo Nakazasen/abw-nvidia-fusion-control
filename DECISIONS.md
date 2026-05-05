@@ -1851,3 +1851,56 @@ Consequence:
 - Does not claim full bridge.
 - Does not claim Cognitive OS achieved.
 - Does not claim enterprise-grade security.
+
+## DECISION: Record NVIDIA manual file workflow soak audit partial result
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After bounded proofs covered create, edit, delete, move/rename, and multi-file edit guard, the next gate selected a practical manual file workflow soak audit.
+
+### Decision
+
+- Accept the soak audit result as `SOAK_AUDIT_PARTIAL`.
+- Do not upgrade readiness.
+
+### Evidence
+
+- Baseline validations passed:
+  - `write:create:proof` PASS `31/0`
+  - `apply:proof` PASS `30/0`
+  - `manual:proof` PASS `56/0`
+  - `edit:proof` PASS `41/0`
+  - `delete:proof` PASS `44/0`
+  - `move:proof` PASS `71/0`
+  - `multi:proof` PASS `34/0`
+  - `browser:smoke` PASS `109/0`
+  - `agent:audit` PASS `25/25`
+  - `bridge:preflight:test` PASS `38/38`
+  - `bridge:preflight:e2e` PASS `22/22`
+- Practical soak scenarios were PARTIAL due fixture/agent-loop sequencing noise.
+- Repeated-use cleanup ended clean:
+  - `pending_end=0`
+  - `proof/soak` removed
+  - git status clean
+- `live:proof` was BLOCKED due missing `NVIDIA_API_KEY` in this session.
+- Secret and encoding checks were clean.
+
+### Consequences
+
+- Proof/regression confidence remains strong.
+- Manual daily workflow readiness is not proven.
+- Readiness remains not PASS.
+- Packaging remains blocked.
+- Next gate should handle fixes before readiness.
+
+### Non-goals
+
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not start packaging.
