@@ -1713,3 +1713,40 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not mutate ABW.
 - Does not start packaging.
+
+## DECISION: Proceed to NVIDIA multi-file edit guard proof
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After create, edit, delete, and move/rename single-file workflows were proven in bounded form, the gate reviewed the remaining core Agent IDE file-operation gap.
+
+### Decision
+
+- Proceed next with a bounded NVIDIA-only Multi-File Edit Guard Proof.
+
+### Rationale
+
+- Multi-file edit is the next highest-risk mutation class because it can modify several files at once.
+- It must be bounded by changed-file visibility, approval/apply semantics, workspace guards, and file-count limits before any readiness upgrade.
+
+### Consequences
+
+- Next Builder scope must be NVIDIA repo only.
+- The next proof must validate bounded multi-file edit end-to-end.
+- No daily-use-ready claim is authorized.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- ABW mutation remains forbidden.
+
+### Non-goals
+
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.

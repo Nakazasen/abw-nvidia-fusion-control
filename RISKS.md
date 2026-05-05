@@ -1518,3 +1518,25 @@ Mitigation:
   - keep no-overwrite/no-traversal/no-directory/no-wildcard guards
   - treat provider 502 as transient external failure, not proof of daily-use readiness
   - require GPT audit before every commit
+
+## 2026-05-04 Update - Multi-File Edit Guard Follow-up Risks
+
+- Current risk:
+  - multi-file edit remains unproven
+  - multi-file mutation can cause broad unintended changes
+  - changed-file visibility may be insufficient for safe review
+  - broad prompts may cause uncontrolled file selection
+  - create/edit/delete/move proof may be mistaken as daily-use readiness
+  - daily-use readiness overclaim risk remains
+  - packaging too early remains blocked
+  - live provider 502 should not be over-interpreted as readiness evidence
+- Mitigation:
+  - require small fixture-based multi-file proof
+  - require changed-file list / pending edit / diff evidence
+  - require file count limit
+  - require no mutation before approval/apply
+  - require untouched-file verification
+  - require outside-workspace and traversal blocks
+  - require restore/cleanup evidence
+  - require GPT audit before commit
+  - require gate review before readiness upgrade

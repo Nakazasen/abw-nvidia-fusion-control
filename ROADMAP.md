@@ -1495,3 +1495,14 @@ Each audit must check:
 - Packaging remains blocked.
 - Bridge UI/sync/auto-promote remain blocked.
 - Next step is gate review / next-scope planning.
+
+## 2026-05-04 Update - Gate Selects Multi-File Edit Guard Proof
+
+- Latest gate verdict:
+  - `A. PROCEED_TO_MULTI_FILE_EDIT_GUARD_PROOF`
+- Single-file create/edit/delete/move-rename workflows now have bounded proof evidence.
+- Multi-file edit is now the next unproven file-operation guard.
+- Multi-file proof must prove bounded changed-file list/diff/pending edits and no uncontrolled broad mutation.
+- Readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
+- Packaging remains blocked.
+- Bridge expansion remains blocked (`bridge UI`, `sync`, `auto-promote`).

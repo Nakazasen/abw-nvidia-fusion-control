@@ -3756,3 +3756,24 @@ Warning:
   - packaging-ready
 - next action:
   - run gate review / next-scope planning before choosing next sprint
+
+## 2026-05-04 - Gate selects NVIDIA multi-file edit guard proof
+
+- control head before record:
+  - `3c6d0816666dca369848019d8f981a70729b618f`
+- NVIDIA head:
+  - `ccfeadacb72958997b52776b73b74c6df5633272`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- gate verdict:
+  - `A. PROCEED_TO_MULTI_FILE_EDIT_GUARD_PROOF`
+- accepted:
+  - single-file create/edit/delete/move-rename bounded workflows have proof evidence
+- not accepted:
+  - daily-use readiness
+  - multi-file edit completeness
+  - packaging
+- live provider note:
+  - latest `live:proof` returned provider `502` and is not a readiness upgrade signal
+- next:
+  - record this gate, then create Builder prompt for Multi-File Edit Guard Proof.
