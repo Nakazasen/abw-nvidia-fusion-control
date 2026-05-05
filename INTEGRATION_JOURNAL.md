@@ -3777,3 +3777,41 @@ Warning:
   - latest `live:proof` returned provider `502` and is not a readiness upgrade signal
 - next:
   - record this gate, then create Builder prompt for Multi-File Edit Guard Proof.
+
+## 2026-05-04 - NVIDIA multi-file edit guard proof completed
+
+- NVIDIA commit:
+  - `14a62ed21514063b0d417bb1c9927ed0f6462006`
+- commit message:
+  - `test: add NVIDIA multi-file edit guard proof`
+- push result:
+  - `ccfeada..14a62ed main -> main`
+- files changed:
+  - `tools/nvidia-server.mjs`
+  - `package.json`
+  - `tests/multi-file-edit-guard-proof.test.mjs`
+- audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- new command:
+  - `npm run multi:proof`
+- proof result:
+  - `PASS 34/0`
+- accepted:
+  - multi-file edit guard exists
+  - max 2 unique `write_file` targets/request enforced
+  - intended files `proof/multi/a.py` and `proof/multi/b.py` updated
+  - `proof/multi/untouched.py` preserved
+  - no pre-apply mutation
+  - third file denied
+  - outside-workspace/path traversal/no-approval/untrusted boundaries preserved
+  - `live:proof` PASS `27/0`
+  - previous create/edit/delete/move proofs remain passing
+- not proven:
+  - daily-use readiness PASS
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+- next action:
+  - run gate review / next-scope planning before choosing next sprint

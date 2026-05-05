@@ -1540,3 +1540,20 @@ Mitigation:
   - require restore/cleanup evidence
   - require GPT audit before commit
   - require gate review before readiness upgrade
+
+## 2026-05-04 Update - Multi-File Edit Guard Completion Follow-up Risks
+
+- Current risk:
+  - bounded multi-file proof may be mistaken as unlimited multi-file readiness
+  - max 2 file limit is a safety proof limit, not final productivity target
+  - daily-use readiness overclaim risk remains
+  - packaging too early remains blocked
+  - broad multi-file refactors above the current limit remain unproven
+  - full Agent IDE UX remains unproven
+- Mitigation:
+  - keep file-count limit explicit
+  - require future gate to raise limit beyond 2
+  - require plan/diff/approval/rollback evidence before larger multi-file edits
+  - require gate review before readiness upgrade
+  - preserve approval/trust/workspace boundaries
+  - require GPT audit before every commit

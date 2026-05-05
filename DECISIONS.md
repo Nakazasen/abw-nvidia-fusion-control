@@ -1750,3 +1750,66 @@ Consequence:
 - Does not claim full bridge.
 - Does not claim Cognitive OS achieved.
 - Does not claim enterprise-grade security.
+
+## DECISION: Record NVIDIA multi-file edit guard proof without readiness upgrade
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After single-file create, edit, delete, and move/rename workflows were proven in bounded form, the gate selected multi-file edit guard proof as the remaining core file-operation gap.
+
+### Decision
+
+- Accept the NVIDIA Multi-File Edit Guard Proof.
+- Do not upgrade readiness yet.
+
+### Evidence
+
+- NVIDIA commit:
+  - `14a62ed21514063b0d417bb1c9927ed0f6462006`
+- commit message:
+  - `test: add NVIDIA multi-file edit guard proof`
+- audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- command:
+  - `npm run multi:proof`
+- result:
+  - `PASS 34/0`
+- behavior:
+  - max 2 unique `write_file` targets/request
+  - intended files updated
+  - untouched file preserved
+  - third file denied
+  - no pre-apply mutation
+  - outside-workspace/path traversal/no-approval/untrusted boundaries preserved
+- regression evidence:
+  - `live:proof` PASS `27/0`
+  - `write:create:proof` PASS `31/0`
+  - `apply:proof` PASS `30/0`
+  - `manual:proof` PASS `56/0`
+  - `edit:proof` PASS `41/0`
+  - `delete:proof` PASS `44/0`
+  - `move:proof` PASS `71/0`
+  - `browser:smoke` PASS
+  - `agent:audit` PASS `25/25`
+  - bridge tests PASS `38/38` and `22/22`
+
+### Consequences
+
+- Core file-operation proof set is stronger.
+- Daily-use readiness remains not PASS.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- Next step must be gate review / next-scope planning.
+
+### Non-goals
+
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not mutate ABW.
+- Does not start packaging.
