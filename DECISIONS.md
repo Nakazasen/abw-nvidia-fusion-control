@@ -1904,3 +1904,43 @@ Consequence:
 - Does not claim Cognitive OS achieved.
 - Does not claim enterprise-grade security.
 - Does not start packaging.
+
+## DECISION: Proceed to NVIDIA soak harness isolation repair
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After the manual file workflow soak audit returned `SOAK_AUDIT_PARTIAL`, the gate reviewed whether the next step should be readiness reconciliation, UX/provider fixes, or evidence-quality repair.
+
+### Decision
+
+- Proceed next with a NVIDIA-only Soak Harness Isolation Repair.
+
+### Rationale
+
+- The main blocker is evidence quality.
+- Core file-operation proofs remain strong, but practical soak scenarios were noisy due fixture/agent-loop sequencing and cross-contamination.
+- Readiness reconciliation should wait until per-scenario soak evidence is deterministic.
+
+### Consequences
+
+- Next Builder scope must be NVIDIA repo only.
+- The next scope should repair the soak harness and evidence isolation, not add broad product features.
+- No daily-use-ready claim is authorized.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- ABW mutation remains forbidden.
+
+### Non-goals
+
+- Does not implement new product capability.
+- Does not raise multi-file limit.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.

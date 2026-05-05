@@ -3861,3 +3861,24 @@ Warning:
   - `E. HOLD_FOR_FIXES_BEFORE_READINESS`
 - next:
   - record this result, then run gate review / next-scope planning.
+
+## 2026-05-04 - Gate selects NVIDIA soak harness isolation repair
+
+- control head before record:
+  - `036677c2a1e16e1f29506d1ca39be1d46ff10ed0`
+- NVIDIA head:
+  - `14a62ed21514063b0d417bb1c9927ed0f6462006`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- gate verdict:
+  - `A. PROCEED_TO_SOAK_HARNESS_ISOLATION_REPAIR`
+- accepted:
+  - core file-operation proofs remain strong
+  - repeated-use cleanup ended clean
+  - secret/encoding checks clean
+- not accepted:
+  - daily-use readiness
+  - clean deterministic manual workflow evidence
+  - packaging
+- next:
+  - record this gate, then create Builder prompt for Soak Harness Isolation Repair.

@@ -1541,3 +1541,14 @@ Each audit must check:
 - Readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
 - Packaging remains blocked.
 - Next step is gate review / next-scope planning, likely `HOLD_FOR_FIXES_BEFORE_READINESS`.
+
+## 2026-05-04 Update - Gate Selects Soak Harness Isolation Repair
+
+- Latest gate verdict:
+  - `A. PROCEED_TO_SOAK_HARNESS_ISOLATION_REPAIR`
+- Previous soak result was `SOAK_AUDIT_PARTIAL`.
+- Core proof/regression evidence remains strong.
+- Next scope is to repair soak harness isolation/evidence quality, not to add product capability.
+- Readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
+- Packaging remains blocked.
+- Bridge expansion remains blocked (`bridge UI`, `sync`, `auto-promote`).

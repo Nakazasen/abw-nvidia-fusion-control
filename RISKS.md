@@ -1593,3 +1593,21 @@ Mitigation:
   - improve/manualize soak harness or scenario isolation before readiness upgrade
   - keep readiness wording `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
   - require another gate before packaging or readiness changes
+
+## 2026-05-04 Update - Soak Harness Isolation Repair Risks
+
+- Current risk:
+  - readiness reconciliation may be based on noisy evidence if soak harness is not fixed
+  - fixture/agent-loop sequencing can blur scenario isolation
+  - manual daily workflow evidence remains inconclusive
+  - proof-level pass may still be mistaken as daily-use readiness
+  - provider/UX conclusions may be unreliable without deterministic scenario capture
+  - packaging too early remains blocked
+- Mitigation:
+  - repair soak harness isolation before readiness reconciliation
+  - reset pending state per scenario
+  - use separate fixtures per scenario
+  - capture before/after state per scenario
+  - require cleanup verification per scenario
+  - preserve no-readiness/no-packaging boundaries
+  - require GPT audit before commit

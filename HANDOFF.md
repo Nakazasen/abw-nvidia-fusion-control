@@ -759,3 +759,31 @@ Constraints for the next builder:
   - full bridge claim
   - Cognitive OS achieved claim
   - enterprise-grade security claim
+
+## 2026-05-04 Status Update - Gate Selects Soak Harness Isolation Repair
+
+- Latest gate verdict:
+  - `A. PROCEED_TO_SOAK_HARNESS_ISOLATION_REPAIR`
+- Current readiness:
+  - `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Latest completed NVIDIA scope:
+  - Manual File Workflow Soak Audit
+- Soak result:
+  - `SOAK_AUDIT_PARTIAL`
+- Current accepted evidence:
+  - core file-operation proofs remain strong
+- Current blocker:
+  - practical soak evidence quality is not clean/deterministic enough
+- Next allowed action after this control commit:
+  - create NVIDIA Soak Harness Isolation Repair Builder prompt.
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim
+  - production-ready claim
+  - full bridge claim
+  - Cognitive OS achieved claim
+  - enterprise-grade security claim
