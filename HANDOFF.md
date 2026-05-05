@@ -623,3 +623,33 @@ Constraints for the next builder:
   - full bridge claim
   - Cognitive OS achieved claim
   - enterprise-grade security claim
+
+## 2026-05-04 Status Update - NVIDIA Move/Rename File Workflow Proof
+
+- Latest NVIDIA commit:
+  - `ccfeadacb72958997b52776b73b74c6df5633272`
+- Latest completed scope:
+  - NVIDIA Move/Rename File Workflow Proof
+- New command:
+  - `npm run move:proof`
+- Proof result:
+  - `PASS 71/0`
+- Current evidence:
+  - move/rename workflow now proven through pending operation -> approval/apply -> source/target verification -> content preservation -> cleanup/restore.
+- Current limitations:
+  - multi-file edit is not proven.
+  - daily-use readiness remains not PASS.
+  - live provider proof had latest upstream 502 failure during this audit and must not be overclaimed as current PASS.
+- Next required action:
+  - run gate review / next-scope planning before choosing next sprint.
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim
+  - production-ready claim
+  - full bridge claim
+  - Cognitive OS achieved claim
+  - enterprise-grade security claim

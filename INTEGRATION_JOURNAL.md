@@ -3714,3 +3714,45 @@ Warning:
   - packaging
 - next:
   - record this gate, then create Builder prompt for Move/Rename File Workflow Proof.
+
+## 2026-05-04 - NVIDIA move/rename file workflow proof completed
+
+- NVIDIA commit:
+  - `ccfeadacb72958997b52776b73b74c6df5633272`
+- commit message:
+  - `test: add NVIDIA move rename workflow proof`
+- push result:
+  - `e9a69ba..ccfeada main -> main`
+- files changed:
+  - `tools/agent-core.mjs`
+  - `tools/nvidia-server.mjs`
+  - `nvidia_playground.html`
+  - `package.json`
+  - `tests/move-rename-file-workflow-proof.test.mjs`
+- audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- new command:
+  - `npm run move:proof`
+- proof result:
+  - `PASS 71/0`
+- accepted:
+  - move_file workflow exists
+  - move/rename creates pending operation
+  - no disk mutation before apply
+  - Auto-Accept OFF approval is explicit/actionable
+  - approved apply performs move/rename
+  - source/target state verified
+  - content preservation verified
+  - outside-workspace/absolute/traversal/wildcard/directory/collision/no-approval/untrusted guards preserved
+- live provider note:
+  - `live:proof` returned `LIVE_PROVIDER_CREATE_APPLY_FAIL 4/1` due upstream/provider `502 Bad Gateway`, non-blocking for move/rename scope
+- not proven:
+  - multi-file edit
+  - daily-use readiness PASS
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+- next action:
+  - run gate review / next-scope planning before choosing next sprint

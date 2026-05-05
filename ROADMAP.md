@@ -1483,3 +1483,15 @@ Each audit must check:
 - Readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
 - Packaging remains blocked.
 - Bridge expansion remains blocked (`bridge UI`, `sync`, `auto-promote`).
+
+## 2026-05-04 Update - NVIDIA Move/Rename File Workflow Proof Completed
+
+- NVIDIA Move/Rename File Workflow Proof is completed and pushed.
+- Move/rename workflow is proven in bounded workflow:
+  - fixture exists -> pending move/rename -> no disk mutation before apply -> approved apply -> source/target verified -> content preserved -> cleanup/restore.
+- Create-file, existing-file edit, delete-file safety, and move/rename workflows now have bounded proof evidence.
+- Multi-file edit remains unproven.
+- Daily-use readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- Next step is gate review / next-scope planning.

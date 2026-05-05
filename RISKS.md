@@ -1501,3 +1501,20 @@ Mitigation:
   - require restore/cleanup evidence
   - require GPT audit before commit
   - require gate review before readiness upgrade
+
+## 2026-05-04 Update - Move/Rename Completion Follow-up Risks
+
+- Current risk:
+  - multi-file edit remains unproven
+  - move/rename proof may be mistaken as full Agent IDE readiness
+  - daily-use readiness overclaim risk remains
+  - packaging too early remains blocked
+  - broader move/rename cases outside tested fixtures may still fail
+  - live provider transient 502 can destabilize readiness evidence if over-interpreted
+- Mitigation:
+  - require separate proof for multi-file edit
+  - require gate review before readiness upgrade
+  - preserve approval/trust/workspace boundaries
+  - keep no-overwrite/no-traversal/no-directory/no-wildcard guards
+  - treat provider 502 as transient external failure, not proof of daily-use readiness
+  - require GPT audit before every commit

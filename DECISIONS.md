@@ -1647,3 +1647,69 @@ Consequence:
 - Does not claim full bridge.
 - Does not claim Cognitive OS achieved.
 - Does not claim enterprise-grade security.
+
+## DECISION: Record NVIDIA move/rename file workflow proof without readiness upgrade
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After create, edit, and delete file workflows were proven in bounded form, the next gate selected move/rename as the remaining single-file mutation class to prove before multi-file edit.
+
+### Decision
+
+- Accept the NVIDIA Move/Rename File Workflow Proof.
+- Do not upgrade readiness yet.
+
+### Evidence
+
+- NVIDIA commit:
+  - `ccfeadacb72958997b52776b73b74c6df5633272`
+- commit message:
+  - `test: add NVIDIA move rename workflow proof`
+- audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- command:
+  - `npm run move:proof`
+- result:
+  - `PASS 71/0`
+- behavior:
+  - move/rename creates pending operation
+  - no disk mutation before apply
+  - Auto-Accept OFF approval is explicit/actionable
+  - approved apply performs move/rename
+  - source/target state verified
+  - content preserved
+  - outside-workspace/absolute/traversal/wildcard/directory/collision/no-approval/untrusted guards blocked
+- regression evidence:
+  - `write:create:proof` PASS `31/0`
+  - `apply:proof` PASS `30/0`
+  - `manual:proof` PASS `56/0`
+  - `edit:proof` PASS `41/0`
+  - `delete:proof` PASS `44/0`
+  - `browser:smoke` PASS
+  - `agent:audit` PASS `25/25`
+  - bridge tests PASS `38/38` and `22/22`
+- live provider note:
+  - `live:proof` returned `LIVE_PROVIDER_CREATE_APPLY_FAIL 4/1` due upstream/provider `502 Bad Gateway` during this audit and is not a readiness upgrade signal
+
+### Consequences
+
+- Move/rename proof is accepted as bounded progress.
+- Multi-file edit remains unproven.
+- Daily-use readiness remains not PASS.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- Next step must be gate review / next-scope planning.
+
+### Non-goals
+
+- Does not implement multi-file edit readiness.
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not mutate ABW.
+- Does not start packaging.
