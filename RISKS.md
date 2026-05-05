@@ -1658,3 +1658,21 @@ Mitigation:
   - keep readiness as `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY` until explicit gate
   - preserve no-packaging/no-bridge-expansion boundaries
   - require GPT audit before every commit
+
+## 2026-05-04 Update - Readiness Reconciliation Scope Risks
+
+- Current risk:
+  - `SOAK_AUDIT_PASS` may be mistaken as automatic daily-use readiness
+  - live-provider stability was not freshly proven in the latest rerun evidence set
+  - UX clarity may still be incomplete despite proof pass
+  - full Vietnamese localization remains unproven
+  - packaging too early remains blocked
+  - bridge expansion remains blocked
+  - readiness overclaim risk remains high until reconciliation completes
+- Mitigation:
+  - require Readiness Reconciliation Audit before readiness wording changes
+  - explicitly evaluate live-provider evidence gap
+  - explicitly evaluate UX/localization/runtime/security/packaging blockers
+  - keep readiness as `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY` until explicit gate upgrade
+  - preserve no-packaging/no-bridge-expansion boundaries
+  - require GPT audit/governance review before any readiness claim

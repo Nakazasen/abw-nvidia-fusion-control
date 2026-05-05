@@ -1587,3 +1587,15 @@ Each audit must check:
 - Packaging remains blocked.
 - Bridge UI/sync/auto-promote remain blocked.
 - Next step is gate review / next-scope planning, likely Readiness Reconciliation Audit.
+
+## 2026-05-04 Update - Gate Selects Readiness Reconciliation Audit
+
+- Latest gate verdict:
+  - `A. PROCEED_TO_READINESS_RECONCILIATION_AUDIT`
+- Rerun manual file workflow soak audit passed.
+- Core file-operation proof matrix is complete in bounded form.
+- Readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY` until reconciliation completes.
+- Live-provider rerun evidence gap must be addressed inside reconciliation.
+- Packaging remains blocked.
+- Bridge expansion remains blocked (`bridge UI`, `sync`, `auto-promote`).
+- Next step is Readiness Reconciliation Audit.

@@ -2104,3 +2104,42 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not mutate ABW.
 - Does not start packaging.
+
+## DECISION: Proceed to NVIDIA readiness reconciliation audit
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After the repaired isolated soak harness was committed, the rerun manual file workflow soak audit returned `SOAK_AUDIT_PASS`.
+- Core bounded file-operation proofs and regression evidence are now strong enough to justify a formal readiness reconciliation.
+
+### Decision
+
+- Proceed next with a Readiness Reconciliation Audit.
+- Do not upgrade readiness automatically.
+
+### Rationale
+
+- `SOAK_AUDIT_PASS` improves evidence quality, but readiness must be decided by reconciling all evidence and remaining gaps, including live-provider stability, UX, localization, runtime hygiene, security, bridge boundaries, packaging blockers, and overclaim risk.
+
+### Consequences
+
+- Next scope is an audit/reconciliation scope, not product feature expansion.
+- Daily-use-ready claim remains forbidden until explicit gate outcome.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- ABW mutation remains forbidden.
+- Reconciliation may return `PASS`, `PARTIAL`, `HOLD`, or `FIX_REQUIRED` depending on evidence.
+
+### Non-goals
+
+- Does not implement new product capability.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.

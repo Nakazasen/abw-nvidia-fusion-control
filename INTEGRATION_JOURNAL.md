@@ -3982,3 +3982,29 @@ Warning:
   - packaging-ready
 - next:
   - run gate review / next-scope planning before choosing next sprint
+
+## 2026-05-04 - Gate selects NVIDIA readiness reconciliation audit
+
+- control head before record:
+  - `e6d3c02f16da7c193f731f930774140c463d7c6c`
+- NVIDIA head:
+  - `cce43f7193f8d92e6e98ca95537e5fc652386c17`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- gate verdict:
+  - `A. PROCEED_TO_READINESS_RECONCILIATION_AUDIT`
+- accepted:
+  - core file-operation proof matrix complete in bounded form
+  - repaired isolated soak rerun passed with `SOAK_AUDIT_PASS`
+  - regression/smoke/bridge evidence remains strong
+- not accepted:
+  - automatic daily-use readiness upgrade
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+- live provider note:
+  - fresh live-provider stability evidence not included in latest rerun evidence set
+- next:
+  - record this gate, then create Readiness Reconciliation Audit prompt.
