@@ -2012,3 +2012,42 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not mutate ABW.
 - Does not start packaging.
+
+## DECISION: Rerun NVIDIA manual file workflow soak audit after harness repair
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- The previous manual soak audit returned `SOAK_AUDIT_PARTIAL` due noisy evidence.
+- NVIDIA Soak Harness Isolation Repair then added deterministic scenario isolation, pending reset, state capture, and cleanup assertions.
+
+### Decision
+
+- Proceed next with a rerun of the NVIDIA Manual File Workflow Soak Audit using the repaired isolated harness.
+
+### Rationale
+
+- Readiness reconciliation should be based on fresh, clean soak evidence.
+- Running reconciliation before rerun would likely be premature and low-signal.
+
+### Consequences
+
+- Next scope must be NVIDIA repo only.
+- Next task must be audit/measurement, not product feature expansion.
+- No daily-use-ready claim is authorized.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- ABW mutation remains forbidden.
+
+### Non-goals
+
+- Does not add new product capability.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.

@@ -1627,3 +1627,18 @@ Mitigation:
   - keep no-packaging boundary
   - continue requiring GPT audit before every commit
   - rerun live provider evidence only when environment is available, without printing key
+
+## 2026-05-04 Update - Rerun Soak Audit Scope Risks
+
+- Current risk:
+  - readiness reconciliation without fresh soak rerun may repeat weak evidence
+  - repaired harness pass may be mistaken as daily-use readiness
+  - live provider blocked state should not be over-interpreted
+  - UI/provider gaps may remain unknown until fresh soak result
+  - packaging too early remains blocked
+- Mitigation:
+  - rerun manual/practical soak using repaired isolated harness
+  - require honest `SOAK_AUDIT_PASS` / `SOAK_AUDIT_PARTIAL` / `SOAK_AUDIT_FAIL` verdict
+  - keep readiness wording `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY` until later gate
+  - record provider availability separately from local soak evidence
+  - require gate review after fresh soak result

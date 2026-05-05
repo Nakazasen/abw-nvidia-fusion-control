@@ -1566,3 +1566,14 @@ Each audit must check:
 - Packaging remains blocked.
 - Bridge UI/sync/auto-promote remain blocked.
 - Next step is gate review / next-scope planning.
+
+## 2026-05-04 Update - Gate Selects Rerun Manual File Workflow Soak Audit
+
+- Latest gate verdict:
+  - `A. PROCEED_TO_RERUN_MANUAL_FILE_WORKFLOW_SOAK_AUDIT`
+- Soak harness isolation repair is complete.
+- Next step is to rerun manual/practical soak using the repaired harness.
+- Readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
+- Readiness reconciliation must wait for the fresh soak result.
+- Packaging remains blocked.
+- Bridge expansion remains blocked (`bridge UI`, `sync`, `auto-promote`).

@@ -815,3 +815,27 @@ Constraints for the next builder:
   - full bridge claim
   - Cognitive OS achieved claim
   - enterprise-grade security claim
+
+## 2026-05-04 Status Update - Gate Selects Rerun Manual File Workflow Soak Audit
+
+- Latest gate verdict:
+  - `A. PROCEED_TO_RERUN_MANUAL_FILE_WORKFLOW_SOAK_AUDIT`
+- Current readiness:
+  - `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Latest completed NVIDIA scope:
+  - Soak Harness Isolation Repair
+- Current accepted evidence:
+  - `npm run soak:proof` PASS `141/0` with deterministic isolated harness
+- Next allowed action after this control commit:
+  - create prompt to rerun NVIDIA Manual File Workflow Soak Audit using repaired harness.
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim
+  - production-ready claim
+  - full bridge claim
+  - Cognitive OS achieved claim
+  - enterprise-grade security claim

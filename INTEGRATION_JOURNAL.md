@@ -3920,3 +3920,25 @@ Warning:
   - packaging-ready
 - next action:
   - run gate review / next-scope planning before choosing next sprint
+
+## 2026-05-04 - Gate selects rerun of NVIDIA manual file workflow soak audit
+
+- control head before record:
+  - `75dce6b1f051796475c80221440255473589ed00`
+- NVIDIA head:
+  - `cce43f7193f8d92e6e98ca95537e5fc652386c17`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- gate verdict:
+  - `A. PROCEED_TO_RERUN_MANUAL_FILE_WORKFLOW_SOAK_AUDIT`
+- accepted:
+  - soak harness isolation repair completed
+  - `npm run soak:proof` PASS `141/0`
+  - deterministic scenario isolation is available
+- not accepted:
+  - daily-use readiness
+  - production-ready
+  - full bridge
+  - packaging
+- next:
+  - record this gate, then create prompt to rerun manual file workflow soak audit.
