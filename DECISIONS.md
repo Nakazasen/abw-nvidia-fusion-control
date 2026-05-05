@@ -1609,3 +1609,41 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not mutate ABW.
 - Does not start packaging.
+
+## DECISION: Proceed to NVIDIA move/rename file workflow proof
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After create-file, existing-file edit, and delete-file safety workflows were proven in bounded form, the gate reviewed the next missing core Agent IDE file operation.
+
+### Decision
+
+- Proceed next with a bounded NVIDIA-only Move/Rename File Workflow Proof.
+
+### Rationale
+
+- Move/rename is the next natural single-file mutation class after create/edit/delete.
+- It should be proven before multi-file edit because it completes the bounded single-file safety surface first.
+
+### Consequences
+
+- Next Builder scope must be NVIDIA repo only.
+- The next proof must validate safe move/rename end-to-end.
+- No daily-use-ready claim is authorized.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- ABW mutation remains forbidden.
+
+### Non-goals
+
+- Does not implement multi-file edit.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.

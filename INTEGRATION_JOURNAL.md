@@ -3694,3 +3694,23 @@ Warning:
   - packaging-ready
 - next action:
   - run gate review / next-scope planning before choosing next sprint
+
+## 2026-05-04 - Gate selects NVIDIA move/rename file workflow proof
+
+- control head before record:
+  - `0db37e13caf7d3ca0bf2232192c11774c1da8cf5`
+- NVIDIA head:
+  - `e9a69ba1fb2d7ccd23aa3e4347c9d1cdb82cb47d`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- gate verdict:
+  - `A. PROCEED_TO_MOVE_RENAME_FILE_WORKFLOW_PROOF`
+- accepted:
+  - create/edit/delete bounded file workflows now have proof evidence
+- not accepted:
+  - daily-use readiness
+  - move/rename completeness
+  - multi-file completeness
+  - packaging
+- next:
+  - record this gate, then create Builder prompt for Move/Rename File Workflow Proof.

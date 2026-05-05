@@ -1480,3 +1480,24 @@ Mitigation:
   - require gate review before readiness upgrade
   - preserve approval/trust/workspace boundaries
   - require GPT audit before every commit
+
+## 2026-05-04 Update - Move/Rename Workflow Proof Follow-up Risks
+
+- Current risk:
+  - move/rename workflow remains unproven
+  - move/rename can overwrite or lose user files if collision handling is unsafe
+  - move/rename could escape workspace through path traversal or absolute target paths
+  - create/edit/delete proof may be mistaken as full Agent IDE readiness
+  - multi-file edit remains unproven
+  - daily-use readiness overclaim risk remains
+  - packaging too early remains blocked
+- Mitigation:
+  - require safe fixture-based move/rename proof
+  - require approval/trust/workspace checks
+  - require no move/rename before approval/apply
+  - require target collision handling
+  - require outside-workspace and path traversal blocks
+  - require content preservation verification
+  - require restore/cleanup evidence
+  - require GPT audit before commit
+  - require gate review before readiness upgrade

@@ -1472,3 +1472,14 @@ Each audit must check:
 - Packaging remains blocked.
 - Bridge UI/sync/auto-promote remain blocked.
 - Next step is gate review / next-scope planning.
+
+## 2026-05-04 Update - Gate Selects Move/Rename File Workflow Proof
+
+- Latest gate verdict:
+  - `A. PROCEED_TO_MOVE_RENAME_FILE_WORKFLOW_PROOF`
+- Create-file, existing-file edit, and delete-file safety are accepted as bounded workflow proofs.
+- Move/rename is now the next unproven single-file operation.
+- Multi-file edit remains a later scope.
+- Readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
+- Packaging remains blocked.
+- Bridge expansion remains blocked (`bridge UI`, `sync`, `auto-promote`).
