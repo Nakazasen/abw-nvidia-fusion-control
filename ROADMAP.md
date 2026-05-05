@@ -1552,3 +1552,17 @@ Each audit must check:
 - Readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
 - Packaging remains blocked.
 - Bridge expansion remains blocked (`bridge UI`, `sync`, `auto-promote`).
+
+## 2026-05-04 Update - NVIDIA Soak Harness Isolation Repair Completed
+
+- NVIDIA Soak Harness Isolation Repair is completed and pushed.
+- The prior soak evidence-quality blocker has been addressed by adding deterministic isolated soak harness:
+  - per-scenario fixtures
+  - pending reset before/after
+  - before/after/apply state capture
+  - cleanup verification
+- Baseline proof/regression evidence remains strong.
+- Daily-use readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- Next step is gate review / next-scope planning.

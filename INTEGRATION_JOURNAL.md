@@ -3882,3 +3882,41 @@ Warning:
   - packaging
 - next:
   - record this gate, then create Builder prompt for Soak Harness Isolation Repair.
+
+## 2026-05-04 - NVIDIA soak harness isolation repair completed
+
+- NVIDIA commit:
+  - `cce43f7193f8d92e6e98ca95537e5fc652386c17`
+- commit message:
+  - `test: add NVIDIA isolated manual soak harness`
+- push result:
+  - `14a62ed..cce43f7 main -> main`
+- files changed:
+  - `package.json`
+  - `tests/manual-file-workflow-soak-isolated.test.mjs`
+- audit verdict:
+  - `AUDIT_FIXED_READY_FOR_COMMIT`
+- new command:
+  - `npm run soak:proof`
+- proof result:
+  - `PASS 141/0`
+- accepted:
+  - deterministic isolated soak harness added
+  - per-scenario fixture root under `proof/soak-isolated/<scenario>`
+  - pending reset before/after each scenario
+  - before/after/apply state capture
+  - per-scenario cleanup and final root cleanup assertion
+  - `package.json` BOM fixed
+  - Vietnamese mojibake fixed
+  - bridge no-mutation validation passes after proof artifact cleanup
+- live provider note:
+  - `live:proof` BLOCKED due missing `NVIDIA_API_KEY` in this run; non-blocking and not a PASS claim
+- not proven:
+  - daily-use readiness PASS
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+- next action:
+  - run gate review / next-scope planning before choosing next sprint

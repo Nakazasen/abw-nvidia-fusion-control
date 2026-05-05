@@ -1611,3 +1611,19 @@ Mitigation:
   - require cleanup verification per scenario
   - preserve no-readiness/no-packaging boundaries
   - require GPT audit before commit
+
+## 2026-05-04 Update - Soak Harness Isolation Repair Completion Risks
+
+- Current risk:
+  - isolated soak harness pass may be mistaken as daily-use readiness
+  - daily-use readiness still requires a gate decision and likely readiness reconciliation or rerun soak interpretation
+  - provider BLOCKED state means live-provider daily UX is not fully characterized in this run
+  - packaging too early remains blocked
+  - full Agent IDE UX remains unproven
+- Mitigation:
+  - record harness repair separately from readiness upgrade
+  - require gate review before readiness reconciliation
+  - keep readiness wording `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+  - keep no-packaging boundary
+  - continue requiring GPT audit before every commit
+  - rerun live provider evidence only when environment is available, without printing key

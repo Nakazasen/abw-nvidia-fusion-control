@@ -1944,3 +1944,71 @@ Consequence:
 - Does not claim full bridge.
 - Does not claim Cognitive OS achieved.
 - Does not claim enterprise-grade security.
+
+## DECISION: Record NVIDIA soak harness isolation repair without readiness upgrade
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- The previous Manual File Workflow Soak Audit returned `SOAK_AUDIT_PARTIAL` because practical soak evidence was noisy due fixture/agent-loop sequencing and scenario isolation issues.
+
+### Decision
+
+- Accept the NVIDIA Soak Harness Isolation Repair.
+- Do not upgrade readiness yet.
+
+### Evidence
+
+- NVIDIA commit:
+  - `cce43f7193f8d92e6e98ca95537e5fc652386c17`
+- commit message:
+  - `test: add NVIDIA isolated manual soak harness`
+- audit verdict:
+  - `AUDIT_FIXED_READY_FOR_COMMIT`
+- command:
+  - `npm run soak:proof`
+- result:
+  - `PASS 141/0`
+- behavior:
+  - one fixture root per scenario
+  - pending reset before/after each scenario
+  - before/after/apply state capture
+  - per-scenario cleanup
+  - final `proof/soak-isolated` cleanup assertion
+- audit fixes:
+  - `package.json` UTF-8 without BOM
+  - Vietnamese prompt mojibake fixed
+  - proof artifact cleanup before bridge no-mutation validation
+- regression evidence:
+  - `write:create:proof` PASS `31/0`
+  - `apply:proof` PASS `30/0`
+  - `manual:proof` PASS `56/0`
+  - `edit:proof` PASS `41/0`
+  - `delete:proof` PASS `44/0`
+  - `move:proof` PASS `71/0`
+  - `multi:proof` PASS `34/0`
+  - `browser:smoke` PASS `109/0`
+  - `agent:audit` PASS `25/25`
+  - bridge tests PASS `38/38` and `22/22`
+- live provider note:
+  - `live:proof` BLOCKED due missing `NVIDIA_API_KEY` in this run; not a readiness upgrade signal
+
+### Consequences
+
+- Soak evidence-quality harness is stronger.
+- Daily-use readiness remains not PASS.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- Next step must be gate review / next-scope planning.
+
+### Non-goals
+
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not mutate ABW.
+- Does not start packaging.

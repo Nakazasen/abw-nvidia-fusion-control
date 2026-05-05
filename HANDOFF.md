@@ -787,3 +787,31 @@ Constraints for the next builder:
   - full bridge claim
   - Cognitive OS achieved claim
   - enterprise-grade security claim
+
+## 2026-05-04 Status Update - NVIDIA Soak Harness Isolation Repair
+
+- Latest NVIDIA commit:
+  - `cce43f7193f8d92e6e98ca95537e5fc652386c17`
+- Latest completed scope:
+  - NVIDIA Soak Harness Isolation Repair
+- New command:
+  - `npm run soak:proof`
+- Proof result:
+  - `PASS 141/0`
+- Current evidence:
+  - isolated soak harness now provides deterministic per-scenario fixture isolation, pending reset, state capture, and cleanup checks.
+- Current limitation:
+  - daily-use readiness remains not PASS until a new gate decides whether to rerun manual soak/readiness reconciliation.
+- Next required action:
+  - run gate review / next-scope planning before choosing next sprint.
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim
+  - production-ready claim
+  - full bridge claim
+  - Cognitive OS achieved claim
+  - enterprise-grade security claim
