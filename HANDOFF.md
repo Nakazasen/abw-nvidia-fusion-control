@@ -839,3 +839,31 @@ Constraints for the next builder:
   - full bridge claim
   - Cognitive OS achieved claim
   - enterprise-grade security claim
+
+## 2026-05-04 Status Update - NVIDIA Rerun Manual File Workflow Soak Audit
+
+- Latest completed NVIDIA evidence:
+  - Rerun Manual File Workflow Soak Audit
+- Rerun soak verdict:
+  - `SOAK_AUDIT_PASS`
+- Current evidence:
+  - repaired isolated soak harness passed with `soak:proof` PASS `141/0` and full regression/bridge evidence.
+- NVIDIA git status during evidence collection:
+  - clean
+- Secret/mojibake:
+  - no literal key, `.env` ignored, mojibake scan clean
+- Current limitation:
+  - daily-use readiness remains not PASS until gate review / readiness reconciliation.
+- Recommended next action:
+  - run gate review / next-scope planning, likely consider Readiness Reconciliation Audit.
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim until explicitly gated
+  - production-ready claim
+  - full bridge claim
+  - Cognitive OS achieved claim
+  - enterprise-grade security claim

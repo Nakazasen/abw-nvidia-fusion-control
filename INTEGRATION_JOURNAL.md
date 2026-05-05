@@ -3942,3 +3942,43 @@ Warning:
   - packaging
 - next:
   - record this gate, then create prompt to rerun manual file workflow soak audit.
+
+## 2026-05-04 - NVIDIA manual file workflow soak audit rerun passed
+
+- control head before record:
+  - `cf06a70fe2c6d4a9eb8074756e1a26ae91e94274`
+- NVIDIA head:
+  - `cce43f7193f8d92e6e98ca95537e5fc652386c17`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- rerun soak verdict:
+  - `SOAK_AUDIT_PASS`
+- baseline validation:
+  - `soak:proof` PASS `141/0`
+  - `write:create:proof` PASS `31/0`
+  - `apply:proof` PASS `30/0`
+  - `manual:proof` PASS `56/0`
+  - `edit:proof` PASS `41/0`
+  - `delete:proof` PASS `44/0`
+  - `move:proof` PASS `71/0`
+  - `multi:proof` PASS `34/0`
+  - `browser:smoke` PASS
+  - `agent:audit` PASS `25/25`
+  - `bridge:preflight:test` PASS `38/38`
+  - `bridge:preflight:e2e` PASS `22/22`
+- safety:
+  - git status clean in NVIDIA
+  - no literal NVIDIA key found
+  - `.env` ignored and not staged
+  - mojibake scan clean
+- accepted:
+  - rerun manual/practical soak evidence passed using repaired isolated harness
+- not accepted:
+  - daily-use readiness upgrade
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+- next:
+  - run gate review / next-scope planning before choosing next sprint

@@ -1577,3 +1577,13 @@ Each audit must check:
 - Readiness reconciliation must wait for the fresh soak result.
 - Packaging remains blocked.
 - Bridge expansion remains blocked (`bridge UI`, `sync`, `auto-promote`).
+
+## 2026-05-04 Update - Rerun Manual File Workflow Soak Audit Passed
+
+- Rerun NVIDIA Manual File Workflow Soak Audit completed with `SOAK_AUDIT_PASS`.
+- The previous soak evidence-quality issue has been addressed by repaired isolated harness and a successful rerun.
+- Core file-operation proof set and repaired soak evidence are strong.
+- Readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY` until a separate gate.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- Next step is gate review / next-scope planning, likely Readiness Reconciliation Audit.

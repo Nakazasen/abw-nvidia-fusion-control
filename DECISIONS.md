@@ -2051,3 +2051,56 @@ Consequence:
 - Does not claim full bridge.
 - Does not claim Cognitive OS achieved.
 - Does not claim enterprise-grade security.
+
+## DECISION: Record NVIDIA manual file workflow soak audit rerun PASS without readiness upgrade
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- The prior manual file workflow soak audit returned `SOAK_AUDIT_PARTIAL` because evidence was noisy.
+- The soak harness isolation repair added deterministic scenario isolation and cleanup assertions.
+- The rerun now reports `SOAK_AUDIT_PASS`.
+
+### Decision
+
+- Accept the rerun Manual File Workflow Soak Audit result as `SOAK_AUDIT_PASS`.
+- Do not upgrade readiness automatically.
+
+### Evidence
+
+- `soak:proof` PASS `141/0`
+- `write:create:proof` PASS `31/0`
+- `apply:proof` PASS `30/0`
+- `manual:proof` PASS `56/0`
+- `edit:proof` PASS `41/0`
+- `delete:proof` PASS `44/0`
+- `move:proof` PASS `71/0`
+- `multi:proof` PASS `34/0`
+- `browser:smoke` PASS
+- `agent:audit` PASS `25/25`
+- `bridge:preflight:test` PASS `38/38`
+- `bridge:preflight:e2e` PASS `22/22`
+- NVIDIA git status clean
+- secret scan found no literal NVIDIA key
+- `.env` ignored and not staged
+- mojibake scan clean
+
+### Consequences
+
+- Manual/practical file workflow evidence is now stronger.
+- Readiness reconciliation is now a reasonable next gate.
+- Daily-use readiness remains not PASS until a separate gate decision.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+
+### Non-goals
+
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not mutate ABW.
+- Does not start packaging.

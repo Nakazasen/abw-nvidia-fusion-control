@@ -1642,3 +1642,19 @@ Mitigation:
   - keep readiness wording `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY` until later gate
   - record provider availability separately from local soak evidence
   - require gate review after fresh soak result
+
+## 2026-05-04 Update - Soak Rerun PASS Follow-up Risks
+
+- Current risk:
+  - `SOAK_AUDIT_PASS` may be mistaken as automatic daily-use readiness
+  - live provider PASS was not supplied in this latest rerun evidence set
+  - readiness reconciliation still required before any readiness upgrade
+  - packaging too early remains blocked
+  - full Agent IDE UX remains unproven
+  - bridge expansion remains blocked
+- Mitigation:
+  - record `SOAK_AUDIT_PASS` separately from readiness status
+  - require gate review / readiness reconciliation before readiness wording changes
+  - keep readiness as `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY` until explicit gate
+  - preserve no-packaging/no-bridge-expansion boundaries
+  - require GPT audit before every commit
