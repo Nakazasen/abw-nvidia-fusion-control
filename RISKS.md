@@ -1779,3 +1779,18 @@ Mitigation:
   - keep bridge UI/sync/auto-promote/ABW mutation/packaging forbidden
   - require GPT audit before commit
   - record no-readiness-upgrade boundary in control
+
+## 2026-05-04 Update - UI Polish Round 2 Visibility Fix Completion Risks
+
+- Current risk:
+  - UI visibility fix may be mistaken as `DAILY_USE_READY`
+  - smoke `PASS` does not prove full Agent IDE UX
+  - full Vietnamese localization remains incomplete
+  - packaging and bridge expansion remain blocked
+  - overclaim risk remains if bounded wording is loosened
+- Mitigation:
+  - keep current readiness wording unchanged
+  - explicitly forbid `DAILY_USE_READY` and production/security/bridge/packaging claims
+  - require gate review before next scope
+  - keep ABW/bridge/packaging blocked unless explicitly scoped
+  - preserve smoke visibility checks

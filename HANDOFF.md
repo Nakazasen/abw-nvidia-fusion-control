@@ -1075,3 +1075,34 @@ Constraints for the next builder:
   - full bridge claim
   - Cognitive OS achieved claim
   - enterprise-grade security claim
+
+## 2026-05-04 Status Update - NVIDIA UI Polish Round 2 Visibility/Clipping Fix Completed
+
+- Latest NVIDIA commit:
+  - `2547010cbabc069937f8ee3c4aced01400c7f1b7`
+- Latest completed scope:
+  - NVIDIA UI Polish Round 2 visibility/clipping fix
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- What improved:
+  - key workflow controls visibility
+  - critical bottom action clipping
+  - Review + Apply smoke measurement correctness
+  - sticky input / scroll padding / button sizing-wrap
+- Audit verdict:
+  - `AUDIT_FIXED_READY_FOR_COMMIT`
+- NVIDIA final git status:
+  - clean
+- Next required action:
+  - run gate review / next-scope planning before any Builder prompt.
+- Still forbidden:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation

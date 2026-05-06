@@ -2405,3 +2405,60 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not implement packaging.
 - Does not mutate ABW.
+
+## DECISION: Record NVIDIA UI polish round 2 visibility fix completion
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After UI Polish Round 2 manual findings, browser smoke had two blockers: key workflow controls visibility and critical bottom actions clipping.
+- A focused fix repaired the smoke state ordering and retained UI layout improvements.
+
+### Decision
+
+- Accept completion of NVIDIA UI Polish Round 2 visibility/clipping fix.
+
+### Evidence
+
+- NVIDIA commit:
+  - `2547010cbabc069937f8ee3c4aced01400c7f1b7`
+- commit message:
+  - `fix: repair NVIDIA UI visibility smoke blockers`
+- changed files:
+  - `nvidia_playground.html`
+  - `tools/browser-smoke.mjs`
+- validation:
+  - `git diff --check` PASS
+  - `node --check tools/browser-smoke.mjs` PASS
+  - `browser-smoke` PASS `117/0`
+  - secret scan found no literal `nvapi` key
+  - `.env` ignored
+  - mojibake scan clean
+  - overclaim check clean
+- boundary:
+  - no bridge UI
+  - no sync
+  - no auto-promote
+  - no ABW mutation
+  - no packaging
+  - no `DAILY_USE_READY` claim
+
+### Consequences
+
+- UI visibility/clipping evidence is stronger.
+- Current readiness remains `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+- `DAILY_USE_READY` remains forbidden.
+- Production/full bridge/Cognitive OS/security/packaging claims remain forbidden.
+- Next step must be gate review / next-scope planning.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.

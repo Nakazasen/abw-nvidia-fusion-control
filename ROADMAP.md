@@ -1697,3 +1697,13 @@ Each audit must check:
   - full bridge
   - Cognitive OS achieved
   - enterprise-grade security
+
+## 2026-05-04 Update - NVIDIA UI Polish Round 2 Visibility/Clipping Fix Completed
+
+- NVIDIA UI Polish Round 2 visibility/clipping fix is completed and pushed.
+- Current readiness remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- This completion improves usability/visibility only.
+- It does not upgrade readiness wording.
+- Next step is gate review / next-scope planning.
+- Packaging and bridge expansion remain blocked.

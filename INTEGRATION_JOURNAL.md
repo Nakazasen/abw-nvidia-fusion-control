@@ -4179,3 +4179,33 @@ Warning:
   - user-observed UX friction and incomplete Vietnamese localization
 - next:
   - record this gate, then create NVIDIA UI Polish Round 2 Manual Findings Builder prompt.
+
+## 2026-05-04 - NVIDIA UI polish round 2 visibility fix completed
+
+- NVIDIA commit:
+  - `2547010cbabc069937f8ee3c4aced01400c7f1b7`
+- commit message:
+  - `fix: repair NVIDIA UI visibility smoke blockers`
+- push result:
+  - `63bbbfd..2547010 main -> main`
+- files changed:
+  - `nvidia_playground.html`
+  - `tools/browser-smoke.mjs`
+- audit verdict:
+  - `AUDIT_FIXED_READY_FOR_COMMIT`
+- accepted:
+  - key workflow controls visibility blocker fixed
+  - critical bottom actions clipping blocker fixed
+  - Review + Apply measured while pending card is still Pending/Ready-to-apply
+  - sticky input / scroll padding / button wrap improvements retained
+  - `browser-smoke` PASS `117/0`
+  - secret/encoding/overclaim checks clean
+- not accepted:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+- next:
+  - run gate review / next-scope planning before choosing next sprint
