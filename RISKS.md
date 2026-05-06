@@ -1708,3 +1708,22 @@ Mitigation:
   - keep readiness `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY` until explicit gate
   - keep no-packaging/no-bridge-expansion boundaries
   - preserve secret-safe provider logging requirements
+
+## 2026-05-04 Update - Bounded Candidate Upgrade Follow-up Risks
+
+- Current risk:
+  - bounded candidate wording may be mistaken as full daily-use-ready
+  - UX/localization/error recovery gaps remain
+  - provider `PASS` sample is not long-term SLA proof
+  - packaging too early remains blocked
+  - bridge expansion remains blocked
+  - enterprise-grade security remains unproven
+  - overclaim risk remains high if wording is loosened
+- Mitigation:
+  - use only `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+  - explicitly forbid `DAILY_USE_READY` and production/security/bridge/packaging claims
+  - require future gate for UI polish/error recovery
+  - require future gate for packaging
+  - require future gate for bridge expansion
+  - preserve approval/apply/trust/workspace boundaries
+  - keep recording evidence in control repo before new claims

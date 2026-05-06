@@ -2227,3 +2227,42 @@ Consequence:
 - Does not claim Cognitive OS achieved.
 - Does not claim enterprise-grade security.
 - Does not start packaging.
+
+## DECISION: Upgrade NVIDIA readiness to bounded local file workflow candidate
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After bounded file-operation proofs, repaired isolated soak rerun `PASS`, and fresh live-provider stability `PASS`, readiness reconciliation reviewed whether the prior `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY` status could be upgraded.
+
+### Decision
+
+- Upgrade readiness to `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+
+### Rationale
+
+- The previous blocker, fresh live-provider stability, has been resolved.
+- The evidence stack now covers bounded create/edit/delete/move/multi-file workflows, approval/apply semantics, repaired soak evidence, provider-backed execution, regression integrity, bridge preflight, secret hygiene, and encoding hygiene.
+
+### Consequences
+
+- A bounded internal/local NVIDIA file-workflow candidate claim is allowed.
+- `DAILY_USE_READY` remains forbidden.
+- Production-ready, packaging-ready, full bridge, Cognitive OS achieved, enterprise-grade security, VS Code parity, and Cursor parity claims remain forbidden.
+- UX/localization/error-recovery polish remains follow-up work.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- ABW mutation remains forbidden.
+
+### Non-goals
+
+- Does not claim production-ready.
+- Does not claim packaging-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not claim VS Code/Cursor parity.
+- Does not mutate ABW.
+- Does not start packaging.
