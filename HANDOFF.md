@@ -899,3 +899,39 @@ Constraints for the next builder:
   - full bridge claim
   - Cognitive OS achieved claim
   - enterprise-grade security claim
+
+## 2026-05-04 Status Update - Readiness Reconciliation Hold For Provider Live Stability Proof
+
+- Latest reconciliation verdict:
+  - `C. HOLD_FOR_PROVIDER_LIVE_STABILITY_PROOF`
+- Current readiness:
+  - `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Sync result recorded:
+  - `SYNCED`
+- Current verified heads:
+  - Control `68951662e9246f5b88ff8882ac298a2c1bd5b8c8`
+  - NVIDIA `cce43f7193f8d92e6e98ca95537e5fc652386c17`
+  - ABW `fe0520626d8f254476424242e29ea2bef4807f73`
+- Accepted evidence:
+  - bounded file-operation proof matrix complete
+  - repaired isolated soak rerun `PASS`
+  - regression/smoke/bridge evidence strong
+- Current blocker:
+  - fresh NVIDIA live-provider stability evidence is missing from the latest rerun set
+- Next allowed action after this control commit:
+  - create NVIDIA Live Provider Stability Proof prompt
+- Dirty/out-of-scope state observed during sync:
+  - Control: `FILE_INDEX.md`, `AGENTS.md`, `patch.js`, `patch.py`
+  - NVIDIA: `tools/api-diagnostic.mjs`
+  - ABW: `README.proposed.md`, `docs/ABW_ARCHITECTURE_AUDIT_2026-04-30.md`
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - daily-use-ready claim
+  - production-ready claim
+  - full bridge claim
+  - Cognitive OS achieved claim
+  - enterprise-grade security claim

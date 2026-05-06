@@ -2143,3 +2143,41 @@ Consequence:
 - Does not claim full bridge.
 - Does not claim Cognitive OS achieved.
 - Does not claim enterprise-grade security.
+
+## DECISION: Hold readiness upgrade for fresh NVIDIA live-provider stability proof
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After bounded file-operation proofs and rerun `SOAK_AUDIT_PASS`, the readiness reconciliation reviewed whether to upgrade readiness.
+
+### Decision
+
+- Do not upgrade readiness yet.
+- Hold for fresh NVIDIA live-provider stability proof.
+
+### Rationale
+
+- Local/manual workflow evidence is strong, but fresh live-provider stability evidence was not included in the latest rerun set.
+- Earlier provider evidence exists, but adjacent records include `BLOCKED` and upstream `502` cases, so provider stability must be re-proven before any readiness wording upgrade.
+
+### Consequences
+
+- Current readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`.
+- Next scope should be NVIDIA live-provider stability proof.
+- Daily-use-ready claim remains forbidden.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- ABW mutation remains forbidden.
+
+### Non-goals
+
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.

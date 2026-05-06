@@ -1676,3 +1676,20 @@ Mitigation:
   - keep readiness as `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY` until explicit gate upgrade
   - preserve no-packaging/no-bridge-expansion boundaries
   - require GPT audit/governance review before any readiness claim
+
+## 2026-05-04 Update - Provider Live Stability Reconciliation Hold Risks
+
+- Current risk:
+  - local soak `PASS` may be mistaken as full daily-use readiness
+  - provider instability may cause fake success or confusing UX if not re-proven
+  - missing-key/`502`/timeout behavior remains a readiness blocker
+  - live-provider logs could leak secrets if not handled carefully
+  - packaging too early remains blocked
+  - full Agent IDE UX remains unproven
+- Mitigation:
+  - require fresh provider stability proof before readiness upgrade
+  - require secret-safe provider logging
+  - require explicit `PASS` / `BLOCKED` / `FAIL` classification
+  - require no mutation on provider failure
+  - preserve readiness wording until explicit gate upgrade
+  - keep packaging and bridge expansion blocked

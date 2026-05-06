@@ -1599,3 +1599,28 @@ Each audit must check:
 - Packaging remains blocked.
 - Bridge expansion remains blocked (`bridge UI`, `sync`, `auto-promote`).
 - Next step is Readiness Reconciliation Audit.
+
+## 2026-05-04 Update - Readiness Reconciliation Holds For Provider Live Stability Proof
+
+- Readiness reconciliation verdict:
+  - `C. HOLD_FOR_PROVIDER_LIVE_STABILITY_PROOF`
+- Current readiness remains:
+  - `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Strong accepted evidence:
+  - local bounded workflow proof matrix is complete
+  - repaired isolated soak harness was committed
+  - rerun soak audit passed with `SOAK_AUDIT_PASS`
+  - smoke/regression/bridge preflight evidence remains strong
+  - no recorded secret leak in cited evidence
+  - mojibake/encoding clean in cited evidence
+- Current blocker:
+  - fresh live-provider stability proof is not included in the latest rerun evidence set
+  - adjacent provider records include `BLOCKED` and upstream `502` cases, so readiness must not be upgraded yet
+- Next allowed scope:
+  - NVIDIA repo only
+  - fresh NVIDIA live-provider stability proof with secret-safe logging and explicit `PASS` / `PARTIAL` / `FAIL` handling
+- Boundaries remain:
+  - no packaging
+  - no bridge expansion (`bridge UI`, `sync`, `auto-promote`)
+  - no ABW mutation
+  - no daily-use-ready claim
