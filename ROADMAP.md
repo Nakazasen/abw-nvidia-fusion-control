@@ -1707,3 +1707,19 @@ Each audit must check:
 - It does not upgrade readiness wording.
 - Next step is gate review / next-scope planning.
 - Packaging and bridge expansion remain blocked.
+
+## 2026-05-04 Update - Gate Selects NVIDIA User Manual Validation Guide
+
+- Latest gate verdict:
+  - `B. PROCEED_TO_USER_MANUAL_VALIDATION_GUIDE`
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Next scope is a structured manual validation guide.
+- This is not a code sprint and not a readiness upgrade.
+- Packaging, bridge UI, sync, auto-promote, and ABW mutation remain blocked.
+- Forbidden claims remain:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security

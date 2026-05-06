@@ -1106,3 +1106,40 @@ Constraints for the next builder:
   - sync
   - auto-promote
   - ABW mutation
+
+## 2026-05-04 Status Update - Gate Selects NVIDIA User Manual Validation Guide
+
+- Latest gate verdict:
+  - `B. PROCEED_TO_USER_MANUAL_VALIDATION_GUIDE`
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Latest completed scope:
+  - NVIDIA UI Polish Round 2 visibility/clipping fix
+- Main next scope:
+  - structured user manual validation guide
+- Manual validation should cover:
+  - create file
+  - edit existing file
+  - delete file
+  - move/rename file
+  - bounded multi-file edit
+  - Auto-Accept ON/OFF
+  - approval modal
+  - pending state
+  - Review + Apply
+  - blocked action
+  - provider failure/error
+  - changed files
+  - recent action
+  - visibility/clipping
+  - Vietnamese wording
+- Next allowed action:
+  - create User Manual Validation Guide prompt.
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - `DAILY_USE_READY` claim
+  - production/full bridge/Cognitive OS/security claims

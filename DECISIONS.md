@@ -2462,3 +2462,44 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not implement packaging.
 - Does not mutate ABW.
+
+## DECISION: Proceed to NVIDIA user manual validation guide
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After NVIDIA UI Polish Round 2 visibility/clipping fix, the gate reviewed whether to continue code work or validate practical usage.
+- The bounded local workflow candidate has strong technical proof and recent UI fixes.
+
+### Decision
+
+- Proceed next with a structured User Manual Validation Guide.
+
+### Rationale
+
+- The highest-value next step is validating the bounded candidate on real machines and real user flows before adding more code.
+- Another UI polish round would require new concrete findings.
+- Runtime/security hygiene remains important but is not yet a higher priority than hands-on validation quality.
+
+### Consequences
+
+- Next scope is documentation/checklist style, not product expansion.
+- Manual validation should cover create/edit/delete/move/multi-file, approval, pending, Review + Apply, blocked actions, failed/provider states, visibility, changed-files, recent action, and Vietnamese wording.
+- Current readiness remains `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+- `DAILY_USE_READY` remains forbidden.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- ABW mutation remains forbidden.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not add new NVIDIA product capability.

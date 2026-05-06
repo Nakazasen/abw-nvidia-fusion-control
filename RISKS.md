@@ -1794,3 +1794,20 @@ Mitigation:
   - require gate review before next scope
   - keep ABW/bridge/packaging blocked unless explicitly scoped
   - preserve smoke visibility checks
+
+## 2026-05-04 Update - User Manual Validation Guide Scope Risks
+
+- Current risk:
+  - bounded candidate may be mistaken as `DAILY_USE_READY`
+  - automated proof/smoke may miss real user workflow friction
+  - real machines may reveal layout/viewport/network/provider differences
+  - incomplete Vietnamese localization may still cause user mistakes
+  - manual validation may be too vague if not structured
+  - packaging and bridge expansion overreach risk remains
+- Mitigation:
+  - create structured checklist with pass/fail criteria
+  - require evidence capture for failures
+  - separate blocker vs minor UX issue
+  - preserve bounded candidate wording
+  - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden
+  - require gate review after manual validation results

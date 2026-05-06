@@ -4209,3 +4209,23 @@ Warning:
   - packaging-ready
 - next:
   - run gate review / next-scope planning before choosing next sprint
+
+## 2026-05-04 - Gate selects NVIDIA user manual validation guide
+
+- control head before record:
+  - `4a00cf3daf1bcf33b464684b59a50b9c3df1b949`
+- NVIDIA head:
+  - `2547010cbabc069937f8ee3c4aced01400c7f1b7`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- gate verdict:
+  - `B. PROCEED_TO_USER_MANUAL_VALIDATION_GUIDE`
+- accepted:
+  - bounded local workflow candidate evidence remains strong
+  - UI polish and visibility fixes completed
+- rationale:
+  - structured hands-on validation is now higher value than more code
+- next:
+  - record this gate, then create User Manual Validation Guide prompt.
