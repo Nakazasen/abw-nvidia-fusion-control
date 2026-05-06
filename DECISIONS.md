@@ -2302,3 +2302,63 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not implement packaging.
 - Does not mutate ABW.
+
+## DECISION: Record NVIDIA UI daily-use polish and error recovery completion
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After readiness was upgraded only to `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`, the next gate selected NVIDIA UI Daily-Use Polish and Error Recovery to improve practical clarity without expanding capability.
+
+### Decision
+
+- Accept completion of NVIDIA UI Daily-Use Polish and Error Recovery.
+
+### Evidence
+
+- NVIDIA commit:
+  - `63bbbfd56e130c54fb4d21a471f1f9894f9deab5`
+- commit message:
+  - `fix: polish NVIDIA UI workflow recovery states`
+- audit verdict:
+  - `AUDIT_FIXED_READY_FOR_COMMIT`
+- changed files:
+  - `nvidia_playground.html`
+  - `tools/browser-smoke.mjs`
+  - `tests/manual-ui-create-apply-e2e.test.mjs`
+  - `tests/existing-file-edit-workflow.test.mjs`
+  - `tests/manual-file-workflow-soak-isolated.test.mjs`
+- validation:
+  - `browser-smoke` PASS `116/0`
+  - `manual:proof` PASS `71/0`
+  - `edit:proof` PASS `54/0`
+  - `soak:proof` PASS `141/0`
+  - `live:proof` PASS `27/0`
+  - bridge tests PASS `38/38` and `22/22`
+- boundary:
+  - no bridge UI
+  - no sync
+  - no auto-promote
+  - no ABW mutation
+  - no packaging
+  - no `DAILY_USE_READY` claim
+
+### Consequences
+
+- UX/error-recovery clarity is improved for bounded local file workflows.
+- Current readiness remains `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+- `DAILY_USE_READY` remains forbidden.
+- Production/full bridge/Cognitive OS/security/packaging claims remain forbidden.
+- Next step must be gate review / next-scope planning.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.

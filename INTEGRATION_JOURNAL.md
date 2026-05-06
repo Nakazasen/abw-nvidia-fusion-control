@@ -2,6 +2,52 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-04 - NVIDIA UI daily-use polish and error recovery completed
+
+- NVIDIA commit:
+  - `63bbbfd56e130c54fb4d21a471f1f9894f9deab5`
+- commit message:
+  - `fix: polish NVIDIA UI workflow recovery states`
+- push result:
+  - `cce43f7..63bbbfd HEAD -> main`
+- note:
+  - initial `git push origin main` said `Everything up-to-date` while branch remained ahead; explicit `git push origin HEAD:main` succeeded.
+- files changed:
+  - `nvidia_playground.html`
+  - `tools/browser-smoke.mjs`
+  - `tests/manual-ui-create-apply-e2e.test.mjs`
+  - `tests/existing-file-edit-workflow.test.mjs`
+  - `tests/manual-file-workflow-soak-isolated.test.mjs`
+- audit verdict:
+  - `AUDIT_FIXED_READY_FOR_COMMIT`
+- accepted:
+  - pending/applied/blocked/failed clarity improved
+  - approval modal clarity improved
+  - provider/blocked/failed no-fake-success messaging improved
+  - Vietnamese workflow/help wording improved
+  - recent-action summary added
+  - smoke/manual checks extended
+  - audit fix added for soak move scenario fixture parent directory
+- validation:
+  - `browser-smoke` PASS `116/0`
+  - `manual:proof` PASS `71/0`
+  - `edit:proof` PASS `54/0`
+  - `soak:proof` PASS `141/0`
+  - `live:proof` PASS `27/0`
+  - `agent:audit` PASS `25/25`
+  - bridge preflight PASS `38/38` and `22/22`
+- out-of-scope:
+  - `tools/api-diagnostic.mjs` remains untracked
+- not accepted:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+- next:
+  - run gate review / next-scope planning before choosing next sprint
+
 ## 2026-05-04 - Gate selects NVIDIA delete file safety proof
 
 - control head before record:

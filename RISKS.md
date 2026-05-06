@@ -1745,3 +1745,19 @@ Mitigation:
   - keep bridge UI/sync/auto-promote/ABW mutation/packaging forbidden
   - require GPT audit before commit
   - record no-readiness-upgrade boundary in control
+
+## 2026-05-04 Update - UI Daily-Use Polish Completion Follow-up Risks
+
+- Current risk:
+  - UI polish may be mistaken as `DAILY_USE_READY`
+  - recent-action summary may be mistaken as persistent operation history
+  - provider `PASS` and improved messaging are not long-term SLA proof
+  - full Agent IDE UX remains unproven
+  - full Vietnamese localization remains incomplete
+  - packaging and bridge expansion remain blocked
+- Mitigation:
+  - keep current readiness wording unchanged
+  - explicitly forbid `DAILY_USE_READY` and production/security/bridge/packaging claims
+  - keep recent-action summary described as bounded/non-persistent if applicable
+  - require gate review before next scope
+  - keep ABW/bridge/packaging blocked unless explicitly scoped

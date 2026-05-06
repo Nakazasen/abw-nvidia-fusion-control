@@ -1013,3 +1013,36 @@ Constraints for the next builder:
   - packaging
   - `DAILY_USE_READY` claim
   - production/full bridge/Cognitive OS/security claims
+
+## 2026-05-04 Status Update - NVIDIA UI Daily-Use Polish And Error Recovery Completed
+
+- Latest NVIDIA commit:
+  - `63bbbfd56e130c54fb4d21a471f1f9894f9deab5`
+- Latest completed scope:
+  - NVIDIA UI Daily-Use Polish and Error Recovery
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- What improved:
+  - pending/applied/blocked/failed clarity
+  - approval/apply clarity
+  - provider failure/retry messaging
+  - blocked-action explanations
+  - Vietnamese UX wording
+  - recent-action summary
+- Audit verdict:
+  - `AUDIT_FIXED_READY_FOR_COMMIT`
+- Current out-of-scope NVIDIA dirty file:
+  - `tools/api-diagnostic.mjs`
+- Next required action:
+  - run gate review / next-scope planning before any Builder prompt
+- Still forbidden:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
