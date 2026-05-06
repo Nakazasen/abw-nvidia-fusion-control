@@ -1693,3 +1693,18 @@ Mitigation:
   - require no mutation on provider failure
   - preserve readiness wording until explicit gate upgrade
   - keep packaging and bridge expansion blocked
+
+## 2026-05-04 Update - Provider Stability PASS Follow-up Risks
+
+- Current risk:
+  - provider `PASS` may be mistaken as automatic daily-use readiness
+  - live-provider proof covers a stability sample, not a long-term SLA
+  - UX/localization/full Agent IDE maturity still require reconciliation
+  - packaging too early remains blocked
+  - enterprise-grade security remains unproven
+- Mitigation:
+  - record provider `PASS` separately from readiness upgrade
+  - require rerun readiness reconciliation before readiness wording changes
+  - keep readiness `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY` until explicit gate
+  - keep no-packaging/no-bridge-expansion boundaries
+  - preserve secret-safe provider logging requirements

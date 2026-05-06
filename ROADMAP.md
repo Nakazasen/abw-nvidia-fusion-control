@@ -1624,3 +1624,13 @@ Each audit must check:
   - no bridge expansion (`bridge UI`, `sync`, `auto-promote`)
   - no ABW mutation
   - no daily-use-ready claim
+
+## 2026-05-04 Update - NVIDIA Live Provider Stability Proof Passed
+
+- NVIDIA Live Provider Stability Proof completed with `LIVE_PROVIDER_STABILITY_PASS`.
+- `3` consecutive `live:proof` runs passed `27/0`.
+- The previous provider blocker is resolved for reconciliation input.
+- Readiness remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY` until a new reconciliation gate.
+- Next step is rerun readiness reconciliation.
+- Packaging remains blocked.
+- Bridge expansion remains blocked (`bridge UI`, `sync`, `auto-promote`).

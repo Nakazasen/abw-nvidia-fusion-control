@@ -2181,3 +2181,49 @@ Consequence:
 - Does not claim full bridge.
 - Does not claim Cognitive OS achieved.
 - Does not claim enterprise-grade security.
+
+## DECISION: Record NVIDIA live provider stability PASS and rerun readiness reconciliation
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- The previous readiness reconciliation held because fresh live-provider stability evidence was missing.
+- A new live-provider proof was run with secret-safe logging.
+
+### Decision
+
+- Accept `LIVE_PROVIDER_STABILITY_PASS` as new evidence and rerun readiness reconciliation.
+- Do not upgrade readiness automatically.
+
+### Evidence
+
+- `live:proof` run 1: `LIVE_PROVIDER_CREATE_APPLY_PASS`, `27/0`
+- `live:proof` run 2: `LIVE_PROVIDER_CREATE_APPLY_PASS`, `27/0`
+- `live:proof` run 3: `LIVE_PROVIDER_CREATE_APPLY_PASS`, `27/0`
+- `NVIDIA_TEST_CHAT_FIXTURE` not set
+- key not printed
+- no fake success detected
+- regressions passed after provider checks
+- secret scan found no literal key
+- `.env` ignored and not staged
+- mojibake scan clean
+
+### Consequences
+
+- Fresh provider stability blocker is resolved for the next reconciliation.
+- Readiness remains not upgraded until reconciliation explicitly changes it.
+- Daily-use-ready claim remains forbidden until explicit gate.
+- Packaging remains blocked.
+- Bridge UI/sync/auto-promote remain blocked.
+- ABW mutation remains forbidden.
+
+### Non-goals
+
+- Does not claim daily-use-ready.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not start packaging.
