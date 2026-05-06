@@ -1660,3 +1660,14 @@ Each audit must check:
   - `LIVE_PROVIDER_STABILITY_PASS`
   - regression/smoke/bridge evidence strong
 - Next step is gate review / next-scope planning, likely UI daily-use polish/error recovery or runtime hygiene/security follow-up.
+
+## 2026-05-04 Update - Gate Selects NVIDIA UI Daily-Use Polish And Error Recovery
+
+- Latest gate verdict:
+  - `A. PROCEED_TO_UI_DAILY_USE_POLISH_AND_ERROR_RECOVERY`
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Next scope is NVIDIA-only UI daily-use polish/error recovery.
+- This is not a readiness upgrade.
+- Packaging, bridge UI, sync, auto-promote, and ABW mutation remain blocked.
+- `DAILY_USE_READY`, production-ready, full bridge, Cognitive OS, and enterprise security claims remain forbidden.

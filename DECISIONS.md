@@ -2266,3 +2266,39 @@ Consequence:
 - Does not claim VS Code/Cursor parity.
 - Does not mutate ABW.
 - Does not start packaging.
+
+## DECISION: Proceed to NVIDIA UI daily-use polish and error recovery
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After readiness was upgraded only to `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`, the gate reviewed the next highest-value risk.
+
+### Decision
+
+- Proceed next with a NVIDIA-only UI Daily-Use Polish and Error Recovery scope.
+
+### Rationale
+
+- Core mechanics, proof, soak, provider stability, and regression integrity are strong enough for the bounded candidate.
+- The biggest remaining blocker to broader practical use is UX/error recovery maturity: state clarity, approval/apply clarity, provider failure messaging, blocked-action explanations, next-action guidance, and Vietnamese workflow wording.
+
+### Consequences
+
+- Next Builder scope must be NVIDIA repo only.
+- The work may improve UI clarity and error recovery for existing bounded workflows.
+- It must not add bridge UI, sync, auto-promote, ABW mutation, packaging, or new readiness claims.
+- Current readiness remains `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+- `DAILY_USE_READY` remains forbidden.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.

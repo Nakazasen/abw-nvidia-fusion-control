@@ -4092,3 +4092,23 @@ Warning:
   - VS Code/Cursor parity
 - next:
   - record this upgrade, then run gate review / next-scope planning.
+
+## 2026-05-04 - Gate selects NVIDIA UI daily-use polish and error recovery
+
+- control head before record:
+  - `c6e1e86e1307bac262bec71a168868de3dff67c9`
+- NVIDIA head:
+  - `cce43f7193f8d92e6e98ca95537e5fc652386c17`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- gate verdict:
+  - `A. PROCEED_TO_UI_DAILY_USE_POLISH_AND_ERROR_RECOVERY`
+- accepted:
+  - bounded local workflow candidate evidence strong
+  - provider-backed execution no longer the main blocker
+- blocker:
+  - broader UX/polish/error-recovery maturity
+- next:
+  - record this gate, then create NVIDIA UI Daily-Use Polish and Error Recovery Builder prompt.

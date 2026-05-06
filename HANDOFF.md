@@ -989,3 +989,27 @@ Constraints for the next builder:
   - VS Code/Cursor parity
 - Next required action:
   - run gate review / next-scope planning before any Builder prompt
+
+## 2026-05-04 Status Update - Gate Selects NVIDIA UI Daily-Use Polish And Error Recovery
+
+- Latest gate verdict:
+  - `A. PROCEED_TO_UI_DAILY_USE_POLISH_AND_ERROR_RECOVERY`
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Latest accepted evidence:
+  - file-operation matrix complete
+  - `SOAK_AUDIT_PASS`
+  - `LIVE_PROVIDER_STABILITY_PASS`
+  - regression/smoke/bridge strong
+- Main remaining blocker:
+  - broader UX/polish/error-recovery maturity outside the bounded local file-workflow claim
+- Next allowed action:
+  - create NVIDIA UI Daily-Use Polish and Error Recovery Builder prompt
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - `DAILY_USE_READY` claim
+  - production/full bridge/Cognitive OS/security claims

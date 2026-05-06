@@ -1727,3 +1727,21 @@ Mitigation:
   - require future gate for bridge expansion
   - preserve approval/apply/trust/workspace boundaries
   - keep recording evidence in control repo before new claims
+
+## 2026-05-04 Update - UI Daily-Use Polish Scope Risks
+
+- Current risk:
+  - bounded candidate may be mistaken as `DAILY_USE_READY`
+  - users may misunderstand pending vs applied vs failed states
+  - provider failures may still confuse users despite provider proof pass
+  - blocked actions may lack actionable recovery guidance
+  - Vietnamese UX wording may remain incomplete
+  - UI polish may accidentally broaden capability if not scoped tightly
+  - bridge/packaging overreach risk remains
+- Mitigation:
+  - improve UI state labels and recovery guidance
+  - preserve bounded candidate wording
+  - add smoke/usability checks for pending/applied/blocked/failed states
+  - keep bridge UI/sync/auto-promote/ABW mutation/packaging forbidden
+  - require GPT audit before commit
+  - record no-readiness-upgrade boundary in control
