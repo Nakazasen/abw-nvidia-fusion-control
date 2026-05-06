@@ -4229,3 +4229,21 @@ Warning:
   - structured hands-on validation is now higher value than more code
 - next:
   - record this gate, then create User Manual Validation Guide prompt.
+
+## 2026-05-04 - Manual validation finds NVIDIA file workflow blockers
+
+- control head:
+  - `2c46e65878e5a04d578faeae208d71796856a32f`
+- NVIDIA head:
+  - `2547010cbabc069937f8ee3c4aced01400c7f1b7`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- result:
+  - `MANUAL_VALIDATION_FAIL`
+- findings:
+  - create flow `PARTIAL`
+  - edit/move/delete `BLOCKER`
+  - target path consistency `BLOCKER`
+  - failure honesty/no-fake-success `BLOCKER`
+- next:
+  - record this result, then create Builder prompt for reliability/honesty fix.

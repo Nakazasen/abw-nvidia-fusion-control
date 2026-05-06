@@ -1143,3 +1143,35 @@ Constraints for the next builder:
   - packaging
   - `DAILY_USE_READY` claim
   - production/full bridge/Cognitive OS/security claims
+
+## 2026-05-04 Status Update - NVIDIA Manual Validation Fail With File Workflow Blockers
+
+- Latest manual validation result:
+  - `MANUAL_VALIDATION_FAIL`
+- Main blockers:
+  - path resolution
+  - edit/move/delete reliability
+  - honest failure reporting
+- Recorded blocker details:
+  - create-file flow `PARTIAL`
+  - edit/move/delete flow `BLOCKER`
+  - target path consistency `BLOCKER`
+  - failure honesty / no-fake-success messaging `BLOCKER`
+- Example path mismatch:
+  - requested `proof/edit_target.py`
+  - system may create/write `edit_target.py` at repo root
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS` with manual validation blockers recorded
+- Next required action:
+  - create NVIDIA Path Resolution + Operation Reliability + Honest Failure Reporting Fix Builder prompt
+- Still forbidden:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation

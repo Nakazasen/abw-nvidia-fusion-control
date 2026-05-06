@@ -2503,3 +2503,45 @@ Consequence:
 - Does not implement packaging.
 - Does not mutate ABW.
 - Does not add new NVIDIA product capability.
+
+## DECISION: Hold after manual validation blockers in NVIDIA file workflow
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- Manual validation revealed practical blockers despite prior automated proof/smoke evidence.
+
+### Decision
+
+- Do not proceed with localization or generic polish.
+- Proceed next with fixing path resolution, operation reliability, and honest failure reporting.
+
+### Evidence
+
+- create-file flow: `PARTIAL`
+- edit/move/delete flow: `BLOCKER`
+- target path consistency: `BLOCKER`
+- failure honesty / no-fake-success messaging: `BLOCKER`
+- example:
+  - requested `proof/edit_target.py`
+  - system may write `edit_target.py` at root
+
+### Consequences
+
+- Manual validation result is `MANUAL_VALIDATION_FAIL`.
+- Current practical confidence is blocked.
+- Next Builder must target reliability and honesty, not polish.
+- `DAILY_USE_READY` remains forbidden.
+- Packaging and bridge expansion remain blocked.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.

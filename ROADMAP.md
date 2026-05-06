@@ -1723,3 +1723,29 @@ Each audit must check:
   - full bridge
   - Cognitive OS achieved
   - enterprise-grade security
+
+## 2026-05-04 Update - NVIDIA Manual Validation Fails On File Workflow Blockers
+
+- Manual validation result:
+  - `MANUAL_VALIDATION_FAIL`
+- Current readiness remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Practical manual workflow confidence is not yet clean.
+- Blockers recorded:
+  - create-file flow `PARTIAL`
+  - edit/move/delete flow `BLOCKER`
+  - target path consistency `BLOCKER`
+  - failure honesty / no-fake-success wording `BLOCKER`
+- Example path-resolution failure:
+  - user requested `proof/edit_target.py`
+  - system may create/write `edit_target.py` at repo root
+- Next scope:
+  - NVIDIA Path Resolution + Operation Reliability + Honest Failure Reporting Fix
+  - `PATH_RESOLUTION_OPERATION_RELIABILITY_HONEST_FAILURE_FIX`
+- Do not prioritize next:
+  - Vietnamese localization first
+  - generic UI polish
+  - packaging
+  - bridge expansion
+  - ABW mutation
+- `DAILY_USE_READY` remains forbidden.

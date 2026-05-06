@@ -1811,3 +1811,18 @@ Mitigation:
   - preserve bounded candidate wording
   - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden
   - require gate review after manual validation results
+
+## 2026-05-04 Update - Manual Validation File Workflow Blocker Risks
+
+- Current risk:
+  - wrong target path may mutate/create the wrong file
+  - success-like wording may mislead user into trusting failed operations
+  - edit/move/delete instability blocks practical use
+  - automated proof may not cover real manual prompt/path behavior
+  - localization-first would hide reliability defects instead of fixing them
+- Mitigation:
+  - add exact manual regression tests for requested path vs actual path
+  - require target path echo/confirmation before pending/apply
+  - require no success wording unless pending/apply evidence exists
+  - require edit/move/delete manual-flow proof after fix
+  - keep `DAILY_USE_READY` forbidden
