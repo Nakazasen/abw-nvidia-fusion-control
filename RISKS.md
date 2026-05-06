@@ -1761,3 +1761,21 @@ Mitigation:
   - keep recent-action summary described as bounded/non-persistent if applicable
   - require gate review before next scope
   - keep ABW/bridge/packaging blocked unless explicitly scoped
+
+## 2026-05-04 Update - UI Polish Round 2 Manual Findings Scope Risks
+
+- Current risk:
+  - bounded candidate may be mistaken as `DAILY_USE_READY`
+  - concrete UX friction may reduce practical usability despite strong proof evidence
+  - hidden/obscured UI areas may cause users to miss important actions
+  - unclear buttons may cause wrong workflow usage
+  - incomplete Vietnamese localization may increase user error
+  - UI polish may accidentally broaden capability if not scoped tightly
+  - bridge/packaging overreach risk remains
+- Mitigation:
+  - scope UI round 2 only to concrete manual findings
+  - add/extend smoke/usability checks for visibility, button discoverability, and wording
+  - keep bounded candidate wording unchanged
+  - keep bridge UI/sync/auto-promote/ABW mutation/packaging forbidden
+  - require GPT audit before commit
+  - record no-readiness-upgrade boundary in control

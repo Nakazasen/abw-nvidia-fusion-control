@@ -1046,3 +1046,32 @@ Constraints for the next builder:
   - sync
   - auto-promote
   - ABW mutation
+
+## 2026-05-04 Status Update - Gate Selects NVIDIA UI Polish Round 2 Manual Findings
+
+- Latest gate verdict:
+  - `E. PROCEED_TO_NVIDIA_UI_POLISH_ROUND_2_MANUAL_FINDINGS`
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Latest completed scope:
+  - NVIDIA UI Daily-Use Polish and Error Recovery
+- New manual findings:
+  - hidden/obscured UI areas
+  - buttons not friendly enough
+  - UX not smooth enough
+  - Vietnamese localization still incomplete
+- Main next scope:
+  - NVIDIA UI Polish Round 2 based on manual findings
+- Next allowed action:
+  - create NVIDIA UI Polish Round 2 Manual Findings Builder prompt.
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - `DAILY_USE_READY` claim
+  - production-ready claim
+  - full bridge claim
+  - Cognitive OS achieved claim
+  - enterprise-grade security claim

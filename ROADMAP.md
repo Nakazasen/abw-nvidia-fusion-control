@@ -1681,3 +1681,19 @@ Each audit must check:
 - It does not upgrade readiness wording.
 - Next step is gate review / next-scope planning.
 - Packaging and bridge expansion remain blocked.
+
+## 2026-05-04 Update - Gate Selects NVIDIA UI Polish Round 2 From Manual Findings
+
+- Latest gate verdict:
+  - `E. PROCEED_TO_NVIDIA_UI_POLISH_ROUND_2_MANUAL_FINDINGS`
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Next scope is NVIDIA-only UI Polish Round 2 based on concrete manual findings.
+- This is not generic polish and not a readiness upgrade.
+- Packaging, bridge UI, sync, auto-promote, and ABW mutation remain blocked.
+- Forbidden claims remain:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security

@@ -2362,3 +2362,46 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not implement packaging.
 - Does not mutate ABW.
+
+## DECISION: Proceed to NVIDIA UI polish round 2 from manual findings
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After NVIDIA UI Daily-Use Polish and Error Recovery completion, the gate reviewed next scope.
+- User manual findings identified concrete UX issues:
+  - hidden/obscured UI areas
+  - buttons not friendly enough
+  - UX not smooth enough
+  - incomplete Vietnamese localization
+
+### Decision
+
+- Proceed next with a NVIDIA-only UI Polish Round 2 based on manual findings.
+
+### Rationale
+
+- The current blocker is not core mechanics or provider stability.
+- The bounded local workflow candidate has strong proof, soak, provider, and regression evidence.
+- The highest-value next risk is concrete user-observed UX friction that affects practical use.
+
+### Consequences
+
+- Next Builder scope must be NVIDIA repo only.
+- The work must target concrete manual findings.
+- The work may improve layout, visibility, buttons, Vietnamese wording, and usability checks.
+- It must not add bridge UI, sync, auto-promote, ABW mutation, packaging, or new readiness claims.
+- Current readiness remains `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+- `DAILY_USE_READY` remains forbidden.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.

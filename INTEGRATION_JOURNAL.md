@@ -4158,3 +4158,24 @@ Warning:
   - broader UX/polish/error-recovery maturity
 - next:
   - record this gate, then create NVIDIA UI Daily-Use Polish and Error Recovery Builder prompt.
+
+## 2026-05-04 - Gate selects NVIDIA UI polish round 2 from manual findings
+
+- control head before record:
+  - `04450daecd456401ac69f9670561dae42892ab68`
+- NVIDIA head:
+  - `63bbbfd56e130c54fb4d21a471f1f9894f9deab5`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- gate verdict:
+  - `E. PROCEED_TO_NVIDIA_UI_POLISH_ROUND_2_MANUAL_FINDINGS`
+- accepted:
+  - bounded local workflow candidate evidence remains strong
+  - previous UI polish/error recovery completed
+  - new manual findings are concrete and actionable
+- blocker:
+  - user-observed UX friction and incomplete Vietnamese localization
+- next:
+  - record this gate, then create NVIDIA UI Polish Round 2 Manual Findings Builder prompt.
