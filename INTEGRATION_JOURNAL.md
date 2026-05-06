@@ -4247,3 +4247,40 @@ Warning:
   - failure honesty/no-fake-success `BLOCKER`
 - next:
   - record this result, then create Builder prompt for reliability/honesty fix.
+
+## 2026-05-04 - NVIDIA path resolution and honest failure fix completed
+
+- NVIDIA commit:
+  - `d7f9fa2a12e0d41506e225df6e825645c51169b9`
+- commit message:
+  - `fix: harden NVIDIA path resolution and honest failure handling`
+- push result:
+  - `2547010..d7f9fa2 main -> main`
+- files changed:
+  - `package.json`
+  - `tests/manual-reliability-regression.test.mjs`
+  - `tools/agent-core.mjs`
+  - `tools/nvidia-server.mjs`
+- audit verdict:
+  - `AUDIT_FIXED_READY_FOR_COMMIT`
+- accepted:
+  - explicit nested paths preserved
+  - root fallback no longer overrides explicit path
+  - `TARGET_PATH_MISMATCH` blocks wrong-target mutation
+  - final response is evidence-based `Pending`/`Applied`/`Blocked`/`Failed`
+  - `manual:reliability` PASS `41/41`
+  - `move:proof` PASS `71/71`
+  - `multi:proof` PASS `34/34`
+  - in-scope mojibake/secret/overclaim checks clean
+- out-of-scope:
+  - `nvidia_playground.html` remains modified and unstaged in NVIDIA
+  - `docs/fix-proposal.md` remains untracked and unstaged in NVIDIA
+- not accepted:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+- next:
+  - run gate review / next-scope planning or rerun manual validation for fixed blockers

@@ -2545,3 +2545,62 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not implement packaging.
 - Does not mutate ABW.
+
+## DECISION: Record NVIDIA path resolution and honest failure fix completion
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- Manual validation previously found blockers: create flow partial, edit/move/delete blocker, target path consistency blocker, and failure honesty/no-fake-success blocker.
+
+### Decision
+
+- Accept completion of NVIDIA Path Resolution + Operation Reliability + Honest Failure Reporting Fix.
+
+### Evidence
+
+- NVIDIA commit:
+  - `d7f9fa2a12e0d41506e225df6e825645c51169b9`
+- commit message:
+  - `fix: harden NVIDIA path resolution and honest failure handling`
+- changed files:
+  - `package.json`
+  - `tests/manual-reliability-regression.test.mjs`
+  - `tools/agent-core.mjs`
+  - `tools/nvidia-server.mjs`
+- validation:
+  - `git diff --check` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tools/agent-core.mjs` PASS
+  - `node --check tests/manual-reliability-regression.test.mjs` PASS
+  - `manual:reliability` PASS `41/41`
+  - `move:proof` PASS `71/71`
+  - `multi:proof` PASS `34/34`
+- boundary:
+  - no bridge UI
+  - no sync
+  - no auto-promote
+  - no ABW mutation
+  - no packaging
+  - no `DAILY_USE_READY` claim
+
+### Consequences
+
+- The previously recorded manual-validation blockers have corresponding code fixes and regression evidence.
+- Manual validation confidence must be rechecked before any stronger claim.
+- Current readiness remains `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+- `DAILY_USE_READY` remains forbidden.
+- Production/full bridge/Cognitive OS/security/packaging claims remain forbidden.
+- Next step must be gate review / next-scope planning.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.

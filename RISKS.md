@@ -1826,3 +1826,18 @@ Mitigation:
   - require no success wording unless pending/apply evidence exists
   - require edit/move/delete manual-flow proof after fix
   - keep `DAILY_USE_READY` forbidden
+
+## 2026-05-04 Update - Post-Fix Revalidation And Scope Control Risks
+
+- Current risk:
+  - manual validation blockers may be considered fixed without rerun validation
+  - out-of-scope NVIDIA dirty files may be accidentally committed later
+  - mojibake-style prompt tolerance may hide encoding issues if overused
+  - provider/key availability was not proven in this commit step
+  - full manual workflow still requires revalidation after fix
+- Mitigation:
+  - require gate review before next scope
+  - likely rerun targeted manual validation for path/reliability/honesty
+  - keep `nvidia_playground.html` and `docs/fix-proposal.md` out-of-scope unless separately reviewed
+  - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden
+  - preserve exact-path regression tests

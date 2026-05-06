@@ -1749,3 +1749,15 @@ Each audit must check:
   - bridge expansion
   - ABW mutation
 - `DAILY_USE_READY` remains forbidden.
+
+## 2026-05-04 Update - NVIDIA Path Resolution + Operation Reliability + Honest Failure Reporting Fix Completed
+
+- NVIDIA Path Resolution + Operation Reliability + Honest Failure Reporting Fix is completed and pushed.
+- This directly addresses manual-validation blockers:
+  - path drift
+  - edit/move/delete reliability
+  - no-fake-success
+- Current readiness remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Manual validation should be rerun or gate-reviewed before any stronger claim.
+- Packaging and bridge expansion remain blocked.

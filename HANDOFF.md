@@ -1175,3 +1175,37 @@ Constraints for the next builder:
   - sync
   - auto-promote
   - ABW mutation
+
+## 2026-05-04 Status Update - NVIDIA Path Resolution + Operation Reliability + Honest Failure Reporting Fix Completed
+
+- Latest NVIDIA commit:
+  - `d7f9fa2a12e0d41506e225df6e825645c51169b9`
+- Latest completed scope:
+  - NVIDIA Path Resolution + Operation Reliability + Honest Failure Reporting Fix
+- Audit verdict:
+  - `AUDIT_FIXED_READY_FOR_COMMIT`
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS` with manual-validation blockers now fixed in code and requiring revalidation
+- What improved:
+  - explicit path preservation
+  - root fallback prevention
+  - target mismatch blocking
+  - honest failure reporting
+  - exact-path create/edit/delete/move regression coverage
+  - mojibake-style Vietnamese intent handling
+- Current out-of-scope NVIDIA dirty files:
+  - `nvidia_playground.html`
+  - `docs/fix-proposal.md`
+- Next required action:
+  - run gate review / next-scope planning before any Builder prompt
+- Still forbidden:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
