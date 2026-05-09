@@ -1874,3 +1874,19 @@ Mitigation:
   - block pending creation when selected target differs from explicit path
   - require `TARGET_PATH_MISMATCH` for root fallback selection
   - rerun targeted manual revalidation after fix
+
+## 2026-05-04 Update - Post-Fix Retest Control Risks
+
+- Current risk:
+  - code-level fix may be mistaken as manual revalidation closure
+  - targeted manual revalidation still needs rerun
+  - out-of-scope NVIDIA dirty files may be accidentally committed later
+  - wrong-target pending risk should remain monitored until manual retest passes
+  - provider proof was unavailable in this commit step due missing `NVIDIA_API_KEY`
+  - packaging and bridge expansion remain blocked
+- Mitigation:
+  - require gate review before next scope
+  - rerun targeted manual revalidation before closing blocker
+  - keep `nvidia_playground.html`, `docs/fix-proposal.md`, and `proof/` out-of-scope unless separately reviewed
+  - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden
+  - preserve exact failing prompt regression

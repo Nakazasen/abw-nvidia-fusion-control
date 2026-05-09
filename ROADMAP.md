@@ -1810,3 +1810,14 @@ Each audit must check:
   - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS` with manual revalidation blocker still open
 - No readiness upgrade is allowed.
 - `DAILY_USE_READY` and production/full bridge/Cognitive OS/security/packaging claims remain forbidden.
+
+
+## 2026-05-04 Update - NVIDIA Explicit Path Precedence + Target Mismatch Fix Completed
+
+- NVIDIA Explicit Path Precedence + Target Mismatch Fix is completed and pushed.
+- This directly addresses targeted manual revalidation Test 6 blocker.
+- Current readiness remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Targeted manual revalidation should be rerun before closing the blocker.
+- Packaging and bridge expansion remain blocked.
+- No readiness upgrade is allowed.

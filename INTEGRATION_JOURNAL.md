@@ -4322,3 +4322,39 @@ Warning:
   - prompt with explicit path plus fallback root filename creates pending for root `edit_target.py`
 - next:
   - record this result, then create focused NVIDIA Builder prompt for explicit-path precedence and target mismatch fix
+
+## 2026-05-04 - NVIDIA explicit path precedence target mismatch fix completed
+
+- NVIDIA commit:
+  - `5496d28e82b8ec8a66685470b6c9d8fd99c135e4`
+- commit message:
+  - `fix: enforce NVIDIA explicit path precedence`
+- push result:
+  - `d7f9fa2..5496d28 HEAD -> main`
+- files changed:
+  - `tools/nvidia-server.mjs`
+  - `tests/manual-reliability-regression.test.mjs`
+- audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- accepted:
+  - exact failing prompt now covered by regression
+  - nested explicit path dominates basename-only fallback
+  - root `edit_target.py` pending is blocked
+  - `TARGET_PATH_MISMATCH` emitted
+  - no fake success wording
+  - `manual:reliability` PASS `51/51`
+  - `browser:smoke` PASS `117/0`
+  - in-scope secret/mojibake/overclaim checks clean
+- out-of-scope:
+  - `nvidia_playground.html` remains modified and unstaged in NVIDIA
+  - `docs/fix-proposal.md` remains untracked and unstaged in NVIDIA
+  - `proof/` remains untracked and unstaged in NVIDIA
+- not accepted:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+- next:
+  - run gate review / next-scope planning; targeted manual revalidation rerun remains appropriate

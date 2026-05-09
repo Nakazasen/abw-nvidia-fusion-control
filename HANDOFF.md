@@ -1272,3 +1272,40 @@ Constraints for the next builder:
   - sync
   - auto-promote
   - ABW mutation
+
+
+## 2026-05-04 Status Update - NVIDIA Explicit Path Precedence + Target Mismatch Fix Completed
+
+- Latest NVIDIA commit:
+  - `5496d28e82b8ec8a66685470b6c9d8fd99c135e4`
+- Latest completed scope:
+  - NVIDIA Explicit Path Precedence + Target Mismatch Fix
+- Audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS` with manual revalidation retest still required
+- What improved:
+  - explicit nested path precedence
+  - root fallback prevention
+  - `TARGET_PATH_MISMATCH` for wrong root fallback
+  - no fake success on wrong target
+  - exact failing prompt regression
+- Current out-of-scope NVIDIA dirty files:
+  - `nvidia_playground.html`
+  - `docs/fix-proposal.md`
+  - `proof/`
+- Next required action:
+  - run gate review / next-scope planning before any Builder prompt
+- Likely next action:
+  - rerun targeted manual revalidation for the fixed blocker
+- Still forbidden:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation

@@ -2685,3 +2685,61 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not implement packaging.
 - Does not mutate ABW.
+
+
+## DECISION: Record NVIDIA explicit path precedence fix completion
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- Targeted manual revalidation failed Test 6 because a prompt with explicit nested path plus fallback root filename created pending operation for the root file.
+
+### Decision
+
+- Accept completion of NVIDIA Explicit Path Precedence + Target Mismatch Fix at code/regression level.
+
+### Evidence
+
+- NVIDIA commit:
+  - `5496d28e82b8ec8a66685470b6c9d8fd99c135e4`
+- commit message:
+  - `fix: enforce NVIDIA explicit path precedence`
+- exact failing prompt:
+  - `Sửa file proof/manual-revalidation/edit_target.py nhưng nếu không thấy thì tạo edit_target.py`
+- changed files:
+  - `tools/nvidia-server.mjs`
+  - `tests/manual-reliability-regression.test.mjs`
+- validation:
+  - `git diff --check` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tests/manual-reliability-regression.test.mjs` PASS
+  - `manual:reliability` PASS `51/51`
+  - `browser:smoke` PASS `117/0`
+- boundary:
+  - no bridge UI
+  - no sync
+  - no auto-promote
+  - no ABW mutation
+  - no packaging
+  - no `DAILY_USE_READY` claim
+
+### Consequences
+
+- The remaining blocker has a code-level fix and regression evidence.
+- Targeted manual revalidation must be rerun before closing manual validation.
+- Current readiness remains `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+- `DAILY_USE_READY` remains forbidden.
+- Production/full bridge/Cognitive OS/security/packaging claims remain forbidden.
+- Next step must be gate review / next-scope planning.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.
