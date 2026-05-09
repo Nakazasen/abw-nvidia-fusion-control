@@ -1859,3 +1859,18 @@ Mitigation:
     - `MANUAL_REVALIDATION_PASS`
     - `MANUAL_REVALIDATION_PARTIAL`
     - `MANUAL_REVALIDATION_FAIL`
+
+## 2026-05-04 Update - Remaining Explicit Path Precedence Risk
+
+- Current risk:
+  - explicit path plus fallback root filename may create pending operation for wrong root target
+  - user may apply wrong-target pending operation
+  - automated `manual:reliability` did not cover the exact mixed explicit-path/fallback-root prompt
+  - code-level pass can hide manual prompt ambiguity
+  - wrong-target pending is still dangerous even before disk mutation
+- Mitigation:
+  - require explicit-path precedence over fallback names
+  - add exact regression for the failing prompt
+  - block pending creation when selected target differs from explicit path
+  - require `TARGET_PATH_MISMATCH` for root fallback selection
+  - rerun targeted manual revalidation after fix

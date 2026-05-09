@@ -1790,3 +1790,23 @@ Each audit must check:
   - no fake success
   - failure honesty
 - `DAILY_USE_READY` and production/full bridge/Cognitive OS/security/packaging claims remain forbidden.
+
+## 2026-05-04 Update - Targeted Manual Revalidation Finds Remaining Target Mismatch Blocker
+
+- Targeted manual revalidation result:
+  - `MANUAL_REVALIDATION_FAIL`
+- Current blocker:
+  - explicit path + fallback root filename still creates pending for root target
+- Exact failing prompt:
+  - `Sửa file proof/manual-revalidation/edit_target.py nhưng nếu không thấy thì tạo edit_target.py`
+- Observed:
+  - pending was created for root `edit_target.py`
+  - explicit path `proof/manual-revalidation/edit_target.py` did not dominate
+  - root file was not written yet only because apply was not executed
+- Next scope:
+  - NVIDIA Explicit Path Precedence + Target Mismatch Fix
+  - `EXPLICIT_PATH_PRECEDENCE_TARGET_MISMATCH_FIX`
+- Current readiness remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS` with manual revalidation blocker still open
+- No readiness upgrade is allowed.
+- `DAILY_USE_READY` and production/full bridge/Cognitive OS/security/packaging claims remain forbidden.

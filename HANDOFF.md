@@ -1238,3 +1238,37 @@ Constraints for the next builder:
   - full bridge claim
   - Cognitive OS achieved claim
   - enterprise-grade security claim
+
+## 2026-05-04 Status Update - Targeted Manual Revalidation Finds Remaining Target Mismatch Blocker
+
+- Latest result:
+  - `MANUAL_REVALIDATION_FAIL`
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS` with manual revalidation blocker still open
+- Passed:
+  - create explicit nested path
+  - edit exact path
+  - delete exact path
+  - move/rename exact path
+  - traversal blocked
+  - impossible-file honest behavior
+- Failed `BLOCKER`:
+  - target mismatch / fallback root path case
+- Exact failing prompt:
+  - `Sửa file proof/manual-revalidation/edit_target.py nhưng nếu không thấy thì tạo edit_target.py`
+- Next required action:
+  - create NVIDIA Explicit Path Precedence + Target Mismatch Fix Builder prompt
+- Known out-of-scope NVIDIA dirty files:
+  - `nvidia_playground.html`
+  - `docs/fix-proposal.md`
+- Still forbidden:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation

@@ -4303,3 +4303,22 @@ Warning:
   - blocker originated from manual validation, so closure requires manual revalidation
 - next:
   - record this gate, then create targeted manual revalidation prompt
+
+## 2026-05-04 - Targeted manual revalidation finds remaining NVIDIA target mismatch blocker
+
+- control head:
+  - `71632a66875cf9544a734f31cd62aa8dd921dcf0`
+- NVIDIA head:
+  - `d7f9fa2a12e0d41506e225df6e825645c51169b9`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- result:
+  - `MANUAL_REVALIDATION_FAIL`
+- pass:
+  - Tests 1, 2, 3, 4, 5, 7
+- fail:
+  - Test 6 `BLOCKER`
+- blocker:
+  - prompt with explicit path plus fallback root filename creates pending for root `edit_target.py`
+- next:
+  - record this result, then create focused NVIDIA Builder prompt for explicit-path precedence and target mismatch fix

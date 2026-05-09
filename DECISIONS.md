@@ -2402,6 +2402,48 @@ Consequence:
 - Does not mutate ABW.
 - Does not start a new code sprint.
 
+## DECISION: Hold after targeted manual revalidation finds remaining target mismatch blocker
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After NVIDIA path reliability fix, targeted manual revalidation was run for the exact blocker class.
+
+### Decision
+
+- Record `MANUAL_REVALIDATION_FAIL` and proceed next with a focused NVIDIA explicit-path precedence and target-mismatch fix.
+
+### Evidence
+
+- Tests 1, 2, 3, 4, 5, and 7 passed.
+- Test 6 failed as `BLOCKER`.
+- Prompt:
+  - `Sửa file proof/manual-revalidation/edit_target.py nhưng nếu không thấy thì tạo edit_target.py`
+- Observed:
+  - pending operation created for root `edit_target.py` instead of explicit `proof/manual-revalidation/edit_target.py`
+- Risk:
+  - user could apply the wrong root target.
+
+### Consequences
+
+- The blocker is not closed.
+- Runtime/security follow-up remains blocked until this targeted blocker is fixed or explicitly deferred by gate.
+- `DAILY_USE_READY` remains forbidden.
+- Next Builder must target explicit-path precedence and target mismatch protection.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not perform generic UI polish.
+
 ## DECISION: Proceed to NVIDIA UI polish round 2 from manual findings
 
 - Status: Accepted
