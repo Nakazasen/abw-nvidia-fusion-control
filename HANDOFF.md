@@ -1209,3 +1209,32 @@ Constraints for the next builder:
   - sync
   - auto-promote
   - ABW mutation
+
+## 2026-05-04 Status Update - Gate Selects Targeted Manual Revalidation For Path Reliability Fix
+
+- Latest gate verdict:
+  - `A. PROCEED_TO_TARGETED_MANUAL_REVALIDATION_FOR_PATH_RELIABILITY_FIX`
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Latest completed NVIDIA scope:
+  - Path Resolution + Operation Reliability + Honest Failure Reporting Fix
+- Accepted:
+  - code-level fix and regression evidence
+- Not proven:
+  - targeted manual revalidation `PASS`
+- Known out-of-scope NVIDIA dirty files:
+  - `nvidia_playground.html`
+  - `docs/fix-proposal.md`
+- Next allowed action:
+  - create targeted manual revalidation prompt
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - `DAILY_USE_READY` claim
+  - production-ready claim
+  - full bridge claim
+  - Cognitive OS achieved claim
+  - enterprise-grade security claim

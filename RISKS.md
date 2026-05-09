@@ -1841,3 +1841,21 @@ Mitigation:
   - keep `nvidia_playground.html` and `docs/fix-proposal.md` out-of-scope unless separately reviewed
   - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden
   - preserve exact-path regression tests
+
+## 2026-05-04 Update - Targeted Manual Revalidation Gate Risks
+
+- Current risk:
+  - code-level fix may be mistaken as manual validation closure
+  - real manual prompt flow may still expose path/reliability issues
+  - out-of-scope NVIDIA dirty files may be accidentally staged later
+  - moving to runtime/security before revalidation could leave user-observed blocker unresolved
+  - overclaim risk remains high if bounded wording is loosened
+- Mitigation:
+  - require targeted manual revalidation before closing blocker
+  - test exact prompts/cases that previously failed
+  - keep out-of-scope dirty files excluded
+  - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden
+  - require result classification:
+    - `MANUAL_REVALIDATION_PASS`
+    - `MANUAL_REVALIDATION_PARTIAL`
+    - `MANUAL_REVALIDATION_FAIL`

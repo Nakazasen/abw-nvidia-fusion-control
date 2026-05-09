@@ -4284,3 +4284,22 @@ Warning:
   - packaging-ready
 - next:
   - run gate review / next-scope planning or rerun manual validation for fixed blockers
+
+## 2026-05-04 - Gate selects targeted manual revalidation after NVIDIA path reliability fix
+
+- control head:
+  - `77ef2fa54868392632892c66c39c33bade9dcefa`
+- NVIDIA head:
+  - `d7f9fa2a12e0d41506e225df6e825645c51169b9`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- verdict:
+  - `A. PROCEED_TO_TARGETED_MANUAL_REVALIDATION_FOR_PATH_RELIABILITY_FIX`
+- accepted:
+  - code-level fix and automated regression evidence
+- not proven:
+  - targeted manual revalidation `PASS`
+- rationale:
+  - blocker originated from manual validation, so closure requires manual revalidation
+- next:
+  - record this gate, then create targeted manual revalidation prompt

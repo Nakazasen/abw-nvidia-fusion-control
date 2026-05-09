@@ -1761,3 +1761,32 @@ Each audit must check:
   - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Manual validation should be rerun or gate-reviewed before any stronger claim.
 - Packaging and bridge expansion remain blocked.
+
+## 2026-05-04 Update - Gate Selects Targeted Manual Revalidation For NVIDIA Path Reliability Fix
+
+- Latest gate verdict:
+  - `A. PROCEED_TO_TARGETED_MANUAL_REVALIDATION_FOR_PATH_RELIABILITY_FIX`
+- Latest NVIDIA path reliability fix is accepted at code/test level.
+- Current readiness remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Manual revalidation `PASS` is not yet proven.
+- Accepted evidence includes:
+  - explicit workspace-relative nested paths such as `proof/edit_target.py` are preserved
+  - root fallback no longer overrides explicit path
+  - `TARGET_PATH_MISMATCH` blocks wrong-target mutation
+  - final response is evidence-based `Pending` / `Applied` / `Blocked` / `Failed`
+  - exact-path create/edit/delete/move regressions are covered and passing
+  - fuzzy Vietnamese intent handling added for mojibake-style prompts such as `S?a ...`, `??i ten`, `Di chuy?n`
+  - `manual:reliability` PASS `41/41`
+  - `move:proof` PASS `71/71`
+  - `multi:proof` PASS `34/34`
+- Next scope is targeted manual revalidation, not a code Builder prompt.
+- Targeted revalidation scope:
+  - explicit path preservation
+  - edit exact path
+  - delete exact path
+  - move/rename exact path
+  - no root fallback
+  - no fake success
+  - failure honesty
+- `DAILY_USE_READY` and production/full bridge/Cognitive OS/security/packaging claims remain forbidden.

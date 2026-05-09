@@ -2363,6 +2363,45 @@ Consequence:
 - Does not implement packaging.
 - Does not mutate ABW.
 
+## DECISION: Proceed to targeted manual revalidation for NVIDIA path reliability fix
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- Manual validation previously found blockers in path resolution, edit/move/delete reliability, and honest failure reporting.
+- NVIDIA has now completed a code-level fix with regression evidence.
+
+### Decision
+
+- Proceed next with targeted manual revalidation for the fixed blocker class.
+
+### Rationale
+
+- Because the blocker came from manual validation, closure requires manual revalidation.
+- Automated tests and proofs are strong but cannot alone prove the real user failure cases are resolved.
+- A full manual rerun is broader than necessary; targeted retest is sufficient for this gate.
+
+### Consequences
+
+- Next prompt should be targeted manual revalidation, not a Builder prompt.
+- Current readiness remains `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+- Manual revalidation `PASS` is still not proven.
+- Runtime/security follow-up waits until targeted revalidation result is recorded.
+- `DAILY_USE_READY` remains forbidden.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not start a new code sprint.
+
 ## DECISION: Proceed to NVIDIA UI polish round 2 from manual findings
 
 - Status: Accepted
