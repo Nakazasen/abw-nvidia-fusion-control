@@ -1921,3 +1921,16 @@ Each audit must check:
 - readiness remains:
   - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - no readiness upgrade
+
+## 2026-05-04 Update - NVIDIA Move/Rename Operation Contract + Honest Failure Outcome Fix Completed
+
+- NVIDIA Move/Rename Operation Contract + Honest Failure Outcome Fix is completed and pushed.
+- This directly addresses:
+  - `TARGET_OPERATION_MISMATCH` on valid rename
+  - vague `missing_write_file` / Test 6 outcome
+  - outside-workspace tool-intent final text
+- Current readiness remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Manual/path revalidation should be rerun before closing the blocker.
+- Packaging and bridge expansion remain blocked.
+- No readiness upgrade is allowed.

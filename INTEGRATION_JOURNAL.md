@@ -4526,3 +4526,45 @@ Warning:
   - `TARGET_OPERATION_MISMATCH` on valid `move_file` invocation
 - next:
   - record this result, then create Builder prompt for move/rename operation contract and honest failure outcome fix
+
+## 2026-05-04 - NVIDIA move rename operation contract and honest failure fix completed
+
+- NVIDIA commit:
+  - `e3afaacaf2cf1ba0c28e858d3688d281181c9c1f`
+- commit message:
+  - `fix: repair NVIDIA move rename operation contract`
+- push result:
+  - `8571bc2..e3afaac HEAD -> main`
+- files changed:
+  - `tools/nvidia-server.mjs`
+  - `tests/manual-reliability-regression.test.mjs`
+- audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- accepted:
+  - valid rename no longer produces `TARGET_OPERATION_MISMATCH`
+  - `move_file` is accepted for rename/move
+  - pending move/apply is created and verified
+  - no pre-apply mutation
+  - after apply source absent and target exists
+  - content preserved
+  - Test 6 now returns `TARGET_PATH_MISMATCH` / blocked exact-path outcome
+  - no root pending or root file
+  - outside-workspace impossible rename returns `BLOCKED_WORKSPACE_MISMATCH`
+  - no tool-intent final text
+  - no fake success
+  - no unexpected `execute_command`
+  - `manual:reliability` PASS `113/0`
+  - `browser:smoke` PASS `118/0`
+  - in-scope secret/mojibake/overclaim checks clean
+- out-of-scope:
+  - `nvidia_playground.html` remains modified and unstaged in NVIDIA
+  - `docs/fix-proposal.md` remains untracked and unstaged in NVIDIA
+- not accepted:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+- next:
+  - run gate review / next-scope planning; targeted manual revalidation rerun remains appropriate

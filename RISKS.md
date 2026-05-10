@@ -2010,3 +2010,19 @@ Mitigation:
   - require clear blocked/failure final response for impossible/outside path
   - rerun targeted manual validation after fix
   - keep readiness and production claims forbidden
+
+## 2026-05-04 Update - Move/Rename Operation Contract Fix Completion Follow-up Risks
+
+- Current risk:
+  - code-level operation contract fix may be mistaken as manual validation closure
+  - manual UI path still needs rerun on real user workflow
+  - out-of-scope NVIDIA dirty files may be accidentally committed later
+  - `nvidia_playground.html` remains dirty due intentional Vietnamese localization
+  - `docs/fix-proposal.md` remains untracked
+  - packaging and bridge expansion remain blocked
+- Mitigation:
+  - require gate review before next scope
+  - rerun targeted manual revalidation before closing blocker
+  - keep `nvidia_playground.html` and `docs/fix-proposal.md` out-of-scope unless separately reviewed
+  - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden
+  - preserve operation contract regression tests

@@ -3085,3 +3085,61 @@ Consequence:
 - Does not implement packaging.
 - Does not mutate ABW.
 - Does not perform generic UI polish.
+
+## DECISION: Record NVIDIA move rename operation contract fix completion
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- Manual path revalidation failed after workspace switch/path fixes because valid rename still failed with `TARGET_OPERATION_MISMATCH`, Test 6 did not return an acceptable outcome, and outside-workspace failure honesty remained insufficient.
+
+### Decision
+
+- Accept completion of NVIDIA Move/Rename Operation Contract + Honest Failure Outcome Fix at code/regression/smoke level.
+
+### Evidence
+
+- NVIDIA commit:
+  - `e3afaacaf2cf1ba0c28e858d3688d281181c9c1f`
+- commit message:
+  - `fix: repair NVIDIA move rename operation contract`
+- changed files:
+  - `tools/nvidia-server.mjs`
+  - `tests/manual-reliability-regression.test.mjs`
+- validation:
+  - `git diff --check` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tests/manual-reliability-regression.test.mjs` PASS
+  - `manual:reliability` PASS `113/0`
+  - `browser:smoke` PASS `118/0`
+- accepted behavior:
+  - valid rename uses `move_file` without `TARGET_OPERATION_MISMATCH`
+  - pending move/apply is created
+  - Test 6 returns `TARGET_PATH_MISMATCH` blocked exact-path outcome
+  - outside-workspace impossible rename returns `BLOCKED_WORKSPACE_MISMATCH`
+  - tool-intent final text suppressed
+  - no fake success
+  - no unexpected `execute_command`
+- boundary:
+  - no bridge UI, no sync, no auto-promote, no ABW mutation, no packaging, no `DAILY_USE_READY` claim
+
+### Consequences
+
+- The blocker has code/regression evidence.
+- Manual/path revalidation must be rerun before closing manual validation.
+- Current readiness remains `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+- `DAILY_USE_READY` remains forbidden.
+- Production/full bridge/Cognitive OS/security/packaging claims remain forbidden.
+- Next step must be gate review / next-scope planning.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.

@@ -1508,3 +1508,41 @@ Constraints for the next builder:
   - sync
   - auto-promote
   - ABW mutation
+
+## 2026-05-04 Status Update - NVIDIA Move/Rename Operation Contract + Honest Failure Outcome Fix Completed
+
+- Latest NVIDIA commit:
+  - `e3afaacaf2cf1ba0c28e858d3688d281181c9c1f`
+- Latest completed scope:
+  - NVIDIA Move/Rename Operation Contract + Honest Failure Outcome Fix
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS` with manual/path revalidation still required
+- What improved:
+  - `move_file` operation contract
+  - `TARGET_OPERATION_MISMATCH` removed for valid rename/move
+  - pending move/apply path
+  - Test 6 `TARGET_PATH_MISMATCH` blocked outcome
+  - outside-workspace honest blocked response
+  - no tool-intent final text
+  - no fake success
+  - no unexpected `execute_command`
+- Audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- Current out-of-scope NVIDIA dirty files:
+  - `nvidia_playground.html`
+  - `docs/fix-proposal.md`
+- Next required action:
+  - run gate review / next-scope planning before any Builder prompt
+- Likely next action:
+  - targeted manual path revalidation rerun
+- Still forbidden:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
