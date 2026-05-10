@@ -1339,3 +1339,25 @@ Constraints for the next builder:
   - full bridge
   - Cognitive OS achieved
   - enterprise-grade security
+
+## 2026-05-04 Status Update - Workspace Absolute Path Blocker Found
+
+- Latest finding:
+  - `WORKSPACE_ROOT_MISMATCH_ABSOLUTE_PATH_FAIL_FAST_BLOCKER`
+- Latest observed command:
+  - `Đổi tên D:\Sandbox\Nvidia\proof\rename_source.txt thành D:\Sandbox\Nvidia\proof\renamed_target.txt`
+- Current workspace shown:
+  - `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL`
+- Expected next action:
+  - create NVIDIA Workspace Root + Absolute Path Fail-Fast Fix Builder prompt
+- Still forbidden:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation

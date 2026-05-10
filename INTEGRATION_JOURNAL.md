@@ -4377,3 +4377,18 @@ Warning:
   - blocker originated from manual validation, so closure requires manual rerun
 - next:
   - record this gate, then create targeted manual revalidation prompt
+
+## 2026-05-04 - Targeted manual validation finds NVIDIA workspace absolute path blocker
+
+- Control head:
+  - `ae2665bddba2d6b1cbb38deeafea30c3b5f9b85f`
+- NVIDIA head:
+  - `5496d28e82b8ec8a66685470b6c9d8fd99c135e4`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- finding:
+  - `WORKSPACE_ROOT_MISMATCH_ABSOLUTE_PATH_FAIL_FAST_BLOCKER`
+- evidence:
+  - absolute path `D:\Sandbox\Nvidia\proof\...` was handled incorrectly under the control workspace
+- next:
+  - record finding, then create Builder prompt for workspace root + absolute path fail-fast fix

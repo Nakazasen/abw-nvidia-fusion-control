@@ -1909,3 +1909,20 @@ Mitigation:
     - `MANUAL_REVALIDATION_RERUN_PASS`
     - `MANUAL_REVALIDATION_RERUN_PARTIAL`
     - `MANUAL_REVALIDATION_RERUN_FAIL`
+
+## 2026-05-04 Update - Workspace Root Absolute Path Fail-Fast Risks
+
+- Current risk:
+  - absolute path outside workspace may be distorted into an incorrect relative path
+  - the system may probe the wrong directory inside the current workspace
+  - `execute_command` may be invoked even when unnecessary
+  - noisy error messaging may make the failure hard for the user to understand
+  - if a path is inside workspace but provided as absolute path, it may not be converted back to safe relative form correctly
+  - manual validation cannot pass while workspace/path handling remains ambiguous
+- Mitigation:
+  - fail fast when the path is outside the current workspace
+  - do not call `list_dir` or `execute_command` before boundary validation
+  - convert absolute paths inside workspace to safe relative paths
+  - add regression for `D:\Sandbox\Nvidia\proof\rename_source.txt`
+  - add workspace mismatch test coverage
+  - keep `DAILY_USE_READY` forbidden

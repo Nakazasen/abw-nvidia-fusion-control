@@ -1838,3 +1838,19 @@ Each audit must check:
   - no fake success
   - no wrong disk mutation
 - `DAILY_USE_READY` and production/full bridge/Cognitive OS/security/packaging claims remain forbidden.
+
+## 2026-05-04 Update - Targeted Manual Validation Finds Workspace Absolute Path Blocker
+
+- Targeted manual revalidation found blocker:
+  - `WORKSPACE_ROOT_MISMATCH_ABSOLUTE_PATH_FAIL_FAST_BLOCKER`
+- User command:
+  - `Đổi tên D:\Sandbox\Nvidia\proof\rename_source.txt thành D:\Sandbox\Nvidia\proof\renamed_target.txt`
+- Current workspace:
+  - `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL`
+- Wrong path handling observed:
+  - `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\Sandbox\Nvidia\proof`
+- Next scope:
+  - NVIDIA Workspace Root + Absolute Path Fail-Fast Fix
+- Current readiness remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- No readiness upgrade is allowed.

@@ -2783,3 +2783,44 @@ Consequence:
 - Does not implement packaging.
 - Does not mutate ABW.
 - Does not start a new code sprint.
+
+
+## DECISION: Record NVIDIA workspace root absolute path blocker
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- In targeted manual revalidation, the user tried to rename a file with absolute path `D:\Sandbox\Nvidia\proof\...`, while the UI workspace was `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL`.
+
+### Decision
+
+- Record the new blocker and open the next scope to fix workspace root + absolute path fail-fast behavior.
+
+### Evidence
+
+- user command:
+  - `Đổi tên D:\Sandbox\Nvidia\proof\rename_source.txt thành D:\Sandbox\Nvidia\proof\renamed_target.txt`
+- current workspace:
+  - `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL`
+- observed wrong path:
+  - `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\Sandbox\Nvidia\proof`
+- `execute_command` was invoked even though the workspace was restricted
+- blocking the operation was correct, but failing to fail-fast and distorting the path was incorrect
+
+### Consequences
+
+- The manual blocker cannot be closed.
+- Next scope is NVIDIA Workspace Root + Absolute Path Fail-Fast Fix.
+- `DAILY_USE_READY` remains forbidden.
+- Packaging/bridge/security claims remain forbidden.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not open bridge work.
+- Does not mutate ABW.
+- Does not implement packaging.
+- Does not claim generic Vietnamese localization completeness.
