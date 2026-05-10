@@ -1962,3 +1962,20 @@ Each audit must check:
   - Targeted Manual Path Revalidation Rerun V2
 - No readiness upgrade is allowed yet.
 - Packaging, bridge expansion, and ABW mutation remain blocked.
+
+## 2026-05-10 Update - Manual Path Revalidation V2 Fail Due Runtime Rate Guard
+
+- manual result:
+  - `MANUAL_PATH_REVALIDATION_V2_FAIL`
+- pass:
+  - workspace switch to `D:\Sandbox\Nvidia`
+- fail:
+  - absolute rename not proven due Local NVIDIA rate guard
+  - Test 6 not proven due Local NVIDIA rate guard
+- partial:
+  - outside-workspace failure honesty avoided dangerous behavior but correct classification not proven
+- next scope:
+  - NVIDIA Manual Validation Runtime/Rate Guard Stability Fix
+- readiness remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- no readiness upgrade

@@ -2363,6 +2363,49 @@ Consequence:
 - Does not implement packaging.
 - Does not mutate ABW.
 
+## DECISION: Record manual path revalidation V2 fail due runtime rate guard
+
+- Status: Accepted
+- Date: 2026-05-10
+
+### Context
+
+- After the move/rename contract fix, targeted manual path revalidation V2 was rerun on the real NVIDIA UI. Workspace switch passed, but prompt-based file workflows were blocked by Local NVIDIA rate guard before pending/apply or target-path outcomes could be proven.
+
+### Decision
+
+- Record `MANUAL_PATH_REVALIDATION_V2_FAIL` and proceed next with NVIDIA Manual Validation Runtime/Rate Guard Stability Fix.
+
+### Evidence
+
+- Test 1 workspace switch PASS.
+- Test 2 absolute rename FAIL because Local NVIDIA rate guard blocked `chat.completions` before pending/apply proof.
+- Test 3 explicit path fallback FAIL because Local NVIDIA rate guard blocked `chat.completions` before `TARGET_PATH_MISMATCH` or safe exact-path edit could be proven.
+- Test 4 failure honesty PARTIAL because no dangerous behavior occurred but `BLOCKED_WORKSPACE_MISMATCH` classification was not proven.
+- No wrong root files remained.
+- No `execute_command` was observed.
+- No fake success was observed.
+- `TARGET_OPERATION_MISMATCH` did not reappear.
+
+### Consequences
+
+- Manual/path validation remains open.
+- Do not proceed to readiness upgrade.
+- Do not immediately reopen move/rename contract unless a clean rerun reproduces a move/rename failure without rate guard.
+- Next Builder should focus on manual-validation runtime/rate guard stability.
+- `DAILY_USE_READY` remains forbidden.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not perform generic UI polish.
+
 ## DECISION: Reaffirm targeted manual path revalidation rerun V2 as next scope
 
 - Status: Accepted

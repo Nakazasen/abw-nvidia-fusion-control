@@ -1594,3 +1594,34 @@ Constraints for the next builder:
   - packaging
   - `DAILY_USE_READY` claim
   - production/full bridge/Cognitive OS/security claims
+
+## 2026-05-10 Status Update - Manual Path Revalidation V2 Fails Due Runtime Rate Guard
+
+- Latest manual result:
+  - `MANUAL_PATH_REVALIDATION_V2_FAIL`
+- Passed:
+  - workspace switch to `D:\Sandbox\Nvidia`
+- Failed/not proven:
+  - absolute rename pending/apply
+  - Test 6 expected outcome
+  - outside-workspace `BLOCKED_WORKSPACE_MISMATCH` classification
+- Main blocker:
+  - Local NVIDIA rate guard blocked `chat.completions` during real UI prompt flow
+- Important note:
+  - `TARGET_OPERATION_MISMATCH` did not reappear
+  - no wrong root files remained
+  - no fake success observed
+  - no `execute_command` observed
+- Next required action:
+  - create NVIDIA Manual Validation Runtime/Rate Guard Stability Fix Builder prompt
+- Still forbidden:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation

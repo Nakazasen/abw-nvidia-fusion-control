@@ -2062,3 +2062,19 @@ Mitigation:
     - `MANUAL_PATH_REVALIDATION_V2_PARTIAL`
     - `MANUAL_PATH_REVALIDATION_V2_FAIL`
   - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden
+
+## 2026-05-10 Update - Runtime Rate Guard Manual Validation Risks
+
+- Current risk:
+  - provider/rate guard can mask deterministic local file workflow validation
+  - manual validation can fail without proving whether file workflow logic is actually broken
+  - rate-guard final text can prevent expected blocked/failure classifications from surfacing
+  - startup provider/model probing noise can destabilize manual validation
+  - repeated manual tests may hit `/proxy/chat` wait timeout
+  - code-level pass may be mistaken for user-facing pass
+- Mitigation:
+  - add controlled manual-validation mode or pacing strategy
+  - distinguish provider/rate blocked from file-operation failure
+  - ensure rate guard messages are classified honestly and do not create fake success
+  - rerun manual path validation after rate-guard stability fix
+  - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden

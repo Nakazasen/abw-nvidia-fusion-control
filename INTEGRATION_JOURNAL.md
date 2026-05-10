@@ -4602,3 +4602,24 @@ Warning:
   - manual/path revalidation V2 PASS
 - Next:
   - create targeted manual path revalidation V2 prompt
+
+## 2026-05-10 - Manual path revalidation V2 fails due NVIDIA rate guard blocking real UI prompt flow
+
+- Control head:
+  - `355605ae9775c5af24a4ce75fe6c8290f678c7f4`
+- NVIDIA head:
+  - `e3afaacaf2cf1ba0c28e858d3688d281181c9c1f`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- result:
+  - `MANUAL_PATH_REVALIDATION_V2_FAIL`
+- pass:
+  - workspace switch to `D:\Sandbox\Nvidia`
+- fail/not proven:
+  - absolute rename pending/apply
+  - Test 6 expected outcome
+  - outside-workspace `BLOCKED_WORKSPACE_MISMATCH` classification
+- blocker:
+  - Local NVIDIA rate guard blocked `chat.completions`
+- next:
+  - record this result, then create Builder prompt for manual-validation runtime/rate guard stability
