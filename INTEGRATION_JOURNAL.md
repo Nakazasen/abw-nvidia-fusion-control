@@ -4430,3 +4430,20 @@ Warning:
   - packaging-ready
 - next:
   - run gate review / next-scope planning; targeted manual revalidation rerun remains appropriate
+
+## 2026-05-04 - Manual validation finds NVIDIA workspace switch invalid path blocker
+
+- Control head:
+  - `25b6eb23d1538e78d924408388a8136c71d773d8`
+- NVIDIA head:
+  - `66786b6ed48f0e8607fabc703166cb892a04d188`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- Finding:
+  - `WORKSPACE_SWITCH_UI_INVALID_PATH_BLOCKER`
+- Evidence:
+  - `D:\Sandbox\Nvidia` rejected as invalid workspace path
+- Impact:
+  - blocks manual/path revalidation
+- Next:
+  - record finding, then create Builder prompt for workspace switch UI path validation fix

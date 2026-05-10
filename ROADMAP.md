@@ -1865,3 +1865,18 @@ Each audit must check:
 - Manual/path revalidation should be rerun before closing the blocker.
 - Packaging and bridge expansion remain blocked.
 - No readiness upgrade is allowed.
+
+## 2026-05-04 Update - NVIDIA Workspace Switch UI Invalid Path Blocker
+
+- New manual blocker:
+  - `WORKSPACE_SWITCH_UI_INVALID_PATH_BLOCKER`
+- User attempted to switch workspace to:
+  - `D:\Sandbox\Nvidia`
+- UI returned:
+  - `Workspace switch failed: Invalid workspace path`
+- Manual/path revalidation is blocked until workspace switch works.
+- Next scope:
+  - NVIDIA Workspace Switch UI Path Validation Fix
+- Current readiness remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- No readiness upgrade is allowed.

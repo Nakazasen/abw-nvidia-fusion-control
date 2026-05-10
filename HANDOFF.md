@@ -1398,3 +1398,27 @@ Constraints for the next builder:
   - sync
   - auto-promote
   - ABW mutation
+
+## 2026-05-04 Status Update - Workspace Switch UI Invalid Path Blocker Found
+
+- Latest finding:
+  - `WORKSPACE_SWITCH_UI_INVALID_PATH_BLOCKER`
+- User attempted:
+  - change workspace from `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL` to `D:\Sandbox\Nvidia`
+- Observed:
+  - `Workspace switch failed: Invalid workspace path`
+- Impact:
+  - manual/path revalidation remains blocked
+- Next required action:
+  - create NVIDIA Workspace Switch UI Path Validation Fix Builder prompt
+- Still forbidden:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation

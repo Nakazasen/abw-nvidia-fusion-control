@@ -1943,3 +1943,18 @@ Mitigation:
   - create separate gate later for smoke/localization alignment if needed
   - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden
   - preserve workspace mismatch regression tests
+
+## 2026-05-04 Update - Workspace Switch UI Invalid Path Risks
+
+- Current risk:
+  - valid Windows workspace paths may be rejected by UI
+  - user cannot switch to intended NVIDIA workspace
+  - manual validation may be blocked despite correct path handling logic
+  - workspace mismatch issues may recur because user cannot select correct workspace
+  - UI may mislead user into thinking path is invalid when validation logic is wrong
+- Mitigation:
+  - add workspace switch regression for `D:\Sandbox\Nvidia`
+  - ensure Windows absolute workspace paths are accepted
+  - show clear error reason if path is invalid
+  - confirm workspace panel updates after successful switch
+  - rerun targeted manual validation after fix

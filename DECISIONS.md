@@ -2890,3 +2890,47 @@ Consequence:
 - Does not implement packaging.
 - Does not mutate ABW.
 - Does not include UI localization/smoke alignment work.
+
+## DECISION: Record NVIDIA workspace switch UI invalid path blocker
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After completing the workspace absolute-path fail-fast fix, the user attempted to switch the NVIDIA UI workspace from the control repo path to `D:\Sandbox\Nvidia`.
+- The UI rejected the valid path with `Workspace switch failed: Invalid workspace path`.
+
+### Decision
+
+- Record this as a new blocker and proceed next with NVIDIA Workspace Switch UI Path Validation Fix.
+
+### Evidence
+
+- Current workspace:
+  - `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL`
+- Attempted target workspace:
+  - `D:\Sandbox\Nvidia`
+- Observed alert:
+  - `Workspace switch failed: Invalid workspace path`
+- Result:
+  - workspace remains the control repo path, blocking manual/path revalidation
+
+### Consequences
+
+- Manual/path revalidation cannot be completed until workspace switching works.
+- The previous path fix remains accepted at code/regression level.
+- Next Builder must focus on workspace switch UI/path validation.
+- `DAILY_USE_READY` remains forbidden.
+- Packaging/bridge/security claims remain forbidden.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not perform generic localization.
