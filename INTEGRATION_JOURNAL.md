@@ -4585,3 +4585,20 @@ Warning:
   - packaging-ready
 - next:
   - run gate review / next-scope planning; targeted manual revalidation rerun remains appropriate
+
+## 2026-05-10 - Gate reaffirms targeted manual path revalidation rerun V2
+
+- Control head:
+  - `b0eea4951d611511256bdc8efa2787f8f3319118`
+- NVIDIA head:
+  - `e3afaacaf2cf1ba0c28e858d3688d281181c9c1f`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- Gate verdict:
+  - `A. PROCEED_TO_TARGETED_MANUAL_PATH_REVALIDATION_RERUN_V2`
+- Accepted:
+  - move/rename contract and honest failure fixes have code/regression/smoke evidence
+- Not proven:
+  - manual/path revalidation V2 PASS
+- Next:
+  - create targeted manual path revalidation V2 prompt

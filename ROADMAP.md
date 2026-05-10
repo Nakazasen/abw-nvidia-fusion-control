@@ -1947,3 +1947,18 @@ Each audit must check:
 - Manual/path revalidation should be rerun before closing the blocker.
 - Packaging and bridge expansion remain blocked.
 - No readiness upgrade is allowed.
+
+## 2026-05-10 Update - Reaffirm Targeted Manual Path Revalidation Rerun V2
+
+- Gate verdict:
+  - `A. PROCEED_TO_TARGETED_MANUAL_PATH_REVALIDATION_RERUN_V2`
+- Current control head:
+  - `b0eea4951d611511256bdc8efa2787f8f3319118`
+- Latest completed scope:
+  - NVIDIA Move/Rename Operation Contract + Honest Failure Outcome Fix
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Next scope:
+  - Targeted Manual Path Revalidation Rerun V2
+- No readiness upgrade is allowed yet.
+- Packaging, bridge expansion, and ABW mutation remain blocked.
