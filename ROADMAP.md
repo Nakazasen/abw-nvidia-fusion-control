@@ -1904,3 +1904,20 @@ Each audit must check:
   - targeted manual path revalidation rerun
 - No readiness upgrade is allowed yet.
 - Packaging, bridge expansion, and ABW mutation remain blocked.
+
+## 2026-05-04 Update - Targeted Manual Path Revalidation Result
+
+- targeted manual path revalidation result:
+  - `MANUAL_PATH_REVALIDATION_FAIL`
+- accepted:
+  - workspace switch to `D:\Sandbox\Nvidia` PASS
+- blockers:
+  - absolute rename inside NVIDIA workspace FAIL
+  - `TARGET_OPERATION_MISMATCH`
+  - Test 6 explicit path + fallback still not acceptable
+  - failure honesty outside workspace still not acceptable
+- next scope:
+  - NVIDIA Move/Rename Operation Contract + Honest Failure Outcome Fix
+- readiness remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- no readiness upgrade

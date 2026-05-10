@@ -1992,3 +1992,21 @@ Mitigation:
     - `MANUAL_PATH_REVALIDATION_PARTIAL`
     - `MANUAL_PATH_REVALIDATION_FAIL`
   - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden
+
+## 2026-05-04 Update - Manual Path Revalidation Fail Follow-up Risks
+
+- Current risk:
+  - workspace switch pass may be mistaken as full manual path closure
+  - `move_file` path normalization may pass while operation contract still fails
+  - `TARGET_OPERATION_MISMATCH` can block valid rename workflows
+  - vague failure/tool-intent text can mislead user
+  - automated proof may not catch real UI orchestration failure
+  - startup provider/model probing noise can obscure manual validation signal
+- Mitigation:
+  - require focused fix for move/rename operation contract
+  - add regression for real prompt:
+    - `Đổi tên D:\Sandbox\Nvidia\proof\rename_source.txt thành D:\Sandbox\Nvidia\proof\renamed_target.txt`
+  - require pending/apply proof for `move_file`
+  - require clear blocked/failure final response for impossible/outside path
+  - rerun targeted manual validation after fix
+  - keep readiness and production claims forbidden

@@ -3044,3 +3044,44 @@ Consequence:
 - Does not implement packaging.
 - Does not mutate ABW.
 - Does not start a new code sprint.
+
+## DECISION: Record manual path revalidation failure after workspace switch fix
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After workspace switch/path validation fixes, targeted manual revalidation was rerun on the real NVIDIA UI.
+
+### Decision
+
+- Record `MANUAL_PATH_REVALIDATION_FAIL` and proceed next with a focused NVIDIA Move/Rename Operation Contract + Honest Failure Outcome Fix.
+
+### Evidence
+
+- Test 1 workspace switch PASS.
+- Test 2 absolute rename FAIL:
+  - `move_file` normalized to `proof/rename_source.txt` and `proof/renamed_target.txt` but failed with `TARGET_OPERATION_MISMATCH`.
+- Test 3 explicit path + fallback FAIL:
+  - no wrong root pending, but no `TARGET_PATH_MISMATCH` or exact safe edit outcome.
+- Test 4 failure honesty FAIL:
+  - outside-workspace impossible rename returned tool-intent text instead of clear blocked/failure outcome.
+
+### Consequences
+
+- Manual/path blocker remains open.
+- Do not proceed to runtime/security or readiness upgrade.
+- `DAILY_USE_READY` remains forbidden.
+- Next Builder must focus on move/rename operation contract and honest failure outcomes.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not perform generic UI polish.

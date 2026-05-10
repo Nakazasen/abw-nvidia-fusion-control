@@ -1482,3 +1482,29 @@ Constraints for the next builder:
   - packaging
   - `DAILY_USE_READY` claim
   - production/full bridge/Cognitive OS/security claims
+
+## 2026-05-04 Status Update - Manual Path Revalidation Fails After Workspace Switch Fix
+
+- Latest manual result:
+  - `MANUAL_PATH_REVALIDATION_FAIL`
+- Passed:
+  - workspace switch to `D:\Sandbox\Nvidia`
+- Failed:
+  - absolute rename inside NVIDIA workspace
+  - Test 6 explicit path + fallback outcome
+  - failure honesty outside workspace
+- Main blocker:
+  - `TARGET_OPERATION_MISMATCH` on valid `move_file` path
+- Next required action:
+  - create NVIDIA Move/Rename Operation Contract + Honest Failure Outcome Fix Builder prompt
+- Still forbidden:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation

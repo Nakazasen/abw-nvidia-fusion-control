@@ -4505,3 +4505,24 @@ Warning:
   - manual/path revalidation PASS
 - Next:
   - record this gate, then create targeted manual path revalidation prompt
+
+## 2026-05-04 - Targeted manual path revalidation fails on move operation contract
+
+- Control head:
+  - `b254a4a23a120e5b381e1d07091e65d107f7e4a9`
+- NVIDIA head:
+  - `8571bc2223edf4f91ff23c38ddfc34d7de19ae2f`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- result:
+  - `MANUAL_PATH_REVALIDATION_FAIL`
+- pass:
+  - workspace switch to `D:\Sandbox\Nvidia`
+- fail:
+  - absolute rename inside NVIDIA workspace
+  - Test 6 explicit path fallback outcome
+  - failure honesty outside workspace
+- blocker:
+  - `TARGET_OPERATION_MISMATCH` on valid `move_file` invocation
+- next:
+  - record this result, then create Builder prompt for move/rename operation contract and honest failure outcome fix
