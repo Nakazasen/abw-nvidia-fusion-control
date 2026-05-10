@@ -3350,3 +3350,53 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not implement packaging.
 - Does not mutate ABW.
+
+## DECISION: Proceed to targeted manual path revalidation rerun V3
+
+- Status: Accepted
+- Date: 2026-05-10
+
+### Context
+
+- After the NVIDIA Manual Validation Runtime / Rate Guard Stability Fix, rate guard is now classified separately from file workflow failure.
+- Manual/path validation remains open because the real UI rerun has not yet proven the previously masked file-flow cases.
+
+### Decision
+
+- Proceed next with Targeted Manual Path Revalidation Rerun V3.
+
+### Rationale
+
+- The latest blocker was rate guard masking real UI file workflow validation.
+- Since the runtime/rate guard fix has code/regression/audit evidence, the next critical action is to rerun the manual path validation on the real UI.
+- A narrow V3 rerun is proportional because the unresolved cases are path/workspace/move/Test 6/outside-workspace honesty cases.
+
+### Scope
+
+- switch workspace to `D:\Sandbox\Nvidia`
+- absolute rename inside NVIDIA workspace
+- Review + Apply move behavior
+- Test 6 explicit path + fallback root filename
+- outside-workspace failure honesty
+- rate guard classification if encountered
+- no wrong pending
+- no fake success
+- no unexpected `execute_command`
+
+### Consequences
+
+- Next prompt should be manual revalidation V3, not a Builder prompt.
+- Current readiness remains `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+- `DAILY_USE_READY` remains forbidden.
+- Production/full bridge/Cognitive OS/security/packaging claims remain forbidden.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not start a new code sprint.

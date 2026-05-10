@@ -4663,3 +4663,20 @@ Warning:
   - packaging-ready
 - next:
   - run gate review / next-scope planning; manual path revalidation rerun remains appropriate
+
+## 2026-05-10 - Gate selects targeted manual path revalidation rerun V3
+
+- Control head:
+  - `b3321e0a33fa8dba4cca6df0f7bec68bd87fb137`
+- NVIDIA head:
+  - `b5b08653eaa0774a5d12ed16444a1d0b47f77cb7`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- Gate verdict:
+  - `A. PROCEED_TO_TARGETED_MANUAL_PATH_REVALIDATION_RERUN_V3`
+- Accepted:
+  - runtime/rate guard stability fix has code/regression/audit evidence
+- Not proven:
+  - manual/path revalidation V3 `PASS`
+- Next:
+  - record this gate, then create targeted manual path revalidation V3 prompt

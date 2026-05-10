@@ -2096,3 +2096,22 @@ Mitigation:
   - keep `nvidia_playground.html` and `docs/fix-proposal.md` out-of-scope unless separately reviewed
   - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden
   - preserve rate guard and operation contract regression tests
+
+## 2026-05-10 Update - Targeted Manual Path Revalidation Rerun V3 Risks
+
+- Current risk:
+  - code/regression pass may be mistaken as manual validation closure
+  - real UI path workflow may still expose user-facing issues
+  - provider/rate guard may still interrupt user flow, though now separately classified
+  - out-of-scope NVIDIA dirty files may be accidentally committed later
+  - `nvidia_playground.html` remains dirty due intentional Vietnamese localization
+  - `docs/fix-proposal.md` remains untracked
+  - moving to runtime/security or another Builder before manual rerun could leave practical workflow unverified
+- Mitigation:
+  - require targeted manual path revalidation rerun V3
+  - keep out-of-scope dirty files excluded
+  - classify result as:
+    - `MANUAL_PATH_REVALIDATION_V3_PASS`
+    - `MANUAL_PATH_REVALIDATION_V3_PARTIAL`
+    - `MANUAL_PATH_REVALIDATION_V3_FAIL`
+  - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden
