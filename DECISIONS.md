@@ -2996,3 +2996,51 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not implement packaging.
 - Does not mutate ABW.
+
+## DECISION: Proceed to targeted manual path revalidation rerun
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After workspace switch and path handling fixes, code/regression/UI-smoke evidence is strong.
+- However, the recent blockers were found by real manual use, so they require a real manual rerun before closure.
+
+### Decision
+
+- Proceed next with targeted manual path revalidation rerun.
+
+### Rationale
+
+- The narrow rerun is proportional because the latest fixes are specifically path/workspace related.
+- Full targeted manual validation is broader than necessary.
+- Runtime/security follow-up should wait until manual path closure is recorded.
+
+### Scope
+
+- switch workspace to `D:\Sandbox\Nvidia`
+- confirm workspace label update
+- absolute rename inside `D:\Sandbox\Nvidia`
+- Test 6 explicit path + fallback root filename
+- no wrong pending
+- no fake success
+- no unexpected `execute_command`
+
+### Consequences
+
+- Next prompt should be manual revalidation, not a Builder prompt.
+- Current readiness remains `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+- `DAILY_USE_READY` remains forbidden.
+- Production/full bridge/Cognitive OS/security/packaging claims remain forbidden.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not start a new code sprint.

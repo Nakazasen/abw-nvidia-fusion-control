@@ -1891,3 +1891,16 @@ Each audit must check:
 - Manual/path revalidation should be rerun before closing the blocker.
 - Packaging and bridge expansion remain blocked.
 - No readiness upgrade is allowed.
+
+## 2026-05-04 Update - Gate Selects Targeted Manual Path Revalidation Rerun
+
+- Gate verdict:
+  - `A. PROCEED_TO_TARGETED_MANUAL_PATH_REVALIDATION_RERUN`
+- Latest completed scope:
+  - NVIDIA Workspace Switch UI Path Validation Fix
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Next scope:
+  - targeted manual path revalidation rerun
+- No readiness upgrade is allowed yet.
+- Packaging, bridge expansion, and ABW mutation remain blocked.

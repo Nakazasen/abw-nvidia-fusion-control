@@ -1459,3 +1459,26 @@ Constraints for the next builder:
   - sync
   - auto-promote
   - ABW mutation
+
+## 2026-05-04 Status Update - Gate Selects Targeted Manual Path Revalidation Rerun
+
+- Latest gate verdict:
+  - `A. PROCEED_TO_TARGETED_MANUAL_PATH_REVALIDATION_RERUN`
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Latest completed NVIDIA scope:
+  - Workspace Switch UI Path Validation Fix
+- Accepted:
+  - code/regression/UI-smoke evidence for workspace switch/path fixes
+- Not proven:
+  - targeted manual/path revalidation PASS
+- Next allowed action:
+  - create targeted manual path revalidation prompt
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - `DAILY_USE_READY` claim
+  - production/full bridge/Cognitive OS/security claims

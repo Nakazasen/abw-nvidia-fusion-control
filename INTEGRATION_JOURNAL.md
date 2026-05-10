@@ -4488,3 +4488,20 @@ Warning:
   - packaging-ready
 - next:
   - run gate review / next-scope planning; targeted manual revalidation rerun remains appropriate
+
+## 2026-05-04 - Gate selects targeted manual path revalidation rerun
+
+- Control head:
+  - `ee22bb154b60fb4fb4fb97b956ecd6a11b58fb60`
+- NVIDIA head:
+  - `8571bc2223edf4f91ff23c38ddfc34d7de19ae2f`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- Gate verdict:
+  - `A. PROCEED_TO_TARGETED_MANUAL_PATH_REVALIDATION_RERUN`
+- Accepted:
+  - workspace switch/path fixes have code/regression/UI-smoke evidence
+- Not proven:
+  - manual/path revalidation PASS
+- Next:
+  - record this gate, then create targeted manual path revalidation prompt
