@@ -2363,6 +2363,54 @@ Consequence:
 - Does not implement packaging.
 - Does not mutate ABW.
 
+## DECISION: Proceed to targeted manual path revalidation rerun V2
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- After the NVIDIA Move/Rename Operation Contract + Honest Failure Outcome Fix, code/regression/smoke evidence is strong. However, the recent blockers were found through real manual UI usage, so closure requires another targeted manual rerun.
+
+### Decision
+
+- Proceed next with Targeted Manual Path Revalidation Rerun V2.
+
+### Rationale
+
+- The latest fix directly addressed `TARGET_OPERATION_MISMATCH`, Test 6 vague outcome, and outside-workspace tool-intent final text.
+- Automated validation is strong, but manual/path closure is not proven until the user-facing flows pass on the real UI.
+- A narrow rerun is proportional; a full retest is broader than necessary.
+
+### Scope
+
+- switch workspace to `D:\Sandbox\Nvidia`
+- absolute rename inside NVIDIA workspace
+- Review + Apply move behavior
+- Test 6 explicit path + fallback root filename
+- outside-workspace failure honesty
+- no wrong pending
+- no fake success
+- no unexpected `execute_command`
+
+### Consequences
+
+- Next prompt should be manual revalidation, not a Builder prompt.
+- Current readiness remains `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+- `DAILY_USE_READY` remains forbidden.
+- Production/full bridge/Cognitive OS/security/packaging claims remain forbidden.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not start a new code sprint.
+
 ## DECISION: Proceed to targeted manual revalidation for NVIDIA path reliability fix
 
 - Status: Accepted

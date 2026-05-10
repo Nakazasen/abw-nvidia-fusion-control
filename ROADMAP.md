@@ -1866,6 +1866,19 @@ Each audit must check:
 - Packaging and bridge expansion remain blocked.
 - No readiness upgrade is allowed.
 
+## 2026-05-04 Update - Gate Verdict: Targeted Manual Path Revalidation Rerun V2
+
+- Gate verdict:
+  - `A. PROCEED_TO_TARGETED_MANUAL_PATH_REVALIDATION_RERUN_V2`
+- Latest completed scope:
+  - NVIDIA Move/Rename Operation Contract + Honest Failure Outcome Fix
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Next scope:
+  - targeted manual path revalidation rerun V2
+- No readiness upgrade is allowed yet.
+- Packaging, bridge expansion, and ABW mutation remain blocked.
+
 ## 2026-05-04 Update - NVIDIA Workspace Switch UI Invalid Path Blocker
 
 - New manual blocker:

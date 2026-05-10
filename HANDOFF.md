@@ -1047,6 +1047,29 @@ Constraints for the next builder:
   - auto-promote
   - ABW mutation
 
+## 2026-05-04 Status Update - Gate Verdict: Targeted Manual Path Revalidation Rerun V2
+
+- Latest gate verdict:
+  - `A. PROCEED_TO_TARGETED_MANUAL_PATH_REVALIDATION_RERUN_V2`
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Latest completed NVIDIA scope:
+  - Move/Rename Operation Contract + Honest Failure Outcome Fix
+- Accepted:
+  - code/regression/smoke evidence for move/rename operation contract and honest failure outcome
+- Not proven:
+  - targeted manual/path revalidation V2 PASS
+- Next allowed action:
+  - create targeted manual path revalidation V2 prompt
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - `DAILY_USE_READY` claim
+  - production/full bridge/Cognitive OS/security claims
+
 ## 2026-05-04 Status Update - Gate Selects NVIDIA UI Polish Round 2 Manual Findings
 
 - Latest gate verdict:
