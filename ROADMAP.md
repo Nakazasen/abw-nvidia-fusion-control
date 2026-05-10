@@ -1821,3 +1821,20 @@ Each audit must check:
 - Targeted manual revalidation should be rerun before closing the blocker.
 - Packaging and bridge expansion remain blocked.
 - No readiness upgrade is allowed.
+
+## 2026-05-04 Update - Gate Selects Targeted Manual Revalidation Rerun For Test 6
+
+- Gate verdict:
+  - `A. PROCEED_TO_TARGETED_MANUAL_REVALIDATION_RERUN_FOR_TEST_6`
+- Latest NVIDIA explicit path precedence fix is accepted at code/test level.
+- Current readiness remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Test 6 targeted manual revalidation rerun `PASS` is not yet proven.
+- Next scope is targeted manual revalidation rerun, not a code Builder prompt.
+- Targeted rerun scope:
+  - explicit nested path plus root fallback filename
+  - no root pending
+  - `TARGET_PATH_MISMATCH` / blocked behavior
+  - no fake success
+  - no wrong disk mutation
+- `DAILY_USE_READY` and production/full bridge/Cognitive OS/security/packaging claims remain forbidden.

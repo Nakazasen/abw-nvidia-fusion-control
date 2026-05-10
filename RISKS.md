@@ -1890,3 +1890,22 @@ Mitigation:
   - keep `nvidia_playground.html`, `docs/fix-proposal.md`, and `proof/` out-of-scope unless separately reviewed
   - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden
   - preserve exact failing prompt regression
+
+## 2026-05-04 Update - Test 6 Targeted Manual Revalidation Rerun Risks
+
+- Current risk:
+  - code-level Test 6 fix may be mistaken as manual blocker closure
+  - real UI/manual flow may still differ from automated regression
+  - out-of-scope NVIDIA dirty files may be accidentally staged later
+  - wrong-target pending risk must remain monitored until manual rerun passes
+  - moving to runtime/security before Test 6 rerun could leave manual blocker unresolved
+  - overclaim risk remains high if bounded wording is loosened
+- Mitigation:
+  - require targeted manual revalidation rerun for Test 6
+  - test exact prompt and related path/fallback variants
+  - keep out-of-scope dirty files excluded
+  - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden
+  - require result classification:
+    - `MANUAL_REVALIDATION_RERUN_PASS`
+    - `MANUAL_REVALIDATION_RERUN_PARTIAL`
+    - `MANUAL_REVALIDATION_RERUN_FAIL`

@@ -1309,3 +1309,33 @@ Constraints for the next builder:
   - sync
   - auto-promote
   - ABW mutation
+
+## 2026-05-04 Status Update - Gate Selects Test 6 Targeted Manual Revalidation Rerun
+
+- Latest gate verdict:
+  - `A. PROCEED_TO_TARGETED_MANUAL_REVALIDATION_RERUN_FOR_TEST_6`
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Latest completed NVIDIA scope:
+  - Explicit Path Precedence + Target Mismatch Fix
+- Accepted:
+  - code-level fix and regression evidence for Test 6
+- Not proven:
+  - targeted manual revalidation rerun `PASS`
+- Known out-of-scope NVIDIA dirty files:
+  - `nvidia_playground.html`
+  - `docs/fix-proposal.md`
+  - `proof/`
+- Next allowed action:
+  - create targeted manual revalidation prompt for Test 6/path-fallback cases
+- Still forbidden:
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
+  - packaging
+  - `DAILY_USE_READY` claim
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security

@@ -4358,3 +4358,22 @@ Warning:
   - packaging-ready
 - next:
   - run gate review / next-scope planning; targeted manual revalidation rerun remains appropriate
+
+## 2026-05-04 - Gate selects targeted manual revalidation rerun for NVIDIA Test 6
+
+- control head:
+  - `cb4022fdc0e7c42e0a51d9c3844a7fc4eff77a26`
+- NVIDIA head:
+  - `5496d28e82b8ec8a66685470b6c9d8fd99c135e4`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- verdict:
+  - `A. PROCEED_TO_TARGETED_MANUAL_REVALIDATION_RERUN_FOR_TEST_6`
+- accepted:
+  - code-level fix and automated regression evidence
+- not proven:
+  - targeted manual revalidation rerun `PASS`
+- rationale:
+  - blocker originated from manual validation, so closure requires manual rerun
+- next:
+  - record this gate, then create targeted manual revalidation prompt

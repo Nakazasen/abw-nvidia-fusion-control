@@ -2743,3 +2743,43 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not implement packaging.
 - Does not mutate ABW.
+
+
+## DECISION: Proceed to targeted manual revalidation rerun for NVIDIA Test 6
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- NVIDIA Explicit Path Precedence + Target Mismatch Fix completed after targeted manual revalidation Test 6 failed.
+- The code-level fix now blocks wrong-root pending with `TARGET_PATH_MISMATCH` and has regression evidence.
+
+### Decision
+
+- Proceed next with targeted manual revalidation rerun for Test 6 and related path/fallback cases.
+
+### Rationale
+
+- The blocker originated from manual validation, so closure requires manual retest.
+- Automated evidence accepts the implementation, but does not prove the real manual failure case is resolved.
+- A full 7-test rerun is broader than necessary because the failing class is isolated.
+
+### Consequences
+
+- Next prompt should be targeted manual revalidation for Test 6/path-fallback cases, not a Builder prompt.
+- Current readiness remains `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+- Manual blocker closure is still not proven.
+- Runtime/security follow-up waits until targeted revalidation result is recorded.
+- `DAILY_USE_READY` remains forbidden.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not start a new code sprint.
