@@ -1880,3 +1880,14 @@ Each audit must check:
 - Current readiness remains:
   - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - No readiness upgrade is allowed.
+
+## 2026-05-04 Update - NVIDIA Workspace Switch UI Path Validation Fix Completed
+
+- NVIDIA Workspace Switch UI Path Validation Fix is completed and pushed.
+- This directly addresses:
+  - `WORKSPACE_SWITCH_UI_INVALID_PATH_BLOCKER`
+- Current readiness remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Manual/path revalidation should be rerun before closing the blocker.
+- Packaging and bridge expansion remain blocked.
+- No readiness upgrade is allowed.

@@ -2934,3 +2934,65 @@ Consequence:
 - Does not implement packaging.
 - Does not mutate ABW.
 - Does not perform generic localization.
+
+## DECISION: Record NVIDIA workspace switch path validation fix completion
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- Manual validation found that the NVIDIA UI rejected `D:\Sandbox\Nvidia` as an invalid workspace path, preventing manual/path revalidation.
+
+### Decision
+
+- Accept completion of NVIDIA Workspace Switch UI Path Validation Fix at code/regression/UI-smoke level.
+
+### Evidence
+
+- NVIDIA commit:
+  - `8571bc2223edf4f91ff23c38ddfc34d7de19ae2f`
+- commit message:
+  - `fix: repair NVIDIA workspace switch path validation`
+- changed files:
+  - `tools/nvidia-server.mjs`
+  - `tools/browser-smoke.mjs`
+  - `tests/manual-reliability-regression.test.mjs`
+  - `tests/manual-ui-create-apply-e2e.test.mjs`
+  - `tests/existing-file-edit-workflow.test.mjs`
+  - `tests/delete-file-safety-proof.test.mjs`
+  - `tests/move-rename-file-workflow-proof.test.mjs`
+- validation:
+  - `git diff --check` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tools/browser-smoke.mjs` PASS
+  - `node --check tests/manual-reliability-regression.test.mjs` PASS
+  - `manual:reliability` PASS `90/0`
+  - `browser:smoke` PASS `118/0`
+- accepted behavior:
+  - `D:\Sandbox\Nvidia` accepted
+  - UI workspace label updates
+  - invalid path rejected with specific reason
+  - after switch, absolute rename treated as inside-workspace
+  - Vietnamese UI smoke alignment preserved
+- boundary:
+  - no bridge UI, no sync, no auto-promote, no ABW mutation, no packaging, no `DAILY_USE_READY` claim
+
+### Consequences
+
+- The workspace switch blocker has code/regression/UI-smoke evidence.
+- Manual/path revalidation must be rerun before closing manual validation.
+- Current readiness remains `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+- `DAILY_USE_READY` remains forbidden.
+- Production/full bridge/Cognitive OS/security/packaging claims remain forbidden.
+- Next step must be gate review / next-scope planning.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.

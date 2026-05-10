@@ -4447,3 +4447,44 @@ Warning:
   - blocks manual/path revalidation
 - Next:
   - record finding, then create Builder prompt for workspace switch UI path validation fix
+
+## 2026-05-04 - NVIDIA workspace switch UI path validation fix completed
+
+- NVIDIA commit:
+  - `8571bc2223edf4f91ff23c38ddfc34d7de19ae2f`
+- commit message:
+  - `fix: repair NVIDIA workspace switch path validation`
+- push result:
+  - `66786b6..8571bc2 HEAD -> main`
+- files changed:
+  - `tools/nvidia-server.mjs`
+  - `tools/browser-smoke.mjs`
+  - `tests/manual-reliability-regression.test.mjs`
+  - `tests/manual-ui-create-apply-e2e.test.mjs`
+  - `tests/existing-file-edit-workflow.test.mjs`
+  - `tests/delete-file-safety-proof.test.mjs`
+  - `tests/move-rename-file-workflow-proof.test.mjs`
+- audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- accepted:
+  - `D:\Sandbox\Nvidia` accepted as valid workspace
+  - `GET /api/workspace` returns active workspace
+  - workspace label updates to `D:\Sandbox\Nvidia`
+  - invalid path rejected honestly with specific reason
+  - absolute rename after switch treated as in-workspace
+  - Vietnamese UI smoke alignment preserved
+  - `browser:smoke` PASS `118/0`
+  - `manual:reliability` PASS `90/0`
+  - in-scope secret/mojibake/overclaim checks clean
+- out-of-scope:
+  - `nvidia_playground.html` remains modified and unstaged in NVIDIA
+  - `docs/fix-proposal.md` remains untracked and unstaged in NVIDIA
+- not accepted:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+- next:
+  - run gate review / next-scope planning; targeted manual revalidation rerun remains appropriate

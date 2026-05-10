@@ -1422,3 +1422,40 @@ Constraints for the next builder:
   - sync
   - auto-promote
   - ABW mutation
+
+## 2026-05-04 Status Update - NVIDIA Workspace Switch UI Path Validation Fix Completed
+
+- Latest NVIDIA commit:
+  - `8571bc2223edf4f91ff23c38ddfc34d7de19ae2f`
+- Latest completed scope:
+  - NVIDIA Workspace Switch UI Path Validation Fix
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS` with manual/path revalidation still required
+- What improved:
+  - workspace switch validation
+  - `GET /api/workspace`
+  - valid Windows workspace path acceptance
+  - workspace label update
+  - invalid path honest error
+  - absolute rename after workspace switch
+  - browser smoke Vietnamese UI alignment
+- Audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- Current out-of-scope NVIDIA dirty files:
+  - `nvidia_playground.html`
+  - `docs/fix-proposal.md`
+- Next required action:
+  - run gate review / next-scope planning before any Builder prompt
+- Likely next action:
+  - targeted manual revalidation rerun for workspace switch, absolute rename, and Test 6 path fallback
+- Still forbidden:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation
