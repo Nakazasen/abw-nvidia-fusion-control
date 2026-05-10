@@ -4392,3 +4392,41 @@ Warning:
   - absolute path `D:\Sandbox\Nvidia\proof\...` was handled incorrectly under the control workspace
 - next:
   - record finding, then create Builder prompt for workspace root + absolute path fail-fast fix
+
+## 2026-05-04 - NVIDIA workspace absolute path fail-fast fix completed
+
+- NVIDIA commit:
+  - `66786b6ed48f0e8607fabc703166cb892a04d188`
+- commit message:
+  - `fix: fail fast on NVIDIA workspace absolute path mismatch`
+- push result:
+  - `5496d28..66786b6 main -> main`
+- files changed:
+  - `tools/nvidia-server.mjs`
+  - `tests/manual-reliability-regression.test.mjs`
+- audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- accepted:
+  - outside-workspace absolute path now fail-fast blocks with `BLOCKED_WORKSPACE_MISMATCH`
+  - no `list_dir` for mismatch
+  - no `execute_command` for mismatch
+  - no pending operation for mismatch
+  - no fake success
+  - inside-workspace absolute path normalizes to safe relative path
+  - `move_file -> pending -> apply` flow preserved
+  - `manual:reliability` PASS `74/0`
+  - in-scope secret/mojibake/overclaim checks clean
+- browser smoke note:
+  - `browser:smoke` FAIL `116/1` due intentional Vietnamese UI text in out-of-scope `nvidia_playground.html`, not due workspace fix
+- out-of-scope:
+  - `nvidia_playground.html` remains modified and unstaged in NVIDIA
+  - `docs/fix-proposal.md` remains untracked and unstaged in NVIDIA
+- not accepted:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+- next:
+  - run gate review / next-scope planning; targeted manual revalidation rerun remains appropriate

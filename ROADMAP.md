@@ -1854,3 +1854,14 @@ Each audit must check:
 - Current readiness remains:
   - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - No readiness upgrade is allowed.
+
+## 2026-05-04 Update - NVIDIA Workspace Root + Absolute Path Fail-Fast Fix Completed
+
+- NVIDIA Workspace Root + Absolute Path Fail-Fast Fix is completed and pushed.
+- This directly addresses:
+  - `WORKSPACE_ROOT_MISMATCH_ABSOLUTE_PATH_FAIL_FAST_BLOCKER`
+- Current readiness remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Manual/path revalidation should be rerun before closing the blocker.
+- Packaging and bridge expansion remain blocked.
+- No readiness upgrade is allowed.

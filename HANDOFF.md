@@ -1361,3 +1361,40 @@ Constraints for the next builder:
   - sync
   - auto-promote
   - ABW mutation
+
+## 2026-05-04 Status Update - NVIDIA Workspace Root + Absolute Path Fail-Fast Fix Completed
+
+- Latest NVIDIA commit:
+  - `66786b6ed48f0e8607fabc703166cb892a04d188`
+- Latest completed scope:
+  - NVIDIA Workspace Root + Absolute Path Fail-Fast Fix
+- Audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS` with manual/path revalidation still required
+- What improved:
+  - workspace mismatch fail-fast
+  - Windows absolute path preservation
+  - inside-workspace absolute path normalization
+  - no `list_dir` / no `execute_command` on mismatch
+  - no pending / no fake success on mismatch
+- Current out-of-scope NVIDIA dirty files:
+  - `nvidia_playground.html`
+  - `docs/fix-proposal.md`
+- Browser smoke note:
+  - `Project Rules warning text visible` fails because intentional Vietnamese UI text is out-of-scope and smoke still expects English
+- Next required action:
+  - run gate review / next-scope planning before any Builder prompt
+- Likely next action:
+  - targeted manual revalidation rerun for workspace absolute path and Test 6 path cases
+- Still forbidden:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation

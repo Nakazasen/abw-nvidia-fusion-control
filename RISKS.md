@@ -1926,3 +1926,20 @@ Mitigation:
   - add regression for `D:\Sandbox\Nvidia\proof\rename_source.txt`
   - add workspace mismatch test coverage
   - keep `DAILY_USE_READY` forbidden
+
+## 2026-05-04 Update - Workspace Absolute Path Fix Completion Follow-up Risks
+
+- Current risk:
+  - code-level workspace fix may be mistaken as manual revalidation closure
+  - `browser:smoke` remains red due intentional Vietnamese UI text and English smoke expectation
+  - out-of-scope NVIDIA dirty files may be accidentally committed later
+  - absolute path behavior still needs manual rerun on real UI
+  - wrong workspace confusion may persist if user opens control repo instead of NVIDIA repo
+  - packaging and bridge expansion remain blocked
+- Mitigation:
+  - require gate review before next scope
+  - rerun targeted manual revalidation before closing blocker
+  - keep `nvidia_playground.html` and `docs/fix-proposal.md` out-of-scope unless separately reviewed
+  - create separate gate later for smoke/localization alignment if needed
+  - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden
+  - preserve workspace mismatch regression tests

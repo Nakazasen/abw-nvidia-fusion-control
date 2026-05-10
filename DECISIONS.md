@@ -2824,3 +2824,69 @@ Consequence:
 - Does not mutate ABW.
 - Does not implement packaging.
 - Does not claim generic Vietnamese localization completeness.
+
+## DECISION: Record NVIDIA workspace absolute path fail-fast fix completion
+
+- Status: Accepted
+- Date: 2026-05-04
+
+### Context
+
+- Targeted manual use found that an absolute path outside the current workspace degraded into a wrong relative path and caused noisy `list_dir` / `execute_command` attempts.
+
+### Decision
+
+- Accept completion of NVIDIA Workspace Root + Absolute Path Fail-Fast Fix at code/regression level.
+
+### Evidence
+
+- NVIDIA commit:
+  - `66786b6ed48f0e8607fabc703166cb892a04d188`
+- commit message:
+  - `fix: fail fast on NVIDIA workspace absolute path mismatch`
+- user command:
+  - `Đổi tên D:\Sandbox\Nvidia\proof\rename_source.txt thành D:\Sandbox\Nvidia\proof\renamed_target.txt`
+- changed files:
+  - `tools/nvidia-server.mjs`
+  - `tests/manual-reliability-regression.test.mjs`
+- validation:
+  - `git diff --check` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tests/manual-reliability-regression.test.mjs` PASS
+  - `manual:reliability` PASS `74/0`
+- accepted behavior:
+  - outside-workspace absolute path returns `BLOCKED_WORKSPACE_MISMATCH` at preflight
+  - no `list_dir`
+  - no `execute_command`
+  - no pending operation
+  - no fake success
+  - inside-workspace absolute path normalizes to relative path and uses `move_file` pending/apply
+- browser smoke note:
+  - `browser:smoke` fails `116/1` due intentional Vietnamese UI text in out-of-scope `nvidia_playground.html`; this is not caused by the workspace fix
+- boundary:
+  - no bridge UI
+  - no sync
+  - no auto-promote
+  - no ABW mutation
+  - no packaging
+  - no `DAILY_USE_READY` claim
+
+### Consequences
+
+- The workspace absolute path blocker has a code-level fix and regression evidence.
+- Manual/path revalidation must be rerun before closing manual validation.
+- Current readiness remains `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+- `DAILY_USE_READY` remains forbidden.
+- Production/full bridge/Cognitive OS/security/packaging claims remain forbidden.
+- Next step must be gate review / next-scope planning.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not include UI localization/smoke alignment work.
