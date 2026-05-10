@@ -3400,3 +3400,50 @@ Consequence:
 - Does not implement packaging.
 - Does not mutate ABW.
 - Does not start a new code sprint.
+
+## DECISION: Record manual path revalidation V3 fail due real UI provider tool-calling and rate guard blockers
+
+- Status: Accepted
+- Date: 2026-05-10
+
+### Context
+
+- After the rate guard classification fix, targeted manual path revalidation V3 was rerun on the real NVIDIA UI.
+- Workspace switch passed, but prompt-based file workflows still could not be proven because the real UI path hit local rate guard and then a provider/model tool-calling incompatibility.
+
+### Decision
+
+- Record `MANUAL_PATH_REVALIDATION_V3_FAIL` and proceed next with NVIDIA Real UI Provider Tool-Calling Selection + Rate Guard Surfacing Fix.
+
+### Evidence
+
+- Test 1 workspace switch PASS.
+- Test 2 absolute rename FAIL / not proven:
+  - first attempt hit local rate guard `429`; after pacing, provider path returned `500 NIM 422` because `tools` / `tool_choice` were not accepted.
+- Test 3 explicit path fallback FAIL / not proven:
+  - no wrong root file or fake success, but no `TARGET_PATH_MISMATCH` or safe exact-path edit outcome was proven.
+- Test 4 failure honesty FAIL / not proven:
+  - no pending, no `execute_command`, no fake success, but `BLOCKED_WORKSPACE_MISMATCH` was not proven.
+- Wrong root files were missing.
+- Intended proof fixtures remained under `proof/`.
+- `TARGET_OPERATION_MISMATCH` did not reappear.
+- Old path distortion did not reappear.
+
+### Consequences
+
+- Manual/path validation remains open.
+- Do not proceed to readiness upgrade.
+- Do not immediately reopen move/rename contract unless a clean rerun reproduces a move/rename failure without provider/rate/tool-calling blockers.
+- Next Builder should focus on real UI provider tool-calling selection and rate guard surfacing.
+- `DAILY_USE_READY` remains forbidden.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.
+- Does not perform generic UI polish.

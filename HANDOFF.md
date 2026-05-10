@@ -1065,6 +1065,38 @@ Constraints for the next builder:
   - bridge UI
   - sync
   - auto-promote
+
+## 2026-05-10 Status Update - Manual Path Revalidation V3 Fails On Real UI Provider Tool-Calling Path
+
+- Latest manual result:
+  - `MANUAL_PATH_REVALIDATION_V3_FAIL`
+- Passed:
+  - workspace switch to `D:\Sandbox\Nvidia`
+- Failed / not proven:
+  - absolute rename pending/apply
+  - Test 6 expected outcome
+  - outside-workspace `BLOCKED_WORKSPACE_MISMATCH` classification
+- Main blockers:
+  - local NVIDIA rate guard `429` still appears on the real UI path
+  - provider/model returns `500 NIM 422` because `tools` / `tool_choice` are unsupported
+- Important note:
+  - `TARGET_OPERATION_MISMATCH` did not reappear
+  - old path distortion did not reappear
+  - no wrong root files were created
+  - no fake success observed
+  - no `execute_command` observed
+- Next required action:
+  - create NVIDIA Real UI Provider Tool-Calling Selection + Rate Guard Surfacing Fix Builder prompt
+- Still forbidden:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+  - bridge UI
+  - sync
+  - auto-promote
   - ABW mutation
   - packaging
   - `DAILY_USE_READY` claim

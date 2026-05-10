@@ -2115,3 +2115,22 @@ Mitigation:
     - `MANUAL_PATH_REVALIDATION_V3_PARTIAL`
     - `MANUAL_PATH_REVALIDATION_V3_FAIL`
   - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden
+
+## 2026-05-10 Update - Real UI Provider Tool-Calling And Rate Guard Surfacing Risks
+
+- Current risk:
+  - real UI provider/model may not support `tools` / `tool_choice` but still be selected for agent file workflow
+  - unsupported tool payload can produce provider `500` / `NIM 422` before local file workflow is reached
+  - rate guard can still mask manual validation result in real UI
+  - startup probing can consume rate budget before user validation
+  - code/regression pass may be mistaken for user-facing manual pass
+  - `proof/` fixtures may accidentally be committed later
+  - out-of-scope NVIDIA dirty files may be accidentally committed later
+- Mitigation:
+  - add provider/model tool-capability gate for agent file workflow
+  - fail fast before provider call if `tools` / `tool_choice` are unsupported
+  - surface provider/rate guard classification clearly in UI response path
+  - reduce or defer startup probing during manual validation if needed
+  - rerun targeted manual validation after fix
+  - keep `proof/`, `nvidia_playground.html`, and `docs/fix-proposal.md` out-of-scope unless separately reviewed
+  - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden

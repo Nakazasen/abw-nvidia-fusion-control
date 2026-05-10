@@ -4680,3 +4680,25 @@ Warning:
   - manual/path revalidation V3 `PASS`
 - Next:
   - record this gate, then create targeted manual path revalidation V3 prompt
+
+## 2026-05-10 - Manual path revalidation V3 fails on real UI provider tool-calling and rate guard blockers
+
+- Control head:
+  - `fc2fdf2a2359f1559747fb482839f59e9b0b00d0`
+- NVIDIA head:
+  - `b5b08653eaa0774a5d12ed16444a1d0b47f77cb7`
+- ABW head:
+  - `fe0520626d8f254476424242e29ea2bef4807f73`
+- result:
+  - `MANUAL_PATH_REVALIDATION_V3_FAIL`
+- pass:
+  - workspace switch to `D:\Sandbox\Nvidia`
+- fail / not proven:
+  - absolute rename pending/apply
+  - Test 6 expected outcome
+  - outside-workspace `BLOCKED_WORKSPACE_MISMATCH` classification
+- blockers:
+  - local NVIDIA rate guard `429`
+  - provider/model `500 NIM 422` due unsupported `tools` / `tool_choice`
+- next:
+  - record this result, then create Builder prompt for real UI provider tool-calling selection and rate guard surfacing

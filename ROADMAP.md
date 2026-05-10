@@ -2005,3 +2005,22 @@ Each audit must check:
   - Targeted Manual Path Revalidation Rerun V3
 - No readiness upgrade is allowed yet.
 - Packaging, bridge expansion, and ABW mutation remain blocked.
+
+## 2026-05-10 Update - Manual Path Revalidation V3 Fail On Real UI
+
+- manual result:
+  - `MANUAL_PATH_REVALIDATION_V3_FAIL`
+- pass:
+  - workspace switch to `D:\Sandbox\Nvidia`
+- failed / not proven:
+  - absolute rename pending/apply
+  - Test 6 expected outcome
+  - outside-workspace `BLOCKED_WORKSPACE_MISMATCH` classification
+- new blockers:
+  - local NVIDIA rate guard `429` still affects the real UI path
+  - provider/model path returns `500 NIM 422` due unsupported `tools` / `tool_choice`
+- next scope:
+  - NVIDIA Real UI Provider Tool-Calling Selection + Rate Guard Surfacing Fix
+- readiness remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- no readiness upgrade.
