@@ -3281,3 +3281,72 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not implement packaging.
 - Does not mutate ABW.
+
+## DECISION: Record NVIDIA manual validation runtime rate guard stability fix completion
+
+- Status: Accepted
+- Date: 2026-05-10
+
+### Context
+
+- Manual path revalidation V2 failed because the real UI prompt flow was blocked by Local NVIDIA rate guard before rename/Test 6/file workflow outcomes could be proven.
+- The rate guard needed to be classified separately from file workflow failure.
+
+### Decision
+
+- Accept completion of NVIDIA Manual Validation Runtime / Rate Guard Stability Fix at code/regression/audit level.
+
+### Evidence
+
+- NVIDIA commit:
+  - `b5b08653eaa0774a5d12ed16444a1d0b47f77cb7`
+- commit message:
+  - `fix(runtime): classify manual-validation rate guard separately from file workflow failures`
+- changed files:
+  - `tools/nvidia-server.mjs`
+  - `tests/manual-reliability-regression.test.mjs`
+- validation:
+  - `git diff --check` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tests/manual-reliability-regression.test.mjs` PASS
+  - `manual:reliability` PASS `122/0`
+  - `apply:proof` PASS `30/0`
+  - `browser:smoke` PASS `118/0`
+  - `agent:audit` PASS `25/25`
+  - bridge preflight PASS
+- accepted behavior:
+  - `PROVIDER_RATE_GUARD_BLOCKED` is separate from file workflow failure
+  - `providerGuard` includes retry timing
+  - `attemptedFileOperation` false
+  - `diskMutated` false
+  - no pending
+  - no disk mutation
+  - no `execute_command`
+  - no fake success
+  - deterministic file workflow preserved
+- boundary:
+  - no bridge UI
+  - no sync
+  - no auto-promote
+  - no ABW mutation
+  - no packaging
+  - no `DAILY_USE_READY` claim
+
+### Consequences
+
+- Runtime/rate guard blocker has code/regression evidence.
+- Manual/path revalidation must be rerun before closing manual validation.
+- Current readiness remains `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+- `DAILY_USE_READY` remains forbidden.
+- Production/full bridge/Cognitive OS/security/packaging claims remain forbidden.
+- Next step must be gate review / next-scope planning.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not implement packaging.
+- Does not mutate ABW.

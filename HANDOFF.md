@@ -1625,3 +1625,38 @@ Constraints for the next builder:
   - sync
   - auto-promote
   - ABW mutation
+
+## 2026-05-10 Status Update - NVIDIA Manual Validation Runtime / Rate Guard Stability Fix Completed
+
+- Latest NVIDIA commit:
+  - `b5b08653eaa0774a5d12ed16444a1d0b47f77cb7`
+- Latest completed scope:
+  - NVIDIA Manual Validation Runtime / Rate Guard Stability Fix
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS` with manual/path validation still not closed
+- What improved:
+  - `PROVIDER_RATE_GUARD_BLOCKED` classification
+  - retry timing surfaced
+  - no pending / no disk mutation / no `execute_command` under rate guard
+  - provider/rate guard no longer confused with file workflow failure
+  - deterministic file workflow tests preserved
+- Audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- Current out-of-scope NVIDIA dirty files:
+  - `nvidia_playground.html`
+  - `docs/fix-proposal.md`
+- Next required action:
+  - run gate review / next-scope planning before any Builder prompt
+- Likely next action:
+  - targeted manual path revalidation rerun under stable rate-guard handling
+- Still forbidden:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation

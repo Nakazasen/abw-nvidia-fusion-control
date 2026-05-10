@@ -1979,3 +1979,16 @@ Each audit must check:
 - readiness remains:
   - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - no readiness upgrade
+
+## 2026-05-10 Update - NVIDIA Manual Validation Runtime / Rate Guard Stability Fix Completed
+
+- NVIDIA Manual Validation Runtime / Rate Guard Stability Fix is completed and pushed.
+- This directly addresses:
+  - provider/rate guard masking manual validation
+  - rate guard being confused with file workflow failure
+  - lack of clear retry / no-mutation evidence
+- Current readiness remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Manual/path revalidation should be rerun before closing blocker.
+- Packaging and bridge expansion remain blocked.
+- No readiness upgrade.

@@ -2078,3 +2078,21 @@ Mitigation:
   - ensure rate guard messages are classified honestly and do not create fake success
   - rerun manual path validation after rate-guard stability fix
   - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden
+
+## 2026-05-10 Update - Post-Fix Manual Validation Closure Risks
+
+- Current risk:
+  - code-level rate guard classification may be mistaken as manual validation closure
+  - manual UI path still needs rerun on real user workflow
+  - provider/rate guard may still interrupt user flow, though now separately classified
+  - out-of-scope NVIDIA dirty files may be accidentally committed later
+  - `nvidia_playground.html` remains dirty due intentional Vietnamese localization
+  - `docs/fix-proposal.md` remains untracked
+  - packaging and bridge expansion remain blocked
+- Mitigation:
+  - require gate review before next scope
+  - rerun targeted manual revalidation before closing blocker
+  - record provider/rate guard separately from file workflow failures
+  - keep `nvidia_playground.html` and `docs/fix-proposal.md` out-of-scope unless separately reviewed
+  - keep `DAILY_USE_READY` and production/security/bridge/packaging claims forbidden
+  - preserve rate guard and operation contract regression tests

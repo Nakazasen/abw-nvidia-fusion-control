@@ -4623,3 +4623,43 @@ Warning:
   - Local NVIDIA rate guard blocked `chat.completions`
 - next:
   - record this result, then create Builder prompt for manual-validation runtime/rate guard stability
+
+## 2026-05-10 - NVIDIA manual validation runtime rate guard stability fix completed
+
+- NVIDIA commit:
+  - `b5b08653eaa0774a5d12ed16444a1d0b47f77cb7`
+- commit message:
+  - `fix(runtime): classify manual-validation rate guard separately from file workflow failures`
+- files changed:
+  - `tools/nvidia-server.mjs`
+  - `tests/manual-reliability-regression.test.mjs`
+- audit verdict:
+  - `AUDIT_READY_FOR_COMMIT`
+- accepted:
+  - `PROVIDER_RATE_GUARD_BLOCKED` classification
+  - `providerGuard` includes `retryAfterMs` / `retryAfterSeconds`
+  - `attemptedFileOperation` false
+  - `diskMutated` false
+  - no pending
+  - no disk mutation
+  - no `execute_command`
+  - no fake success
+  - deterministic file workflow preserved
+  - `manual:reliability` PASS `122/0`
+  - `apply:proof` PASS `30/0`
+  - `browser:smoke` PASS `118/0`
+  - `agent:audit` PASS `25/25`
+  - bridge preflight PASS
+  - in-scope secret/mojibake/overclaim checks clean
+- out-of-scope:
+  - `nvidia_playground.html` remains modified and unstaged in NVIDIA
+  - `docs/fix-proposal.md` remains untracked and unstaged in NVIDIA
+- not accepted:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+- next:
+  - run gate review / next-scope planning; manual path revalidation rerun remains appropriate
