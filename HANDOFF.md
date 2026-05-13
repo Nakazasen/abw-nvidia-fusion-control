@@ -1715,3 +1715,50 @@ Constraints for the next builder:
   - packaging
   - `DAILY_USE_READY` claim
   - production/full bridge/Cognitive OS/security claims
+
+## 2026-05-13 Status Update - Manual Path Revalidation V3 Pass
+
+- Latest manual result:
+  - `MANUAL_PATH_REVALIDATION_V3_PASS`
+- Previous blocker:
+  - closed
+- NVIDIA validation baseline:
+  - HEAD `b5b08653eaa0774a5d12ed16444a1d0b47f77cb7`
+  - dirty files matched expected list:
+    - `tools/nvidia-server.mjs`
+    - `nvidia_playground.html`
+    - `tests/provider-tool-calling-capability.test.mjs`
+    - `proof/provider-tool-calling-rate-guard-fix.md`
+- What was validated:
+  - workspace switch PASS
+  - deterministic file operation proposal PASS
+  - Review + Apply PASS
+  - `TARGET_PATH_MISMATCH` PASS
+  - `BLOCKED_WORKSPACE_MISMATCH` PASS
+  - `PROVIDER_TOOL_CALLING_UNSUPPORTED` PASS
+  - `PROVIDER_RATE_GUARD_BLOCKED` PASS
+  - move/rename contract PASS
+  - browser smoke sanity PASS
+  - targeted regression sanity PASS
+- Mutation safety preserved:
+  - no mutation before Apply
+  - no mutation after provider capability block
+  - no mutation after rate guard block
+  - no outside-workspace mutation
+- Current readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Current next action:
+  - governance review whether to promote from bounded candidate to a later internal readiness label, or run final Codex-style audit before any promotion
+- Still forbidden:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+  - VS Code parity
+  - Cursor parity
+  - bridge UI
+  - sync
+  - auto-promote
+  - ABW mutation

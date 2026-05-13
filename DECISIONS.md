@@ -3447,3 +3447,87 @@ Consequence:
 - Does not implement packaging.
 - Does not mutate ABW.
 - Does not perform generic UI polish.
+
+## DECISION: Accept manual path revalidation V3 pass and close the previous blocker
+
+- Status: Accepted
+- Date: 2026-05-13
+
+### Context
+
+- The previous manual/path blocker was `MANUAL_PATH_REVALIDATION_V3_FAIL`.
+- NVIDIA then implemented the Real UI Provider Tool-Calling Selection + Rate Guard Surfacing Fix and reran manual/path revalidation V3 on the real UI path.
+
+### Decision
+
+- Accept `MANUAL_PATH_REVALIDATION_V3_PASS`.
+- Accept that the previous `MANUAL_PATH_REVALIDATION_V3_FAIL` blocker is now closed for the deterministic NVIDIA local file-workflow path.
+- Accept provider/tool-calling unsupported classification:
+  - `PROVIDER_TOOL_CALLING_UNSUPPORTED`
+- Confirm rate guard surfacing:
+  - `PROVIDER_RATE_GUARD_BLOCKED`
+- Confirm mutation safety remained intact.
+- Confirm Review + Apply remains required.
+- Confirm workspace trust and workspace-boundary blocking remain required.
+
+### Evidence
+
+- NVIDIA HEAD:
+  - `b5b08653eaa0774a5d12ed16444a1d0b47f77cb7`
+- dirty files matched expected list:
+  - `tools/nvidia-server.mjs`
+  - `nvidia_playground.html`
+  - `tests/provider-tool-calling-capability.test.mjs`
+  - `proof/provider-tool-calling-rate-guard-fix.md`
+- validated case results:
+  - workspace switch PASS
+  - deterministic file operation proposal PASS
+  - Review + Apply PASS
+  - target path mismatch PASS
+  - outside workspace block PASS
+  - unsupported provider/tool-calling path PASS
+  - rate guard surfacing PASS
+  - move/rename contract PASS
+  - browser smoke sanity PASS
+  - targeted regression sanity PASS
+- command evidence:
+  - `npm run manual:proof` PASS `71/0`
+  - browser-originated unsupported-provider check PASS, HTTP `200`, `PROVIDER_TOOL_CALLING_UNSUPPORTED`
+  - browser-originated rate-guard check PASS, HTTP `200`, `PROVIDER_RATE_GUARD_BLOCKED`
+  - `npm run browser:smoke` PASS `118/0`
+  - `node tests/provider-tool-calling-capability.test.mjs` PASS `16/0`
+  - `npm run manual:reliability` PASS `122/0`
+  - `npm run apply:proof` PASS `30/0`
+  - `npm run move:proof` PASS `71/0`
+  - `npm run agent:audit` PASS `25/25`
+  - `npm run soak:proof` PASS `141/0`
+  - `npm test` not run because `package.json` has no `test` script
+- observed classifications:
+  - `PROVIDER_TOOL_CALLING_UNSUPPORTED`
+  - `PROVIDER_RATE_GUARD_BLOCKED`
+  - `TARGET_PATH_MISMATCH`
+  - `BLOCKED_WORKSPACE_MISMATCH`
+- mutation safety:
+  - no mutation before Apply
+  - no mutation after provider capability block
+  - no mutation after rate guard block
+  - no outside-workspace mutation
+
+### Consequences
+
+- The prior manual/path blocker is closed for the deterministic NVIDIA validation path.
+- Current readiness remains `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+- The next step is governance review / Codex-style audit, not feature expansion.
+- `DAILY_USE_READY` remains forbidden.
+- Production/full bridge/Cognitive OS/security/packaging/parity claims remain forbidden.
+
+### Non-goals
+
+- Does not claim package-level `npm test` coverage.
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not claim packaging-ready.
+- Does not claim VS Code parity or Cursor parity.

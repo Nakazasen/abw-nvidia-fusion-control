@@ -2024,3 +2024,43 @@ Each audit must check:
 - readiness remains:
   - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - no readiness upgrade.
+
+## 2026-05-13 Update - Manual Path Revalidation V3 Pass
+
+- NVIDIA local deterministic file workflow manual/path validation V3 is now:
+  - `MANUAL_PATH_REVALIDATION_V3_PASS`
+- Previous blocker is now closed:
+  - `MANUAL_PATH_REVALIDATION_V3_FAIL`
+- Evidence baseline:
+  - NVIDIA HEAD `b5b08653eaa0774a5d12ed16444a1d0b47f77cb7`
+  - dirty files matched expected list:
+    - `tools/nvidia-server.mjs`
+    - `nvidia_playground.html`
+    - `tests/provider-tool-calling-capability.test.mjs`
+    - `proof/provider-tool-calling-rate-guard-fix.md`
+- Manual/path revalidation V3 validated:
+  - workspace switch PASS
+  - deterministic file operation proposal PASS
+  - Review + Apply PASS
+  - `TARGET_PATH_MISMATCH` PASS
+  - `BLOCKED_WORKSPACE_MISMATCH` PASS
+  - `PROVIDER_TOOL_CALLING_UNSUPPORTED` PASS
+  - `PROVIDER_RATE_GUARD_BLOCKED` PASS
+  - move/rename contract PASS
+  - browser smoke sanity PASS
+  - targeted regression sanity PASS
+- Current readiness remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- No readiness promotion is accepted by this governance update.
+- Next phase should be:
+  - governance/audit decision, not feature expansion
+- Still not proven:
+  - package-level `npm test`
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge ready
+  - broader real-provider matrix beyond deterministic NVIDIA tool-calling path
+  - enterprise-grade security
+  - packaging-ready
+  - VS Code parity
+  - Cursor parity

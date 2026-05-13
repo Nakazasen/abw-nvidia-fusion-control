@@ -4702,3 +4702,63 @@ Warning:
   - provider/model `500 NIM 422` due unsupported `tools` / `tool_choice`
 - next:
   - record this result, then create Builder prompt for real UI provider tool-calling selection and rate guard surfacing
+
+## 2026-05-13 - Manual path revalidation V3 passes and closes previous blocker
+
+- Date/time:
+  - `2026-05-13 Asia/Bangkok`
+- NVIDIA head:
+  - `b5b08653eaa0774a5d12ed16444a1d0b47f77cb7`
+- manual revalidation verdict:
+  - `MANUAL_PATH_REVALIDATION_V3_PASS`
+- baseline:
+  - dirty files matched expected list:
+    - `tools/nvidia-server.mjs`
+    - `nvidia_playground.html`
+    - `tests/provider-tool-calling-capability.test.mjs`
+    - `proof/provider-tool-calling-rate-guard-fix.md`
+- validated case results:
+  - workspace switch PASS
+  - deterministic file operation proposal PASS
+  - Review + Apply PASS
+  - target path mismatch PASS
+  - outside workspace block PASS
+  - unsupported provider/tool-calling path PASS
+  - rate guard surfacing PASS
+  - move/rename contract PASS
+  - browser smoke sanity PASS
+  - targeted regression sanity PASS
+- command evidence:
+  - `npm run manual:proof` PASS `71/0`
+  - browser-originated unsupported-provider check PASS, HTTP `200`, `PROVIDER_TOOL_CALLING_UNSUPPORTED`
+  - browser-originated rate-guard check PASS, HTTP `200`, `PROVIDER_RATE_GUARD_BLOCKED`
+  - `npm run browser:smoke` PASS `118/0`
+  - `node tests/provider-tool-calling-capability.test.mjs` PASS `16/0`
+  - `npm run manual:reliability` PASS `122/0`
+  - `npm run apply:proof` PASS `30/0`
+  - `npm run move:proof` PASS `71/0`
+  - `npm run agent:audit` PASS `25/25`
+  - `npm run soak:proof` PASS `141/0`
+  - `npm test` not run because `package.json` has no `test` script
+- classification evidence:
+  - `PROVIDER_TOOL_CALLING_UNSUPPORTED`
+  - `PROVIDER_RATE_GUARD_BLOCKED`
+  - `TARGET_PATH_MISMATCH`
+  - `BLOCKED_WORKSPACE_MISMATCH`
+- mutation safety evidence:
+  - no mutation before Apply
+  - no mutation after provider capability block
+  - no mutation after rate guard block
+  - no outside-workspace mutation
+- not proven:
+  - package-level `npm test`
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge readiness
+  - broader real-provider matrix beyond deterministic NVIDIA tool-calling path
+  - enterprise-grade security
+  - packaging readiness
+  - VS Code/Cursor parity
+- next governance action:
+  - record `MANUAL_PATH_REVALIDATION_V3_PASS` and close the previous manual/path blocker
+  - run governance review / Codex-style audit before any readiness promotion
