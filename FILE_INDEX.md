@@ -17,6 +17,7 @@ File này quản lý toàn bộ file markdown cần thiết cho quá trình kế
 | `NEXT.md` | Prompt để Agent gợi ý việc tiếp theo | Khi đổi cách điều phối |
 | `BRIDGE_CONTRACT.md` | Contract tích hợp ABW x NVIDIA | Khi thiết kế/đổi bridge |
 | `repo-map.json` | Bản đồ đường dẫn repo và vai trò | Khi đổi đường dẫn/repo |
+| `AGENTS.md` | Hướng dẫn cho AI agent làm việc trong repo này | Khi đổi quy trình agent hoặc conventions |
 
 ## Prompt Agent
 
