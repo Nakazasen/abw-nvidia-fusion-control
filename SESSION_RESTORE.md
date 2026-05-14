@@ -1,70 +1,44 @@
-# Quy Trình Khôi Phục Phiên Làm Việc
+# Session Restore
 
-Dùng file này khi bắt đầu một phiên AI mới để khôi phục bối cảnh.
+## Control Repo
 
-## Control Folder Chính
+- `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL`
 
-```text
-D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL
-```
+## Restore Order
 
-Đây là bộ nhớ xuyên repo cho nỗ lực hợp nhất ABW x NVIDIA. Nó nằm ngoài cả hai repo source để tránh trộn source ngoài ý muốn.
+1. Verify exact repo path.
+2. Run `git status --short --untracked-files=all`.
+3. Run `git rev-parse HEAD`.
+4. Compare local `HEAD` against the latest recorded Control state.
+5. Read `HANDOFF.md`.
+6. Read `DECISIONS.md` and `RISKS.md`.
+7. Only then inspect implementation repos if scope requires it.
 
-## Thứ Tự Đọc
+## Latest Accepted Mirror State
 
-1. Tổng quan control:
-   - `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\README.md`
-   - `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\HANDOFF.md`
-   - `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\INTEGRATION_JOURNAL.md`
+- Control `d78a2fea1292bd3cff6ef9fdbd6d90a1732e6eed` clean
+- NVIDIA `207a30bce6bc3a9f9171dd236df789fa6ec10ca8` clean
+- ABW `39d7e95635d3bee924122791a1ecfc29a0a878f4` clean
+- Current readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Closed blocker: `MANUAL_PATH_REVALIDATION_V3_FAIL` is closed; `MANUAL_PATH_REVALIDATION_V3_PASS` is the accepted manual result
 
-2. Roadmap và ràng buộc:
-   - `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\ROADMAP.md`
-   - `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\DECISIONS.md`
-   - `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\RISKS.md`
-   - `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\repo-map.json`
+## Still Not Proven
 
-3. Định hướng NVIDIA:
-   - `D:\Sandbox\Nvidia\README.md`
-   - `D:\Sandbox\Nvidia\.nvidia-agent\reports\audit-nvidia-abw-fusion-2026-04-30.md`
+- `DAILY_USE_READY`
+- production-ready
+- full bridge ready
+- Cognitive OS achieved
+- enterprise-grade security
+- packaging-ready
+- VS Code parity
+- Cursor parity
+- broader real-provider matrix
+- package-level npm test
 
-4. Định hướng ABW:
-   - `D:\Sandbox\skill-Anti-brain-wiki_note\README.proposed.md`
-   - `D:\Sandbox\skill-Anti-brain-wiki_note\docs\ABW_ARCHITECTURE_AUDIT_2026-04-30.md`
+## Resume From
 
-## Tóm Tắt Hiện Tại
-
-- NVIDIA là product shell và active agent runtime.
-- ABW là canonical governance engine và constitutional layer.
-- Chiến lược tích hợp hiện tại là bridge-first.
-- Không merge source trees cơ học.
-- Không claim NVIDIA x ABW đã tích hợp nếu chưa có bridge và smoke check.
-- Bắt đầu bằng CLI bridge; chỉ cân nhắc FastAPI/local service sau khi CLI bridge ổn định.
-
-## Việc Tiếp Theo
-
-Draft bridge contract:
-
-```text
-D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\BRIDGE_CONTRACT.md
-```
-
-Sau đó quyết định có adopt:
-
-```text
-D:\Sandbox\skill-Anti-brain-wiki_note\README.proposed.md
-```
-
-thành:
-
-```text
-D:\Sandbox\skill-Anti-brain-wiki_note\README.md
-```
-
-sau khi human review hay không.
-
-## Prompt Khởi Đầu Phiên Mới
-
-```text
-Đọc `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL\SESSION_RESTORE.md` trước, rồi làm theo thứ tự đọc trong file đó. Sau khi phục hồi bối cảnh, hãy tóm tắt trạng thái hiện tại, rủi ro chính, và việc nên làm tiếp theo trước khi sửa bất kỳ file nào.
-```
-
+- governance readiness review
+- add package-level npm test script in NVIDIA
+- broader provider matrix audit
+- optional ds2api experimental read-only provider risk audit
+- do not start bridge/sync/packaging without governance approval
