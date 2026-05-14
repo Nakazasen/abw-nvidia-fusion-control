@@ -3606,3 +3606,61 @@ Consequence:
 - Does not claim Cursor parity.
 - Does not claim broader real-provider matrix coverage.
 - Does not claim broad real-world sustained daily-use durability.
+
+## DECISION: Record ABW CLI JSON bridge-contract foundation as closed for covered commands
+
+- Status: Accepted
+- Date: 2026-05-15
+
+### Context
+
+- ABW baseline audit previously failed the bridge contract because the public CLI lacked stable machine-readable JSON envelopes for core commands.
+- ABW has now completed a bounded CLI JSON contract sprint and pushed the result.
+
+### Decision
+
+- Accept the ABW CLI bridge-contract blocker as closed for the covered commands:
+  - `ask`
+  - `doctor`
+  - `version`
+  - `ingest`
+  - `review`
+- Treat this as bridge-contract foundation only.
+- Do not treat it as NVIDIA bridge implementation or as a readiness promotion beyond the current scoped labels.
+
+### Evidence
+
+- ABW commit:
+  - `be20a03f01ad8d89e02b2adc6bc10941df683728`
+  - `feat: add stable CLI JSON contract for ABW commands`
+- files changed:
+  - `src/abw/cli.py`
+  - `tests/test_abw_json_hardening.py`
+- targeted tests PASS `117/0`
+- full tests PASS `718/0`
+- wheel build PASS
+- stable CLI JSON envelope:
+  - `schema_version`
+  - `command_name`
+  - `workspace`
+  - `generated_at`
+  - `status`
+  - `data`
+
+### Consequences
+
+- Future NVIDIA bridge work may safely target the ABW public CLI without parsing prose for the covered commands.
+- The next recommended sprint is:
+  - `NVIDIA Phase 1 ABW CLI Reader Sprint`
+- Current readiness remains:
+  - `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
+  - within `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+
+### Non-goals
+
+- Does not mean NVIDIA bridge is implemented.
+- Does not mean full API parity.
+- Does not mean Vietnamese robustness is broadly solved.
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge ready.

@@ -2,6 +2,53 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-15 - ABW CLI JSON bridge-contract foundation recorded
+
+- Control head before update:
+  - `19ca823a517332bf0b7ecef7281e7faee34ef0ad`
+- NVIDIA head:
+  - `7639f441d7e39020d924e8014d68c86d8a0eb8d2`
+- ABW head:
+  - `be20a03f01ad8d89e02b2adc6bc10941df683728`
+- readiness:
+  - `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
+  - within `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- closure:
+  - ABW CLI bridge-contract blocker is closed for covered commands
+- commit:
+  - `be20a03f01ad8d89e02b2adc6bc10941df683728`
+  - `feat: add stable CLI JSON contract for ABW commands`
+- changed files:
+  - `src/abw/cli.py`
+  - `tests/test_abw_json_hardening.py`
+- covered commands:
+  - `ask`
+  - `doctor`
+  - `version`
+  - `ingest`
+  - `review`
+- envelope:
+  - `schema_version`
+  - `command_name`
+  - `workspace`
+  - `generated_at`
+  - `status`
+  - `data`
+- evidence:
+  - targeted tests PASS `117/0`
+  - full tests PASS `718/0`
+  - wheel build PASS
+- explicit non-claims:
+  - NVIDIA bridge is not implemented yet
+  - CLI contract does not imply full API parity
+  - Vietnamese robustness was not broadly reworked
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+- next:
+  - `NVIDIA Phase 1 ABW CLI Reader Sprint`
+  - updated remaining estimate: `12-19` large prompts remain
+
 ## 2026-05-15 - Readiness review accepts LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE as a scoped internal label
 
 - Control head before update:

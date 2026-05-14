@@ -2100,3 +2100,38 @@ Each audit must check:
   - browser smoke warning investigation
   - optional ds2api experimental read-only provider risk audit
   - stop and preserve clean state
+
+## 2026-05-15 Update - ABW CLI JSON Bridge-Contract Foundation Recorded
+
+- Latest ABW remote main:
+  - `be20a03f01ad8d89e02b2adc6bc10941df683728`
+- ABW CLI bridge-contract blocker is closed for covered commands:
+  - `ask`
+  - `doctor`
+  - `version`
+  - `ingest`
+  - `review`
+- Accepted ABW evidence:
+  - targeted tests PASS `117/0`
+  - full tests PASS `718/0`
+  - wheel build PASS
+  - stable CLI JSON envelope now includes:
+    - `schema_version`
+    - `command_name`
+    - `workspace`
+    - `generated_at`
+    - `status`
+    - `data`
+- Readiness remains:
+  - `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
+  - within `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- This is not a bridge implementation and does not widen readiness:
+  - NVIDIA bridge is not implemented yet
+  - CLI contract does not imply full API parity
+  - Vietnamese robustness was not broadly reworked in this sprint
+  - no `DAILY_USE_READY` claim
+  - no production-ready claim
+- Updated remaining estimate:
+  - `12-19` large prompts remain
+- Next recommended sprint:
+  - `NVIDIA Phase 1 ABW CLI Reader Sprint`

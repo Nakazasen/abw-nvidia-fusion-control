@@ -2162,3 +2162,26 @@ Mitigation:
   - keep provider capability and rate-guard classifications explicit in future evidence
   - preserve the known browser smoke warning about inline edit widget observability until a later bounded fix
   - keep bridge/sync/packaging blocked and parity claims forbidden
+
+## 2026-05-15 Update - Post ABW CLI JSON Contract Foundation Residual Risks
+
+- Closed:
+  - ABW CLI bridge-contract blocker is closed for covered commands:
+    - `ask`
+    - `doctor`
+    - `version`
+    - `ingest`
+    - `review`
+- Current risk:
+  - ABW CLI JSON contract may be mistaken for NVIDIA bridge implementation
+  - CLI contract may be mistaken for full API parity
+  - Vietnamese robustness may be over-assumed because JSON structure improved
+  - broader provider matrix remains unproven
+  - long sustained daily-work durability remains unproven
+  - readiness overclaim risk remains if CLI contract closure is described as full bridge readiness
+- Mitigation:
+  - keep explicit language that NVIDIA bridge is not implemented yet
+  - keep current readiness bounded at `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE` within `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+  - keep `DAILY_USE_READY`, production-ready, and full bridge claims forbidden
+  - keep broader provider matrix and sustained daily-use durability in the not-proven list
+  - proceed next with `NVIDIA Phase 1 ABW CLI Reader Sprint`, not sync/write-back/UI bridge work

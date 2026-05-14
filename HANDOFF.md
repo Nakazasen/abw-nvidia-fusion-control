@@ -6,7 +6,7 @@
 - Control status: clean
 - NVIDIA HEAD: `7639f441d7e39020d924e8014d68c86d8a0eb8d2`
 - NVIDIA status: clean
-- ABW HEAD: `39d7e95635d3bee924122791a1ecfc29a0a878f4`
+- ABW HEAD: `be20a03f01ad8d89e02b2adc6bc10941df683728`
 - ABW status: clean
 - Current readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Current scoped label:
@@ -18,6 +18,18 @@
 - Closed blocker: `MANUAL_PATH_REVALIDATION_V3_FAIL` closed by accepted `MANUAL_PATH_REVALIDATION_V3_PASS`
 - Closed validation hygiene gap:
   - package-level `npm test` is now available and passes
+- Closed ABW bridge-contract gap:
+  - ABW CLI bridge-contract blocker is closed for covered commands
+- ABW CLI JSON covered commands:
+  - `ask`
+  - `doctor`
+  - `version`
+  - `ingest`
+  - `review`
+- ABW JSON contract evidence:
+  - targeted tests PASS `117/0`
+  - full tests PASS `718/0`
+  - wheel build PASS
 - NVIDIA validation hygiene fix:
   - `npm run move:proof` previously deleted tracked `proof/provider-tool-calling-rate-guard-fix.md`
   - cause was recursive cleanup of `path.dirname(targetAbs)` resolving to tracked `proof/`
@@ -38,6 +50,10 @@
   - agent audit `25/25`
   - browser smoke PASS with known warning: `Inline edit widget opens from selection: widget not observable in current smoke state`
   - `proof/provider-tool-calling-rate-guard-fix.md` preserved
+- Bridge-contract limitations remain explicit:
+  - NVIDIA bridge is not implemented yet
+  - CLI contract does not imply full API parity
+  - Vietnamese robustness was not broadly reworked
 - Still not proven:
   - `DAILY_USE_READY`
   - production-ready
@@ -48,7 +64,10 @@
   - VS Code parity
   - Cursor parity
   - broader real-provider matrix
+- Remaining estimate:
+  - `12-19` large prompts remain
 - Next governance actions:
+  - `NVIDIA Phase 1 ABW CLI Reader Sprint`
   - broader provider matrix audit
   - browser smoke warning investigation
   - optional ds2api experimental read-only provider risk audit
