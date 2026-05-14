@@ -2,6 +2,58 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-15 - NVIDIA aggregate npm test gap is closed
+
+- Control head before update:
+  - `840278ca6f778558075d5f3bf29f0ef015861dfd`
+- NVIDIA head:
+  - `7639f441d7e39020d924e8014d68c86d8a0eb8d2`
+- ABW head:
+  - `39d7e95635d3bee924122791a1ecfc29a0a878f4`
+- readiness:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- closure:
+  - package-level `npm test` is now available and passing
+- commit:
+  - `7639f441d7e39020d924e8014d68c86d8a0eb8d2`
+  - `test: add aggregate npm test without dirtying proof docs`
+- changed files:
+  - `package.json`
+  - `tests/move-rename-file-workflow-proof.test.mjs`
+- npm test aggregate:
+  - `node tests/provider-tool-calling-capability.test.mjs`
+  - `npm run manual:reliability`
+  - `npm run apply:proof`
+  - `npm run move:proof`
+  - `npm run agent:audit`
+  - `npm run browser:smoke`
+- hygiene fix:
+  - `npm run move:proof` previously deleted tracked `proof/provider-tool-calling-rate-guard-fix.md`
+  - cause was recursive cleanup of `path.dirname(targetAbs)` resolving to tracked `proof/`
+  - fix replaced parent-directory recursive cleanup with guarded empty-directory cleanup
+  - `removeDirIfEmpty()` was added and `runMoveUiScenario()` now removes the target parent only if test-created and empty
+- evidence:
+  - `npm test` PASS
+  - provider capability `16/0`
+  - manual reliability `122/0`
+  - apply proof `30/0`
+  - move proof `71/0`
+  - agent audit `25/25`
+  - browser smoke PASS with known warning:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - `proof/provider-tool-calling-rate-guard-fix.md` preserved
+  - NVIDIA repo clean after commit/push
+- not proven:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge ready
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+  - VS Code parity
+  - Cursor parity
+  - broader real-provider matrix
+
 ## 2026-05-14 - Session close records final clean mirror state
 
 - Control head:
@@ -29,10 +81,8 @@ This file records the shared ABW x NVIDIA integration history in the control rep
   - VS Code parity
   - Cursor parity
   - broader real-provider matrix
-  - package-level npm test
 - next:
   - governance readiness review
-  - add package-level npm test script in NVIDIA
   - broader provider matrix audit
   - optional ds2api experimental read-only provider risk audit
   - do not start bridge/sync/packaging without governance approval

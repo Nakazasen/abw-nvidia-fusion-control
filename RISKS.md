@@ -2143,7 +2143,7 @@ Mitigation:
   - rate guard path is now classified as `PROVIDER_RATE_GUARD_BLOCKED`
   - manual/path validation V3 is now closed with `MANUAL_PATH_REVALIDATION_V3_PASS`
 - Residual risks remain:
-  - package-level `npm test` is still missing
+  - package-level `npm test` is now present and passing, but broader real-provider matrix evidence is still limited
   - broader real-provider matrix is not proven beyond deterministic NVIDIA tool-calling path
   - `DAILY_USE_READY` is still not proven
   - production-ready is still not proven
@@ -2156,3 +2156,4 @@ Mitigation:
   - do not upgrade readiness without an explicit later gate
   - keep governance/audit review as the next step
   - keep provider capability and rate-guard classifications explicit in future evidence
+  - preserve the known browser smoke warning about inline edit widget observability until a later bounded fix

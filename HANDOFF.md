@@ -1,15 +1,37 @@
 # Handoff
 
-## 2026-05-14 Session Close Snapshot
+## 2026-05-15 Session Close Snapshot
 
-- Control HEAD: `d78a2fea1292bd3cff6ef9fdbd6d90a1732e6eed`
+- Control HEAD: `840278ca6f778558075d5f3bf29f0ef015861dfd`
 - Control status: clean
-- NVIDIA HEAD: `207a30bce6bc3a9f9171dd236df789fa6ec10ca8`
+- NVIDIA HEAD: `7639f441d7e39020d924e8014d68c86d8a0eb8d2`
 - NVIDIA status: clean
 - ABW HEAD: `39d7e95635d3bee924122791a1ecfc29a0a878f4`
 - ABW status: clean
 - Current readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Closed blocker: `MANUAL_PATH_REVALIDATION_V3_FAIL` closed by accepted `MANUAL_PATH_REVALIDATION_V3_PASS`
+- Closed validation hygiene gap:
+  - package-level `npm test` is now available and passes
+- NVIDIA validation hygiene fix:
+  - `npm run move:proof` previously deleted tracked `proof/provider-tool-calling-rate-guard-fix.md`
+  - cause was recursive cleanup of `path.dirname(targetAbs)` resolving to tracked `proof/`
+  - fix uses guarded empty-directory cleanup via `removeDirIfEmpty()`
+- npm test coverage:
+  - `node tests/provider-tool-calling-capability.test.mjs`
+  - `npm run manual:reliability`
+  - `npm run apply:proof`
+  - `npm run move:proof`
+  - `npm run agent:audit`
+  - `npm run browser:smoke`
+- Evidence:
+  - `npm test` PASS
+  - provider capability `16/0`
+  - manual reliability `122/0`
+  - apply proof `30/0`
+  - move proof `71/0`
+  - agent audit `25/25`
+  - browser smoke PASS with known warning: `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - `proof/provider-tool-calling-rate-guard-fix.md` preserved
 - Still not proven:
   - `DAILY_USE_READY`
   - production-ready
@@ -20,10 +42,8 @@
   - VS Code parity
   - Cursor parity
   - broader real-provider matrix
-  - package-level npm test
 - Next governance actions:
   - governance readiness review
-  - add package-level npm test script in NVIDIA
   - broader provider matrix audit
   - optional ds2api experimental read-only provider risk audit
   - do not start bridge/sync/packaging without governance approval
