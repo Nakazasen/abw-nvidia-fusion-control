@@ -2,6 +2,56 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-15 - Readiness review accepts LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE as a scoped internal label
+
+- Control head before update:
+  - `d0ee8d011c5197c32d2f404bfded4f75a36d1a96`
+- NVIDIA head:
+  - `7639f441d7e39020d924e8014d68c86d8a0eb8d2`
+- ABW head:
+  - `39d7e95635d3bee924122791a1ecfc29a0a878f4`
+- parent readiness posture:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- accepted internal scoped label:
+  - `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
+- definition:
+  - deterministic local NVIDIA file workflows are validated for the bounded tested path
+- evidence summary:
+  - `MANUAL_PATH_REVALIDATION_V3_FAIL` closed by `MANUAL_PATH_REVALIDATION_V3_PASS`
+  - package-level `npm test` exists and passes
+  - aggregate includes provider capability, manual reliability, apply proof, move proof, agent audit, and browser smoke
+  - provider capability `16/0`
+  - manual reliability `122/0`
+  - apply proof `30/0`
+  - move proof `71/0`
+  - agent audit `25/25`
+  - browser smoke PASS `118/0`
+  - known warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - classifications validated:
+    - `PROVIDER_TOOL_CALLING_UNSUPPORTED`
+    - `PROVIDER_RATE_GUARD_BLOCKED`
+    - `TARGET_PATH_MISMATCH`
+    - `BLOCKED_WORKSPACE_MISMATCH`
+  - `proof/provider-tool-calling-rate-guard-fix.md` preserved
+- explicit non-claims:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not Cognitive OS achieved
+  - not enterprise-grade security
+  - not packaging-ready
+  - not VS Code parity
+  - not Cursor parity
+  - not broader real-provider matrix validated
+  - not broad real-world sustained daily-use durability proven
+- residual risks:
+  - broader provider matrix remains unproven
+  - browser smoke warning remains open
+  - long real-world sustained daily-use durability remains unproven
+  - bridge/sync/packaging remain blocked
+  - enterprise security remains unproven
+
 ## 2026-05-15 - NVIDIA aggregate npm test gap is closed
 
 - Control head before update:

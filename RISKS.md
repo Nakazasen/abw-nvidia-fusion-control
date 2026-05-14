@@ -2145,6 +2145,9 @@ Mitigation:
 - Residual risks remain:
   - package-level `npm test` is now present and passing, but broader real-provider matrix evidence is still limited
   - broader real-provider matrix is not proven beyond deterministic NVIDIA tool-calling path
+  - known browser smoke warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - long real-world sustained daily-use durability is still unproven
   - `DAILY_USE_READY` is still not proven
   - production-ready is still not proven
   - full bridge readiness is still not proven
@@ -2153,7 +2156,9 @@ Mitigation:
   - VS Code/Cursor parity is still not proven
 - Mitigation:
   - keep current readiness bounded at `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+  - if used, treat `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE` as a scoped internal precision label only
   - do not upgrade readiness without an explicit later gate
   - keep governance/audit review as the next step
   - keep provider capability and rate-guard classifications explicit in future evidence
   - preserve the known browser smoke warning about inline edit widget observability until a later bounded fix
+  - keep bridge/sync/packaging blocked and parity claims forbidden

@@ -3531,3 +3531,78 @@ Consequence:
 - Does not claim enterprise-grade security.
 - Does not claim packaging-ready.
 - Does not claim VS Code parity or Cursor parity.
+
+## DECISION: Define LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE as a scoped internal readiness label
+
+- Status: Accepted
+- Date: 2026-05-15
+
+### Context
+
+- Current bounded readiness remains `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`.
+- `MANUAL_PATH_REVALIDATION_V3_FAIL` is closed by accepted `MANUAL_PATH_REVALIDATION_V3_PASS`.
+- NVIDIA now has a package-level `npm test` aggregate that passes and no longer dirties tracked proof docs.
+- Deterministic local file workflow evidence is stronger than when the bounded label was first recorded, but broader provider-matrix, durability, and production/security evidence remain incomplete.
+
+### Decision
+
+- Accept `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE` as a scoped internal readiness label.
+- Treat it as a precision refinement inside the existing parent posture:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Do not treat it as a broad readiness promotion.
+
+### Definition
+
+- `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE` means deterministic local NVIDIA file workflows are validated for the bounded tested path.
+- It includes:
+  - deterministic local create/edit/delete/move workflow evidence
+  - Review + Apply semantics validated
+  - workspace boundary validation
+  - no fake success accepted in tested cases
+  - no unexpected `execute_command` accepted in tested cases
+  - validated classifications:
+    - `PROVIDER_TOOL_CALLING_UNSUPPORTED`
+    - `PROVIDER_RATE_GUARD_BLOCKED`
+    - `TARGET_PATH_MISMATCH`
+    - `BLOCKED_WORKSPACE_MISMATCH`
+  - package-level `npm test` now exists and passes
+
+### Evidence
+
+- `MANUAL_PATH_REVALIDATION_V3_PASS`
+- package-level `npm test` aggregate:
+  - `node tests/provider-tool-calling-capability.test.mjs`
+  - `npm run manual:reliability`
+  - `npm run apply:proof`
+  - `npm run move:proof`
+  - `npm run agent:audit`
+  - `npm run browser:smoke`
+- provider capability `16/0`
+- manual reliability `122/0`
+- apply proof `30/0`
+- move proof `71/0`
+- agent audit `25/25`
+- browser smoke PASS `118/0` with known warning:
+  - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- `proof/provider-tool-calling-rate-guard-fix.md` preserved
+- NVIDIA repo clean after commit/push
+
+### Consequences
+
+- Governance may refer to a narrower validated local-file-workflow interpretation without widening broader readiness claims.
+- Current parent readiness remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Next step remains governance/audit-first, not bridge/sync/packaging expansion.
+
+### Non-goals
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge ready.
+- Does not claim Cognitive OS achieved.
+- Does not claim enterprise-grade security.
+- Does not claim packaging-ready.
+- Does not claim VS Code parity.
+- Does not claim Cursor parity.
+- Does not claim broader real-provider matrix coverage.
+- Does not claim broad real-world sustained daily-use durability.

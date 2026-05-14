@@ -2055,7 +2055,6 @@ Each audit must check:
 - Next phase should be:
   - governance/audit decision, not feature expansion
 - Still not proven:
-  - package-level `npm test`
   - `DAILY_USE_READY`
   - production-ready
   - full bridge ready
@@ -2064,3 +2063,40 @@ Each audit must check:
   - packaging-ready
   - VS Code parity
   - Cursor parity
+
+## 2026-05-15 Update - Internal Scoped Readiness Label Defined
+
+- Current internal scoped label:
+  - `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
+- Parent readiness boundary remains:
+  - `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Definition:
+  - deterministic local NVIDIA file workflows are validated for the bounded tested path
+  - includes create/edit/delete/move deterministic evidence
+  - includes Review + Apply semantics
+  - includes workspace-boundary validation
+  - includes no fake success accepted in tested cases
+  - includes no unexpected `execute_command` accepted in tested cases
+  - includes validated classifications:
+    - `PROVIDER_TOOL_CALLING_UNSUPPORTED`
+    - `PROVIDER_RATE_GUARD_BLOCKED`
+    - `TARGET_PATH_MISMATCH`
+    - `BLOCKED_WORKSPACE_MISMATCH`
+  - includes package-level `npm test` coverage and passing aggregate evidence
+- This is a scoped precision label, not a broad readiness promotion.
+- It does not mean:
+  - `DAILY_USE_READY`
+  - production-ready
+  - full bridge ready
+  - Cognitive OS achieved
+  - enterprise-grade security
+  - packaging-ready
+  - VS Code parity
+  - Cursor parity
+  - broader real-provider matrix validated
+  - broad real-world sustained daily-use durability proven
+- Next work remains governance/audit first:
+  - broader provider matrix audit
+  - browser smoke warning investigation
+  - optional ds2api experimental read-only provider risk audit
+  - stop and preserve clean state

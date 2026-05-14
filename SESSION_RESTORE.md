@@ -16,10 +16,11 @@
 
 ## Latest Accepted Mirror State
 
-- Control `840278ca6f778558075d5f3bf29f0ef015861dfd` clean
+- Control `d0ee8d011c5197c32d2f404bfded4f75a36d1a96` clean
 - NVIDIA `7639f441d7e39020d924e8014d68c86d8a0eb8d2` clean
 - ABW `39d7e95635d3bee924122791a1ecfc29a0a878f4` clean
 - Current readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
+- Internal scoped label: `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
 - Closed blocker: `MANUAL_PATH_REVALIDATION_V3_FAIL` is closed; `MANUAL_PATH_REVALIDATION_V3_PASS` is the accepted manual result
 - Closed validation hygiene gap: package-level `npm test` is now available and passes
 - Known npm test warning:
@@ -39,7 +40,7 @@
 
 ## Resume From
 
-- governance readiness review
+- stop and preserve clean state
 - broader provider matrix audit
+- browser smoke warning investigation
 - optional ds2api experimental read-only provider risk audit
-- do not start bridge/sync/packaging without governance approval
