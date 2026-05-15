@@ -7,7 +7,7 @@
 - Control status: clean
 - NVIDIA HEAD: `e9c6493253d165724a39abdcb7ca291e995aff21`
 - NVIDIA status: clean
-- ABW HEAD: `401d9d1f985c20bf8a57cc31b385296ffdc89954`
+- ABW HEAD: `57fd2d803a0add6625a613673179cab70025e6ce`
 - ABW status: clean
 - Readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Internal scoped label: `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
@@ -46,6 +46,12 @@
   - visible fields include answer, retrieval status, trust score, evidence tier, sources, warnings, read-only indicators, and explicit no-match state
   - `/proxy/abw/ask` now includes `readOnly: true` and `evidenceTier` while preserving the original `abw` envelope
   - read-only boundary remains explicit: no pending edits, no Apply, no `execute_command`, no sync, no auto-promote, no write-back
+- Ingest reliability refinement:
+  - `ABW Ingest Reliability Sprint` completed
+  - real ingest results and `.brain/ingest_report.json` now expose clearer summary fields
+  - unsupported files, parse errors, and duplicate/repeated ingest are surfaced honestly
+  - `review_required` is explicit and `promotion_performed` remains false unless a real promotion occurred
+  - ingest does not claim trusted wiki readiness by itself
 - Residual limits:
   - broader Vietnamese robustness is not fully solved beyond tested paths
   - this is not a full bridge
@@ -53,15 +59,24 @@
   - not sync
   - not auto-apply
   - ABW query quality remains bounded by ingest/retrieval quality
+  - ingest quality depends on parser coverage
+  - review/promotion remains separate
   - broad real-provider matrix remains unproven
   - browser smoke warning remains:
     - `Inline edit widget opens from selection: widget not observable in current smoke state`
 - Remaining estimate:
-  - `6-13` large prompts remain
+  - `5-12` large prompts remain
 - Evidence:
   - `node tests/abw-cli-reader-bridge.test.mjs` PASS `44/0`
   - `npm test` PASS
   - proof doc exists at `docs/bridge-phase-1-abw-cli-reader.md`
+  - ABW ingest targeted tests `66 passed`
+  - ABW full pytest `726 passed`
+  - ABW ingest CLI smoke `PASS`
+  - ingest smoke warnings remain explicit:
+    - `1 unsupported file(s) skipped.`
+    - `1 parse error file(s) skipped.`
+    - `Drafts were created and still require review before any trusted wiki use.`
   - ABW targeted tests `123 passed`
   - ABW full pytest `724 passed`
   - ABW wheel build `PASS`

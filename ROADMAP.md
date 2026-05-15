@@ -19,9 +19,10 @@
 - Sprint 16.5 cleanup is completed and pushed after Phase 1 Gate Review verdict B.
 - NVIDIA Phase 1 ABW CLI reader is implemented as a bounded read-only bridge milestone.
 - ABW runtime isolation for read-only bridge queries is implemented at `528742c18b4aac5a019dbc3c9877327f5393f882`.
-- Latest ABW completion recorded in control truth: `401d9d1f985c20bf8a57cc31b385296ffdc89954`.
+- Latest ABW completion recorded in control truth: `57fd2d803a0add6625a613673179cab70025e6ce`.
 - ABW Query/Retrieval Trust Sprint is completed.
 - NVIDIA UI/server now displays ABW read-only answer trust details for the bounded read-only bridge path.
+- ABW Ingest Reliability Sprint is completed.
 - Visible ABW read-only answer fields now include:
   - answer
   - retrieval status
@@ -38,11 +39,22 @@
   - preserved no-match honesty
   - preserved read-only runtime suppression
   - readable UTF-8 Vietnamese grounded query baseline
+- Accepted ingest reliability behavior now includes:
+  - clearer ingest report fields in the real ingest result and `.brain/ingest_report.json`
+  - unsupported files reported in `unsupported_files`
+  - parse errors reported in `parse_errors`
+  - duplicate/repeated ingest reported honestly through `duplicate_count`
+  - `review_required` surfaced explicitly
+  - `promotion_performed` remains false unless a real promotion occurred
+  - ingest does not claim trusted wiki readiness by itself
 - Accepted evidence:
   - `node tests/abw-cli-reader-bridge.test.mjs` `44 passed, 0 failed`
   - `npm test` `PASS`
   - browser smoke warning remains:
     - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - ingest targeted `66 passed`
+  - ABW full pytest `726 passed`
+  - CLI ingest smoke `PASS`
   - targeted `123 passed`
   - full pytest `724 passed`
   - wheel build `PASS`

@@ -2297,3 +2297,26 @@ Mitigation:
   - keep full-bridge, write-back, sync, `DAILY_USE_READY`, and production-ready claims forbidden
   - keep the browser smoke warning visible in governance records
   - choose next between `ABW ingest reliability sprint`, real-workspace daily-use rehearsal, or preserving clean state
+
+## 2026-05-15 Update - Post ABW Ingest Reliability Sprint Residual Risks
+
+- Closed:
+  - ABW ingest reliability refinement is completed at ABW head `57fd2d803a0add6625a613673179cab70025e6ce`
+  - real ingest results and `.brain/ingest_report.json` now expose normalized summary fields
+  - unsupported files are reported in `unsupported_files`
+  - parse failures are reported in `parse_errors`
+  - repeated unchanged ingest now reports `duplicate_count` honestly
+  - `review_required` is explicit and `promotion_performed` remains false unless a real promotion occurs
+  - CLI ingest smoke `PASS`
+- Residual risks remain:
+  - this still does not prove `DAILY_USE_READY`
+  - this still does not prove production-ready
+  - ingest quality still depends on parser coverage
+  - ingest still does not imply trusted wiki readiness
+  - review/promotion remains separate from ingest
+  - full daily-use rehearsal remains pending
+- Mitigation:
+  - keep explicit language that ingest produces drafts and reports, not trusted wiki readiness by itself
+  - keep parser coverage risk visible in governance records
+  - keep `DAILY_USE_READY` and production-ready claims forbidden
+  - choose next between real-workspace daily-use rehearsal, browser smoke warning investigation, or preserving clean state

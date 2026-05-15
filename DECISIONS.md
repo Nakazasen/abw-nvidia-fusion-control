@@ -3856,3 +3856,49 @@ Non-goals:
 - Does not claim sync.
 - Does not claim `DAILY_USE_READY`.
 - Does not claim production-ready.
+
+## 2026-05-15: Record ABW Ingest Reliability Sprint Completion
+
+Decision:
+
+- Record ABW ingest reliability refinement completion at ABW head `57fd2d803a0add6625a613673179cab70025e6ce`.
+- Accept `ABW_INGEST_RELIABILITY_COMMITTED_AND_PUSHED` as the current ABW ingest reliability result.
+
+Context:
+
+- ABW query trust and bridge consumption were already strengthened, but ingest still exposed an under-specified machine summary for unsupported files, parse errors, duplicates, and review boundaries.
+- The required step was to make ingest more auditable and bridge-friendly without changing the promotion boundary or overclaiming trusted wiki readiness.
+
+Accepted behavior:
+
+- Real ingest results and `.brain/ingest_report.json` now expose normalized fields including `unsupported_count`, `parse_error_count`, `duplicate_count`, `generated_draft_count`, `promotion_performed`, `review_required`, `report_path`, `gaps_path`, and `manifest_path`.
+- Unsupported files remain skipped, are not counted as ingested, and are surfaced in `unsupported_files`.
+- Parse failures remain honest, are not counted as ingested, and are surfaced in `parse_errors`.
+- CLI `errors` now falls back to `parse_errors` when no separate error list exists.
+- Repeated unchanged ingest now reports `duplicate_count` from `skipped_unchanged_count` and does not fake `ingested_count`.
+- Ingest explicitly surfaces `review_required`, keeps `promotion_performed=false` unless a real promotion occurs, and does not claim trusted wiki readiness by itself.
+
+Evidence:
+
+- targeted tests `66 passed`
+- full pytest `726 passed`
+- wheel build `PASS`
+- CLI ingest smoke `PASS`
+- smoke warnings:
+  - `1 unsupported file(s) skipped.`
+  - `1 parse error file(s) skipped.`
+  - `Drafts were created and still require review before any trusted wiki use.`
+
+Consequences:
+
+- ABW ingest is now more reliable for machine-readable downstream consumption without weakening review/promotion governance.
+- The next recommended options are:
+  - real-workspace daily-use rehearsal
+  - browser smoke warning investigation
+  - stop and preserve clean state
+
+Non-goals:
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim trusted wiki readiness immediately after ingest.

@@ -2,6 +2,50 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-15 - ABW ingest reliability sprint completed
+
+- Control head before update:
+  - `7c40ba524868975abd327909388d6eb9988f6166`
+- NVIDIA head during update:
+  - `e9c6493253d165724a39abdcb7ca291e995aff21`
+- ABW previous head:
+  - `401d9d1f985c20bf8a57cc31b385296ffdc89954`
+- ABW latest head:
+  - `57fd2d803a0add6625a613673179cab70025e6ce`
+- current verdict:
+  - `ABW_INGEST_RELIABILITY_COMMITTED_AND_PUSHED`
+- milestone:
+  - ABW Ingest Reliability Sprint completed
+- accepted behavior:
+  - real ingest results and `.brain/ingest_report.json` now expose normalized summary fields
+  - unsupported files are skipped, not counted as ingested, and surfaced in `unsupported_files`
+  - parse failures remain honest, are not counted as ingested, and surfaced in `parse_errors`
+  - CLI `errors` falls back to `parse_errors` when no separate error list exists
+  - unchanged repeat ingest reports `duplicate_count` from `skipped_unchanged_count`
+  - `review_required` is explicit and `promotion_performed` remains false unless a real promotion occurred
+  - ingest still does not claim trusted wiki readiness by itself
+- evidence:
+  - targeted tests `66 passed`
+  - full pytest `726 passed`
+  - wheel build `PASS`
+  - CLI ingest smoke `PASS`
+  - smoke warnings:
+    - `1 unsupported file(s) skipped.`
+    - `1 parse error file(s) skipped.`
+    - `Drafts were created and still require review before any trusted wiki use.`
+- residual limits:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - ingest quality still depends on parser coverage
+  - review/promotion remains separate
+  - full daily-use rehearsal remains pending
+- remaining estimate:
+  - `5-12` large prompts remain
+- next options:
+  - real-workspace daily-use rehearsal
+  - browser smoke warning investigation
+  - stop and preserve clean state
+
 ## 2026-05-15 - NVIDIA ABW read-only answer UI refinement completed
 
 - Control head before update:

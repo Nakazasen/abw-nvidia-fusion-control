@@ -18,7 +18,7 @@
 
 - Control `d0ee8d011c5197c32d2f404bfded4f75a36d1a96` clean
 - NVIDIA `e9c6493253d165724a39abdcb7ca291e995aff21` clean
-- ABW `401d9d1f985c20bf8a57cc31b385296ffdc89954` clean
+- ABW `57fd2d803a0add6625a613673179cab70025e6ce` clean
 - Current readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Internal scoped label: `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
 - Closed blocker: `MANUAL_PATH_REVALIDATION_V3_FAIL` is closed; `MANUAL_PATH_REVALIDATION_V3_PASS` is the accepted manual result
@@ -58,6 +58,12 @@
   - visible fields include answer, retrieval status, trust score, evidence tier, sources, warnings, read-only indicators, and explicit no-match state
   - `/proxy/abw/ask` now includes `readOnly: true` and `evidenceTier` while preserving the original `abw` envelope
   - read-only boundary remains explicit: no pending edits, no Apply, no `execute_command`, no sync, no auto-promote, no write-back
+- Ingest reliability refinement:
+  - `ABW Ingest Reliability Sprint` completed at `57fd2d803a0add6625a613673179cab70025e6ce`
+  - real ingest results and `.brain/ingest_report.json` now expose clearer summary fields
+  - unsupported files, parse errors, and duplicate/repeated ingest are surfaced honestly
+  - `review_required` is explicit and `promotion_performed` remains false unless a real promotion occurred
+  - ingest does not claim trusted wiki readiness by itself
 - Residual limit:
   - Vietnamese robustness is not fully solved beyond tested paths
   - this is not a full bridge
@@ -65,13 +71,22 @@
   - not sync
   - not auto-apply
   - ABW query quality remains bounded by ingest/retrieval quality
+  - ingest quality depends on parser coverage
+  - review/promotion remains separate
   - broad real-provider matrix remains unproven
 - Remaining estimate:
-  - `6-13` large prompts remain
+  - `5-12` large prompts remain
 - Evidence:
   - `node tests/abw-cli-reader-bridge.test.mjs` PASS `44/0`
   - `npm test` PASS
   - proof doc exists at `docs/bridge-phase-1-abw-cli-reader.md`
+  - ABW ingest targeted tests `66 passed`
+  - ABW full pytest `726 passed`
+  - ABW ingest CLI smoke `PASS`
+  - ingest smoke warnings remain explicit:
+    - `1 unsupported file(s) skipped.`
+    - `1 parse error file(s) skipped.`
+    - `Drafts were created and still require review before any trusted wiki use.`
   - ABW targeted tests `123 passed`
   - ABW full pytest `724 passed`
   - ABW wheel build `PASS`
@@ -98,9 +113,6 @@
 
 ## Resume From
 
-- `ABW ingest reliability sprint`
 - real-workspace daily-use rehearsal
-- stop and preserve clean state
-- broader provider matrix audit
 - browser smoke warning investigation
-- optional ds2api experimental read-only provider risk audit
+- stop and preserve clean state

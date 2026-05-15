@@ -6,7 +6,7 @@
 - Control status: clean
 - NVIDIA HEAD: `e9c6493253d165724a39abdcb7ca291e995aff21`
 - NVIDIA status: clean
-- ABW HEAD: `401d9d1f985c20bf8a57cc31b385296ffdc89954`
+- ABW HEAD: `57fd2d803a0add6625a613673179cab70025e6ce`
 - ABW status: clean
 - Current readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Current scoped label:
@@ -44,6 +44,13 @@
   - visible fields now include answer, retrieval status, trust score, evidence tier, sources, warnings, read-only indicators, and explicit no-match state
   - `/proxy/abw/ask` now includes `readOnly: true` and `evidenceTier` while preserving the original `abw` envelope
   - read-only boundary remains explicit: no pending edits, no Apply, no `execute_command`, no sync, no auto-promote, no write-back
+- Closed ABW ingest reliability sprint:
+  - `ABW Ingest Reliability Sprint` completed at `57fd2d803a0add6625a613673179cab70025e6ce`
+  - real ingest results and `.brain/ingest_report.json` now expose normalized summary fields
+  - unsupported files are skipped, not counted as ingested, and surfaced in `unsupported_files`
+  - parse failures remain honest, are not counted as ingested, and surfaced in `parse_errors`
+  - unchanged repeat ingest now reports `duplicate_count` from `skipped_unchanged_count`
+  - `review_required` is explicit, `promotion_performed` remains false unless real promotion occurred, and ingest does not claim trusted wiki readiness by itself
 - ABW CLI JSON covered commands:
   - `ask`
   - `doctor`
@@ -79,6 +86,13 @@
   - ABW targeted tests PASS `123`
   - ABW full pytest PASS `724`
   - ABW wheel build PASS
+  - ABW ingest targeted tests PASS `66`
+  - ABW full pytest PASS `726`
+  - ABW ingest CLI smoke PASS
+  - ingest smoke warnings:
+    - `1 unsupported file(s) skipped.`
+    - `1 parse error file(s) skipped.`
+    - `Drafts were created and still require review before any trusted wiki use.`
   - repo-source CLI read-only smoke PASS
   - repo-source read-only ask left `.brain` untouched `0 -> 0`
   - browser smoke warning remains:
@@ -106,6 +120,8 @@
   - CLI contract does not imply full API parity
   - broader Vietnamese robustness was not fully solved beyond tested paths
   - ABW query quality remains bounded by ingest/retrieval quality
+  - ingest quality still depends on parser coverage
+  - review/promotion remains separate from ingest
   - broad real-provider matrix remains unproven
 - Still not proven:
   - `DAILY_USE_READY`
@@ -118,10 +134,10 @@
   - Cursor parity
   - broader real-provider matrix
 - Remaining estimate:
-  - `6-13` large prompts remain
+  - `5-12` large prompts remain
 - Next governance actions:
-  - `ABW ingest reliability sprint`
   - real-workspace daily-use rehearsal
+  - browser smoke warning investigation
   - stop and preserve clean state
 
 ## Current State
