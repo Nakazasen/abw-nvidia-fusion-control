@@ -2,6 +2,58 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-15 - NVIDIA Phase 1 ABW CLI reader bridge recorded
+
+- Control head before update:
+  - `13c37057a7e4fa13693aa4d1fb8c8e775543e731`
+- NVIDIA previous head:
+  - `7639f441d7e39020d924e8014d68c86d8a0eb8d2`
+- NVIDIA latest head:
+  - `a1d20d4fc86255b37aa8320d094431a9d6e1b082`
+- ABW head:
+  - `2a38ff25e4e238d8efc10271f93e12e519343bcc`
+- milestone:
+  - NVIDIA Phase 1 ABW CLI reader is implemented and pushed
+- scope:
+  - read-only bridge only
+- commit:
+  - `a1d20d4fc86255b37aa8320d094431a9d6e1b082`
+  - `feat: add read-only ABW CLI reader bridge`
+- changed files:
+  - `package.json`
+  - `tools/agent-core.mjs`
+  - `tools/nvidia-server.mjs`
+  - `tools/abw-cli-reader.mjs`
+  - `tests/abw-cli-reader-bridge.test.mjs`
+  - `tests/fixtures/mock-abw-cli.mjs`
+  - `docs/bridge-phase-1-abw-cli-reader.md`
+- commands:
+  - `version`
+  - `doctor`
+  - `ask`
+- endpoints:
+  - `POST /proxy/abw/version`
+  - `POST /proxy/abw/doctor`
+  - `POST /proxy/abw/ask`
+- evidence:
+  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `22/0`
+  - `npm test` PASS
+  - proof doc exists at `docs/bridge-phase-1-abw-cli-reader.md`
+  - known browser smoke warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- explicit non-claims:
+  - not full bridge
+  - not write-back
+  - not sync
+  - not auto-apply
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - no broad provider matrix claim
+  - ABW query quality remains bounded by ingest/retrieval quality
+- next:
+  - run bridge smoke test using temporary ABW workspace
+  - updated remaining estimate: `9-16` large prompts remain
+
 ## 2026-05-15 - ABW CLI JSON bridge-contract foundation recorded
 
 - Control head before update:

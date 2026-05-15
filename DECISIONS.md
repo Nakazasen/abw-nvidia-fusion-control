@@ -3664,3 +3664,46 @@ Consequence:
 - Does not claim `DAILY_USE_READY`.
 - Does not claim production-ready.
 - Does not claim full bridge ready.
+
+## 2026-05-15: Record NVIDIA Phase 1 ABW CLI Reader As A Bounded Read-Only Bridge Milestone
+
+Decision:
+
+- Record NVIDIA Phase 1 ABW CLI reader completion at `a1d20d4fc86255b37aa8320d094431a9d6e1b082`.
+- Accept this as a real bridge implementation milestone with bounded read-only scope only.
+
+Scope:
+
+- Commands:
+  - `version`
+  - `doctor`
+  - `ask`
+- Endpoints:
+  - `POST /proxy/abw/version`
+  - `POST /proxy/abw/doctor`
+  - `POST /proxy/abw/ask`
+
+Evidence:
+
+- `node tests/abw-cli-reader-bridge.test.mjs` PASS `22/0`
+- `npm test` PASS
+- proof doc exists at `docs/bridge-phase-1-abw-cli-reader.md`
+- known browser smoke warning remains:
+  - `Inline edit widget opens from selection: widget not observable in current smoke state`
+
+Consequences:
+
+- NVIDIA now has a bounded child-process ABW CLI JSON reader path for the covered commands.
+- The next action is:
+  - run bridge smoke test using temporary ABW workspace
+
+Non-goals:
+
+- Does not claim full bridge ready.
+- Does not claim write-back bridge.
+- Does not claim sync.
+- Does not claim auto-apply.
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim broad provider matrix proof.
+- Does not remove the ingest/retrieval quality bound on ABW query quality.

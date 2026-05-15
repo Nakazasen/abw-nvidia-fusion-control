@@ -2205,3 +2205,26 @@ Mitigation:
   - keep bridge status/prose separation machine-readable through the existing JSON envelope only
   - keep `DAILY_USE_READY` and production-ready claims forbidden
   - proceed next with `NVIDIA Phase 1 ABW CLI Reader Sprint`
+
+## 2026-05-15 Update - Post NVIDIA Phase 1 ABW CLI Reader Residual Risks
+
+- Closed:
+  - NVIDIA Phase 1 ABW CLI reader is implemented and pushed at NVIDIA head `a1d20d4fc86255b37aa8320d094431a9d6e1b082`
+  - bounded read-only commands `version`, `doctor`, and `ask` are exposed through `/proxy/abw/version`, `/proxy/abw/doctor`, and `/proxy/abw/ask`
+  - bridge test PASS `22/0`
+  - `npm test` PASS
+  - proof doc exists at `docs/bridge-phase-1-abw-cli-reader.md`
+- Residual risks remain:
+  - this is not a full bridge and may be over-read as broader integration completion
+  - write-back, sync, and auto-apply are still unimplemented and must remain blocked
+  - ABW query quality remains bounded by ingest/retrieval quality
+  - broader provider matrix remains unproven
+  - known browser smoke warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - `DAILY_USE_READY` is still not proven
+  - production-ready is still not proven
+- Mitigation:
+  - keep explicit language that this milestone is read-only bridge only
+  - keep full-bridge, write-back, sync, auto-apply, `DAILY_USE_READY`, and production-ready claims forbidden
+  - keep the browser smoke warning visible in governance records
+  - run next a bridge smoke test using a temporary ABW workspace

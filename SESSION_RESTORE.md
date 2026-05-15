@@ -17,7 +17,7 @@
 ## Latest Accepted Mirror State
 
 - Control `d0ee8d011c5197c32d2f404bfded4f75a36d1a96` clean
-- NVIDIA `7639f441d7e39020d924e8014d68c86d8a0eb8d2` clean
+- NVIDIA `a1d20d4fc86255b37aa8320d094431a9d6e1b082` clean
 - ABW `2a38ff25e4e238d8efc10271f93e12e519343bcc` clean
 - Current readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Internal scoped label: `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
@@ -35,12 +35,23 @@
   - known query now returns `status=success`
   - no-match query still returns `no_match`
   - JSON envelope remains preserved
-- Bridge-contract limitation:
-  - NVIDIA bridge is not implemented yet
+- Bridge milestone:
+  - NVIDIA Phase 1 ABW CLI reader is implemented and pushed as a bounded read-only bridge
+  - covered commands `version`, `doctor`, `ask`
+  - endpoints `POST /proxy/abw/version`, `POST /proxy/abw/doctor`, `POST /proxy/abw/ask`
 - Residual limit:
   - Vietnamese robustness is not fully solved beyond tested paths
+  - this is not a full bridge
+  - not write-back
+  - not sync
+  - not auto-apply
+  - ABW query quality remains bounded by ingest/retrieval quality
 - Remaining estimate:
-  - `10-17` large prompts remain
+  - `9-16` large prompts remain
+- Evidence:
+  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `22/0`
+  - `npm test` PASS
+  - proof doc exists at `docs/bridge-phase-1-abw-cli-reader.md`
 - Known npm test warning:
   - `Inline edit widget opens from selection: widget not observable in current smoke state`
 
@@ -59,7 +70,7 @@
 
 ## Resume From
 
-- `NVIDIA Phase 1 ABW CLI Reader Sprint`
+- run bridge smoke test using temporary ABW workspace
 - stop and preserve clean state
 - broader provider matrix audit
 - browser smoke warning investigation

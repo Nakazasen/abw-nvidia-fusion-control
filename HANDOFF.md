@@ -4,7 +4,7 @@
 
 - Control HEAD: `d0ee8d011c5197c32d2f404bfded4f75a36d1a96`
 - Control status: clean
-- NVIDIA HEAD: `7639f441d7e39020d924e8014d68c86d8a0eb8d2`
+- NVIDIA HEAD: `a1d20d4fc86255b37aa8320d094431a9d6e1b082`
 - NVIDIA status: clean
 - ABW HEAD: `2a38ff25e4e238d8efc10271f93e12e519343bcc`
 - ABW status: clean
@@ -20,6 +20,10 @@
   - package-level `npm test` is now available and passes
 - Closed ABW bridge-contract gap:
   - ABW CLI bridge-contract blocker is closed for covered commands
+- Closed NVIDIA bridge milestone:
+  - NVIDIA Phase 1 ABW CLI reader is implemented and pushed as a bounded read-only bridge
+  - covered commands `version`, `doctor`, `ask`
+  - endpoints `POST /proxy/abw/version`, `POST /proxy/abw/doctor`, `POST /proxy/abw/ask`
 - ABW CLI JSON covered commands:
   - `ask`
   - `doctor`
@@ -49,7 +53,9 @@
   - `npm run agent:audit`
   - `npm run browser:smoke`
 - Evidence:
+  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `22/0`
   - `npm test` PASS
+  - proof doc exists at `docs/bridge-phase-1-abw-cli-reader.md`
   - provider capability `16/0`
   - manual reliability `122/0`
   - apply proof `30/0`
@@ -57,10 +63,14 @@
   - agent audit `25/25`
   - browser smoke PASS with known warning: `Inline edit widget opens from selection: widget not observable in current smoke state`
   - `proof/provider-tool-calling-rate-guard-fix.md` preserved
-- Bridge-contract limitations remain explicit:
-  - NVIDIA bridge is not implemented yet
+- Bridge limitations remain explicit:
+  - this is not a full bridge
+  - not write-back
+  - not sync
+  - not auto-apply
   - CLI contract does not imply full API parity
   - Vietnamese robustness was not fully solved beyond tested paths
+  - ABW query quality remains bounded by ingest/retrieval quality
 - Still not proven:
   - `DAILY_USE_READY`
   - production-ready
@@ -72,9 +82,9 @@
   - Cursor parity
   - broader real-provider matrix
 - Remaining estimate:
-  - `10-17` large prompts remain
+  - `9-16` large prompts remain
 - Next governance actions:
-  - `NVIDIA Phase 1 ABW CLI Reader Sprint`
+  - run bridge smoke test using temporary ABW workspace
   - broader provider matrix audit
   - browser smoke warning investigation
   - optional ds2api experimental read-only provider risk audit
