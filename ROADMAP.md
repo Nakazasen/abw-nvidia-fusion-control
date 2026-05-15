@@ -15,12 +15,22 @@
 - Sprint 12 Task Timeline + Recovery / Resume is complete.
 - Sprint 13 Git / SCM Panel tot hon is complete.
 - Current readiness verdict: HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY.
-- Latest NVIDIA completion recorded in control truth: `a1c87a13234879a38529ce2d7fcfba8a2eaa0ee2`.
+- Latest NVIDIA completion recorded in control truth: `e9c6493253d165724a39abdcb7ca291e995aff21`.
 - Sprint 16.5 cleanup is completed and pushed after Phase 1 Gate Review verdict B.
 - NVIDIA Phase 1 ABW CLI reader is implemented as a bounded read-only bridge milestone.
 - ABW runtime isolation for read-only bridge queries is implemented at `528742c18b4aac5a019dbc3c9877327f5393f882`.
 - Latest ABW completion recorded in control truth: `401d9d1f985c20bf8a57cc31b385296ffdc89954`.
 - ABW Query/Retrieval Trust Sprint is completed.
+- NVIDIA UI/server now displays ABW read-only answer trust details for the bounded read-only bridge path.
+- Visible ABW read-only answer fields now include:
+  - answer
+  - retrieval status
+  - trust score
+  - evidence tier
+  - sources
+  - warnings
+  - read-only indicators
+  - explicit no-match state
 - Accepted trust behavior now includes:
   - wiki preferred over weaker raw/draft hits
   - weak local evidence demoted to `E1_fallback` / `raw_or_draft_only`
@@ -29,6 +39,10 @@
   - preserved read-only runtime suppression
   - readable UTF-8 Vietnamese grounded query baseline
 - Accepted evidence:
+  - `node tests/abw-cli-reader-bridge.test.mjs` `44 passed, 0 failed`
+  - `npm test` `PASS`
+  - browser smoke warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
   - targeted `123 passed`
   - full pytest `724 passed`
   - wheel build `PASS`

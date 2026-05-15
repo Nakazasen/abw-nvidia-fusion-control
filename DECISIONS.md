@@ -3806,3 +3806,53 @@ Non-goals:
 - Does not claim production-ready.
 - Does not claim full bridge ready.
 - Does not claim broad Vietnamese robustness solved.
+
+## 2026-05-15: Record NVIDIA ABW Read-Only Answer UI Refinement
+
+Decision:
+
+- Record NVIDIA ABW read-only answer UI refinement completion at NVIDIA head `e9c6493253d165724a39abdcb7ca291e995aff21`.
+- Accept `NVIDIA_ABW_UI_COMMITTED_AND_PUSHED` as the current NVIDIA UI/server display result.
+
+Context:
+
+- The bounded read-only bridge and trust semantics were already implemented, but the NVIDIA UI still needed to surface those machine-readable trust fields clearly to human users.
+- The required refinement was display-only and had to preserve the existing read-only boundary.
+
+Accepted behavior:
+
+- `/abw-ask ...` now renders an `ABW Read-Only Answer` card in the NVIDIA chat surface.
+- The UI/server now exposes answer text, retrieval status, trust score, evidence tier, sources, warnings, read-only indicators, and explicit no-match state.
+- `/proxy/abw/ask` now includes `readOnly: true` and `evidenceTier` while preserving the original `abw` envelope.
+- Weak scores and raw/draft-only evidence remain visible as weak evidence and are not reframed as grounded success.
+- The read-only boundary remains explicit: no pending edits, no Apply, no `execute_command`, no sync, no auto-promote, and no write-back.
+
+Evidence:
+
+- bridge reader tests `44 passed, 0 failed`
+- `npm test` `PASS`
+- provider capability `16/0`
+- ABW reader bridge `44/0`
+- manual reliability `122/0`
+- apply proof `30/0`
+- move proof `71/0`
+- agent audit `25/25`
+- browser smoke `PASS`
+- known browser smoke warning remains:
+  - `Inline edit widget opens from selection: widget not observable in current smoke state`
+
+Consequences:
+
+- NVIDIA now presents ABW read-only trust details in a human-readable way without widening the bridge scope.
+- The next recommended options are:
+  - `ABW ingest reliability sprint`
+  - real-workspace daily-use rehearsal
+  - stop and preserve clean state
+
+Non-goals:
+
+- Does not claim full bridge ready.
+- Does not claim write-back bridge.
+- Does not claim sync.
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.

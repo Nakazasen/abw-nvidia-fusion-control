@@ -2273,3 +2273,27 @@ Mitigation:
   - keep `DAILY_USE_READY`, production-ready, and full-bridge claims forbidden
   - keep broader Vietnamese robustness in the residual-risk list
   - choose next between `NVIDIA UI display refinement for ABW read-only answers`, `ABW ingest reliability sprint`, or preserving clean state
+
+## 2026-05-15 Update - Post NVIDIA ABW Read-Only Answer UI Refinement Residual Risks
+
+- Closed:
+  - NVIDIA UI/server now displays ABW read-only answer trust details at NVIDIA head `e9c6493253d165724a39abdcb7ca291e995aff21`
+  - `/abw-ask ...` now renders an `ABW Read-Only Answer` card in the NVIDIA chat surface
+  - visible bounded fields now include answer, retrieval status, trust score, evidence tier, sources, warnings, read-only indicators, and explicit no-match state
+  - `/proxy/abw/ask` now includes `readOnly: true` and `evidenceTier` while preserving the original `abw` envelope
+  - bridge reader tests `44 passed, 0 failed`
+  - `npm test` `PASS`
+- Residual risks remain:
+  - this is still not a full bridge
+  - write-back, sync, Apply, and auto-promote remain blocked and unimplemented
+  - `DAILY_USE_READY` is still not proven
+  - production-ready is still not proven
+  - ABW answer quality still depends on the ingested corpus quality
+  - broader Vietnamese robustness still needs more tests
+  - known browser smoke warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- Mitigation:
+  - keep explicit read-only boundary language in both server payloads and UI rendering
+  - keep full-bridge, write-back, sync, `DAILY_USE_READY`, and production-ready claims forbidden
+  - keep the browser smoke warning visible in governance records
+  - choose next between `ABW ingest reliability sprint`, real-workspace daily-use rehearsal, or preserving clean state

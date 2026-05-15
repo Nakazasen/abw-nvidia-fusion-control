@@ -4,7 +4,7 @@
 
 - Control HEAD: `d0ee8d011c5197c32d2f404bfded4f75a36d1a96`
 - Control status: clean
-- NVIDIA HEAD: `a1c87a13234879a38529ce2d7fcfba8a2eaa0ee2`
+- NVIDIA HEAD: `e9c6493253d165724a39abdcb7ca291e995aff21`
 - NVIDIA status: clean
 - ABW HEAD: `401d9d1f985c20bf8a57cc31b385296ffdc89954`
 - ABW status: clean
@@ -38,6 +38,12 @@
   - no-match honesty remains preserved with `trust_score=0` and `sources=[]`
   - repo-source read-only ask with `PYTHONPATH=src` and `ABW_READ_ONLY_QUERY=1` left `.brain` untouched `0 -> 0`
   - readable UTF-8 Vietnamese grounded query baseline is now covered
+- Closed NVIDIA UI/server refinement:
+  - NVIDIA ABW read-only answer trust details are now visible in the bounded UI/server path at `e9c6493253d165724a39abdcb7ca291e995aff21`
+  - `/abw-ask ...` now renders an `ABW Read-Only Answer` card in the chat surface
+  - visible fields now include answer, retrieval status, trust score, evidence tier, sources, warnings, read-only indicators, and explicit no-match state
+  - `/proxy/abw/ask` now includes `readOnly: true` and `evidenceTier` while preserving the original `abw` envelope
+  - read-only boundary remains explicit: no pending edits, no Apply, no `execute_command`, no sync, no auto-promote, no write-back
 - ABW CLI JSON covered commands:
   - `ask`
   - `doctor`
@@ -67,7 +73,7 @@
   - `npm run agent:audit`
   - `npm run browser:smoke`
 - Evidence:
-  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `22/0`
+  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `44/0`
   - `npm test` PASS
   - proof doc exists at `docs/bridge-phase-1-abw-cli-reader.md`
   - ABW targeted tests PASS `123`
@@ -75,6 +81,8 @@
   - ABW wheel build PASS
   - repo-source CLI read-only smoke PASS
   - repo-source read-only ask left `.brain` untouched `0 -> 0`
+  - browser smoke warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
   - direct ABW read-only query smoke:
     - known query `status=success`, `retrieval_status=grounded`, source `wiki\agv.md`, `runtime_write_suppressed=true`, target workspace mutation `no`
     - no-match query `status=no_match`, `gap_logged=false`, `gap_log_suppressed=true`, `would_log_gap=true`, `runtime_write_suppressed=true`, target workspace mutation `no`
@@ -110,12 +118,10 @@
   - Cursor parity
   - broader real-provider matrix
 - Remaining estimate:
-  - `7-14` large prompts remain
+  - `6-13` large prompts remain
 - Next governance actions:
-  - `NVIDIA UI display refinement for ABW read-only answers`
   - `ABW ingest reliability sprint`
-  - broader provider matrix audit
-  - browser smoke warning investigation
+  - real-workspace daily-use rehearsal
   - stop and preserve clean state
 
 ## Current State

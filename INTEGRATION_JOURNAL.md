@@ -2,6 +2,61 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-15 - NVIDIA ABW read-only answer UI refinement completed
+
+- Control head before update:
+  - `bd9f6984bc841d6e916360a63fa3733ce7be7700`
+- NVIDIA previous head:
+  - `a1c87a13234879a38529ce2d7fcfba8a2eaa0ee2`
+- NVIDIA latest head:
+  - `e9c6493253d165724a39abdcb7ca291e995aff21`
+- ABW head during update:
+  - `401d9d1f985c20bf8a57cc31b385296ffdc89954`
+- current verdict:
+  - `NVIDIA_ABW_UI_COMMITTED_AND_PUSHED`
+- milestone:
+  - NVIDIA UI/server now displays ABW read-only answer trust details
+- visible UI/server behavior:
+  - `/abw-ask ...` renders an `ABW Read-Only Answer` card in the chat surface
+  - answer text is displayed directly
+  - no-match remains explicit and is not shown as grounded success
+  - visible machine fields now include retrieval status, trust score, evidence tier, sources, warnings, and read-only indicators
+  - `/proxy/abw/ask` now includes `readOnly: true` and `evidenceTier` while preserving the original `abw` envelope
+- read-only boundary:
+  - no pending edits
+  - no disk mutation
+  - no `execute_command`
+  - no Apply
+  - no sync
+  - no auto-promote
+  - no write-back
+- evidence:
+  - `node tests/abw-cli-reader-bridge.test.mjs` `44 passed, 0 failed`
+  - `npm test` `PASS`
+  - provider capability `16/0`
+  - ABW reader bridge `44/0`
+  - manual reliability `122/0`
+  - apply proof `30/0`
+  - move proof `71/0`
+  - agent audit `25/25`
+  - browser smoke `PASS`
+  - known browser smoke warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- residual limits:
+  - not full bridge
+  - not write-back
+  - not sync
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - ABW quality still depends on ingested corpus
+  - broader Vietnamese robustness still needs more tests
+- remaining estimate:
+  - `6-13` large prompts remain
+- next options:
+  - `ABW ingest reliability sprint`
+  - real-workspace daily-use rehearsal
+  - stop and preserve clean state
+
 ## 2026-05-15 - Bridge mutation safety fixed and smoke passed with runtime isolation
 
 - Control head before update:

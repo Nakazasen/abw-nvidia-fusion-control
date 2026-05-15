@@ -5,7 +5,7 @@
 - Control repo: `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL`
 - Control HEAD: `d0ee8d011c5197c32d2f404bfded4f75a36d1a96`
 - Control status: clean
-- NVIDIA HEAD: `a1c87a13234879a38529ce2d7fcfba8a2eaa0ee2`
+- NVIDIA HEAD: `e9c6493253d165724a39abdcb7ca291e995aff21`
 - NVIDIA status: clean
 - ABW HEAD: `401d9d1f985c20bf8a57cc31b385296ffdc89954`
 - ABW status: clean
@@ -40,6 +40,12 @@
   - weak evidence warnings are explicit
   - no-match honesty and read-only runtime suppression remain preserved
   - readable UTF-8 Vietnamese grounded query baseline added
+- UI/server refinement:
+  - NVIDIA UI/server now displays ABW read-only answer trust details
+  - `/abw-ask ...` renders an `ABW Read-Only Answer` card in the chat surface
+  - visible fields include answer, retrieval status, trust score, evidence tier, sources, warnings, read-only indicators, and explicit no-match state
+  - `/proxy/abw/ask` now includes `readOnly: true` and `evidenceTier` while preserving the original `abw` envelope
+  - read-only boundary remains explicit: no pending edits, no Apply, no `execute_command`, no sync, no auto-promote, no write-back
 - Residual limits:
   - broader Vietnamese robustness is not fully solved beyond tested paths
   - this is not a full bridge
@@ -48,10 +54,12 @@
   - not auto-apply
   - ABW query quality remains bounded by ingest/retrieval quality
   - broad real-provider matrix remains unproven
+  - browser smoke warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
 - Remaining estimate:
-  - `7-14` large prompts remain
+  - `6-13` large prompts remain
 - Evidence:
-  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `22/0`
+  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `44/0`
   - `npm test` PASS
   - proof doc exists at `docs/bridge-phase-1-abw-cli-reader.md`
   - ABW targeted tests `123 passed`

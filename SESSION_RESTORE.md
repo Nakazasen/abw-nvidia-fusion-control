@@ -17,7 +17,7 @@
 ## Latest Accepted Mirror State
 
 - Control `d0ee8d011c5197c32d2f404bfded4f75a36d1a96` clean
-- NVIDIA `a1c87a13234879a38529ce2d7fcfba8a2eaa0ee2` clean
+- NVIDIA `e9c6493253d165724a39abdcb7ca291e995aff21` clean
 - ABW `401d9d1f985c20bf8a57cc31b385296ffdc89954` clean
 - Current readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Internal scoped label: `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
@@ -52,6 +52,12 @@
   - no-match honesty remains preserved
   - read-only ask smoke left `.brain` untouched `0 -> 0`
   - readable UTF-8 Vietnamese grounded query baseline is now covered
+- UI/server refinement:
+  - NVIDIA UI/server now displays ABW read-only answer trust details
+  - `/abw-ask ...` renders an `ABW Read-Only Answer` card in the chat surface
+  - visible fields include answer, retrieval status, trust score, evidence tier, sources, warnings, read-only indicators, and explicit no-match state
+  - `/proxy/abw/ask` now includes `readOnly: true` and `evidenceTier` while preserving the original `abw` envelope
+  - read-only boundary remains explicit: no pending edits, no Apply, no `execute_command`, no sync, no auto-promote, no write-back
 - Residual limit:
   - Vietnamese robustness is not fully solved beyond tested paths
   - this is not a full bridge
@@ -61,9 +67,9 @@
   - ABW query quality remains bounded by ingest/retrieval quality
   - broad real-provider matrix remains unproven
 - Remaining estimate:
-  - `7-14` large prompts remain
+  - `6-13` large prompts remain
 - Evidence:
-  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `22/0`
+  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `44/0`
   - `npm test` PASS
   - proof doc exists at `docs/bridge-phase-1-abw-cli-reader.md`
   - ABW targeted tests `123 passed`
@@ -92,8 +98,8 @@
 
 ## Resume From
 
-- `NVIDIA UI display refinement for ABW read-only answers`
 - `ABW ingest reliability sprint`
+- real-workspace daily-use rehearsal
 - stop and preserve clean state
 - broader provider matrix audit
 - browser smoke warning investigation
