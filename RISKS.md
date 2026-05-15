@@ -2185,3 +2185,23 @@ Mitigation:
   - keep `DAILY_USE_READY`, production-ready, and full bridge claims forbidden
   - keep broader provider matrix and sustained daily-use durability in the not-proven list
   - proceed next with `NVIDIA Phase 1 ABW CLI Reader Sprint`, not sync/write-back/UI bridge work
+
+## 2026-05-15 Update - Post ABW JSON Windows Path Normalization Fix Residual Risks
+
+- Closed:
+  - ABW CLI JSON known-query regression on Windows short-path/long-path behavior is fixed at ABW head `2a38ff25e4e238d8efc10271f93e12e519343bcc`
+  - root cause was unresolved `workspace_root` before citation validation in `src/abw/api.py`
+  - known query again returns `status=success` with preserved source evidence
+  - no-match query still returns `no_match`
+  - JSON envelope remains preserved for bridge consumption
+- Residual risks remain:
+  - ABW CLI JSON stability may be mistaken for NVIDIA bridge implementation
+  - broader bridge read-path behavior is still not implemented in NVIDIA
+  - Vietnamese robustness is not fully solved beyond tested paths
+  - `DAILY_USE_READY` is still not proven
+  - production-ready is still not proven
+- Mitigation:
+  - keep explicit language that NVIDIA bridge is not implemented yet
+  - keep bridge status/prose separation machine-readable through the existing JSON envelope only
+  - keep `DAILY_USE_READY` and production-ready claims forbidden
+  - proceed next with `NVIDIA Phase 1 ABW CLI Reader Sprint`

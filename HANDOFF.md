@@ -6,7 +6,7 @@
 - Control status: clean
 - NVIDIA HEAD: `7639f441d7e39020d924e8014d68c86d8a0eb8d2`
 - NVIDIA status: clean
-- ABW HEAD: `be20a03f01ad8d89e02b2adc6bc10941df683728`
+- ABW HEAD: `2a38ff25e4e238d8efc10271f93e12e519343bcc`
 - ABW status: clean
 - Current readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Current scoped label:
@@ -30,6 +30,13 @@
   - targeted tests PASS `117/0`
   - full tests PASS `718/0`
   - wheel build PASS
+- ABW JSON known-query regression is now closed on Windows short-path/long-path behavior:
+  - root cause was unresolved `workspace_root` during citation validation in `src/abw/api.py`
+  - short temp path like `C:\Users\TVN183~1\...` and long resolved path like `C:\Users\tvn183660\...` caused valid in-workspace citations to be dropped
+  - `_source_exists_in_workspace()` now resolves `workspace_root` before join/validation
+  - known query now returns `status=success`, `retrieval_status=exact_match`, `sources[0].path=wiki/agv.md`, `trust_score=70`
+  - no-match query still returns `no_match`
+  - JSON envelope remains `schema_version`, `command_name`, `workspace`, `generated_at`, `status`, `data`
 - NVIDIA validation hygiene fix:
   - `npm run move:proof` previously deleted tracked `proof/provider-tool-calling-rate-guard-fix.md`
   - cause was recursive cleanup of `path.dirname(targetAbs)` resolving to tracked `proof/`
@@ -53,7 +60,7 @@
 - Bridge-contract limitations remain explicit:
   - NVIDIA bridge is not implemented yet
   - CLI contract does not imply full API parity
-  - Vietnamese robustness was not broadly reworked
+  - Vietnamese robustness was not fully solved beyond tested paths
 - Still not proven:
   - `DAILY_USE_READY`
   - production-ready
@@ -65,7 +72,7 @@
   - Cursor parity
   - broader real-provider matrix
 - Remaining estimate:
-  - `12-19` large prompts remain
+  - `10-17` large prompts remain
 - Next governance actions:
   - `NVIDIA Phase 1 ABW CLI Reader Sprint`
   - broader provider matrix audit

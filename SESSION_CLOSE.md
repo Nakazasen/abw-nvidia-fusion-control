@@ -7,7 +7,7 @@
 - Control status: clean
 - NVIDIA HEAD: `7639f441d7e39020d924e8014d68c86d8a0eb8d2`
 - NVIDIA status: clean
-- ABW HEAD: `be20a03f01ad8d89e02b2adc6bc10941df683728`
+- ABW HEAD: `2a38ff25e4e238d8efc10271f93e12e519343bcc`
 - ABW status: clean
 - Readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Internal scoped label: `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
@@ -19,8 +19,17 @@
   - targeted tests `117/0`
   - full tests `718/0`
   - wheel build `PASS`
+- ABW JSON known-query Windows path normalization fix:
+  - `workspace_root` was not resolved before citation validation
+  - known query now returns `status=success`
+  - no-match query still returns `no_match`
+  - JSON envelope remains preserved
 - Bridge-contract limitation:
   - NVIDIA bridge is not implemented yet
+- Residual limits:
+  - Vietnamese robustness is not fully solved beyond tested paths
+- Remaining estimate:
+  - `10-17` large prompts remain
 - Known npm test warning:
   - `Inline edit widget opens from selection: widget not observable in current smoke state`
 

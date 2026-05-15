@@ -49,6 +49,59 @@ This file records the shared ABW x NVIDIA integration history in the control rep
   - `NVIDIA Phase 1 ABW CLI Reader Sprint`
   - updated remaining estimate: `12-19` large prompts remain
 
+## 2026-05-15 - ABW JSON known-query Windows path normalization regression fixed
+
+- Control head before update:
+  - `e714946998620b812935cb30be08eaa02ab32215`
+- NVIDIA head:
+  - `7639f441d7e39020d924e8014d68c86d8a0eb8d2`
+- ABW previous head:
+  - `be20a03f01ad8d89e02b2adc6bc10941df683728`
+- ABW latest head:
+  - `2a38ff25e4e238d8efc10271f93e12e519343bcc`
+- commit:
+  - `2a38ff25e4e238d8efc10271f93e12e519343bcc`
+  - `test: stabilize ABW CLI JSON known-query contract`
+- regression fixed:
+  - ABW CLI JSON known-query contract is now stable on Windows short-path/long-path behavior
+- root cause:
+  - `workspace_root` was not resolved before citation validation in `src/abw/api.py`
+  - short temp path such as `C:\Users\TVN183~1\...` and long resolved path such as `C:\Users\tvn183660\...` caused valid in-workspace citations to be dropped
+- fix:
+  - `_source_exists_in_workspace()` now resolves `workspace_root` before joining and validating source paths
+- evidence:
+  - failing test fixed:
+    - `tests/test_abw_json_hardening.py::TestAbwJsonHardening::test_ask_json_contract_known_query`
+  - targeted result after fix:
+    - `1 passed`
+  - JSON hardening:
+    - `14 passed`
+  - JSON/API/runner targeted group:
+    - `117 passed`
+  - entrypoint parity:
+    - `3 passed, 20 subtests passed`
+  - full pytest:
+    - `718 passed`
+  - wheel build:
+    - `PASS`
+  - known query now returns:
+    - `status=success`
+    - `retrieval_status=exact_match`
+    - `sources[0].path=wiki/agv.md`
+    - `trust_score=70`
+  - no-match query still returns:
+    - `no_match`
+  - JSON envelope preserved:
+    - `schema_version`, `command_name`, `workspace`, `generated_at`, `status`, `data`
+- residual non-claims preserved:
+  - NVIDIA bridge is not implemented yet
+  - Vietnamese robustness is not fully solved beyond tested paths
+  - not `DAILY_USE_READY`
+  - not production-ready
+- next:
+  - `NVIDIA Phase 1 ABW CLI Reader Sprint`
+  - updated remaining estimate: `10-17` large prompts remain
+
 ## 2026-05-15 - Readiness review accepts LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE as a scoped internal label
 
 - Control head before update:

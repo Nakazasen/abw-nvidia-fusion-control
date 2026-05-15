@@ -18,7 +18,7 @@
 
 - Control `d0ee8d011c5197c32d2f404bfded4f75a36d1a96` clean
 - NVIDIA `7639f441d7e39020d924e8014d68c86d8a0eb8d2` clean
-- ABW `be20a03f01ad8d89e02b2adc6bc10941df683728` clean
+- ABW `2a38ff25e4e238d8efc10271f93e12e519343bcc` clean
 - Current readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Internal scoped label: `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
 - Closed blocker: `MANUAL_PATH_REVALIDATION_V3_FAIL` is closed; `MANUAL_PATH_REVALIDATION_V3_PASS` is the accepted manual result
@@ -29,8 +29,18 @@
   - targeted tests `117/0`
   - full tests `718/0`
   - wheel build `PASS`
+- Latest ABW regression closure:
+  - ABW CLI JSON known-query contract is stable on Windows short-path/long-path behavior
+  - root cause: unresolved `workspace_root` before citation validation
+  - known query now returns `status=success`
+  - no-match query still returns `no_match`
+  - JSON envelope remains preserved
 - Bridge-contract limitation:
   - NVIDIA bridge is not implemented yet
+- Residual limit:
+  - Vietnamese robustness is not fully solved beyond tested paths
+- Remaining estimate:
+  - `10-17` large prompts remain
 - Known npm test warning:
   - `Inline edit widget opens from selection: widget not observable in current smoke state`
 
