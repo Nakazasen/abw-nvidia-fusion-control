@@ -15,9 +15,10 @@
 - Sprint 12 Task Timeline + Recovery / Resume is complete.
 - Sprint 13 Git / SCM Panel tot hon is complete.
 - Current readiness verdict: HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY.
-- Latest NVIDIA completion recorded in control truth: `a1d20d4fc86255b37aa8320d094431a9d6e1b082`.
+- Latest NVIDIA completion recorded in control truth: `a1c87a13234879a38529ce2d7fcfba8a2eaa0ee2`.
 - Sprint 16.5 cleanup is completed and pushed after Phase 1 Gate Review verdict B.
 - NVIDIA Phase 1 ABW CLI reader is implemented as a bounded read-only bridge milestone.
+- ABW runtime isolation for read-only bridge queries is implemented at `528742c18b4aac5a019dbc3c9877327f5393f882`.
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
 - Browser smoke baseline now exists and passed in real-browser mode.
 - Browser smoke is not full E2E coverage.

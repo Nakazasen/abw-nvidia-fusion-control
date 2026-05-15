@@ -2228,3 +2228,26 @@ Mitigation:
   - keep full-bridge, write-back, sync, auto-apply, `DAILY_USE_READY`, and production-ready claims forbidden
   - keep the browser smoke warning visible in governance records
   - run next a bridge smoke test using a temporary ABW workspace
+
+## 2026-05-15 Update - Post Bridge Mutation Safety Fix Residual Risks
+
+- Closed:
+  - previous smoke verdict `NVIDIA_ABW_SMOKE_FAIL_MUTATION_SAFETY` is closed
+  - current verdict `BRIDGE_MUTATION_SAFETY_FIXED_AND_SMOKE_PASSED`
+  - ABW read-only bridge query mode now uses `ABW_READ_ONLY_QUERY=1`
+  - direct ABW read-only query smoke and real NVIDIA endpoint smoke showed no target workspace mutation during bridge ask
+  - no repo mutation and no pending edits occurred during the smoke
+- Residual risks remain:
+  - this is still not a full bridge
+  - write-back, sync, and auto-apply remain unimplemented and blocked
+  - ABW query quality still depends on ingest/retrieval quality
+  - broader real-provider matrix remains unproven
+  - known browser smoke warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - `DAILY_USE_READY` is still not proven
+  - production-ready is still not proven
+- Mitigation:
+  - keep explicit language that runtime-write suppression is bridge-path-specific and does not weaken normal ABW audit logging by default
+  - keep full-bridge, write-back, sync, auto-apply, `DAILY_USE_READY`, and production-ready claims forbidden
+  - keep the browser smoke warning visible in governance records
+  - choose next between `ABW Query/Retrieval Trust Sprint`, `NVIDIA UI display refinement for ABW read-only answers`, or preserving clean state

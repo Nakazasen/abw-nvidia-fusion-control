@@ -2,6 +2,69 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-15 - Bridge mutation safety fixed and smoke passed with runtime isolation
+
+- Control head before update:
+  - `7cb087536faf643a5a74a576f469d81652d83063`
+- NVIDIA previous head:
+  - `a1d20d4fc86255b37aa8320d094431a9d6e1b082`
+- NVIDIA latest head:
+  - `a1c87a13234879a38529ce2d7fcfba8a2eaa0ee2`
+- ABW previous head:
+  - `2a38ff25e4e238d8efc10271f93e12e519343bcc`
+- ABW latest head:
+  - `528742c18b4aac5a019dbc3c9877327f5393f882`
+- previous smoke verdict:
+  - `NVIDIA_ABW_SMOKE_FAIL_MUTATION_SAFETY`
+- current verdict:
+  - `BRIDGE_MUTATION_SAFETY_FIXED_AND_SMOKE_PASSED`
+- root cause:
+  - direct ABW `ask` reused the normal audited runner path and wrote runtime artifacts into the target workspace
+  - observed writers included `scripts/abw_runner.py`, `scripts/abw_entry.py`, `src/abw/runner.py`, and their mirrored legacy paths
+  - observed target-workspace writes before fix included `.brain\acceptance_log.jsonl`, `.brain\route_log.jsonl`, `.brain\used_nonces.json`, `.brain\acceptance_requests\*.json`, `.brain\runner_artifacts\*.txt`, and `.brain\knowledge_gaps.json`
+- fix:
+  - ABW added opt-in read-only bridge query behavior via `ABW_READ_ONLY_QUERY=1`
+  - runtime writes are suppressed for the bridge read-only query path while normal ABW audit behavior remains the default
+  - JSON now exposes `gap_logged`, `gap_log_suppressed`, `would_log_gap`, and `runtime_write_suppressed`
+  - NVIDIA bridge now runs ABW CLI reader with isolated/suppressed runtime artifacts
+- smoke interpretation:
+  - Phase 1 read-only bridge smoke is now proven with a temporary workspace
+  - real NVIDIA endpoint calls
+  - real ABW CLI JSON
+  - no target workspace mutation during bridge ask
+  - no repo mutation
+  - no pending edits
+- direct ABW smoke:
+  - known query `status=success`, `retrieval_status=grounded`, source `wiki\agv.md`, `runtime_write_suppressed=true`, target workspace mutation `no`
+  - no-match `status=no_match`, `gap_logged=false`, `gap_log_suppressed=true`, `would_log_gap=true`, `runtime_write_suppressed=true`, target workspace mutation `no`
+- NVIDIA endpoint smoke:
+  - `POST /proxy/abw/version` -> `ABW_CLI_OK`, ABW `success`, target workspace mutation `no`
+  - `POST /proxy/abw/doctor` -> `ABW_CLI_OK`, ABW `warning`, target workspace mutation `no`
+  - `POST /proxy/abw/ask` known query -> `ABW_CLI_OK`, ABW `success`, `retrievalStatus=grounded`, `runtimeWriteSuppressed=true`, target workspace mutation `no`
+  - `POST /proxy/abw/ask` no-match -> `ABW_CLI_NO_MATCH`, ABW `no_match`, `gapLogged=false`, `gapLogSuppressed=true`, `wouldLogGap=true`, `runtimeWriteSuppressed=true`, target workspace mutation `no`
+- validation evidence:
+  - ABW targeted tests `120 passed`
+  - ABW full pytest `721 passed`
+  - ABW wheel build `PASS`
+  - NVIDIA bridge reader tests `22 passed, 0 failed`
+  - `npm test` PASS
+  - browser smoke PASS with known warning:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- explicit non-claims:
+  - not full bridge
+  - not write-back
+  - not sync
+  - not auto-apply
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not broad real-provider matrix validated
+  - ABW query quality remains bounded by ingest/retrieval quality
+- next:
+  - `ABW Query/Retrieval Trust Sprint`
+  - `NVIDIA UI display refinement for ABW read-only answers`
+  - stop and preserve clean state
+  - updated remaining estimate: `8-15` large prompts remain
+
 ## 2026-05-15 - NVIDIA Phase 1 ABW CLI reader bridge recorded
 
 - Control head before update:

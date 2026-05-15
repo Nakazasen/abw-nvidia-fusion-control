@@ -3707,3 +3707,56 @@ Non-goals:
 - Does not claim production-ready.
 - Does not claim broad provider matrix proof.
 - Does not remove the ingest/retrieval quality bound on ABW query quality.
+
+## 2026-05-15: Record Bridge Mutation Safety Fix And Runtime-Isolated Smoke Pass
+
+Decision:
+
+- Record ABW runtime-isolated read-only bridge query completion at ABW head `528742c18b4aac5a019dbc3c9877327f5393f882`.
+- Record NVIDIA bridge helper/runtime-isolation update at NVIDIA head `a1c87a13234879a38529ce2d7fcfba8a2eaa0ee2`.
+- Accept `BRIDGE_MUTATION_SAFETY_FIXED_AND_SMOKE_PASSED` as the current bounded Phase 1 smoke verdict.
+
+Context:
+
+- Previous real smoke verdict was `NVIDIA_ABW_SMOKE_FAIL_MUTATION_SAFETY`.
+- Direct ABW `ask` reused the normal audited runner path and wrote `.brain` runtime artifacts into the target workspace.
+
+Fix:
+
+- ABW added opt-in read-only query behavior via `ABW_READ_ONLY_QUERY=1`.
+- Runtime writes are suppressed for the bridge read-only query path while normal ABW audit behavior remains the default.
+- JSON now exposes:
+  - `gap_logged`
+  - `gap_log_suppressed`
+  - `would_log_gap`
+  - `runtime_write_suppressed`
+- NVIDIA bridge now runs ABW CLI reader with isolated/suppressed runtime artifacts.
+
+Evidence:
+
+- ABW targeted tests `120 passed`
+- ABW full pytest `721 passed`
+- ABW wheel build `PASS`
+- NVIDIA bridge reader tests `22 passed, 0 failed`
+- `npm test` PASS
+- direct ABW read-only query smoke and real NVIDIA endpoint smoke both showed no target workspace mutation during bridge ask
+- known browser smoke warning remains:
+  - `Inline edit widget opens from selection: widget not observable in current smoke state`
+
+Consequences:
+
+- Phase 1 read-only bridge smoke is now proven with a temporary workspace using real NVIDIA endpoint calls and real ABW CLI JSON.
+- The next recommended sprint options are:
+  - `ABW Query/Retrieval Trust Sprint`
+  - `NVIDIA UI display refinement for ABW read-only answers`
+  - stop and preserve clean state
+
+Non-goals:
+
+- Does not claim full bridge ready.
+- Does not claim write-back bridge.
+- Does not claim sync.
+- Does not claim auto-apply.
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim broad real-provider matrix proof.

@@ -4,9 +4,9 @@
 
 - Control HEAD: `d0ee8d011c5197c32d2f404bfded4f75a36d1a96`
 - Control status: clean
-- NVIDIA HEAD: `a1d20d4fc86255b37aa8320d094431a9d6e1b082`
+- NVIDIA HEAD: `a1c87a13234879a38529ce2d7fcfba8a2eaa0ee2`
 - NVIDIA status: clean
-- ABW HEAD: `2a38ff25e4e238d8efc10271f93e12e519343bcc`
+- ABW HEAD: `528742c18b4aac5a019dbc3c9877327f5393f882`
 - ABW status: clean
 - Current readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Current scoped label:
@@ -24,6 +24,11 @@
   - NVIDIA Phase 1 ABW CLI reader is implemented and pushed as a bounded read-only bridge
   - covered commands `version`, `doctor`, `ask`
   - endpoints `POST /proxy/abw/version`, `POST /proxy/abw/doctor`, `POST /proxy/abw/ask`
+- Closed bridge smoke blocker:
+  - previous smoke verdict `NVIDIA_ABW_SMOKE_FAIL_MUTATION_SAFETY` is closed
+  - current verdict `BRIDGE_MUTATION_SAFETY_FIXED_AND_SMOKE_PASSED`
+  - ABW read-only bridge query mode now uses `ABW_READ_ONLY_QUERY=1`
+  - runtime writes are suppressed for the bridge read-only query path while normal ABW audit behavior remains the default
 - ABW CLI JSON covered commands:
   - `ask`
   - `doctor`
@@ -56,6 +61,17 @@
   - `node tests/abw-cli-reader-bridge.test.mjs` PASS `22/0`
   - `npm test` PASS
   - proof doc exists at `docs/bridge-phase-1-abw-cli-reader.md`
+  - ABW targeted tests PASS `120`
+  - ABW full pytest PASS `721`
+  - ABW wheel build PASS
+  - direct ABW read-only query smoke:
+    - known query `status=success`, `retrieval_status=grounded`, source `wiki\agv.md`, `runtime_write_suppressed=true`, target workspace mutation `no`
+    - no-match query `status=no_match`, `gap_logged=false`, `gap_log_suppressed=true`, `would_log_gap=true`, `runtime_write_suppressed=true`, target workspace mutation `no`
+  - NVIDIA endpoint smoke:
+    - `/proxy/abw/version` -> `ABW_CLI_OK`, ABW `success`, target workspace mutation `no`
+    - `/proxy/abw/doctor` -> `ABW_CLI_OK`, ABW `warning`, target workspace mutation `no`
+    - `/proxy/abw/ask` known query -> `ABW_CLI_OK`, ABW `success`, `retrievalStatus=grounded`, `runtimeWriteSuppressed=true`, target workspace mutation `no`
+    - `/proxy/abw/ask` no-match -> `ABW_CLI_NO_MATCH`, ABW `no_match`, `gapLogged=false`, `gapLogSuppressed=true`, `wouldLogGap=true`, `runtimeWriteSuppressed=true`, target workspace mutation `no`
   - provider capability `16/0`
   - manual reliability `122/0`
   - apply proof `30/0`
@@ -71,6 +87,7 @@
   - CLI contract does not imply full API parity
   - Vietnamese robustness was not fully solved beyond tested paths
   - ABW query quality remains bounded by ingest/retrieval quality
+  - broad real-provider matrix remains unproven
 - Still not proven:
   - `DAILY_USE_READY`
   - production-ready
@@ -82,12 +99,12 @@
   - Cursor parity
   - broader real-provider matrix
 - Remaining estimate:
-  - `9-16` large prompts remain
+  - `8-15` large prompts remain
 - Next governance actions:
-  - run bridge smoke test using temporary ABW workspace
+  - `ABW Query/Retrieval Trust Sprint`
+  - `NVIDIA UI display refinement for ABW read-only answers`
   - broader provider matrix audit
   - browser smoke warning investigation
-  - optional ds2api experimental read-only provider risk audit
   - stop and preserve clean state
 
 ## Current State
