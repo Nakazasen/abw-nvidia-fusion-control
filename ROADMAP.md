@@ -47,19 +47,27 @@
   - `review_required` surfaced explicitly
   - `promotion_performed` remains false unless a real promotion occurred
   - ingest does not claim trusted wiki readiness by itself
+- Latest bounded daily-use rehearsal verdict is `DAILY_REHEARSAL_FAIL_MUTATION_SAFETY`.
+- Daily-use rehearsal blockers now include:
+  - direct read-only ABW ask still changed temp-workspace `.brain` state
+  - direct supplier-contract missing-source query was not cleanly rejected
+  - NVIDIA bridge used packaged/legacy ABW runtime and diverged from repo-source ABW behavior
+  - NVIDIA `npm test` failed at browser smoke server exit code `1`
 - Accepted evidence:
   - `node tests/abw-cli-reader-bridge.test.mjs` `44 passed, 0 failed`
-  - `npm test` `PASS`
+  - previous bounded bridge/UI validation `npm test` `PASS`
   - browser smoke warning remains:
     - `Inline edit widget opens from selection: widget not observable in current smoke state`
   - ingest targeted `66 passed`
   - ABW full pytest `726 passed`
   - CLI ingest smoke `PASS`
+  - ABW bounded daily-use rehearsal targeted tests `173 passed`
   - targeted `123 passed`
   - full pytest `724 passed`
   - wheel build `PASS`
   - repo-source read-only ask left `.brain` untouched `0 -> 0`
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
+- Current bounded daily-use rehearsal failed and must not be treated as readiness proof.
 - Browser smoke baseline now exists and passed in real-browser mode.
 - Browser smoke is not full E2E coverage.
 - Provider/settings layer now exists.

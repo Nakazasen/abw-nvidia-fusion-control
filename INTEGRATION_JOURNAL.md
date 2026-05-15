@@ -2,6 +2,52 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-15 - Bounded daily-use rehearsal failed on mutation safety and runtime consistency
+
+- Control head before update:
+  - `b8360f87287ac4d115cc5628de34c563bc62b359`
+- NVIDIA head during update:
+  - `e9c6493253d165724a39abdcb7ca291e995aff21`
+- ABW head during update:
+  - `57fd2d803a0add6625a613673179cab70025e6ce`
+- verdict:
+  - `DAILY_REHEARSAL_FAIL_MUTATION_SAFETY`
+- rehearsal scope:
+  - bounded synthetic daily-use rehearsal only
+  - temp workspace `D:\Sandbox\_daily_use_rehearsal\run_20260515_155605`
+  - non-sensitive AGV documents only
+- what worked:
+  - ingest exercised unsupported-file and parse-error reporting
+  - direct ABW JSON returned machine-readable envelopes
+  - NVIDIA bridge/UI rendered answer, retrieval status, trust score, evidence tier, sources, warnings, and read-only indicators
+  - all three repos remained clean
+  - no pending edits were created
+  - no Apply occurred
+  - no sync/write-back occurred
+- blockers observed:
+  - direct read-only ABW asks still changed temp-workspace `.brain` state even though JSON reported `runtime_write_suppressed=true`
+  - direct supplier-contract missing-source query was not cleanly rejected and overmatched `wiki/agv.md`
+  - NVIDIA bridge path used packaged/legacy ABW runtime and diverged from repo-source ABW behavior
+  - NVIDIA `npm test` failed at browser smoke because the server exited early with code `1`
+- ingest evidence:
+  - ingested `2`
+  - skipped `2`
+  - unsupported `raw/unsupported.xyz`
+  - parse error `raw/broken.docx` invalid zip container
+  - generated drafts `drafts/agv-manual_draft.md`, `drafts/maintenance-note_draft.md`
+  - `review_required=true`
+  - `promotion_performed=false`
+- regression evidence:
+  - ABW targeted tests `173 passed`
+  - NVIDIA package test aggregate failed only at browser smoke server startup
+- interpretation:
+  - useful rehearsal evidence exists, but the rehearsal failed
+  - do not treat this as daily-use readiness
+- remaining estimate:
+  - `5-12` large prompts remain
+- next recommended sprint:
+  - `ABW/NVIDIA Runtime Consistency + Read-Only Mutation Safety Fix`
+
 ## 2026-05-15 - ABW ingest reliability sprint completed
 
 - Control head before update:

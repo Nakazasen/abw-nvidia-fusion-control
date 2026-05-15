@@ -2,7 +2,7 @@
 
 ## 2026-05-15 Session Close Snapshot
 
-- Control HEAD: `d0ee8d011c5197c32d2f404bfded4f75a36d1a96`
+- Control HEAD: `b8360f87287ac4d115cc5628de34c563bc62b359`
 - Control status: clean
 - NVIDIA HEAD: `e9c6493253d165724a39abdcb7ca291e995aff21`
 - NVIDIA status: clean
@@ -51,6 +51,11 @@
   - parse failures remain honest, are not counted as ingested, and surfaced in `parse_errors`
   - unchanged repeat ingest now reports `duplicate_count` from `skipped_unchanged_count`
   - `review_required` is explicit, `promotion_performed` remains false unless real promotion occurred, and ingest does not claim trusted wiki readiness by itself
+- Latest rehearsal verdict:
+  - `DAILY_REHEARSAL_FAIL_MUTATION_SAFETY`
+  - bounded synthetic workspace: `D:\Sandbox\_daily_use_rehearsal\run_20260515_155605`
+  - what worked: ingest exercised unsupported + parse-error reporting, ABW direct JSON stayed machine-readable, NVIDIA bridge/UI rendered read-only ABW fields, repos stayed clean, no pending edits, no Apply, no sync/write-back
+  - blockers: direct read-only ABW ask still changed temp-workspace `.brain`, supplier-contract missing-source query was not cleanly rejected, NVIDIA bridge used packaged/legacy ABW runtime and diverged from repo-source ABW behavior, NVIDIA `npm test` failed at browser smoke server exit code `1`
 - ABW CLI JSON covered commands:
   - `ask`
   - `doctor`
@@ -97,14 +102,11 @@
   - repo-source read-only ask left `.brain` untouched `0 -> 0`
   - browser smoke warning remains:
     - `Inline edit widget opens from selection: widget not observable in current smoke state`
-  - direct ABW read-only query smoke:
-    - known query `status=success`, `retrieval_status=grounded`, source `wiki\agv.md`, `runtime_write_suppressed=true`, target workspace mutation `no`
-    - no-match query `status=no_match`, `gap_logged=false`, `gap_log_suppressed=true`, `would_log_gap=true`, `runtime_write_suppressed=true`, target workspace mutation `no`
-  - NVIDIA endpoint smoke:
-    - `/proxy/abw/version` -> `ABW_CLI_OK`, ABW `success`, target workspace mutation `no`
-    - `/proxy/abw/doctor` -> `ABW_CLI_OK`, ABW `warning`, target workspace mutation `no`
-    - `/proxy/abw/ask` known query -> `ABW_CLI_OK`, ABW `success`, `retrievalStatus=grounded`, `runtimeWriteSuppressed=true`, target workspace mutation `no`
-    - `/proxy/abw/ask` no-match -> `ABW_CLI_NO_MATCH`, ABW `no_match`, `gapLogged=false`, `gapLogSuppressed=true`, `wouldLogGap=true`, `runtimeWriteSuppressed=true`, target workspace mutation `no`
+  - bounded daily-use rehearsal:
+    - direct ABW read-only asks still changed temp-workspace `.brain` state
+    - supplier-contract missing-source query overmatched `wiki/agv.md` instead of clean `no_match`
+    - NVIDIA bridge used packaged/legacy ABW runtime and diverged from repo-source ABW behavior
+    - NVIDIA `npm test` failed at browser smoke server exit code `1`
   - provider capability `16/0`
   - manual reliability `122/0`
   - apply proof `30/0`
@@ -123,6 +125,9 @@
   - ingest quality still depends on parser coverage
   - review/promotion remains separate from ingest
   - broad real-provider matrix remains unproven
+  - daily-use rehearsal failed on mutation safety and runtime consistency
+  - real private/work docs were not tested
+  - browser smoke failure remains unresolved
 - Still not proven:
   - `DAILY_USE_READY`
   - production-ready
@@ -136,7 +141,7 @@
 - Remaining estimate:
   - `5-12` large prompts remain
 - Next governance actions:
-  - real-workspace daily-use rehearsal
+  - `ABW/NVIDIA Runtime Consistency + Read-Only Mutation Safety Fix`
   - browser smoke warning investigation
   - stop and preserve clean state
 

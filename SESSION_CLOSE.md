@@ -3,7 +3,7 @@
 ## 2026-05-15 Snapshot
 
 - Control repo: `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL`
-- Control HEAD: `d0ee8d011c5197c32d2f404bfded4f75a36d1a96`
+- Control HEAD: `b8360f87287ac4d115cc5628de34c563bc62b359`
 - Control status: clean
 - NVIDIA HEAD: `e9c6493253d165724a39abdcb7ca291e995aff21`
 - NVIDIA status: clean
@@ -52,6 +52,14 @@
   - unsupported files, parse errors, and duplicate/repeated ingest are surfaced honestly
   - `review_required` is explicit and `promotion_performed` remains false unless a real promotion occurred
   - ingest does not claim trusted wiki readiness by itself
+- Daily-use rehearsal:
+  - verdict `DAILY_REHEARSAL_FAIL_MUTATION_SAFETY`
+  - bounded synthetic workspace `D:\Sandbox\_daily_use_rehearsal\run_20260515_155605`
+  - repos stayed clean, no pending edits, no Apply, no sync/write-back
+  - direct read-only ABW asks still changed temp-workspace `.brain`
+  - supplier-contract missing-source query was not cleanly rejected
+  - NVIDIA bridge used packaged/legacy ABW runtime and diverged from repo-source ABW behavior
+  - NVIDIA `npm test` failed at browser smoke server exit code `1`
 - Residual limits:
   - broader Vietnamese robustness is not fully solved beyond tested paths
   - this is not a full bridge
@@ -82,9 +90,8 @@
   - ABW wheel build `PASS`
   - repo-source CLI read-only smoke PASS
   - repo-source read-only ask left `.brain` untouched `0 -> 0`
-  - no target workspace mutation during direct or bridge read-only ask
-  - no repo mutation
-  - no pending edits
+  - ABW daily-use rehearsal targeted tests `173 passed`
+  - bounded rehearsal still failed on query-time temp-workspace mutation and browser smoke startup
 - Known npm test warning:
   - `Inline edit widget opens from selection: widget not observable in current smoke state`
 
@@ -103,9 +110,6 @@
 
 ## Next Actions
 
-- `NVIDIA UI display refinement for ABW read-only answers`
-- `ABW ingest reliability sprint`
+- `ABW/NVIDIA Runtime Consistency + Read-Only Mutation Safety Fix`
 - stop and preserve clean state
-- broader provider matrix audit
 - browser smoke warning investigation
-- optional ds2api experimental read-only provider risk audit

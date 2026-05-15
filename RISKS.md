@@ -2320,3 +2320,26 @@ Mitigation:
   - keep parser coverage risk visible in governance records
   - keep `DAILY_USE_READY` and production-ready claims forbidden
   - choose next between real-workspace daily-use rehearsal, browser smoke warning investigation, or preserving clean state
+
+## 2026-05-15 Update - Post Failed Bounded Daily-Use Rehearsal Residual Risks
+
+- Closed:
+  - bounded synthetic daily-use rehearsal was executed at `D:\Sandbox\_daily_use_rehearsal\run_20260515_155605`
+  - unsupported-file and parse-error ingest reporting were exercised in a realistic small-workspace flow
+  - repos stayed clean, no pending edits were created, no Apply occurred, and no sync/write-back occurred
+- Residual risks remain:
+  - direct read-only ABW ask still mutates temp-workspace `.brain` state in the rehearsal path
+  - direct ABW retrieval still overmatches at least one missing-source supplier-contract query
+  - NVIDIA bridge uses packaged/legacy ABW runtime and can diverge from repo-source ABW behavior
+  - NVIDIA `npm test` failed at browser smoke because the server exited early with code `1`
+  - this is still not `DAILY_USE_READY`
+  - this is still not production-ready
+  - this is still not a full bridge
+  - this is still not write-back or sync
+  - parser coverage remains bounded
+  - real private/work documents are still untested
+- Mitigation:
+  - keep the rehearsal verdict explicit as `DAILY_REHEARSAL_FAIL_MUTATION_SAFETY`
+  - treat runtime consistency and read-only mutation safety as the next blocker-fix sprint
+  - keep browser smoke failure visible in governance records
+  - keep `DAILY_USE_READY`, production-ready, and full-bridge claims forbidden

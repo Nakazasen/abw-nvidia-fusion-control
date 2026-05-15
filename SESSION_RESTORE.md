@@ -16,7 +16,7 @@
 
 ## Latest Accepted Mirror State
 
-- Control `d0ee8d011c5197c32d2f404bfded4f75a36d1a96` clean
+- Control `b8360f87287ac4d115cc5628de34c563bc62b359` clean
 - NVIDIA `e9c6493253d165724a39abdcb7ca291e995aff21` clean
 - ABW `57fd2d803a0add6625a613673179cab70025e6ce` clean
 - Current readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
@@ -64,6 +64,14 @@
   - unsupported files, parse errors, and duplicate/repeated ingest are surfaced honestly
   - `review_required` is explicit and `promotion_performed` remains false unless a real promotion occurred
   - ingest does not claim trusted wiki readiness by itself
+- Latest rehearsal verdict:
+  - `DAILY_REHEARSAL_FAIL_MUTATION_SAFETY`
+  - bounded synthetic workspace `D:\Sandbox\_daily_use_rehearsal\run_20260515_155605`
+  - repos stayed clean, no pending edits, no Apply, no sync/write-back
+  - direct read-only ABW asks still changed temp-workspace `.brain`
+  - supplier-contract missing-source query was not cleanly rejected
+  - NVIDIA bridge used packaged/legacy ABW runtime and diverged from repo-source ABW behavior
+  - NVIDIA `npm test` failed at browser smoke server exit code `1`
 - Residual limit:
   - Vietnamese robustness is not fully solved beyond tested paths
   - this is not a full bridge
@@ -78,7 +86,7 @@
   - `5-12` large prompts remain
 - Evidence:
   - `node tests/abw-cli-reader-bridge.test.mjs` PASS `44/0`
-  - `npm test` PASS
+  - previous bounded bridge/UI validation `npm test` PASS
   - proof doc exists at `docs/bridge-phase-1-abw-cli-reader.md`
   - ABW ingest targeted tests `66 passed`
   - ABW full pytest `726 passed`
@@ -92,9 +100,8 @@
   - ABW wheel build `PASS`
   - repo-source CLI read-only smoke PASS
   - `.brain` before/after asks `0 -> 0`
-  - no target workspace mutation during direct or bridge read-only ask
-  - no repo mutation
-  - no pending edits
+  - ABW daily-use rehearsal targeted tests `173 passed`
+  - bounded rehearsal still failed on query-time temp-workspace mutation and browser smoke startup
 - Known npm test warning:
   - `Inline edit widget opens from selection: widget not observable in current smoke state`
 
@@ -113,6 +120,6 @@
 
 ## Resume From
 
-- real-workspace daily-use rehearsal
+- `ABW/NVIDIA Runtime Consistency + Read-Only Mutation Safety Fix`
 - browser smoke warning investigation
 - stop and preserve clean state

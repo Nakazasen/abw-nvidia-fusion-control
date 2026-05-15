@@ -3902,3 +3902,53 @@ Non-goals:
 - Does not claim `DAILY_USE_READY`.
 - Does not claim production-ready.
 - Does not claim trusted wiki readiness immediately after ingest.
+
+## 2026-05-15: Record Failed Bounded Daily-Use Rehearsal
+
+Decision:
+
+- Record the bounded synthetic rehearsal result as `DAILY_REHEARSAL_FAIL_MUTATION_SAFETY`.
+- Treat the rehearsal as useful blocker discovery, not readiness evidence.
+- Keep the countdown unchanged at `5-12` large prompts remaining.
+
+Context:
+
+- ABW ingest reliability, query trust, runtime suppression, and NVIDIA read-only ABW display work had all been completed and pushed.
+- A bounded synthetic rehearsal was run next to test a small daily-use-style technical Q&A flow without using sensitive documents.
+
+What worked:
+
+- synthetic ingest exercised unsupported-file and parse-error reporting
+- direct ABW JSON queries returned machine-readable envelopes
+- NVIDIA bridge/UI rendered answer, retrieval status, trust score, evidence tier, sources, warnings, and read-only indicators
+- all repos stayed clean
+- no pending edits were created
+- no Apply occurred
+- no sync/write-back occurred
+
+Blockers:
+
+- direct read-only ABW asks still changed temp-workspace `.brain` state
+- direct supplier-contract missing-source query was not cleanly rejected and overmatched `wiki/agv.md`
+- NVIDIA bridge used packaged/legacy ABW runtime and diverged from repo-source ABW behavior
+- NVIDIA `npm test` failed at browser smoke because the server exited early with code `1`
+
+Evidence:
+
+- temp workspace `D:\Sandbox\_daily_use_rehearsal\run_20260515_155605`
+- ingest result `ingested=2`, `skipped=2`, unsupported `raw/unsupported.xyz`, parse error `raw/broken.docx`
+- ABW targeted regression pack `173 passed`
+- repos remained clean throughout the rehearsal
+
+Consequences:
+
+- Do not claim daily-use readiness from the current ABW + NVIDIA read-only flow.
+- The next recommended sprint is `ABW/NVIDIA Runtime Consistency + Read-Only Mutation Safety Fix`.
+- Keep browser smoke failure visible in governance records.
+
+Non-goals:
+
+- Does not claim rehearsal pass.
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge ready.
