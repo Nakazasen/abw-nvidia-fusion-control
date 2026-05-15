@@ -3760,3 +3760,49 @@ Non-goals:
 - Does not claim `DAILY_USE_READY`.
 - Does not claim production-ready.
 - Does not claim broad real-provider matrix proof.
+
+## 2026-05-15: Record ABW Query/Retrieval Trust Sprint Completion
+
+Decision:
+
+- Record ABW query/retrieval trust refinement completion at ABW head `401d9d1f985c20bf8a57cc31b385296ffdc89954`.
+- Accept `ABW_QUERY_TRUST_COMMITTED_AND_PUSHED` as the current ABW trust sprint result.
+
+Context:
+
+- Bridge smoke was already proven, but ABW query quality still depended on ingest/retrieval quality and could over-read weak local evidence.
+- The next bounded step was to tighten evidence semantics without weakening no-match honesty or read-only runtime suppression.
+
+Accepted behavior:
+
+- Wiki is preferred over weaker raw/draft hits when both are present.
+- Wiki-backed answers remain `E2_wiki` with grounded/exact semantics.
+- Raw, processed, and draft metadata evidence no longer claim grounded status.
+- Weak local evidence now maps to `E1_fallback` with `retrieval_status=raw_or_draft_only`.
+- Weak evidence warnings are explicit and trust remains capped below wiki-backed answers.
+- No-match honesty remains preserved with `trust_score=0` and `sources=[]`.
+- Read-only query suppression remains preserved under `ABW_READ_ONLY_QUERY=1`.
+- Readable UTF-8 Vietnamese grounded query baseline is now covered.
+
+Evidence:
+
+- targeted tests `123 passed`
+- full pytest `724 passed`
+- wheel build `PASS`
+- repo-source CLI smoke with `PYTHONPATH=src` and `ABW_READ_ONLY_QUERY=1` PASS
+- `.brain` file count before/after asks `0 -> 0`
+
+Consequences:
+
+- ABW now exposes clearer machine-readable trust semantics for NVIDIA and other consumers without widening readiness claims.
+- The next recommended options are:
+  - `NVIDIA UI display refinement for ABW read-only answers`
+  - `ABW ingest reliability sprint`
+  - stop and preserve clean state
+
+Non-goals:
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge ready.
+- Does not claim broad Vietnamese robustness solved.

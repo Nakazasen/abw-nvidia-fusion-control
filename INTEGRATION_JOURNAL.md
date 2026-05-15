@@ -63,7 +63,46 @@ This file records the shared ABW x NVIDIA integration history in the control rep
   - `ABW Query/Retrieval Trust Sprint`
   - `NVIDIA UI display refinement for ABW read-only answers`
   - stop and preserve clean state
-  - updated remaining estimate: `8-15` large prompts remain
+- updated remaining estimate: `8-15` large prompts remain
+
+## 2026-05-15 - ABW Query/Retrieval Trust Sprint completed
+
+- ABW previous head:
+  - `528742c18b4aac5a019dbc3c9877327f5393f882`
+- ABW latest head:
+  - `401d9d1f985c20bf8a57cc31b385296ffdc89954`
+- verdict:
+  - `ABW_QUERY_TRUST_COMMITTED_AND_PUSHED`
+- commit message:
+  - `fix: clarify ABW query evidence tiers and trust status`
+- accepted behavior:
+  - wiki is preferred over weaker raw/draft hits when both are present
+  - wiki-backed answers remain `E2_wiki` with grounded / exact semantics
+  - raw, processed, and draft metadata no longer claim grounded evidence
+  - weak local evidence now maps to `E1_fallback` with `retrieval_status=raw_or_draft_only`
+  - weak evidence warnings are explicit and trust remains capped below wiki-backed answers
+  - no-match honesty remains preserved with `trust_score=0` and `sources=[]`
+  - read-only runtime suppression remains preserved
+  - readable UTF-8 Vietnamese grounded query baseline is now covered
+- evidence:
+  - targeted tests `123 passed`
+  - full pytest `724 passed`
+  - wheel build `PASS`
+  - repo-source CLI smoke with `PYTHONPATH=src` and `ABW_READ_ONLY_QUERY=1` PASS
+  - `.brain` file count before/after asks `0 -> 0`
+- residual limits:
+  - still not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge
+  - ABW quality still depends on ingested corpus quality
+  - broader Vietnamese robustness still needs more tests
+  - NVIDIA UI display refinement remains pending
+- updated remaining estimate:
+  - `7-14` large prompts remain
+- next options:
+  - `NVIDIA UI display refinement for ABW read-only answers`
+  - `ABW ingest reliability sprint`
+  - stop and preserve clean state
 
 ## 2026-05-15 - NVIDIA Phase 1 ABW CLI reader bridge recorded
 

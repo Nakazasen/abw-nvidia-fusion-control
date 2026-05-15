@@ -2251,3 +2251,25 @@ Mitigation:
   - keep full-bridge, write-back, sync, auto-apply, `DAILY_USE_READY`, and production-ready claims forbidden
   - keep the browser smoke warning visible in governance records
   - choose next between `ABW Query/Retrieval Trust Sprint`, `NVIDIA UI display refinement for ABW read-only answers`, or preserving clean state
+
+## 2026-05-15 Update - Post ABW Query/Retrieval Trust Sprint Residual Risks
+
+- Closed:
+  - ABW query/retrieval trust refinement is completed at ABW head `401d9d1f985c20bf8a57cc31b385296ffdc89954`
+  - wiki is now preferred over weaker raw/draft hits when both are present
+  - raw, processed, and draft metadata evidence no longer claim grounded status
+  - weak local evidence now maps to `E1_fallback` with `retrieval_status=raw_or_draft_only`
+  - repo-source read-only ask smoke with `PYTHONPATH=src` and `ABW_READ_ONLY_QUERY=1` left `.brain` untouched `0 -> 0`
+  - readable UTF-8 Vietnamese grounded query baseline is now covered
+- Residual risks remain:
+  - this still does not prove `DAILY_USE_READY`
+  - this still does not prove production-ready
+  - this still does not complete the full bridge
+  - ABW answer quality remains bounded by corpus ingest/review quality
+  - broader Vietnamese robustness is not solved beyond the tested paths
+  - NVIDIA UI display refinement for ABW read-only answers remains pending
+- Mitigation:
+  - keep explicit language that weak local evidence is machine-readable and not equivalent to grounded wiki evidence
+  - keep `DAILY_USE_READY`, production-ready, and full-bridge claims forbidden
+  - keep broader Vietnamese robustness in the residual-risk list
+  - choose next between `NVIDIA UI display refinement for ABW read-only answers`, `ABW ingest reliability sprint`, or preserving clean state

@@ -7,7 +7,7 @@
 - Control status: clean
 - NVIDIA HEAD: `a1c87a13234879a38529ce2d7fcfba8a2eaa0ee2`
 - NVIDIA status: clean
-- ABW HEAD: `528742c18b4aac5a019dbc3c9877327f5393f882`
+- ABW HEAD: `401d9d1f985c20bf8a57cc31b385296ffdc89954`
 - ABW status: clean
 - Readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Internal scoped label: `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
@@ -33,8 +33,15 @@
   - current verdict `BRIDGE_MUTATION_SAFETY_FIXED_AND_SMOKE_PASSED`
   - ABW read-only bridge query mode now uses `ABW_READ_ONLY_QUERY=1`
   - real NVIDIA endpoint calls + real ABW CLI JSON are now proven with no target workspace mutation during bridge ask
+- Trust refinement:
+  - `ABW Query/Retrieval Trust Sprint` completed
+  - wiki is preferred over weaker raw/draft hits when both are present
+  - raw, processed, and draft metadata now map to `E1_fallback` / `raw_or_draft_only`
+  - weak evidence warnings are explicit
+  - no-match honesty and read-only runtime suppression remain preserved
+  - readable UTF-8 Vietnamese grounded query baseline added
 - Residual limits:
-  - Vietnamese robustness is not fully solved beyond tested paths
+  - broader Vietnamese robustness is not fully solved beyond tested paths
   - this is not a full bridge
   - not write-back
   - not sync
@@ -42,14 +49,16 @@
   - ABW query quality remains bounded by ingest/retrieval quality
   - broad real-provider matrix remains unproven
 - Remaining estimate:
-  - `8-15` large prompts remain
+  - `7-14` large prompts remain
 - Evidence:
   - `node tests/abw-cli-reader-bridge.test.mjs` PASS `22/0`
   - `npm test` PASS
   - proof doc exists at `docs/bridge-phase-1-abw-cli-reader.md`
-  - ABW targeted tests `120 passed`
-  - ABW full pytest `721 passed`
+  - ABW targeted tests `123 passed`
+  - ABW full pytest `724 passed`
   - ABW wheel build `PASS`
+  - repo-source CLI read-only smoke PASS
+  - repo-source read-only ask left `.brain` untouched `0 -> 0`
   - no target workspace mutation during direct or bridge read-only ask
   - no repo mutation
   - no pending edits
@@ -71,8 +80,8 @@
 
 ## Next Actions
 
-- `ABW Query/Retrieval Trust Sprint`
 - `NVIDIA UI display refinement for ABW read-only answers`
+- `ABW ingest reliability sprint`
 - stop and preserve clean state
 - broader provider matrix audit
 - browser smoke warning investigation
