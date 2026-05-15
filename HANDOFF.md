@@ -6,7 +6,7 @@
 - Control status: clean
 - NVIDIA HEAD: `3d32881a567ed15791dc44d499bf6f2d6c581e09`
 - NVIDIA status: clean
-- ABW HEAD: `c8da1c5f54ed87422283c09a37a8163e9d1c1481`
+- ABW HEAD: `de1d8560d3a26000fb113e0acbfe947bd785f721`
 - ABW status: clean
 - Current readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Current scoped label:
@@ -59,6 +59,12 @@
   - supplier-contract overmatch is closed for the covered synthetic AGV workspace path
   - browser smoke fixed-port startup failure is closed
   - current repo-source ABW did not reproduce query-time `.brain` mutation under `ABW_READ_ONLY_QUERY=1`
+- Latest ABW query-honesty result:
+  - `ABW_QUERY_HONESTY_COMMITTED_AND_PUSHED`
+  - supplier-contract missing-source query no longer succeeds from draft boilerplate
+  - root cause: ingest-generated draft boilerplate in `## Trust Notice` included `approved`, and draft scoring treated that token as evidence overlap for a fact-specific supplier-contract question
+  - fix: non-knowledge boilerplate sections are excluded from `draft_metadata` scoring while substantive draft content scoring remains enabled
+  - valid technical raw/draft fallback remains allowed when real distinctive overlap exists
 - ABW CLI JSON covered commands:
   - `ask`
   - `doctor`
@@ -94,6 +100,9 @@
   - ABW targeted tests PASS `125/0`
   - ABW full pytest PASS `728/0`
   - ABW wheel build PASS
+  - ABW query-honesty targeted tests PASS `127/0`
+  - ABW query-honesty full pytest PASS `730/0`
+  - ABW query-honesty wheel build PASS
   - ABW ingest targeted tests PASS `66`
   - ABW full pytest PASS `726`
   - ABW ingest CLI smoke PASS
@@ -113,6 +122,12 @@
     - query-time `.brain` mutation `no` for direct ABW and NVIDIA bridge asks
     - bridge runtime metadata `runtimeSource=repo`
     - bridge runtime metadata `abwRepoPath=D:\Sandbox\skill-Anti-brain-wiki_note`
+  - ABW query-honesty mini rehearsal:
+    - protocol query `success` / `E2_wiki` / source `wiki\agv.md`
+    - restart signal query `success` / `E2_wiki` / source `wiki\agv.md`
+    - supplier-contract query `no_match` / `E0_unknown` / no source
+    - Vietnamese query `success` / `E2_wiki` / source `wiki\agv.md`
+    - query-time `.brain` mutation `no`
   - provider capability `16/0`
   - manual reliability `122/0`
   - apply proof `30/0`

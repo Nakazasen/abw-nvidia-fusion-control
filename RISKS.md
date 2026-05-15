@@ -2365,3 +2365,34 @@ Mitigation:
   - keep the known browser smoke warning visible until explicitly closed
   - rerun the full daily-use rehearsal before considering any stronger claim
   - keep `DAILY_USE_READY`, production-ready, and full-bridge claims forbidden
+
+## 2026-05-15 Update - Post ABW Query Honesty Fix Residual Risks
+
+- Closed:
+  - supplier-contract missing-source query no longer succeeds from draft boilerplate in the covered synthetic AGV workspace path
+  - draft scoring no longer treats non-knowledge boilerplate sections as evidence for fact-specific fallback answers
+- Root cause recorded:
+  - ingest-generated draft boilerplate in `## Trust Notice` included `approved`
+  - draft retrieval scoring treated that boilerplate token as evidence overlap
+  - a generic AGV draft could therefore slip into `E1_fallback` for a supplier-contract question instead of abstaining
+- Fix recorded:
+  - draft-only scoring sanitization is added
+  - non-knowledge boilerplate sections are excluded from `draft_metadata` scoring
+  - substantive draft content scoring remains enabled so valid technical fallback stays available
+- Accepted evidence:
+  - ABW targeted tests `127/0`
+  - ABW full pytest `730/0`
+  - ABW wheel build `PASS`
+  - mini rehearsal supplier-contract query `no_match` / `E0_unknown` / no source
+  - mini rehearsal query-time `.brain` mutation `no`
+- Residual risks remain:
+  - full daily-use rehearsal still must be rerun
+  - this is still not `DAILY_USE_READY`
+  - this is still not production-ready
+  - parser coverage remains bounded
+  - broader Vietnamese robustness still needs more tests
+  - browser smoke inline edit widget warning remains non-blocking but unresolved
+- Mitigation:
+  - rerun the full daily-use rehearsal before considering any stronger claim
+  - keep `DAILY_USE_READY` and production-ready claims forbidden
+  - keep residual parser and multilingual robustness limits visible in governance

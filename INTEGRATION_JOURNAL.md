@@ -2,6 +2,56 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-15 - ABW query honesty fix completed
+
+- Control head before update:
+  - `457a5055fe18cce917c65376878c1de44cf115e9`
+- NVIDIA head during update:
+  - `3d32881a567ed15791dc44d499bf6f2d6c581e09`
+- ABW previous head:
+  - `c8da1c5f54ed87422283c09a37a8163e9d1c1481`
+- ABW latest head:
+  - `de1d8560d3a26000fb113e0acbfe947bd785f721`
+- verdict:
+  - `ABW_QUERY_HONESTY_COMMITTED_AND_PUSHED`
+- blocker fixed:
+  - supplier-contract missing-source query no longer succeeds from draft boilerplate
+- root cause:
+  - ingest-generated draft files contained boilerplate text in `## Trust Notice`, including `approved`
+  - draft retrieval scoring treated that boilerplate token as evidence overlap
+  - a generic AGV draft could therefore match a fact-specific supplier-contract question on `approved` plus `agv`, slipping into `E1_fallback` instead of abstaining
+- fix recorded:
+  - draft-only scoring sanitization added
+  - non-knowledge boilerplate sections excluded from `draft_metadata` scoring:
+    - `Trust Notice`
+    - `Possible Queries`
+    - `Provider Assistance`
+    - `Perception Pipeline`
+    - `Provenance`
+    - `Domain Contamination Guard`
+  - substantive draft content scoring such as `Business Summary` remains enabled
+  - valid technical fallback remains allowed when real distinctive overlap exists
+- validation evidence:
+  - ABW targeted tests `127 passed, 0 failed`
+  - ABW full pytest `730 passed, 0 failed`
+  - ABW wheel build `PASS`
+- mini rehearsal:
+  - protocol query `success`, `E2_wiki`, source `wiki\agv.md`
+  - restart signal query `success`, `E2_wiki`, source `wiki\agv.md`
+  - supplier-contract query `no_match`, `E0_unknown`, no source
+  - Vietnamese query `success`, `E2_wiki`, source `wiki\agv.md`
+  - query-time `.brain` mutation `no`
+- residual limits:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - full daily-use rehearsal must be rerun
+  - parser coverage remains bounded
+  - broader Vietnamese robustness still needs more tests
+- remaining estimate:
+  - `4-11` large prompts remain
+- next recommended action:
+  - rerun full daily-use rehearsal
+
 ## 2026-05-15 - Runtime consistency and read-only mutation safety fix completed
 
 - Control head before update:

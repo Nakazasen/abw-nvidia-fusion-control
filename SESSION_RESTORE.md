@@ -18,31 +18,25 @@
 
 - Control `3f5d4abf5755645033fb377e67dec05129a44fae` clean
 - NVIDIA `3d32881a567ed15791dc44d499bf6f2d6c581e09` clean
-- ABW `c8da1c5f54ed87422283c09a37a8163e9d1c1481` clean
+- ABW `de1d8560d3a26000fb113e0acbfe947bd785f721` clean
 - Current readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Internal scoped label: `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
-- Latest result: `RUNTIME_FIX_COMMITTED_AND_SMOKE_PASSED`
-- Closed blockers:
-  - runtime divergence between repo-source ABW and packaged/ambient ABW
-  - supplier-contract missing-source overmatch
-  - browser smoke fixed-port `EADDRINUSE` startup failure
-  - read-only mutation concern for the configured repo-source runtime path
+- Latest result: `ABW_QUERY_HONESTY_COMMITTED_AND_PUSHED`
+- Closed blocker:
+  - supplier-contract missing-source query no longer succeeds from draft boilerplate
 - Accepted evidence:
-  - ABW targeted tests `125/0`
-  - ABW full pytest `728/0`
+  - ABW targeted tests `127/0`
+  - ABW full pytest `730/0`
   - ABW wheel build `PASS`
-  - bridge tests `53/0`
-  - NVIDIA `npm test` `PASS`
-  - browser smoke `118/0`
-  - mini rehearsal `PASS`
-  - no query-time `.brain` mutation for direct ABW and NVIDIA bridge asks
-  - bridge metadata `runtimeSource=repo`
-  - bridge honors `ABW_REPO_PATH`
+  - mini rehearsal supplier-contract query `no_match` / `E0_unknown` / no source
+  - query-time `.brain` mutation `no`
 - Residual limits:
   - not `DAILY_USE_READY`
   - not production-ready
   - not full bridge ready
   - full daily-use rehearsal rerun remains pending
+  - parser coverage remains bounded
+  - broader Vietnamese robustness still needs more tests
   - browser smoke warning remains non-blocking:
     - `Inline edit widget opens from selection: widget not observable in current smoke state`
 - Remaining estimate:
