@@ -2,11 +2,11 @@
 
 ## 2026-05-15 Session Close Snapshot
 
-- Control HEAD: `b8360f87287ac4d115cc5628de34c563bc62b359`
+- Control HEAD: `3f5d4abf5755645033fb377e67dec05129a44fae`
 - Control status: clean
-- NVIDIA HEAD: `e9c6493253d165724a39abdcb7ca291e995aff21`
+- NVIDIA HEAD: `3d32881a567ed15791dc44d499bf6f2d6c581e09`
 - NVIDIA status: clean
-- ABW HEAD: `57fd2d803a0add6625a613673179cab70025e6ce`
+- ABW HEAD: `c8da1c5f54ed87422283c09a37a8163e9d1c1481`
 - ABW status: clean
 - Current readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Current scoped label:
@@ -51,11 +51,14 @@
   - parse failures remain honest, are not counted as ingested, and surfaced in `parse_errors`
   - unchanged repeat ingest now reports `duplicate_count` from `skipped_unchanged_count`
   - `review_required` is explicit, `promotion_performed` remains false unless real promotion occurred, and ingest does not claim trusted wiki readiness by itself
-- Latest rehearsal verdict:
-  - `DAILY_REHEARSAL_FAIL_MUTATION_SAFETY`
-  - bounded synthetic workspace: `D:\Sandbox\_daily_use_rehearsal\run_20260515_155605`
-  - what worked: ingest exercised unsupported + parse-error reporting, ABW direct JSON stayed machine-readable, NVIDIA bridge/UI rendered read-only ABW fields, repos stayed clean, no pending edits, no Apply, no sync/write-back
-  - blockers: direct read-only ABW ask still changed temp-workspace `.brain`, supplier-contract missing-source query was not cleanly rejected, NVIDIA bridge used packaged/legacy ABW runtime and diverged from repo-source ABW behavior, NVIDIA `npm test` failed at browser smoke server exit code `1`
+- Latest runtime-fix result:
+  - `RUNTIME_FIX_COMMITTED_AND_SMOKE_PASSED`
+  - previous bounded synthetic rehearsal verdict remains recorded as `DAILY_REHEARSAL_FAIL_MUTATION_SAFETY`
+  - full daily-use rehearsal rerun is still pending
+  - runtime divergence between repo-source ABW and packaged/ambient ABW is closed for the configured bridge path
+  - supplier-contract overmatch is closed for the covered synthetic AGV workspace path
+  - browser smoke fixed-port startup failure is closed
+  - current repo-source ABW did not reproduce query-time `.brain` mutation under `ABW_READ_ONLY_QUERY=1`
 - ABW CLI JSON covered commands:
   - `ask`
   - `doctor`
@@ -85,11 +88,11 @@
   - `npm run agent:audit`
   - `npm run browser:smoke`
 - Evidence:
-  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `44/0`
+  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `53/0`
   - `npm test` PASS
   - proof doc exists at `docs/bridge-phase-1-abw-cli-reader.md`
-  - ABW targeted tests PASS `123`
-  - ABW full pytest PASS `724`
+  - ABW targeted tests PASS `125/0`
+  - ABW full pytest PASS `728/0`
   - ABW wheel build PASS
   - ABW ingest targeted tests PASS `66`
   - ABW full pytest PASS `726`
@@ -102,11 +105,14 @@
   - repo-source read-only ask left `.brain` untouched `0 -> 0`
   - browser smoke warning remains:
     - `Inline edit widget opens from selection: widget not observable in current smoke state`
-  - bounded daily-use rehearsal:
-    - direct ABW read-only asks still changed temp-workspace `.brain` state
-    - supplier-contract missing-source query overmatched `wiki/agv.md` instead of clean `no_match`
-    - NVIDIA bridge used packaged/legacy ABW runtime and diverged from repo-source ABW behavior
-    - NVIDIA `npm test` failed at browser smoke server exit code `1`
+  - mini rehearsal after runtime fix:
+    - direct ABW known query `success` / `grounded`
+    - direct ABW supplier-contract query `no_match` / `knowledge_gap_logged`
+    - NVIDIA bridge known query `ABW_CLI_OK` / `grounded`
+    - NVIDIA bridge supplier-contract query `ABW_CLI_NO_MATCH` / `knowledge_gap_logged`
+    - query-time `.brain` mutation `no` for direct ABW and NVIDIA bridge asks
+    - bridge runtime metadata `runtimeSource=repo`
+    - bridge runtime metadata `abwRepoPath=D:\Sandbox\skill-Anti-brain-wiki_note`
   - provider capability `16/0`
   - manual reliability `122/0`
   - apply proof `30/0`
@@ -125,9 +131,9 @@
   - ingest quality still depends on parser coverage
   - review/promotion remains separate from ingest
   - broad real-provider matrix remains unproven
-  - daily-use rehearsal failed on mutation safety and runtime consistency
+  - full daily-use rehearsal rerun is still pending
   - real private/work docs were not tested
-  - browser smoke failure remains unresolved
+  - browser smoke inline edit warning remains non-blocking
 - Still not proven:
   - `DAILY_USE_READY`
   - production-ready
@@ -139,9 +145,9 @@
   - Cursor parity
   - broader real-provider matrix
 - Remaining estimate:
-  - `5-12` large prompts remain
+  - `4-11` large prompts remain
 - Next governance actions:
-  - `ABW/NVIDIA Runtime Consistency + Read-Only Mutation Safety Fix`
+  - rerun full daily-use rehearsal
   - browser smoke warning investigation
   - stop and preserve clean state
 

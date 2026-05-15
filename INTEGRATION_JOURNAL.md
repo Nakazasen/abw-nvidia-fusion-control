@@ -2,6 +2,66 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-15 - Runtime consistency and read-only mutation safety fix completed
+
+- Control head before update:
+  - `3f5d4abf5755645033fb377e67dec05129a44fae`
+- NVIDIA previous head:
+  - `e9c6493253d165724a39abdcb7ca291e995aff21`
+- NVIDIA latest head:
+  - `3d32881a567ed15791dc44d499bf6f2d6c581e09`
+- ABW previous head:
+  - `57fd2d803a0add6625a613673179cab70025e6ce`
+- ABW latest head:
+  - `c8da1c5f54ed87422283c09a37a8163e9d1c1481`
+- verdict:
+  - `RUNTIME_FIX_COMMITTED_AND_SMOKE_PASSED`
+- milestone:
+  - `ABW/NVIDIA Runtime Consistency + Read-Only Mutation Safety Fix` completed
+- blockers closed:
+  - runtime divergence between repo-source ABW and ambient/packaged ABW
+  - supplier-contract overmatch on generic AGV overlap alone
+  - browser smoke server startup failure on `EADDRINUSE`
+  - read-only mutation concern for the configured repo-source runtime path
+- root-cause interpretation:
+  - current repo-source ABW did not reproduce `.brain` mutation under `ABW_READ_ONLY_QUERY=1`
+  - the mutation risk came from NVIDIA invoking the wrong ABW runtime instead of the configured repo-source path
+- fixes recorded:
+  - ABW tightened retrieval in `scripts/abw_knowledge.py`
+  - ABW mirrored the retrieval fix in `src/abw/_legacy/abw_knowledge.py`
+  - ABW added regression coverage in `tests/test_abw_api.py` and `tests/test_abw_runner.py`
+  - NVIDIA `tools/abw-cli-reader.mjs` now honors `ABW_REPO_PATH`, sets repo `cwd`, prepends `<repo>/src` to `PYTHONPATH`, and always passes `ABW_READ_ONLY_QUERY=1`
+  - NVIDIA bridge now exposes runtime metadata: `runtimeSource`, `abwRepoPath`, `pythonExecutable`, `commandArgs`, `commandCwd`
+  - NVIDIA browser smoke now auto-selects a free port when `3000` is occupied
+- validation evidence:
+  - ABW targeted tests `125 passed, 0 failed`
+  - ABW full pytest `728 passed, 0 failed`
+  - ABW wheel build `PASS`
+  - NVIDIA bridge tests `53 passed, 0 failed`
+  - NVIDIA `npm test` `PASS`
+  - browser smoke `118 passed, 0 failed`
+  - known browser smoke warning remains non-blocking:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- mini rehearsal:
+  - direct ABW known query `success`, `grounded`
+  - direct ABW supplier-contract query `no_match`, `knowledge_gap_logged`
+  - NVIDIA bridge known query `ABW_CLI_OK`, `grounded`
+  - NVIDIA bridge supplier-contract query `ABW_CLI_NO_MATCH`, `knowledge_gap_logged`
+  - query-time `.brain` mutation `no` for direct ABW and NVIDIA bridge asks
+  - bridge runtime metadata `runtimeSource=repo`
+  - bridge runtime metadata `abwRepoPath=D:\Sandbox\skill-Anti-brain-wiki_note`
+  - ABW repo clean
+  - NVIDIA repo clean
+- residual limits:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - full daily-use rehearsal must be rerun
+- remaining estimate:
+  - `4-11` large prompts remain
+- next recommended action:
+  - rerun full daily-use rehearsal
+
 ## 2026-05-15 - Bounded daily-use rehearsal failed on mutation safety and runtime consistency
 
 - Control head before update:

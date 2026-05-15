@@ -15,11 +15,11 @@
 - Sprint 12 Task Timeline + Recovery / Resume is complete.
 - Sprint 13 Git / SCM Panel tot hon is complete.
 - Current readiness verdict: HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY.
-- Latest NVIDIA completion recorded in control truth: `e9c6493253d165724a39abdcb7ca291e995aff21`.
+- Latest NVIDIA completion recorded in control truth: `3d32881a567ed15791dc44d499bf6f2d6c581e09`.
 - Sprint 16.5 cleanup is completed and pushed after Phase 1 Gate Review verdict B.
 - NVIDIA Phase 1 ABW CLI reader is implemented as a bounded read-only bridge milestone.
 - ABW runtime isolation for read-only bridge queries is implemented at `528742c18b4aac5a019dbc3c9877327f5393f882`.
-- Latest ABW completion recorded in control truth: `57fd2d803a0add6625a613673179cab70025e6ce`.
+- Latest ABW completion recorded in control truth: `c8da1c5f54ed87422283c09a37a8163e9d1c1481`.
 - ABW Query/Retrieval Trust Sprint is completed.
 - NVIDIA UI/server now displays ABW read-only answer trust details for the bounded read-only bridge path.
 - ABW Ingest Reliability Sprint is completed.
@@ -47,27 +47,26 @@
   - `review_required` surfaced explicitly
   - `promotion_performed` remains false unless a real promotion occurred
   - ingest does not claim trusted wiki readiness by itself
-- Latest bounded daily-use rehearsal verdict is `DAILY_REHEARSAL_FAIL_MUTATION_SAFETY`.
-- Daily-use rehearsal blockers now include:
-  - direct read-only ABW ask still changed temp-workspace `.brain` state
-  - direct supplier-contract missing-source query was not cleanly rejected
-  - NVIDIA bridge used packaged/legacy ABW runtime and diverged from repo-source ABW behavior
-  - NVIDIA `npm test` failed at browser smoke server exit code `1`
+- Latest runtime-fix milestone is `RUNTIME_FIX_COMMITTED_AND_SMOKE_PASSED`.
+- Closed blockers now include:
+  - runtime divergence between repo-source ABW and packaged/ambient ABW
+  - supplier-contract missing-source overmatch
+  - browser smoke `EADDRINUSE` startup failure on fixed port `127.0.0.1:3000`
+  - read-only mutation concern for the configured repo-source runtime path
 - Accepted evidence:
-  - `node tests/abw-cli-reader-bridge.test.mjs` `44 passed, 0 failed`
-  - previous bounded bridge/UI validation `npm test` `PASS`
+  - `node tests/abw-cli-reader-bridge.test.mjs` `53 passed, 0 failed`
+  - NVIDIA `npm test` `PASS`
   - browser smoke warning remains:
     - `Inline edit widget opens from selection: widget not observable in current smoke state`
-  - ingest targeted `66 passed`
-  - ABW full pytest `726 passed`
-  - CLI ingest smoke `PASS`
-  - ABW bounded daily-use rehearsal targeted tests `173 passed`
-  - targeted `123 passed`
-  - full pytest `724 passed`
-  - wheel build `PASS`
-  - repo-source read-only ask left `.brain` untouched `0 -> 0`
+  - ABW targeted regression pack `125 passed, 0 failed`
+  - ABW full pytest `728 passed, 0 failed`
+  - ABW wheel build `PASS`
+  - direct ABW mini rehearsal left `.brain` untouched
+  - NVIDIA bridge mini rehearsal left `.brain` untouched
+  - bridge metadata shows `runtimeSource=repo`
+  - bridge honors `ABW_REPO_PATH`
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
-- Current bounded daily-use rehearsal failed and must not be treated as readiness proof.
+- Full daily-use rehearsal still must be rerun and is not yet proven as a pass.
 - Browser smoke baseline now exists and passed in real-browser mode.
 - Browser smoke is not full E2E coverage.
 - Provider/settings layer now exists.
@@ -2184,3 +2183,41 @@ Each audit must check:
   - `12-19` large prompts remain
 - Next recommended sprint:
   - `NVIDIA Phase 1 ABW CLI Reader Sprint`
+
+## 2026-05-15 Update - Runtime Consistency And Read-Only Mutation Safety Fix Completed
+
+- Latest result:
+  - `RUNTIME_FIX_COMMITTED_AND_SMOKE_PASSED`
+- Latest NVIDIA remote main:
+  - `3d32881a567ed15791dc44d499bf6f2d6c581e09`
+- Latest ABW remote main:
+  - `c8da1c5f54ed87422283c09a37a8163e9d1c1481`
+- Milestone:
+  - `ABW/NVIDIA Runtime Consistency + Read-Only Mutation Safety Fix` completed
+- Closed blockers:
+  - runtime divergence between repo-source ABW and packaged/ambient ABW
+  - supplier-contract overmatch on generic `agv` token alone
+  - browser smoke fixed-port `EADDRINUSE` startup failure
+  - read-only mutation concern for the configured repo-source runtime path
+- Accepted evidence:
+  - ABW targeted tests `125/0`
+  - ABW full pytest `728/0`
+  - ABW wheel build `PASS`
+  - bridge tests `53/0`
+  - NVIDIA `npm test` `PASS`
+  - browser smoke `118/0`
+  - mini rehearsal `PASS`
+  - no query-time `.brain` mutation for direct ABW or NVIDIA bridge asks
+  - bridge metadata shows `runtimeSource=repo`
+  - bridge honors `ABW_REPO_PATH`
+- Residual limits preserved:
+  - full daily-use rehearsal still must be rerun
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - browser smoke warning remains non-blocking:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- Updated remaining estimate:
+  - `4-11` large prompts remain
+- Next recommended action:
+  - rerun full daily-use rehearsal

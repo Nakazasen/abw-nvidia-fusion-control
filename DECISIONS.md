@@ -3944,11 +3944,43 @@ Consequences:
 
 - Do not claim daily-use readiness from the current ABW + NVIDIA read-only flow.
 - The next recommended sprint is `ABW/NVIDIA Runtime Consistency + Read-Only Mutation Safety Fix`.
-- Keep browser smoke failure visible in governance records.
+
+## 2026-05-15: Record Runtime Consistency And Read-Only Mutation Safety Fix
+
+Decision:
+
+- Record the runtime consistency and read-only mutation safety sprint as completed with verdict `RUNTIME_FIX_COMMITTED_AND_SMOKE_PASSED`.
+- Accept NVIDIA `3d32881a567ed15791dc44d499bf6f2d6c581e09` and ABW `c8da1c5f54ed87422283c09a37a8163e9d1c1481` as the latest implementation heads for this fix.
+- Keep readiness boundaries unchanged and update the countdown to `4-11` large prompts remaining.
+
+Context:
+
+- The previous bounded rehearsal surfaced four blockers: runtime divergence, supplier-contract overmatch, browser smoke startup failure on fixed port `3000`, and a read-only mutation concern.
+- Follow-up investigation showed current repo-source ABW did not itself reproduce `.brain` mutation under `ABW_READ_ONLY_QUERY=1`; the mutation risk came from NVIDIA invoking an ambient/stale ABW runtime instead of the configured repo path.
+
+Accepted evidence:
+
+- ABW targeted tests `125 passed, 0 failed`
+- ABW full pytest `728 passed, 0 failed`
+- ABW wheel build `PASS`
+- NVIDIA bridge tests `53 passed, 0 failed`
+- NVIDIA `npm test` `PASS`
+- browser smoke `118 passed, 0 failed`
+- mini rehearsal passed for direct ABW and NVIDIA bridge asks with no query-time `.brain` mutation
+- bridge runtime metadata now shows `runtimeSource=repo`
+- `ABW_REPO_PATH` is honored
+
+Consequences:
+
+- Runtime divergence between repo-source ABW and packaged/ambient ABW is closed for the configured bridge path.
+- Supplier-contract overmatch is closed for the covered synthetic AGV workspace path.
+- Browser smoke fixed-port `EADDRINUSE` startup failure is closed.
+- The previous bounded rehearsal failure remains part of the audit trail and must not be hidden.
+- Full daily-use rehearsal must still be rerun before any broader interpretation.
 
 Non-goals:
 
-- Does not claim rehearsal pass.
 - Does not claim `DAILY_USE_READY`.
 - Does not claim production-ready.
 - Does not claim full bridge ready.
+- Does not claim full daily-use rehearsal pass.

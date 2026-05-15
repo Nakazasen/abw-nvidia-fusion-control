@@ -2343,3 +2343,25 @@ Mitigation:
   - treat runtime consistency and read-only mutation safety as the next blocker-fix sprint
   - keep browser smoke failure visible in governance records
   - keep `DAILY_USE_READY`, production-ready, and full-bridge claims forbidden
+
+## 2026-05-15 Update - Post Runtime Consistency Fix Residual Risks
+
+- Closed:
+  - NVIDIA bridge runtime divergence is closed for the configured repo-source runtime path
+  - supplier-contract overmatch is closed for the covered synthetic AGV workspace path
+  - browser smoke `EADDRINUSE` fixed-port startup failure is closed
+  - query-time `.brain` mutation was not reproduced in the current repo-source ABW read-only path or in the configured NVIDIA bridge path
+- Residual risks remain:
+  - full daily-use rehearsal still must be rerun
+  - this is still not `DAILY_USE_READY`
+  - this is still not production-ready
+  - this is still not a full bridge
+  - browser smoke inline edit widget warning remains non-blocking but unresolved
+  - parser coverage remains bounded
+  - ABW query quality remains bounded by ingest/retrieval quality
+  - real private/work documents remain untested in this sprint
+- Mitigation:
+  - keep the prior failed rehearsal visible in governance records
+  - keep the known browser smoke warning visible until explicitly closed
+  - rerun the full daily-use rehearsal before considering any stronger claim
+  - keep `DAILY_USE_READY`, production-ready, and full-bridge claims forbidden

@@ -16,94 +16,37 @@
 
 ## Latest Accepted Mirror State
 
-- Control `b8360f87287ac4d115cc5628de34c563bc62b359` clean
-- NVIDIA `e9c6493253d165724a39abdcb7ca291e995aff21` clean
-- ABW `57fd2d803a0add6625a613673179cab70025e6ce` clean
+- Control `3f5d4abf5755645033fb377e67dec05129a44fae` clean
+- NVIDIA `3d32881a567ed15791dc44d499bf6f2d6c581e09` clean
+- ABW `c8da1c5f54ed87422283c09a37a8163e9d1c1481` clean
 - Current readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Internal scoped label: `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
-- Closed blocker: `MANUAL_PATH_REVALIDATION_V3_FAIL` is closed; `MANUAL_PATH_REVALIDATION_V3_PASS` is the accepted manual result
-- Closed validation hygiene gap: package-level `npm test` is now available and passes
-- Closed ABW CLI bridge-contract gap:
-  - covered commands `ask`, `doctor`, `version`, `ingest`, `review`
-- Accepted ABW evidence:
-  - targeted tests `117/0`
-  - full tests `718/0`
-  - wheel build `PASS`
-- Latest ABW regression closure:
-  - ABW CLI JSON known-query contract is stable on Windows short-path/long-path behavior
-  - root cause: unresolved `workspace_root` before citation validation
-  - known query now returns `status=success`
-  - no-match query still returns `no_match`
-  - JSON envelope remains preserved
-- Bridge milestone:
-  - NVIDIA Phase 1 ABW CLI reader is implemented and pushed as a bounded read-only bridge
-  - covered commands `version`, `doctor`, `ask`
-  - endpoints `POST /proxy/abw/version`, `POST /proxy/abw/doctor`, `POST /proxy/abw/ask`
-- Bridge smoke:
-  - previous verdict `NVIDIA_ABW_SMOKE_FAIL_MUTATION_SAFETY`
-  - current verdict `BRIDGE_MUTATION_SAFETY_FIXED_AND_SMOKE_PASSED`
-  - ABW read-only bridge query mode now uses `ABW_READ_ONLY_QUERY=1`
-  - real NVIDIA endpoint calls + real ABW CLI JSON are now proven with no target workspace mutation during bridge ask
-- Trust refinement:
-  - `ABW Query/Retrieval Trust Sprint` completed at `401d9d1f985c20bf8a57cc31b385296ffdc89954`
-  - wiki is preferred over weaker raw/draft hits when both are present
-  - weak local evidence now maps to `E1_fallback` / `raw_or_draft_only`
-  - weak evidence warnings are explicit
-  - no-match honesty remains preserved
-  - read-only ask smoke left `.brain` untouched `0 -> 0`
-  - readable UTF-8 Vietnamese grounded query baseline is now covered
-- UI/server refinement:
-  - NVIDIA UI/server now displays ABW read-only answer trust details
-  - `/abw-ask ...` renders an `ABW Read-Only Answer` card in the chat surface
-  - visible fields include answer, retrieval status, trust score, evidence tier, sources, warnings, read-only indicators, and explicit no-match state
-  - `/proxy/abw/ask` now includes `readOnly: true` and `evidenceTier` while preserving the original `abw` envelope
-  - read-only boundary remains explicit: no pending edits, no Apply, no `execute_command`, no sync, no auto-promote, no write-back
-- Ingest reliability refinement:
-  - `ABW Ingest Reliability Sprint` completed at `57fd2d803a0add6625a613673179cab70025e6ce`
-  - real ingest results and `.brain/ingest_report.json` now expose clearer summary fields
-  - unsupported files, parse errors, and duplicate/repeated ingest are surfaced honestly
-  - `review_required` is explicit and `promotion_performed` remains false unless a real promotion occurred
-  - ingest does not claim trusted wiki readiness by itself
-- Latest rehearsal verdict:
-  - `DAILY_REHEARSAL_FAIL_MUTATION_SAFETY`
-  - bounded synthetic workspace `D:\Sandbox\_daily_use_rehearsal\run_20260515_155605`
-  - repos stayed clean, no pending edits, no Apply, no sync/write-back
-  - direct read-only ABW asks still changed temp-workspace `.brain`
-  - supplier-contract missing-source query was not cleanly rejected
-  - NVIDIA bridge used packaged/legacy ABW runtime and diverged from repo-source ABW behavior
-  - NVIDIA `npm test` failed at browser smoke server exit code `1`
-- Residual limit:
-  - Vietnamese robustness is not fully solved beyond tested paths
-  - this is not a full bridge
-  - not write-back
-  - not sync
-  - not auto-apply
-  - ABW query quality remains bounded by ingest/retrieval quality
-  - ingest quality depends on parser coverage
-  - review/promotion remains separate
-  - broad real-provider matrix remains unproven
-- Remaining estimate:
-  - `5-12` large prompts remain
-- Evidence:
-  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `44/0`
-  - previous bounded bridge/UI validation `npm test` PASS
-  - proof doc exists at `docs/bridge-phase-1-abw-cli-reader.md`
-  - ABW ingest targeted tests `66 passed`
-  - ABW full pytest `726 passed`
-  - ABW ingest CLI smoke `PASS`
-  - ingest smoke warnings remain explicit:
-    - `1 unsupported file(s) skipped.`
-    - `1 parse error file(s) skipped.`
-    - `Drafts were created and still require review before any trusted wiki use.`
-  - ABW targeted tests `123 passed`
-  - ABW full pytest `724 passed`
+- Latest result: `RUNTIME_FIX_COMMITTED_AND_SMOKE_PASSED`
+- Closed blockers:
+  - runtime divergence between repo-source ABW and packaged/ambient ABW
+  - supplier-contract missing-source overmatch
+  - browser smoke fixed-port `EADDRINUSE` startup failure
+  - read-only mutation concern for the configured repo-source runtime path
+- Accepted evidence:
+  - ABW targeted tests `125/0`
+  - ABW full pytest `728/0`
   - ABW wheel build `PASS`
-  - repo-source CLI read-only smoke PASS
-  - `.brain` before/after asks `0 -> 0`
-  - ABW daily-use rehearsal targeted tests `173 passed`
-  - bounded rehearsal still failed on query-time temp-workspace mutation and browser smoke startup
-- Known npm test warning:
-  - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - bridge tests `53/0`
+  - NVIDIA `npm test` `PASS`
+  - browser smoke `118/0`
+  - mini rehearsal `PASS`
+  - no query-time `.brain` mutation for direct ABW and NVIDIA bridge asks
+  - bridge metadata `runtimeSource=repo`
+  - bridge honors `ABW_REPO_PATH`
+- Residual limits:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - full daily-use rehearsal rerun remains pending
+  - browser smoke warning remains non-blocking:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- Remaining estimate:
+  - `4-11` large prompts remain
 
 ## Still Not Proven
 
@@ -120,6 +63,6 @@
 
 ## Resume From
 
-- `ABW/NVIDIA Runtime Consistency + Read-Only Mutation Safety Fix`
+- rerun full daily-use rehearsal
 - browser smoke warning investigation
 - stop and preserve clean state
