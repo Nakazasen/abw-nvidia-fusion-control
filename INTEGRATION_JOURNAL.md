@@ -2,6 +2,86 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-16 - Bounded daily-use rehearsal rerun passed on synthetic read-only path
+
+- Control head before update:
+  - `9776b425fed74a9ec3e5fe63c026e4fcff43ff9d`
+- NVIDIA previous head:
+  - `3d32881a567ed15791dc44d499bf6f2d6c581e09`
+- NVIDIA latest head:
+  - `385f7af85350d6865095021b3ec03c5f5c34b90c`
+- ABW head during update:
+  - `de1d8560d3a26000fb113e0acbfe947bd785f721`
+- verdict:
+  - `DAILY_REHEARSAL_RERUN_PASS_COMMITTED_AND_PUSHED`
+- NVIDIA commit:
+  - `385f7af85350d6865095021b3ec03c5f5c34b90c`
+  - `docs: record bounded daily-use rehearsal proof`
+- evidence doc:
+  - `docs/daily-use-rehearsal-abw-read-only.md`
+- exact scope:
+  - synthetic/non-sensitive AGV docs only
+  - read-only ABW bridge path only
+  - temporary workspace only:
+    - `D:\Sandbox\_daily_use_rehearsal\rerun_home_abwcheck_20260516_063859`
+  - no real private/work docs
+- ingest evidence:
+  - ingested `2`
+  - skipped `2`
+  - unsupported `raw/unsupported.xyz`
+  - parse error `raw/broken.docx` invalid zip container
+  - generated drafts:
+    - `drafts/agv-manual_draft.md`
+    - `drafts/maintenance-note_draft.md`
+  - `review_required=true`
+  - `promotion_performed=false`
+  - warnings preserved:
+    - `1 unsupported file(s) skipped.`
+    - `1 parse error file(s) skipped.`
+    - `Drafts were created and still require review before any trusted wiki use.`
+- direct ABW JSON evidence:
+  - protocol query: `success`, `fuzzy_match`, trust `72`, `E2_wiki`, source `wiki\agv.md`, `runtime_write_suppressed=true`, `.brain mutation=no`
+  - shift check query: `success`, `fuzzy_match`, trust `72`, `E2_wiki`, source `wiki\agv.md`, `.brain mutation=no`
+  - supplier contract query: `no_match`, trust `0`, `E0_unknown`, no sources, `gap_log_suppressed=true`, `would_log_gap=true`, `runtime_write_suppressed=true`, `.brain mutation=no`
+  - Vietnamese query: `success`, `fuzzy_match`, trust `70`, `E2_wiki`, source `wiki\agv.md`, `.brain mutation=no`
+- NVIDIA bridge/UI evidence:
+  - runtime metadata `runtimeSource=repo`
+  - runtime metadata `abwRepoPath=D:\Sandbox\skill-Anti-brain-wiki_note`
+  - protocol query: `ABW_CLI_OK`, displayed MQTT answer, trust `72`, `E2_wiki`, source `wiki\agv.md`
+  - shift check query: `ABW_CLI_OK`, displayed battery voltage answer, trust `72`, `E2_wiki`, source `wiki\agv.md`
+  - supplier contract query: `ABW_CLI_NO_MATCH`, displayed `Không tìm thấy thông tin đáng tin cậy.`, trust `0`, `E0_unknown`, no sources, `gapLogSuppressed=true`, `wouldLogGap=true`
+  - Vietnamese query: `ABW_CLI_OK`, displayed MQTT answer, trust `70`, `E2_wiki`, source `wiki\agv.md`
+  - `/abw-ask` verified for known and no-match cases
+- mutation safety:
+  - Control clean `yes`
+  - NVIDIA clean `yes`
+  - ABW clean `yes`
+  - pending edits `no`
+  - Apply `no`
+  - sync/write-back `no`
+  - query-time runtime writes `no`
+- regression evidence:
+  - NVIDIA `npm test` `PASS`
+  - ABW targeted tests `PASS 177`
+- non-claims preserved:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not write-back bridge
+  - not sync
+  - not validated on real private/work docs
+- residual limits:
+  - synthetic rehearsal only
+  - parser coverage remains bounded
+  - browser smoke inline edit warning remains unresolved
+  - real user pilot checklist pending
+- remaining estimate:
+  - `3-10` large prompts remain
+- next recommended options:
+  - real user pilot checklist
+  - browser smoke warning investigation
+  - stop and preserve clean state
+
 ## 2026-05-15 - ABW query honesty fix completed
 
 - Control head before update:

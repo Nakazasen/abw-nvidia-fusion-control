@@ -3984,3 +3984,53 @@ Non-goals:
 - Does not claim production-ready.
 - Does not claim full bridge ready.
 - Does not claim full daily-use rehearsal pass.
+
+## 2026-05-16: Record Bounded Daily-Use Rehearsal Rerun Pass (Synthetic, Read-Only)
+
+Decision:
+
+- Record `DAILY_REHEARSAL_RERUN_PASS_COMMITTED_AND_PUSHED` as accepted bounded rehearsal evidence.
+- Accept NVIDIA `385f7af85350d6865095021b3ec03c5f5c34b90c` as the latest NVIDIA implementation head for this update.
+- Keep readiness boundaries unchanged and set the countdown to `3-10` large prompts remaining.
+
+Context:
+
+- Prior runtime consistency and mutation-safety blockers were already closed at code/test level.
+- A bounded rerun was required to confirm behavior on the deterministic read-only path.
+
+Accepted scope:
+
+- synthetic/non-sensitive AGV documents only
+- read-only ABW bridge path only
+- temporary rehearsal workspace only
+- no real private/work document validation
+
+Accepted evidence:
+
+- evidence doc: `docs/daily-use-rehearsal-abw-read-only.md`
+- ingest reporting preserved unsupported/parse-error honesty and draft/review boundaries
+- direct ABW JSON queries returned expected machine-readable results
+- NVIDIA bridge/UI displayed known-query, no-match, and Vietnamese baseline outcomes correctly
+- no-match honesty remained explicit
+- query-time runtime writes remained suppressed
+- no `.brain` mutation from query flow
+- no pending edits
+- no Apply
+- no sync/write-back
+- NVIDIA `npm test` `PASS`
+- ABW targeted tests `177 PASS`
+
+Consequences:
+
+- The bounded rehearsal rerun pass is accepted for the tested synthetic read-only path.
+- This closes the prior "rerun pending" state for that bounded path only.
+- Readiness remains bounded; no promotion to daily-use or production interpretation is accepted.
+
+Non-goals:
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge ready.
+- Does not claim write-back bridge readiness.
+- Does not claim sync readiness.
+- Does not claim real private/work document validation.

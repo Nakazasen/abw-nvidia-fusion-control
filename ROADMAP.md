@@ -15,7 +15,7 @@
 - Sprint 12 Task Timeline + Recovery / Resume is complete.
 - Sprint 13 Git / SCM Panel tot hon is complete.
 - Current readiness verdict: HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY.
-- Latest NVIDIA completion recorded in control truth: `3d32881a567ed15791dc44d499bf6f2d6c581e09`.
+- Latest NVIDIA completion recorded in control truth: `385f7af85350d6865095021b3ec03c5f5c34b90c`.
 - Sprint 16.5 cleanup is completed and pushed after Phase 1 Gate Review verdict B.
 - NVIDIA Phase 1 ABW CLI reader is implemented as a bounded read-only bridge milestone.
 - ABW runtime isolation for read-only bridge queries is implemented at `528742c18b4aac5a019dbc3c9877327f5393f882`.
@@ -47,7 +47,7 @@
   - `review_required` surfaced explicitly
   - `promotion_performed` remains false unless a real promotion occurred
   - ingest does not claim trusted wiki readiness by itself
-- Latest runtime-fix milestone is `RUNTIME_FIX_COMMITTED_AND_SMOKE_PASSED`.
+- Latest bounded daily-use rehearsal milestone is `DAILY_REHEARSAL_RERUN_PASS_COMMITTED_AND_PUSHED`.
 - Closed blockers now include:
   - runtime divergence between repo-source ABW and packaged/ambient ABW
   - supplier-contract missing-source overmatch
@@ -66,7 +66,8 @@
   - bridge metadata shows `runtimeSource=repo`
   - bridge honors `ABW_REPO_PATH`
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
-- Full daily-use rehearsal still must be rerun and is not yet proven as a pass.
+- A bounded daily-use rehearsal rerun passed on synthetic/non-sensitive AGV documents using a read-only ABW bridge path.
+- Real private/work documents are still not validated.
 - Browser smoke baseline now exists and passed in real-browser mode.
 - Browser smoke is not full E2E coverage.
 - Provider/settings layer now exists.
@@ -2221,3 +2222,48 @@ Each audit must check:
   - `4-11` large prompts remain
 - Next recommended action:
   - rerun full daily-use rehearsal
+
+## 2026-05-16 Update - Bounded Daily-Use Rehearsal Rerun Passed (Synthetic, Read-Only)
+
+- Latest result:
+  - `DAILY_REHEARSAL_RERUN_PASS_COMMITTED_AND_PUSHED`
+- Latest NVIDIA remote main:
+  - `385f7af85350d6865095021b3ec03c5f5c34b90c`
+- Milestone:
+  - bounded daily-use rehearsal rerun passed
+- Exact scope:
+  - synthetic/non-sensitive AGV docs only
+  - read-only ABW bridge path only
+  - temporary workspace only
+  - no real private/work documents
+- Evidence doc:
+  - `docs/daily-use-rehearsal-abw-read-only.md`
+- What passed:
+  - ingest reporting
+  - direct ABW JSON responses
+  - NVIDIA bridge/UI display path
+  - explicit no-match honesty
+  - Vietnamese query baseline
+  - mutation safety
+  - no pending edits
+  - no Apply
+  - no sync/write-back
+  - NVIDIA `npm test` `PASS`
+  - ABW targeted tests `177 PASS`
+- Residual limits preserved:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not write-back bridge
+  - not sync
+  - not validated on real private/work documents
+  - parser coverage remains bounded
+  - browser smoke warning remains non-blocking:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - real user pilot checklist remains pending
+- Updated remaining estimate:
+  - `3-10` large prompts remain
+- Next recommended options:
+  - real user pilot checklist
+  - browser smoke warning investigation
+  - stop and preserve clean state

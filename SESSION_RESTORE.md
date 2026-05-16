@@ -16,31 +16,35 @@
 
 ## Latest Accepted Mirror State
 
-- Control `3f5d4abf5755645033fb377e67dec05129a44fae` clean
-- NVIDIA `3d32881a567ed15791dc44d499bf6f2d6c581e09` clean
+- Control `9776b425fed74a9ec3e5fe63c026e4fcff43ff9d` clean
+- NVIDIA `385f7af85350d6865095021b3ec03c5f5c34b90c` clean
 - ABW `de1d8560d3a26000fb113e0acbfe947bd785f721` clean
 - Current readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Internal scoped label: `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
-- Latest result: `ABW_QUERY_HONESTY_COMMITTED_AND_PUSHED`
-- Closed blocker:
-  - supplier-contract missing-source query no longer succeeds from draft boilerplate
+- Latest result: `DAILY_REHEARSAL_RERUN_PASS_COMMITTED_AND_PUSHED`
 - Accepted evidence:
-  - ABW targeted tests `127/0`
-  - ABW full pytest `730/0`
-  - ABW wheel build `PASS`
-  - mini rehearsal supplier-contract query `no_match` / `E0_unknown` / no source
+  - evidence doc `docs/daily-use-rehearsal-abw-read-only.md`
+  - bounded rehearsal scope: synthetic/non-sensitive AGV docs only, read-only ABW bridge path, temporary workspace only
+  - direct ABW JSON known/no-match/Vietnamese baseline verified
+  - NVIDIA bridge/UI known/no-match/Vietnamese baseline verified
+  - NVIDIA `npm test` `PASS`
+  - ABW targeted tests `177 PASS`
   - query-time `.brain` mutation `no`
 - Residual limits:
   - not `DAILY_USE_READY`
   - not production-ready
   - not full bridge ready
-  - full daily-use rehearsal rerun remains pending
+  - not write-back bridge
+  - not sync
+  - not real private/work docs validated
+  - synthetic rehearsal scope only
   - parser coverage remains bounded
+  - real user pilot checklist remains pending
   - broader Vietnamese robustness still needs more tests
   - browser smoke warning remains non-blocking:
     - `Inline edit widget opens from selection: widget not observable in current smoke state`
 - Remaining estimate:
-  - `4-11` large prompts remain
+  - `3-10` large prompts remain
 
 ## Still Not Proven
 
@@ -57,6 +61,6 @@
 
 ## Resume From
 
-- rerun full daily-use rehearsal
+- real user pilot checklist
 - browser smoke warning investigation
 - stop and preserve clean state

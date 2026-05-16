@@ -2396,3 +2396,28 @@ Mitigation:
   - rerun the full daily-use rehearsal before considering any stronger claim
   - keep `DAILY_USE_READY` and production-ready claims forbidden
   - keep residual parser and multilingual robustness limits visible in governance
+
+## 2026-05-16 Update - Post Bounded Daily-Use Rehearsal Rerun Pass Residual Risks
+
+- Closed for bounded synthetic read-only path:
+  - bounded daily-use rehearsal rerun is now recorded as `DAILY_REHEARSAL_RERUN_PASS_COMMITTED_AND_PUSHED`
+  - NVIDIA head for this result is `385f7af85350d6865095021b3ec03c5f5c34b90c`
+  - synthetic ingest reporting, direct ABW JSON, and NVIDIA bridge/UI display path were all revalidated
+  - no-match honesty and Vietnamese query baseline were revalidated
+  - mutation safety remained intact: no pending, no Apply, no sync/write-back, no query-time runtime writes
+  - NVIDIA `npm test` and ABW targeted `177` passed
+- Residual risks remain:
+  - rehearsal scope is synthetic/non-sensitive only
+  - parser coverage remains bounded
+  - browser smoke warning remains unresolved:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - real user pilot checklist is still pending
+  - this is still not `DAILY_USE_READY`
+  - this is still not production-ready
+  - this is still not full bridge ready
+  - write-back bridge and sync remain unproven
+  - real private/work documents remain unvalidated
+- Mitigation:
+  - preserve strict non-claims for daily-use/production/full-bridge/write-back/sync
+  - investigate and classify browser smoke inline edit widget warning
+  - execute a real user pilot checklist before any broader readiness interpretation

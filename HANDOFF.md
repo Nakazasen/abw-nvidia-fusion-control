@@ -1,10 +1,10 @@
 # Handoff
 
-## 2026-05-15 Session Close Snapshot
+## 2026-05-16 Session Close Snapshot
 
-- Control HEAD: `3f5d4abf5755645033fb377e67dec05129a44fae`
+- Control HEAD: `9776b425fed74a9ec3e5fe63c026e4fcff43ff9d`
 - Control status: clean
-- NVIDIA HEAD: `3d32881a567ed15791dc44d499bf6f2d6c581e09`
+- NVIDIA HEAD: `385f7af85350d6865095021b3ec03c5f5c34b90c`
 - NVIDIA status: clean
 - ABW HEAD: `de1d8560d3a26000fb113e0acbfe947bd785f721`
 - ABW status: clean
@@ -51,20 +51,17 @@
   - parse failures remain honest, are not counted as ingested, and surfaced in `parse_errors`
   - unchanged repeat ingest now reports `duplicate_count` from `skipped_unchanged_count`
   - `review_required` is explicit, `promotion_performed` remains false unless real promotion occurred, and ingest does not claim trusted wiki readiness by itself
-- Latest runtime-fix result:
-  - `RUNTIME_FIX_COMMITTED_AND_SMOKE_PASSED`
-  - previous bounded synthetic rehearsal verdict remains recorded as `DAILY_REHEARSAL_FAIL_MUTATION_SAFETY`
-  - full daily-use rehearsal rerun is still pending
-  - runtime divergence between repo-source ABW and packaged/ambient ABW is closed for the configured bridge path
-  - supplier-contract overmatch is closed for the covered synthetic AGV workspace path
-  - browser smoke fixed-port startup failure is closed
-  - current repo-source ABW did not reproduce query-time `.brain` mutation under `ABW_READ_ONLY_QUERY=1`
-- Latest ABW query-honesty result:
-  - `ABW_QUERY_HONESTY_COMMITTED_AND_PUSHED`
-  - supplier-contract missing-source query no longer succeeds from draft boilerplate
-  - root cause: ingest-generated draft boilerplate in `## Trust Notice` included `approved`, and draft scoring treated that token as evidence overlap for a fact-specific supplier-contract question
-  - fix: non-knowledge boilerplate sections are excluded from `draft_metadata` scoring while substantive draft content scoring remains enabled
-  - valid technical raw/draft fallback remains allowed when real distinctive overlap exists
+- Latest result:
+  - `DAILY_REHEARSAL_RERUN_PASS_COMMITTED_AND_PUSHED`
+- Milestone:
+  - bounded daily-use rehearsal rerun passed for the synthetic read-only path
+- Exact scope:
+  - synthetic/non-sensitive AGV docs only
+  - read-only ABW bridge path only
+  - temporary workspace only
+  - no real private/work documents
+- Evidence doc:
+  - `docs/daily-use-rehearsal-abw-read-only.md`
 - ABW CLI JSON covered commands:
   - `ask`
   - `doctor`
@@ -94,6 +91,14 @@
   - `npm run agent:audit`
   - `npm run browser:smoke`
 - Evidence:
+  - bounded rehearsal rerun ingest result:
+    - ingested `2`
+    - skipped `2`
+    - unsupported `raw/unsupported.xyz`
+    - parse error `raw/broken.docx` invalid zip container
+    - generated drafts `drafts/agv-manual_draft.md`, `drafts/maintenance-note_draft.md`
+    - `review_required=true`
+    - `promotion_performed=false`
   - `node tests/abw-cli-reader-bridge.test.mjs` PASS `53/0`
   - `npm test` PASS
   - proof doc exists at `docs/bridge-phase-1-abw-cli-reader.md`
@@ -135,6 +140,16 @@
   - agent audit `25/25`
   - browser smoke PASS with known warning: `Inline edit widget opens from selection: widget not observable in current smoke state`
   - `proof/provider-tool-calling-rate-guard-fix.md` preserved
+  - bounded rehearsal rerun behavior:
+    - direct ABW protocol query `success` / `fuzzy_match` / trust `72` / `E2_wiki` / source `wiki\agv.md`
+    - direct ABW shift-check query `success` / `fuzzy_match` / trust `72` / `E2_wiki` / source `wiki\agv.md`
+    - direct ABW supplier-contract query `no_match` / trust `0` / `E0_unknown` / no sources / `gap_log_suppressed=true` / `would_log_gap=true`
+    - direct ABW Vietnamese query `success` / `fuzzy_match` / trust `70` / `E2_wiki` / source `wiki\agv.md`
+    - NVIDIA bridge known queries `ABW_CLI_OK` with displayed grounded answers and trust/source details
+    - NVIDIA bridge supplier-contract query `ABW_CLI_NO_MATCH` with displayed `Không tìm thấy thông tin đáng tin cậy.`
+    - `/abw-ask` command verified for known and no-match cases
+    - query-time `.brain` mutation `no`
+    - no pending edits, no Apply, no sync/write-back
 - Bridge limitations remain explicit:
   - this is not a full bridge
   - not write-back
@@ -146,7 +161,7 @@
   - ingest quality still depends on parser coverage
   - review/promotion remains separate from ingest
   - broad real-provider matrix remains unproven
-  - full daily-use rehearsal rerun is still pending
+  - this bounded pass is not real private/work-document validation
   - real private/work docs were not tested
   - browser smoke inline edit warning remains non-blocking
 - Still not proven:
@@ -160,9 +175,9 @@
   - Cursor parity
   - broader real-provider matrix
 - Remaining estimate:
-  - `4-11` large prompts remain
+  - `3-10` large prompts remain
 - Next governance actions:
-  - rerun full daily-use rehearsal
+  - real user pilot checklist
   - browser smoke warning investigation
   - stop and preserve clean state
 
