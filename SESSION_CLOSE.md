@@ -164,3 +164,34 @@
   - not broad real-work-doc validation
 - Remaining estimate:
   - `0-7` large prompts remain
+
+## 2026-05-16 Snapshot (Post NVIDIA Minimal Ingest UI)
+
+- Control HEAD before governance record: `b6e9ffd0533d2aeba108b2614abeece4b11b619b`
+- NVIDIA HEAD: `13b5de8`
+- ABW HEAD context: `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- Latest result: `NVIDIA_ABW_MINIMAL_INGEST_UI_PASS_COMMITTED_AND_PUSHED`
+- NVIDIA commit:
+  - `13b5de8`
+  - `feat: add minimal ABW ingest UI`
+- Push evidence:
+  - `origin/main` succeeded (`74e1021 -> 13b5de8`)
+- Scope recorded:
+  - minimal ABW ingest UI and backend endpoint path
+  - no Control/ABW source mutation in this implementation milestone
+- Evidence recorded:
+  - `node tools/browser-smoke.mjs` PASS; required Changed Files guide check PASS
+  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `78/78`
+  - `npm test` PASS
+  - known non-blocking warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- Boundaries preserved:
+  - no auto-promote
+  - no fake success
+  - no Apply/sync/write-back/execute_command bridge expansion
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not broad real-work-doc validation
+- Remaining estimate:
+  - `5` large prompts remain in `0-7`

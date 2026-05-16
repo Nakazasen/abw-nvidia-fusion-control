@@ -2168,3 +2168,55 @@ Constraints for the next builder:
   - not Cognitive OS complete
 - Remaining estimate:
   - `0-7` large prompts remain
+## 2026-05-16 NVIDIA Minimal ABW Ingest UI Snapshot
+
+- Control HEAD before record:
+  - `b6e9ffd0533d2aeba108b2614abeece4b11b619b`
+- NVIDIA HEAD recorded:
+  - `13b5de8`
+- ABW HEAD context:
+  - `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- Latest result:
+  - `NVIDIA_ABW_MINIMAL_INGEST_UI_PASS_COMMITTED_AND_PUSHED`
+- NVIDIA commit:
+  - `13b5de8`
+  - `feat: add minimal ABW ingest UI`
+- Push evidence:
+  - `origin/main` succeeded (`74e1021 -> 13b5de8`)
+- Files changed in NVIDIA:
+  - `nvidia_playground.html`
+  - `tools/abw-cli-reader.mjs`
+  - `tools/nvidia-server.mjs`
+  - `tests/fixtures/mock-abw-cli.mjs`
+  - `tests/abw-cli-reader-bridge.test.mjs`
+- UX behavior recorded:
+  - added minimal `ABW Ingest / N?p tai li?u ABW` panel
+  - shows active workspace and raw folder hint
+  - provides refresh status and `Ingest raw` actions
+  - shows running state, summary, generated drafts, unsupported files, parse errors, warnings
+  - shows `review_required` and `promotion_performed` badges
+  - includes `H?i trong ABW Chat` path
+  - copy states ingest creates drafts and requires review before trusted wiki use
+  - no auto-promote
+  - no fake success
+  - no Apply/sync/write-back/execute_command expansion
+- Backend behavior recorded:
+  - `POST /proxy/abw/ingest` added
+  - uses active trusted workspace
+  - uses repo-source ABW via `ABW_REPO_PATH`
+  - parses ABW JSON envelope and returns machine-readable ingest fields
+  - workspace/trust mismatches are surfaced honestly
+- Test evidence:
+  - `node tools/browser-smoke.mjs` PASS; required checks pass including Changed Files guide
+  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `78/78`
+  - `npm test` PASS
+  - known non-blocking warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- Readiness boundary remains:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not broad real-work-doc validation
+  - not Cognitive OS complete
+- Remaining estimate:
+  - `5` large prompts remain in `0-7`

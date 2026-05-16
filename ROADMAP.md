@@ -2373,3 +2373,26 @@ Each audit must check:
   - not enterprise-grade security
   - not packaging-ready
   - not broad real-work-doc validation
+
+## 2026-05-16 Update - NVIDIA Minimal ABW Ingest UI Recorded
+
+- Latest NVIDIA UX milestone:
+  - `NVIDIA_ABW_MINIMAL_INGEST_UI_PASS_COMMITTED_AND_PUSHED`
+- Latest NVIDIA commit recorded:
+  - `13b5de8`
+  - `feat: add minimal ABW ingest UI`
+- Bounded scope recorded:
+  - minimal ABW ingest panel in NVIDIA UI
+  - backend ingest endpoint for repo-source ABW via `ABW_REPO_PATH`
+  - honest ingest summary/warning/error rendering in UI
+  - no auto-promote and no write/sync bridge expansion
+- Validation evidence recorded:
+  - `node tools/browser-smoke.mjs` PASS (Changed Files guide check passes)
+  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `78/78`
+  - `npm test` PASS
+- Residual limit preserved:
+  - this is not a readiness promotion
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not broad real-work-doc validation

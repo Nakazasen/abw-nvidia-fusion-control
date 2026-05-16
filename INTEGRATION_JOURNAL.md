@@ -5792,3 +5792,55 @@ Warning:
   - not enterprise-grade security
   - not packaging-ready
   - not broad real-work-doc validation
+## 2026-05-16 - NVIDIA minimal ABW ingest UI milestone recorded
+
+- control head before update:
+  - `b6e9ffd0533d2aeba108b2614abeece4b11b619b`
+- NVIDIA head recorded:
+  - `13b5de8`
+- ABW head context:
+  - `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- verdict:
+  - `NVIDIA_ABW_MINIMAL_INGEST_UI_PASS_COMMITTED_AND_PUSHED`
+- NVIDIA commit:
+  - `13b5de8`
+  - `feat: add minimal ABW ingest UI`
+- push:
+  - `origin/main` succeeded (`74e1021 -> 13b5de8`)
+- changed files in NVIDIA:
+  - `nvidia_playground.html`
+  - `tools/abw-cli-reader.mjs`
+  - `tools/nvidia-server.mjs`
+  - `tests/fixtures/mock-abw-cli.mjs`
+  - `tests/abw-cli-reader-bridge.test.mjs`
+- recorded bounded capabilities:
+  - minimal `ABW Ingest / N?p tai li?u ABW` panel near ABW chat
+  - active workspace and raw folder hint visibility
+  - refresh + ingest raw controls
+  - ingest running state and machine-readable summary fields in UI
+  - generated drafts, unsupported files, parse errors, warnings rendered
+  - `review_required` and `promotion_performed` badges rendered
+  - `H?i trong ABW Chat` follow-up path retained
+  - explicit copy: ingest creates drafts and requires review before trusted wiki use
+  - no auto-promote, no fake success, no apply/sync/write-back/execute_command expansion
+- recorded backend behavior:
+  - `POST /proxy/abw/ingest` uses active trusted workspace
+  - uses repo-source ABW with `ABW_REPO_PATH`
+  - parses ABW JSON envelope, returns machine-readable ingest fields
+  - trust/workspace mismatch surfaced honestly
+- validation evidence:
+  - `node tools/browser-smoke.mjs` PASS and includes required Changed Files guide check
+  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `78/78`
+  - `npm test` PASS
+  - known warning remains non-blocking:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- interpretation:
+  - bounded ingest-usability milestone only, not readiness promotion
+- non-claims preserved:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not Cognitive OS achieved
+  - not enterprise-grade security
+  - not packaging-ready
+  - not broad real-work-doc validation

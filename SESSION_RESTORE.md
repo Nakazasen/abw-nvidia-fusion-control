@@ -143,3 +143,38 @@
   - not broad real-work-doc validation
 - Remaining estimate:
   - `0-7` large prompts remain
+
+## Latest Accepted Mirror State (2026-05-16 NVIDIA minimal ingest UI)
+
+- Control `b6e9ffd0533d2aeba108b2614abeece4b11b619b` clean before governance update
+- NVIDIA `13b5de8` pushed
+- ABW `39a23a288b3df695f618d72d964bb6fdb66e1714` clean context
+- Latest result: `NVIDIA_ABW_MINIMAL_INGEST_UI_PASS_COMMITTED_AND_PUSHED`
+- NVIDIA commit:
+  - `13b5de8`
+  - `feat: add minimal ABW ingest UI`
+- Push evidence:
+  - `origin/main` succeeded (`74e1021 -> 13b5de8`)
+- Bounded capability evidence:
+  - minimal `ABW Ingest / N?p tai li?u ABW` panel exists
+  - workspace/raw hint visibility exists
+  - refresh + ingest controls exist
+  - result rendering includes summary/drafts/unsupported/parse-errors/warnings/badges
+  - copy keeps review-required and non-auto-promote boundaries explicit
+  - backend endpoint `POST /proxy/abw/ingest` uses trusted workspace + `ABW_REPO_PATH` + JSON envelope parsing
+- Test evidence:
+  - browser smoke PASS, required Changed Files guide check PASS
+  - bridge tests PASS `78/78`
+  - `npm test` PASS
+  - known warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- Residual limits:
+  - minimal ingest UI only
+  - broad real-work-doc validation not proven
+  - no readiness upgrade
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not Cognitive OS achieved
+- Remaining estimate:
+  - `5` large prompts remain in `0-7`

@@ -2544,3 +2544,22 @@ Mitigation:
 - Mitigation:
   - keep bounded non-claims explicit in governance updates
   - run additional bounded UX + query-quality validation before broader readiness interpretation
+
+## 2026-05-16 Update - Post NVIDIA Minimal ABW Ingest UI Residual Risks
+
+- Closed in bounded scope:
+  - NVIDIA now has a minimal ingest panel and ingest endpoint path to reduce CLI-only friction
+  - ingest result transparency is improved for summary, drafts, unsupported files, parse errors, warnings, review_required, and promotion_performed
+- Residual risks remain:
+  - minimal ingest UI only; full review/promote workflow UI is still incomplete
+  - broad real-work-doc validation is still not proven
+  - browser smoke inline edit warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - ingest can create drafts/.brain by design; ask path must remain read-only and non-mutating
+  - this still does not prove `DAILY_USE_READY`
+  - this still does not prove production-ready
+  - this still does not prove full bridge readiness
+- Mitigation:
+  - keep no auto-promote and review-required messaging explicit in UI and governance
+  - keep parse errors/unsupported files/warnings surfaced without suppression
+  - preserve bounded non-claims until broader validation evidence exists
