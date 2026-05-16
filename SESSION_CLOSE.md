@@ -92,3 +92,41 @@
 - run sanitized small real-work pilot only after explicit approval
 - browser smoke warning investigation
 - stop and preserve clean state
+
+## 2026-05-16 Snapshot (Post Small Sanitized Rerun)
+
+- Control HEAD: `785492560e88f8bd7682dbdca673b851f071fa68`
+- NVIDIA HEAD: `f8606f05e42d6a7e2cbcbdda11e444755324d14c`
+- ABW HEAD: `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- Latest result: `SMALL_SANITIZED_REAL_WORK_DOC_PILOT_RERUN_PASS_BOUNDED`
+- Historical continuity:
+  - previous fail preserved: `SMALL_SANITIZED_REAL_WORK_DOC_PILOT_FAIL_MUTATION_SAFETY`
+  - ABW fix validated: `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- New artifact:
+  - `SMALL_SANITIZED_REAL_WORK_DOC_PILOT_RERUN_REPORT.md`
+- Scope:
+  - 3 approved/sanitized MP2027 files only
+  - local-only approved manifest
+  - no raw pilot data committed
+- Key evidence:
+  - ingest `ingested=3`, `generated_drafts=3`, `review_required=true`
+  - missing-source `no_match` / `E0_unknown` / trust `0` / `sources=[]`
+  - read-only `.brain` unchanged `11 -> 11`
+  - no new `acceptance_requests`, `runner_artifacts`, `negative_memory.jsonl`, `used_nonces.json`
+  - bridge workspace precondition satisfied, no `ABW_CLI_WRONG_WORKSPACE`
+  - known asks `HTTP 200`/`ABW_CLI_OK`; missing-source `HTTP 200`/`ABW_CLI_NO_MATCH`; ambiguous classifiable `HTTP 200`
+  - ABW targeted tests `180 passed, 7 warnings`
+  - NVIDIA bridge tests `59 passed, 0 failed`
+  - NVIDIA `npm test` `PASS`
+- Residual limits:
+  - bounded scope only (3 sanitized files)
+  - weak prompt may overmatch short/general wiki
+  - browser smoke inline-edit warning remains non-blocking
+  - not broad real-work-doc validation
+- Non-claims preserved:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not Cognitive OS achieved
+- Remaining estimate:
+  - `0-7` large prompts remain

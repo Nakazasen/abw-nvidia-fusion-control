@@ -84,3 +84,29 @@
 - run sanitized small real-work pilot only after explicit approval
 - browser smoke warning investigation
 - stop and preserve clean state
+
+## Latest Accepted Mirror State (2026-05-16 small sanitized rerun)
+
+- Control `785492560e88f8bd7682dbdca673b851f071fa68` clean
+- NVIDIA `f8606f05e42d6a7e2cbcbdda11e444755324d14c` clean
+- ABW `39a23a288b3df695f618d72d964bb6fdb66e1714` clean
+- Latest result: `SMALL_SANITIZED_REAL_WORK_DOC_PILOT_RERUN_PASS_BOUNDED`
+- Historical fail preserved: `SMALL_SANITIZED_REAL_WORK_DOC_PILOT_FAIL_MUTATION_SAFETY`
+- New governance artifact:
+  - `SMALL_SANITIZED_REAL_WORK_DOC_PILOT_RERUN_REPORT.md`
+- Evidence summary:
+  - ingest `ingested=3`, `generated_drafts=3`, `review_required=true`, `promotion_performed=false`
+  - read-only direct query `.brain` unchanged `11 -> 11`
+  - no new `acceptance_requests`, `runner_artifacts`, `negative_memory.jsonl`, `used_nonces.json`
+  - bridge precondition satisfied (active workspace switched), no `ABW_CLI_WRONG_WORKSPACE`
+  - known asks `HTTP 200`/`ABW_CLI_OK`, missing-source `HTTP 200`/`ABW_CLI_NO_MATCH`, ambiguous/weak classifiable `HTTP 200` no opaque `502`
+  - ABW targeted tests `180 passed, 7 warnings`
+  - NVIDIA bridge tests `59 passed, 0 failed`
+  - NVIDIA `npm test` `PASS`
+- Residual limits:
+  - bounded scope only (3 sanitized MP2027 files)
+  - weak prompt may still overmatch short/general wiki
+  - browser smoke inline-edit warning remains non-blocking
+  - not broad real-work-doc validation
+- Remaining estimate:
+  - `0-7` large prompts remain

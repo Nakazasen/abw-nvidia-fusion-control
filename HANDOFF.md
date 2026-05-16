@@ -2079,3 +2079,51 @@ Constraints for the next builder:
   - sync
   - auto-promote
   - ABW mutation
+
+## 2026-05-16 Small sanitized real-work pilot rerun pass snapshot
+
+- Control HEAD before record:
+  - `785492560e88f8bd7682dbdca673b851f071fa68`
+- Control status: clean
+- NVIDIA HEAD context:
+  - `f8606f05e42d6a7e2cbcbdda11e444755324d14c`
+- ABW HEAD context:
+  - `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- Latest result:
+  - `SMALL_SANITIZED_REAL_WORK_DOC_PILOT_RERUN_PASS_BOUNDED`
+- Historical fail preserved:
+  - `SMALL_SANITIZED_REAL_WORK_DOC_PILOT_FAIL_MUTATION_SAFETY`
+- ABW fix validated:
+  - `39a23a288b3df695f618d72d964bb6fdb66e1714`
+  - `fix: block read-only query runtime artifact writes end-to-end`
+- Scope:
+  - 3 approved/sanitized MP2027 files only
+  - local-only approved manifest
+  - no raw pilot data committed
+- Evidence artifact:
+  - `SMALL_SANITIZED_REAL_WORK_DOC_PILOT_RERUN_REPORT.md`
+- Key evidence:
+  - ingest `ingested=3`, `generated_drafts=3`, `review_required=true`, `promotion_performed=false`
+  - missing-source remained `no_match` / `E0_unknown` / trust `0` / `sources=[]`
+  - direct read-only query `.brain` unchanged `11 -> 11`
+  - no new `acceptance_requests`, `runner_artifacts`, `negative_memory.jsonl`, or `used_nonces.json`
+  - bridge active workspace precondition satisfied, no `ABW_CLI_WRONG_WORKSPACE`
+  - bridge known asks `HTTP 200`/`ABW_CLI_OK`; missing-source `HTTP 200`/`ABW_CLI_NO_MATCH`
+  - classifiable ambiguous/weak remained `HTTP 200`, no opaque `502`
+  - ABW targeted tests `180 passed, 7 warnings`
+  - NVIDIA bridge tests `59 passed, 0 failed`
+  - NVIDIA `npm test` `PASS`
+- Residual limits preserved:
+  - bounded scope only (3 sanitized MP2027 files)
+  - weak prompt can still match short/general wiki content
+  - browser smoke inline-edit warning remains
+  - not broad real-work-doc validation
+- Readiness boundary remains:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not Cognitive OS complete
+- Remaining estimate:
+  - `0-7` large prompts remain
+- Next governance action:
+  - review whether to insert anti-overmatch hardening sprint before broader real-work scope

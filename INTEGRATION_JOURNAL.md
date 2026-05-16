@@ -5700,3 +5700,56 @@ Warning:
 - next governance action:
   - record `MANUAL_PATH_REVALIDATION_V3_PASS` and close the previous manual/path blocker
   - run governance review / Codex-style audit before any readiness promotion
+
+## 2026-05-16 - Small sanitized real-work pilot rerun passed (bounded)
+
+- Control head before update:
+  - `785492560e88f8bd7682dbdca673b851f071fa68`
+- NVIDIA head during rerun:
+  - `f8606f05e42d6a7e2cbcbdda11e444755324d14c`
+- ABW head during rerun:
+  - `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- verdict:
+  - `SMALL_SANITIZED_REAL_WORK_DOC_PILOT_RERUN_PASS_BOUNDED`
+- historical continuity:
+  - previous fail preserved: `SMALL_SANITIZED_REAL_WORK_DOC_PILOT_FAIL_MUTATION_SAFETY`
+- artifact:
+  - `SMALL_SANITIZED_REAL_WORK_DOC_PILOT_RERUN_REPORT.md`
+- scope:
+  - 3 approved/sanitized MP2027 files only
+  - local-only manifest in pilot workspace (not committed)
+  - no raw data committed
+- ingest:
+  - `ingested=3`, `skipped=0`, `generated_drafts=3`, `review_required=true`, `promotion_performed=false`, `unsupported_files=[]`, `parse_errors=[]`, `duplicate_count=0`
+- direct ABW read-only:
+  - known factual/procedure/troubleshooting/Vietnamese: `success`, `fuzzy_match`, `E2_wiki`, source `wiki/pilot-reviewed.md`, trust `63-72`
+  - missing-source: `no_match`, `E0_unknown`, trust `0`, `sources=[]`
+  - ambiguous/gap-style: safe `no_match/E0`
+  - visibility flags preserved: `gap_log_suppressed`, `would_log_gap`, `runtime_write_suppressed`
+- mutation safety:
+  - `.brain` unchanged `11 -> 11`
+  - no new `acceptance_requests`, `runner_artifacts`, `negative_memory.jsonl`, `used_nonces.json`
+  - pending edits `0`, no Apply, no sync/write-back, no execute_command through bridge path
+- bridge:
+  - active workspace switched correctly before asks
+  - no `ABW_CLI_WRONG_WORKSPACE`
+  - `/proxy/abw/version` `ABW_CLI_OK`, `runtimeSource=repo`, ABW commit payload `39a23a2`
+  - `/proxy/abw/doctor` `ABW_CLI_OK` with warnings surfaced
+  - known asks `HTTP 200` / `ABW_CLI_OK`
+  - missing-source `HTTP 200` / `ABW_CLI_NO_MATCH` / trust `0` / `E0` / `sources=[]`
+  - ambiguous/weak classifiable `HTTP 200`, no opaque `502`
+- regressions:
+  - ABW targeted tests `180 passed, 7 warnings`
+  - NVIDIA bridge tests `59 passed, 0 failed`
+  - NVIDIA `npm test` `PASS`
+  - browser smoke warning remains non-blocking: `Inline edit widget opens from selection: widget not observable in current smoke state`
+- interpretation:
+  - bounded rerun pass recorded; not a readiness upgrade
+- non-claims preserved:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not Cognitive OS achieved
+  - not broad real-work-doc validation
+- remaining estimate:
+  - `0-7` large prompts remain

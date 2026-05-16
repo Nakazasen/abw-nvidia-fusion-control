@@ -2306,3 +2306,40 @@ Each audit must check:
   - run bounded real user pilot
   - browser smoke warning investigation
   - stop and preserve clean state
+
+## 2026-05-16 Update - Small Sanitized Real-Work Pilot Rerun Pass (Bounded)
+
+- Latest result:
+  - `SMALL_SANITIZED_REAL_WORK_DOC_PILOT_RERUN_PASS_BOUNDED`
+- Historical fail remains preserved:
+  - `SMALL_SANITIZED_REAL_WORK_DOC_PILOT_FAIL_MUTATION_SAFETY`
+- ABW fix under validation:
+  - `39a23a288b3df695f618d72d964bb6fdb66e1714`
+  - `fix: block read-only query runtime artifact writes end-to-end`
+- Scope:
+  - 3 approved/sanitized MP2027 files only
+  - local-only approved manifest
+  - no raw pilot data committed
+- Bounded pass evidence:
+  - ingest succeeded with `ingested=3`, `generated_drafts=3`, `review_required=true`
+  - missing-source remained `no_match`/`E0_unknown`/trust `0`/`sources=[]`
+  - direct read-only query `.brain` unchanged `11 -> 11`
+  - no new `acceptance_requests`, `runner_artifacts`, `negative_memory.jsonl`, `used_nonces.json`
+  - bridge workspace precondition satisfied; no `ABW_CLI_WRONG_WORKSPACE`
+  - bridge known asks `HTTP 200`/`ABW_CLI_OK`, missing-source `HTTP 200`/`ABW_CLI_NO_MATCH`, classifiable ambiguous/weak `HTTP 200` no opaque `502`
+  - ABW targeted tests `180 passed, 7 warnings`
+  - NVIDIA bridge tests `59 passed, 0 failed`
+  - NVIDIA `npm test` `PASS`
+- Current stage interpretation:
+  - bounded sanitized real-work-doc pilot rerun now passes in read-only bridge path
+  - still not a readiness promotion
+- Residual limits:
+  - bounded scope only (3 sanitized files)
+  - weak prompt can still match short/general wiki content
+  - browser smoke inline-edit warning remains
+  - not broad real-work-doc validation
+- Non-claims remain:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not Cognitive OS achieved

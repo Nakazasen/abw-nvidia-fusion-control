@@ -2505,3 +2505,22 @@ Mitigation:
   - enforce stop-immediately rules for forbidden data or unexpected mutation
   - require sanitized-only evidence recording into Control
   - keep non-claims explicit in every pilot report
+
+## 2026-05-16 Update - Post Small Sanitized Real-Work Pilot Rerun Pass Residual Risks
+
+- Closed in bounded scope:
+  - rerun verdict `SMALL_SANITIZED_REAL_WORK_DOC_PILOT_RERUN_PASS_BOUNDED` is recorded
+  - read-only mutation regression from previous small pilot fail is closed for the covered path after ABW fix `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- Residual risks remain:
+  - bounded scope only (3 approved/sanitized MP2027 files)
+  - not broad real-work-doc validation
+  - weak prompts can still match short/general wiki content (possible overmatch drift)
+  - browser smoke warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - this still does not prove `DAILY_USE_READY`
+  - this still does not prove production-ready
+  - this still does not prove full bridge readiness
+- Mitigation:
+  - keep bounded non-claims explicit
+  - consider a dedicated anti-overmatch hardening sprint before broader real-work scope
+  - keep inline-edit smoke warning visible until explicitly closed
