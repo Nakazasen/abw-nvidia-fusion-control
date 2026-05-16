@@ -2418,3 +2418,45 @@ Each audit must check:
   - not production-ready
   - not full bridge ready
   - not broad real-work-doc validation
+
+## 2026-05-16 Snapshot (Post NVIDIA Non-Tech Wizard)
+
+- Control HEAD before governance record: `6153aa8c047dabdc13d07fe1a0a4779c76f527cd`
+- NVIDIA HEAD: `74d8b75`
+- ABW HEAD context: `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- Latest result: `NVIDIA_ABW_NON_TECH_WIZARD_COMMITTED_AND_PUSHED`
+- NVIDIA commit:
+  - `74d8b75`
+  - `feat: add non-tech ABW document chat wizard`
+- Push evidence:
+  - `fd06b6c..74d8b75 main -> main`
+- Files changed in NVIDIA:
+  - `nvidia_playground.html`
+  - `tools/browser-smoke.mjs`
+  - `docs/abw-non-tech-ui-quickstart.md`
+- Bounded capability evidence:
+  - Added non-tech `Tro ly tai lieu` layer.
+  - Flow 1-2-3 is visible: choose folder -> ingest documents -> review plus ask chatbot.
+  - Copy is easier for non-tech users, including understandable no_match wording.
+  - Review/promote limitation remains visible.
+  - Existing ingest/review/chat flow remains intact.
+  - No auto sync/write-back and no fake promote success.
+- Test evidence:
+  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `95/95`
+  - `node tools/browser-smoke.mjs` PASS `122/0`
+  - `npm test` PASS
+  - known non-blocking warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- Residual limits:
+  - Non-tech wizard is a minimal UX layer, not a full UI refactor.
+  - Review/promote remains limited or fail-closed/manual in some cases.
+  - Browser smoke inline-edit warning remains.
+  - Broad real-work-doc validation is not proven.
+- Non-claims preserved:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not Cognitive OS achieved
+  - not enterprise-grade security
+  - not packaging-ready
+  - not broad real-work-doc validation

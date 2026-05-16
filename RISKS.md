@@ -2580,3 +2580,22 @@ Mitigation:
   - keep fail-closed promote behavior explicit and visible in UI/governance
   - keep manual-review requirement explicit and avoid fake success
   - preserve bounded non-claims until broader validation evidence exists
+
+## 2026-05-16 Update - Post NVIDIA Non-Tech Wizard Residual Risks
+
+- Closed in bounded scope:
+  - non-tech `Tro ly tai lieu` layer now exists with a visible 1-2-3 flow
+  - easier copy and clearer no-match messaging are now present in NVIDIA UI
+- Residual risks remain:
+  - this is a minimal UX layer, not a full non-tech product flow
+  - review/promote still includes limited or fail-closed/manual paths
+  - browser smoke warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - broad real-work-doc validation is still not proven
+  - this still does not prove `DAILY_USE_READY`
+  - this still does not prove production-ready
+  - this still does not prove full bridge readiness
+- Mitigation:
+  - keep review/promote limitation explicit in UI and governance
+  - preserve no fake promote success behavior
+  - preserve bounded non-claims until broader validation evidence exists
