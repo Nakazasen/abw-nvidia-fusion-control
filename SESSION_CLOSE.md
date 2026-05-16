@@ -13,6 +13,7 @@
 - Internal scoped label: `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
 - Latest result: `DAILY_REHEARSAL_RERUN_PASS_COMMITTED_AND_PUSHED`
 - Milestone: `bounded daily-use rehearsal rerun pass` recorded
+- Governance artifact added: `PILOT_CHECKLIST.md` (bounded real user pilot checklist)
 - Evidence:
   - evidence doc: `docs/daily-use-rehearsal-abw-read-only.md`
   - bounded scope: synthetic/non-sensitive AGV docs only, read-only ABW bridge path, temporary workspace only
@@ -32,12 +33,12 @@
   - not real private/work docs validated
   - synthetic rehearsal scope only
   - parser coverage remains bounded
-  - real user pilot checklist pending
+  - bounded real user pilot execution pending
   - broader Vietnamese robustness still needs more tests
   - browser smoke warning remains non-blocking:
     - `Inline edit widget opens from selection: widget not observable in current smoke state`
 - Remaining estimate:
-  - `3-10` large prompts remain
+  - `2-9` large prompts remain
 
 ## Not Proven
 
@@ -54,6 +55,6 @@
 
 ## Next Actions
 
-- real user pilot checklist
+- run bounded real user pilot
 - browser smoke warning investigation
 - stop and preserve clean state

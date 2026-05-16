@@ -2421,3 +2421,22 @@ Mitigation:
   - preserve strict non-claims for daily-use/production/full-bridge/write-back/sync
   - investigate and classify browser smoke inline edit widget warning
   - execute a real user pilot checklist before any broader readiness interpretation
+
+## 2026-05-16 Update - Post Pilot Checklist Artifact Addition Residual Risks
+
+- Closed:
+  - bounded pilot procedure now exists in control governance as `PILOT_CHECKLIST.md`
+  - checklist now constrains data class, read-only boundaries, and pass/fail evidence expectations
+- Residual risks remain:
+  - checklist exists but pilot execution is still pending
+  - real private/work documents remain unvalidated
+  - operator deviation from allowed-data policy remains possible
+  - browser smoke inline edit warning remains unresolved
+  - this is still not `DAILY_USE_READY`
+  - this is still not production-ready
+  - this is still not full bridge ready
+- Mitigation:
+  - run pilot strictly with non-sensitive/sanitized documents only
+  - enforce no write-back/sync/auto-apply during pilot
+  - record full evidence with the checklist template
+  - keep non-claims explicit after pilot regardless of pass/fail

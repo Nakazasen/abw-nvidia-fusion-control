@@ -4034,3 +4034,29 @@ Non-goals:
 - Does not claim write-back bridge readiness.
 - Does not claim sync readiness.
 - Does not claim real private/work document validation.
+
+## 2026-05-16: Add Bounded Real User Pilot Checklist Governance Artifact
+
+Decision:
+
+- Add `PILOT_CHECKLIST.md` as the bounded real user pilot procedure for daily technical/work Q&A validation.
+- Keep this update governance-only (documentation artifact), with no NVIDIA or ABW code mutation.
+- Keep readiness boundaries unchanged and update countdown to `2-9` large prompts remaining.
+
+Context:
+
+- Synthetic bounded rehearsal pass is already recorded.
+- Real private/work-document validation is still unproven and requires a controlled human pilot.
+
+Consequences:
+
+- Pilot execution is now guided by explicit allowed/forbidden data, setup constraints, pass/fail criteria, and evidence template.
+- The next action is to run a bounded pilot with non-sensitive/sanitized documents only.
+
+Non-goals:
+
+- Does not claim `DAILY_USE_READY`.
+- Does not claim production-ready.
+- Does not claim full bridge ready.
+- Does not claim write-back or sync readiness.
+- Does not claim real private/work document validation is completed.

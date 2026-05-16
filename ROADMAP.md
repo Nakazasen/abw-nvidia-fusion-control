@@ -2267,3 +2267,30 @@ Each audit must check:
   - real user pilot checklist
   - browser smoke warning investigation
   - stop and preserve clean state
+
+## 2026-05-16 Update - Bounded Real User Pilot Checklist Added
+
+- Governance artifact added:
+  - `PILOT_CHECKLIST.md`
+- Scope:
+  - checklist/planning only
+  - no NVIDIA code mutation
+  - no ABW code mutation
+  - no real private/work document execution in this update
+- Preserved boundaries:
+  - read-only ABW bridge only
+  - no write-back
+  - no sync
+  - no auto-apply
+  - no trust-boundary bypass
+- Non-claims preserved:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not real private/work docs validated
+- Updated remaining estimate:
+  - `2-9` large prompts remain
+- Next recommended options:
+  - run bounded real user pilot
+  - browser smoke warning investigation
+  - stop and preserve clean state

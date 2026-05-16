@@ -2,6 +2,44 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-16 - Bounded real user pilot checklist added
+
+- Control head before update:
+  - `8debc95268acf9bc90fbf78265230acaeeccb387`
+- NVIDIA head during update:
+  - `385f7af85350d6865095021b3ec03c5f5c34b90c`
+- ABW head during update:
+  - `de1d8560d3a26000fb113e0acbfe947bd785f721`
+- verdict:
+  - `PILOT_CHECKLIST_COMMITTED_AND_PUSHED`
+- artifact:
+  - `PILOT_CHECKLIST.md`
+- scope:
+  - governance/planning artifact only
+  - no NVIDIA mutation
+  - no ABW mutation
+  - no real private/work-document pilot execution in this update
+- checklist coverage includes:
+  - pilot purpose and strict non-claims
+  - allowed/forbidden data policy
+  - setup constraints with clean-state and read-only boundaries
+  - safe document-set guidance
+  - bounded question categories
+  - pass/fail criteria
+  - evidence logging requirements
+  - copyable verdict template
+- boundaries reaffirmed:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not real private/work docs validated
+- remaining estimate:
+  - `2-9` large prompts remain
+- next recommended options:
+  - run bounded real user pilot
+  - browser smoke warning investigation
+  - stop and preserve clean state
+
 ## 2026-05-16 - Bounded daily-use rehearsal rerun passed on synthetic read-only path
 
 - Control head before update:

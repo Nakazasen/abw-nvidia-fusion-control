@@ -2,7 +2,7 @@
 
 ## 2026-05-16 Session Close Snapshot
 
-- Control HEAD: `9776b425fed74a9ec3e5fe63c026e4fcff43ff9d`
+- Control HEAD: `8debc95268acf9bc90fbf78265230acaeeccb387`
 - Control status: clean
 - NVIDIA HEAD: `385f7af85350d6865095021b3ec03c5f5c34b90c`
 - NVIDIA status: clean
@@ -62,6 +62,8 @@
   - no real private/work documents
 - Evidence doc:
   - `docs/daily-use-rehearsal-abw-read-only.md`
+- Pilot checklist artifact:
+  - `PILOT_CHECKLIST.md` added (governance/planning only)
 - ABW CLI JSON covered commands:
   - `ask`
   - `doctor`
@@ -175,9 +177,9 @@
   - Cursor parity
   - broader real-provider matrix
 - Remaining estimate:
-  - `3-10` large prompts remain
+  - `2-9` large prompts remain
 - Next governance actions:
-  - real user pilot checklist
+  - run bounded real user pilot
   - browser smoke warning investigation
   - stop and preserve clean state
 
