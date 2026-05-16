@@ -246,6 +246,29 @@ Mitigation:
 
 - Add explicit milestone gates, non-claim language, and mandatory review checkpoints before any phase-end claim is accepted.
 
+## Bounded Pilot Scope Misread As Broad Validation
+
+Risk:
+
+- A bounded safe/synthetic rerun pass may be misread as broad real private/work-document validation.
+
+Mitigation:
+
+- Keep rerun language explicit: bounded pass only, safe/synthetic scope only, read-only bridge path only.
+- Preserve non-claims in handoff, roadmap, and pilot reports.
+- Require explicit separate evidence before any real-work-doc readiness claim.
+
+## Ingest Rerun Evidence Blind Spot
+
+Risk:
+
+- A rerun executed on an already-ingested workspace may not re-prove draft-generation/review-required ingest behavior.
+
+Mitigation:
+
+- Record this limitation explicitly in pilot rerun governance.
+- Re-run ingest behavior checks on a fresh workspace when ingest-specific trust behavior must be re-validated.
+
 ## System Bloat / Codebase Becoming Uncontrollable
 
 Risk:

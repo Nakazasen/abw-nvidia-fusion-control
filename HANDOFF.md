@@ -1,5 +1,49 @@
 # Handoff
 
+## 2026-05-16 Bounded Real User Pilot Rerun Snapshot
+
+- Control HEAD: `fa866d4b0cdea9339bdcb5fe38db430a9101d9e8`
+- Control status: clean
+- NVIDIA HEAD: `f8606f05e42d6a7e2cbcbdda11e444755324d14c`
+- NVIDIA status: clean
+- ABW HEAD: `f753881c11f51cbae6cdddffc40d4050d7603b83`
+- ABW status: clean
+- Latest result:
+  - `REAL_USER_PILOT_RERUN_PASS_BOUNDED`
+- Latest evidence artifact:
+  - `REAL_USER_PILOT_RERUN_REPORT.md`
+- Prior fail report preserved:
+  - `REAL_USER_PILOT_REPORT.md` (`REAL_USER_PILOT_FAIL_MUTATION_SAFETY`)
+- Validated fix commits:
+  - ABW `f753881c11f51cbae6cdddffc40d4050d7603b83`
+  - NVIDIA `f8606f05e42d6a7e2cbcbdda11e444755324d14c`
+- Rerun scope:
+  - synthetic/sanitized safe docs only
+  - bounded read-only ABW bridge path only
+  - temporary workspace `D:\Sandbox\_real_user_pilot\rerun_20260516_095848`
+  - no private/work docs
+- Rerun pass highlights:
+  - direct ABW read-only query-time `.brain` file count/list unchanged `16 -> 16`
+  - missing-source now returns `no_match`, trust `0`, `E0_unknown`, `sources=[]`
+  - bridge missing-source returns `ABW_CLI_NO_MATCH`
+  - classifiable ambiguous nonzero JSON maps to HTTP `200`, status `ABW_CLI_AMBIGUOUS` (no opaque `502`)
+  - no pending edits, no Apply, no sync/write-back, no execute_command path
+- Regression:
+  - ABW targeted tests `179 passed, 7 warnings`
+  - NVIDIA bridge tests `59 passed, 0 failed`
+  - NVIDIA `npm test` `PASS`
+- Current readiness boundary remains:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not broad real private/work-doc validation
+- Remaining estimate:
+  - `0-7` large prompts remain
+- Next governance options:
+  - decide next bounded pilot expansion criteria (still safe-doc only)
+  - investigate browser smoke inline edit warning
+  - preserve clean state
+
 ## 2026-05-16 Session Close Snapshot
 
 - Control HEAD: `8debc95268acf9bc90fbf78265230acaeeccb387`

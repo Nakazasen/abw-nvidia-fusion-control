@@ -2,6 +2,71 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-16 - Bounded real user pilot rerun passed on safe read-only scope
+
+- Control head before update:
+  - `fa866d4b0cdea9339bdcb5fe38db430a9101d9e8`
+- NVIDIA head during rerun:
+  - `f8606f05e42d6a7e2cbcbdda11e444755324d14c`
+- ABW head during rerun:
+  - `f753881c11f51cbae6cdddffc40d4050d7603b83`
+- verdict:
+  - `REAL_USER_PILOT_RERUN_PASS_BOUNDED`
+- artifacts:
+  - `REAL_USER_PILOT_RERUN_REPORT.md`
+  - prior fail preserved in `REAL_USER_PILOT_REPORT.md`
+- fix commits validated:
+  - ABW `f753881c11f51cbae6cdddffc40d4050d7603b83` (`fix: harden read-only query safety and source honesty`)
+  - NVIDIA `f8606f05e42d6a7e2cbcbdda11e444755324d14c` (`fix: classify bounded ABW bridge nonzero states safely`)
+- rerun scope:
+  - synthetic/sanitized safe docs only
+  - bounded read-only ABW bridge path
+  - no private/work docs
+  - no pending edits
+  - no Apply
+  - no sync/write-back
+  - no execute_command through bridge path
+- workspace:
+  - `D:\Sandbox\_real_user_pilot\rerun_20260516_095848`
+- direct ABW read-only evidence:
+  - `.brain` file count/list unchanged `16 -> 16`
+  - known/procedure/troubleshooting returned `success`/`grounded`, `E2_wiki`, source `wiki/pilot-reviewed.md`, `runtime_write_suppressed=true`
+  - missing-source returned `no_match`, trust `0`, `E0_unknown`, `sources=[]`, `gap_log_suppressed=true`, `would_log_gap=true`
+- NVIDIA bridge evidence:
+  - `/proxy/abw/version` `ABW_CLI_OK`
+  - `/proxy/abw/doctor` `ABW_CLI_OK` with warnings surfaced
+  - known/procedure/troubleshoot `ABW_CLI_OK` with trust/evidence/source
+  - missing-source `ABW_CLI_NO_MATCH` with trust `0`, `E0_unknown`, `sources=[]`
+  - classifiable ambiguous mock nonzero JSON now maps to HTTP `200`, status `ABW_CLI_AMBIGUOUS` (no opaque `502`)
+- mutation safety:
+  - pending edits `0`
+  - no Apply
+  - no sync/write-back
+  - no execute_command via bridge path
+  - Control/NVIDIA/ABW all clean
+- regression evidence:
+  - ABW targeted tests `179 passed, 7 warnings`
+  - NVIDIA bridge tests `59 passed, 0 failed`
+  - NVIDIA `npm test` `PASS`
+  - browser smoke still has non-blocking warning:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- residual limits:
+  - bounded safe/synthetic scope only
+  - not broad real private/work-doc validation
+  - ingest rerun reused already-ingested workspace; draft-generation/review-required behavior was not re-proven in this rerun
+  - Vietnamese bridge query returned safe no-match in this run; broader Vietnamese robustness still needs more data
+  - browser smoke inline edit warning remains
+- non-claims preserved:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not Cognitive OS achieved
+  - not enterprise-grade security
+  - not packaging-ready
+  - not broad real-work-doc validation
+- remaining estimate:
+  - `0-7` large prompts remain
+
 ## 2026-05-16 - Bounded real user pilot checklist added
 
 - Control head before update:

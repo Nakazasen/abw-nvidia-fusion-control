@@ -48,6 +48,7 @@
   - `promotion_performed` remains false unless a real promotion occurred
   - ingest does not claim trusted wiki readiness by itself
 - Latest bounded daily-use rehearsal milestone is `DAILY_REHEARSAL_RERUN_PASS_COMMITTED_AND_PUSHED`.
+- Latest bounded real-user pilot milestone is `REAL_USER_PILOT_RERUN_PASS_BOUNDED`.
 - Closed blockers now include:
   - runtime divergence between repo-source ABW and packaged/ambient ABW
   - supplier-contract missing-source overmatch
@@ -68,6 +69,10 @@
 - Current system is a strong NVIDIA Agent IDE prototype, not daily-use stable yet.
 - A bounded daily-use rehearsal rerun passed on synthetic/non-sensitive AGV documents using a read-only ABW bridge path.
 - Real private/work documents are still not validated.
+- Latest bounded real-user pilot rerun passed on safe synthetic/sanitized scope and read-only bridge path.
+- This rerun pass is not broad real private/work-document validation.
+- This rerun pass does not upgrade readiness to `DAILY_USE_READY`.
+- Rerun ingest evidence in this workspace is bounded by `skipped_unchanged`; fresh-workspace draft-generation/review-required behavior should be re-validated when ingest-specific confidence is required.
 - Browser smoke baseline now exists and passed in real-browser mode.
 - Browser smoke is not full E2E coverage.
 - Provider/settings layer now exists.
