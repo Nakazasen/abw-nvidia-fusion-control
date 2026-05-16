@@ -2,6 +2,52 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-16 - Small sanitized real-work pilot planning artifact recorded
+
+- Control head before update:
+  - `719b0d84cd8d5f835968b62fee135c9b160e7531`
+- NVIDIA head context:
+  - `f8606f05e42d6a7e2cbcbdda11e444755324d14c`
+- ABW head context:
+  - `f753881c11f51cbae6cdddffc40d4050d7603b83`
+- gate verdict:
+  - `A. PROCEED_TO_SMALL_SANITIZED_REAL_WORK_DOC_PILOT_PLANNING`
+- artifact:
+  - `SMALL_REAL_WORK_DOC_PILOT_PLAN.md`
+- scope:
+  - planning/governance only
+  - no real data ingest
+  - no real pilot run
+  - no NVIDIA source mutation
+  - no ABW source mutation
+- plan coverage includes:
+  - purpose and non-claim boundaries
+  - strict allowed/forbidden data policy
+  - sanitization checklist
+  - bounded pilot document set and question set
+  - safety boundaries and stop conditions
+  - pass/fail criteria
+  - evidence template
+  - rollback/cleanup policy
+  - allowed planning verdicts
+- interpretation:
+  - this is a planning gate close, not a readiness upgrade
+  - prior pass milestones remain preserved as historical truth:
+    - `REAL_USER_PILOT_RERUN_PASS_BOUNDED`
+    - `SPRINT_B_AUDIT_PASS`
+- non-claims preserved:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not Cognitive OS achieved
+  - not enterprise-grade security
+  - not packaging-ready
+  - not broad real-work-doc validation
+- remaining estimate:
+  - `0-7` large prompts remain
+- next action:
+  - review/approve the planning artifact before any sanitized real-work pilot execution
+
 ## 2026-05-16 - Sprint B Vietnamese ingest rerun audit pass recorded
 
 - Control head before update:

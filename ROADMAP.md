@@ -50,6 +50,7 @@
 - Latest bounded daily-use rehearsal milestone is `DAILY_REHEARSAL_RERUN_PASS_COMMITTED_AND_PUSHED`.
 - Latest bounded real-user pilot milestone is `REAL_USER_PILOT_RERUN_PASS_BOUNDED`.
 - Latest bounded strengthening evidence milestone is `SPRINT_B_AUDIT_PASS` for `INSERT_VIETNAMESE_ROBUSTNESS_AND_INGEST_RERUN_SPRINT`.
+- Latest gate decision is `A. PROCEED_TO_SMALL_SANITIZED_REAL_WORK_DOC_PILOT_PLANNING`.
 - Closed blockers now include:
   - runtime divergence between repo-source ABW and packaged/ambient ABW
   - supplier-contract missing-source overmatch
@@ -77,6 +78,8 @@
 - Sprint B fresh-workspace audit now re-proved ingest draft-generation/review-required behavior with `ingested=4`, `generated_drafts=4`, and `review_required=true` on a new workspace.
 - Sprint B audit also strengthened bounded Vietnamese/source-trust evidence while preserving missing-source honesty and read-only no-mutation behavior.
 - Sprint B evidence does not upgrade readiness and does not change the bounded scope.
+- Small sanitized real-work pilot planning artifact now exists at `SMALL_REAL_WORK_DOC_PILOT_PLAN.md` and must be reviewed/approved before any pilot execution.
+- No real data ingest or real pilot execution is included in this planning gate step.
 - Browser smoke baseline now exists and passed in real-browser mode.
 - Browser smoke is not full E2E coverage.
 - Provider/settings layer now exists.

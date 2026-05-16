@@ -3,7 +3,7 @@
 ## 2026-05-16 Snapshot
 
 - Control repo: `D:\Sandbox\ABW_NVIDIA_FUSION_CONTROL`
-- Control HEAD: `9d286c86a7b5e4ed99f0a54482cf2a3dbae703da`
+- Control HEAD: `719b0d84cd8d5f835968b62fee135c9b160e7531`
 - Control status: clean
 - NVIDIA HEAD: `f8606f05e42d6a7e2cbcbdda11e444755324d14c`
 - NVIDIA status: clean
@@ -13,11 +13,13 @@
 - Internal scoped label: `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
 - Latest result: `REAL_USER_PILOT_RERUN_PASS_BOUNDED`
 - Latest strengthening evidence: `SPRINT_B_AUDIT_PASS` for `INSERT_VIETNAMESE_ROBUSTNESS_AND_INGEST_RERUN_SPRINT`
+- Latest gate decision: `A. PROCEED_TO_SMALL_SANITIZED_REAL_WORK_DOC_PILOT_PLANNING`
 - Milestone: bounded real user pilot rerun pass recorded for safe/synthetic scope
 - Governance artifacts:
   - `PILOT_CHECKLIST.md`
   - `REAL_USER_PILOT_RERUN_REPORT.md`
   - `SPRINT_B_VIETNAMESE_INGEST_RERUN_REPORT.md`
+  - `SMALL_REAL_WORK_DOC_PILOT_PLAN.md`
 - Evidence:
   - rerun workspace: `D:\Sandbox\_real_user_pilot\rerun_20260516_095848`
   - safe/synthetic documents only, read-only bridge path only
@@ -47,6 +49,12 @@
     - `.brain` unchanged `10 -> 10`
     - file list changed `false`
     - no `acceptance_requests`, `runner_artifacts`, nonce logs, or negative-memory logs from read-only query
+  - Small sanitized real-work pilot planning gate:
+    - planning/governance only
+    - no real data ingest
+    - no real pilot execution
+    - no NVIDIA mutation
+    - no ABW mutation
 - Residual limits:
   - not `DAILY_USE_READY`
   - not production-ready
@@ -61,6 +69,7 @@
   - NVIDIA bridge tests were not rerun in Sprint B audit because NVIDIA was unchanged
   - browser smoke warning remains non-blocking:
     - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - sanitized real-work pilot has not been executed yet
 - Remaining estimate:
   - `0-7` large prompts remain
 
@@ -79,6 +88,7 @@
 
 ## Next Actions
 
-- decide whether to open small real-work-doc pilot planning or run additional robustness/smoke hardening
+- review/approve `SMALL_REAL_WORK_DOC_PILOT_PLAN.md`
+- run sanitized small real-work pilot only after explicit approval
 - browser smoke warning investigation
 - stop and preserve clean state

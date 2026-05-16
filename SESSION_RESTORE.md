@@ -16,17 +16,19 @@
 
 ## Latest Accepted Mirror State
 
-- Control `9d286c86a7b5e4ed99f0a54482cf2a3dbae703da` clean
+- Control `719b0d84cd8d5f835968b62fee135c9b160e7531` clean
 - NVIDIA `f8606f05e42d6a7e2cbcbdda11e444755324d14c` clean
 - ABW `f753881c11f51cbae6cdddffc40d4050d7603b83` clean
 - Current readiness: `BOUNDED_DAILY_USE_CANDIDATE_LOCAL_FILE_WORKFLOWS`
 - Internal scoped label: `LOCAL_FILE_WORKFLOW_VALIDATED_CANDIDATE`
 - Latest result: `REAL_USER_PILOT_RERUN_PASS_BOUNDED`
 - Latest strengthening evidence result: `SPRINT_B_AUDIT_PASS`
+- Latest gate decision: `A. PROCEED_TO_SMALL_SANITIZED_REAL_WORK_DOC_PILOT_PLANNING`
 - Governance artifacts:
   - `PILOT_CHECKLIST.md`
   - `REAL_USER_PILOT_RERUN_REPORT.md`
   - `SPRINT_B_VIETNAMESE_INGEST_RERUN_REPORT.md`
+  - `SMALL_REAL_WORK_DOC_PILOT_PLAN.md`
 - Accepted evidence:
   - rerun workspace `D:\Sandbox\_real_user_pilot\rerun_20260516_095848`
   - bounded safe/synthetic scope only, read-only ABW bridge path only
@@ -59,6 +61,7 @@
   - NVIDIA bridge tests were not rerun in Sprint B audit because NVIDIA was unchanged
   - browser smoke warning remains non-blocking:
     - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - small sanitized real-work pilot is still planning-only at this point (no run yet)
 - Remaining estimate:
   - `0-7` large prompts remain
 
@@ -77,6 +80,7 @@
 
 ## Resume From
 
-- decide whether to open small real-work-doc pilot planning or run additional robustness/smoke hardening
+- review/approve `SMALL_REAL_WORK_DOC_PILOT_PLAN.md`
+- run sanitized small real-work pilot only after explicit approval
 - browser smoke warning investigation
 - stop and preserve clean state

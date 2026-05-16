@@ -2486,3 +2486,22 @@ Mitigation:
   - keep sprint interpretation bounded as strengthening evidence, not readiness promotion
   - keep prior pilot fail/pass history visible together
   - choose next gate intentionally between safe real-work pilot planning and remaining smoke/robustness hardening
+
+## 2026-05-16 Update - Post Small Sanitized Real-Work Pilot Planning Gate
+
+- Closed in this planning-only step:
+  - data policy/sanitization/safety/pass-fail/stop-condition/rollback planning artifact is now explicit in `SMALL_REAL_WORK_DOC_PILOT_PLAN.md`
+  - governance now requires plan review/approval before any sanitized real-work pilot execution
+- Residual risks remain:
+  - no real pilot execution happened in this step, so no new runtime evidence was produced
+  - policy interpretation errors can still happen during future pilot execution if operator discipline is weak
+  - browser smoke inline edit warning remains unresolved and outside this planning step
+  - this still does not prove `DAILY_USE_READY`
+  - this still does not prove production-ready
+  - this still does not prove full bridge readiness
+  - this still does not prove broad real-work-doc validation
+- Mitigation:
+  - enforce explicit preflight policy review before run
+  - enforce stop-immediately rules for forbidden data or unexpected mutation
+  - require sanitized-only evidence recording into Control
+  - keep non-claims explicit in every pilot report
