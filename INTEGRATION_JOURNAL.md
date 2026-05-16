@@ -5753,3 +5753,42 @@ Warning:
   - not broad real-work-doc validation
 - remaining estimate:
   - `0-7` large prompts remain
+
+## 2026-05-16 - NVIDIA minimal ABW chatbot UI recorded
+
+- control head before update:
+  - `599677e3daf90ea438ae4fb1ef8cdff0747286f5`
+- NVIDIA head recorded:
+  - `74e10212731d6d484f57ab30eb89378d1ba895d9`
+- ABW head context:
+  - `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- verdict:
+  - `NVIDIA_ABW_MINIMAL_CHATBOT_COMMITTED_AND_PUSHED`
+- NVIDIA commit:
+  - `74e10212731d6d484f57ab30eb89378d1ba895d9`
+  - `feat: add minimal ABW chat panel`
+- file changed in NVIDIA:
+  - `nvidia_playground.html`
+- UX behaviors recorded:
+  - ABW chat panel is visible and labeled clearly
+  - workspace/runtime/repo/read-only/version/doctor status are visible
+  - workspace guidance is explicit and wrong-workspace messaging is understandable
+  - ask result shows trust/evidence/source/warnings and safe no-match behavior
+  - ingest/review limitation remains explicit (still via ABW CLI)
+  - no write-back/Apply/sync/execute_command bridge-path expansion
+- validation evidence:
+  - bridge tests PASS `59/59`
+  - `npm test` PASS
+  - browser smoke PASS `118/0`
+  - known non-blocking warning preserved:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- interpretation:
+  - this is a bounded UX usability step, not a readiness upgrade
+- non-claims preserved:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not Cognitive OS achieved
+  - not enterprise-grade security
+  - not packaging-ready
+  - not broad real-work-doc validation

@@ -2343,3 +2343,33 @@ Each audit must check:
   - not production-ready
   - not full bridge ready
   - not Cognitive OS achieved
+
+## 2026-05-16 Update - NVIDIA Minimal Daily Chatbot Sprint Recorded
+
+- Latest NVIDIA UX milestone recorded:
+  - `NVIDIA_ABW_MINIMAL_CHATBOT_COMMITTED_AND_PUSHED`
+- NVIDIA commit recorded:
+  - `74e10212731d6d484f57ab30eb89378d1ba895d9`
+  - `feat: add minimal ABW chat panel`
+- Scope interpretation:
+  - minimal ABW chatbot usability improvement in NVIDIA UI
+  - no readiness promotion
+- Recorded bounded capabilities:
+  - ABW chat panel with workspace/runtime/read-only/status visibility
+  - ask UX with trust/evidence/source/warning fields
+  - safer no-match display and clearer wrong-workspace guidance
+  - explicit ingest/review limitation (ABW CLI remains required)
+- Validation evidence recorded:
+  - bridge tests `59/59` PASS
+  - `npm test` PASS
+  - browser smoke `118/0` PASS
+  - known smoke warning still present:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- Boundaries preserved:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not Cognitive OS achieved
+  - not enterprise-grade security
+  - not packaging-ready
+  - not broad real-work-doc validation

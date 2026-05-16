@@ -2524,3 +2524,23 @@ Mitigation:
   - keep bounded non-claims explicit
   - consider a dedicated anti-overmatch hardening sprint before broader real-work scope
   - keep inline-edit smoke warning visible until explicitly closed
+
+## 2026-05-16 Update - Post NVIDIA Minimal ABW Chat Panel Residual Risks
+
+- Closed in this bounded sprint:
+  - minimal ABW chat panel usability is improved in NVIDIA UI
+  - status transparency improved for workspace/runtime/read-only/version/doctor
+  - no-match/warning/source/trust visibility remains explicit
+- Residual risks remain:
+  - minimal chatbot only, not full daily-use UX
+  - ingest/review is still not fully implemented in UI and remains CLI-bound
+  - weak prompt overmatch/no_match edge cases still need broader validation
+  - browser smoke warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - this still does not prove `DAILY_USE_READY`
+  - this still does not prove production-ready
+  - this still does not prove full bridge readiness
+  - this still does not prove broad real-work-doc validation
+- Mitigation:
+  - keep bounded non-claims explicit in governance updates
+  - run additional bounded UX + query-quality validation before broader readiness interpretation

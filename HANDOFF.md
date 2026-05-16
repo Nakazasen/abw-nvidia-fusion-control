@@ -2127,3 +2127,44 @@ Constraints for the next builder:
   - `0-7` large prompts remain
 - Next governance action:
   - review whether to insert anti-overmatch hardening sprint before broader real-work scope
+
+## 2026-05-16 NVIDIA Minimal ABW Chatbot Snapshot
+
+- Control HEAD before record:
+  - `599677e3daf90ea438ae4fb1ef8cdff0747286f5`
+- NVIDIA HEAD recorded:
+  - `74e10212731d6d484f57ab30eb89378d1ba895d9`
+- ABW HEAD context:
+  - `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- Latest result:
+  - `NVIDIA_ABW_MINIMAL_CHATBOT_COMMITTED_AND_PUSHED`
+- NVIDIA commit:
+  - `74e10212731d6d484f57ab30eb89378d1ba895d9`
+  - `feat: add minimal ABW chat panel`
+- Scope:
+  - NVIDIA-only UI update in `nvidia_playground.html`
+  - Control/ABW source code unchanged in this milestone
+- UX evidence recorded:
+  - Added `ABW Chat / H?i tai li?u ABW` panel
+  - Shows active workspace, runtime source, ABW repo path, read-only flag, version/doctor status
+  - Includes refresh status and switch workspace controls
+  - Includes question input + `H?i ABW` action
+  - Wrong-workspace error is human-readable
+  - Ask result card shows answer/retrieval/trust/evidence/sources/warnings
+  - no_match remains safe (not fake success)
+  - ingest/review limitation remains explicit (ABW CLI, drafts need review)
+  - no Apply/sync/write-back/execute_command added to bridge path
+- Test evidence:
+  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `59/59`
+  - `npm test` PASS
+  - `node tools/browser-smoke.mjs` PASS `118/0`
+  - known warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- Readiness boundary remains:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not broad real-work-doc validation
+  - not Cognitive OS complete
+- Remaining estimate:
+  - `0-7` large prompts remain

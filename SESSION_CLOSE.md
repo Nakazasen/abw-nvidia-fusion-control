@@ -130,3 +130,37 @@
   - not Cognitive OS achieved
 - Remaining estimate:
   - `0-7` large prompts remain
+
+## 2026-05-16 Snapshot (Post NVIDIA Minimal Chatbot)
+
+- Control HEAD: `599677e3daf90ea438ae4fb1ef8cdff0747286f5`
+- NVIDIA HEAD: `74e10212731d6d484f57ab30eb89378d1ba895d9`
+- ABW HEAD: `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- Latest result: `NVIDIA_ABW_MINIMAL_CHATBOT_COMMITTED_AND_PUSHED`
+- NVIDIA commit:
+  - `74e10212731d6d484f57ab30eb89378d1ba895d9`
+  - `feat: add minimal ABW chat panel`
+- Bounded UX evidence:
+  - ABW chat panel added with workspace/runtime/repo/read-only/version/doctor visibility
+  - refresh status + switch workspace controls are present
+  - ask UX includes answer/retrieval/trust/evidence/sources/warnings fields
+  - wrong-workspace message is understandable
+  - no-match remains safe (no fake success)
+  - ingest/review limitation remains explicit (ABW CLI, draft review needed)
+  - no Apply/sync/write-back/execute_command bridge-path expansion
+- Validation evidence:
+  - bridge tests `59/59` PASS
+  - `npm test` PASS
+  - browser smoke `118/0` PASS
+  - known warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- Residual limits:
+  - minimal chatbot only
+  - ingest/review UI not complete
+  - weak prompt overmatch/no_match edge cases remain
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not broad real-work-doc validation
+- Remaining estimate:
+  - `0-7` large prompts remain
