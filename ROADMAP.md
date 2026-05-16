@@ -49,6 +49,7 @@
   - ingest does not claim trusted wiki readiness by itself
 - Latest bounded daily-use rehearsal milestone is `DAILY_REHEARSAL_RERUN_PASS_COMMITTED_AND_PUSHED`.
 - Latest bounded real-user pilot milestone is `REAL_USER_PILOT_RERUN_PASS_BOUNDED`.
+- Latest bounded strengthening evidence milestone is `SPRINT_B_AUDIT_PASS` for `INSERT_VIETNAMESE_ROBUSTNESS_AND_INGEST_RERUN_SPRINT`.
 - Closed blockers now include:
   - runtime divergence between repo-source ABW and packaged/ambient ABW
   - supplier-contract missing-source overmatch
@@ -73,6 +74,9 @@
 - This rerun pass is not broad real private/work-document validation.
 - This rerun pass does not upgrade readiness to `DAILY_USE_READY`.
 - Rerun ingest evidence in this workspace is bounded by `skipped_unchanged`; fresh-workspace draft-generation/review-required behavior should be re-validated when ingest-specific confidence is required.
+- Sprint B fresh-workspace audit now re-proved ingest draft-generation/review-required behavior with `ingested=4`, `generated_drafts=4`, and `review_required=true` on a new workspace.
+- Sprint B audit also strengthened bounded Vietnamese/source-trust evidence while preserving missing-source honesty and read-only no-mutation behavior.
+- Sprint B evidence does not upgrade readiness and does not change the bounded scope.
 - Browser smoke baseline now exists and passed in real-browser mode.
 - Browser smoke is not full E2E coverage.
 - Provider/settings layer now exists.

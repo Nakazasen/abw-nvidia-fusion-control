@@ -2463,3 +2463,26 @@ Mitigation:
   - enforce no write-back/sync/auto-apply during pilot
   - record full evidence with the checklist template
   - keep non-claims explicit after pilot regardless of pass/fail
+
+## 2026-05-16 Update - Post Sprint B Vietnamese/Ingest Rerun Audit Pass Residual Risks
+
+- Closed in bounded audit scope:
+  - fresh-workspace ingest behavior is re-proved with draft generation and `review_required=true`
+  - known-safe Vietnamese query in read-only path returned sourced grounded state from reviewed wiki
+  - English and Vietnamese missing-source queries returned safe `no_match`/`E0_unknown`/trust `0`
+  - read-only query mutation safety remained intact with `.brain` unchanged `10 -> 10`
+  - ABW targeted regression still passed `179` with `7` warnings
+- Residual risks remain:
+  - bounded/safe/synthetic scope only
+  - not broad real private/work-document validation
+  - NVIDIA bridge tests were not rerun in Sprint B audit because NVIDIA was unchanged
+  - browser smoke inline edit warning remains outside this sprint:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - this still does not prove `DAILY_USE_READY`
+  - this still does not prove production-ready
+  - this still does not prove full bridge readiness
+  - this still does not prove Cognitive OS completeness
+- Mitigation:
+  - keep sprint interpretation bounded as strengthening evidence, not readiness promotion
+  - keep prior pilot fail/pass history visible together
+  - choose next gate intentionally between safe real-work pilot planning and remaining smoke/robustness hardening

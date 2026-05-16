@@ -2,6 +2,71 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-16 - Sprint B Vietnamese ingest rerun audit pass recorded
+
+- Control head before update:
+  - `9d286c86a7b5e4ed99f0a54482cf2a3dbae703da`
+- NVIDIA head during audit:
+  - `f8606f05e42d6a7e2cbcbdda11e444755324d14c`
+- ABW head during audit:
+  - `f753881c11f51cbae6cdddffc40d4050d7603b83`
+- sprint:
+  - `INSERT_VIETNAMESE_ROBUSTNESS_AND_INGEST_RERUN_SPRINT`
+- builder result:
+  - `SPRINT_B_NO_CODE_CHANGE_EVIDENCE_PASS`
+- auditor verdict:
+  - `SPRINT_B_AUDIT_PASS`
+- artifact:
+  - `SPRINT_B_VIETNAMESE_INGEST_RERUN_REPORT.md`
+- scope:
+  - fresh workspace audit evidence only
+  - safe synthetic/sanitized docs only
+  - bounded read-only ABW query path only
+  - no NVIDIA/ABW code mutation in this sprint close
+- fresh ingest evidence:
+  - workspace `D:\Sandbox\_real_user_pilot\fresh_ingest_vi_audit_20260516_124153`
+  - `ingested=4`
+  - `generated_drafts=4`
+  - `review_required=true`
+  - `unsupported_files` includes `raw/unsupported.xyz`
+  - `parse_errors` includes malformed `raw/broken.docx` invalid zip container
+  - `promotion_performed=false`
+  - `duplicate_count=0`
+  - warnings visible for unsupported, parse-error, and review-required states
+- Vietnamese/source-trust evidence:
+  - known-safe Vietnamese query returned `success`, `grounded`, `E2_wiki`, trust `72`, source `wiki/pilot-reviewed.md`
+  - English missing-source returned `no_match`, `no_match`, trust `0`, `E0_unknown`, `sources=[]`
+  - Vietnamese missing-source returned `no_match`, `no_match`, trust `0`, `E0_unknown`, `sources=[]`
+  - ambiguous/weak query stayed safe `no_match` and did not overclaim `E2`
+- read-only mutation safety evidence:
+  - `ABW_READ_ONLY_QUERY=1`
+  - `.brain` count/list unchanged during query batch `10 -> 10`
+  - no query-time `acceptance_requests`, `runner_artifacts`, nonce logs, or negative-memory logs
+- regression evidence:
+  - ABW targeted tests `179 passed, 7 warnings`
+- repo integrity:
+  - Control clean local=remote before update
+  - NVIDIA clean local=remote during audit
+  - ABW clean local=remote during audit
+- interpretation:
+  - this sprint strengthens bounded evidence for ingest freshness and Vietnamese/source-trust behavior
+  - this is not a readiness upgrade and does not replace prior major pilot milestone `REAL_USER_PILOT_RERUN_PASS_BOUNDED`
+- residual limits preserved:
+  - bounded safe/synthetic scope only
+  - not broad real private/work-doc validation
+  - NVIDIA bridge tests were not rerun in this sprint audit because NVIDIA was unchanged
+  - browser smoke inline edit warning remains outside this sprint
+- non-claims preserved:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not Cognitive OS achieved
+  - not enterprise-grade security
+  - not packaging-ready
+  - not broad real-work-doc validation
+- remaining estimate:
+  - `0-7` large prompts remain
+
 ## 2026-05-16 - Bounded real user pilot rerun passed on safe read-only scope
 
 - Control head before update:

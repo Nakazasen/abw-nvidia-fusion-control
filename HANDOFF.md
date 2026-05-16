@@ -1,5 +1,62 @@
 # Handoff
 
+## 2026-05-16 Sprint B Audit Pass Snapshot
+
+- Control HEAD before record:
+  - `9d286c86a7b5e4ed99f0a54482cf2a3dbae703da`
+- Control status: clean
+- NVIDIA HEAD during audit:
+  - `f8606f05e42d6a7e2cbcbdda11e444755324d14c`
+- NVIDIA status: clean
+- ABW HEAD during audit:
+  - `f753881c11f51cbae6cdddffc40d4050d7603b83`
+- ABW status: clean
+- Sprint:
+  - `INSERT_VIETNAMESE_ROBUSTNESS_AND_INGEST_RERUN_SPRINT`
+- Builder result:
+  - `SPRINT_B_NO_CODE_CHANGE_EVIDENCE_PASS`
+- Auditor result:
+  - `SPRINT_B_AUDIT_PASS`
+- Latest supporting artifact:
+  - `SPRINT_B_VIETNAMESE_INGEST_RERUN_REPORT.md`
+- Fresh ingest audit workspace:
+  - `D:\Sandbox\_real_user_pilot\fresh_ingest_vi_audit_20260516_124153`
+- Fresh ingest evidence:
+  - `ingested=4`
+  - `generated_drafts=4`
+  - `review_required=true`
+  - `unsupported_files` includes `raw/unsupported.xyz`
+  - `parse_errors` includes `raw/broken.docx` invalid zip container
+  - `promotion_performed=false`
+  - `duplicate_count=0`
+- Vietnamese/source-trust evidence:
+  - known-safe Vietnamese query returned `success`, `grounded`, `E2_wiki`, trust `72`, source `wiki/pilot-reviewed.md`
+  - English missing-source returned `no_match`, `E0_unknown`, trust `0`, `sources=[]`
+  - Vietnamese missing-source returned `no_match`, `E0_unknown`, trust `0`, `sources=[]`
+  - ambiguous/weak query remained safe `no_match` and did not overclaim `E2`
+- Read-only mutation safety evidence:
+  - `ABW_READ_ONLY_QUERY=1`
+  - `.brain` file count `10 -> 10`
+  - file list changed: `false`
+  - no `acceptance_requests`
+  - no `runner_artifacts`
+  - no nonce logs
+  - no negative-memory logs from read-only query
+- Regression:
+  - ABW targeted tests `179 passed, 7 warnings`
+- Readiness boundary remains:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not broad real private/work-doc validation
+  - not Cognitive OS complete
+- Remaining estimate:
+  - `0-7` large prompts remain
+- Next governance options:
+  - plan a small real-work-doc pilot with strict sanitize/data policy gates
+  - investigate browser smoke inline edit warning
+  - preserve clean state
+
 ## 2026-05-16 Bounded Real User Pilot Rerun Snapshot
 
 - Control HEAD: `fa866d4b0cdea9339bdcb5fe38db430a9101d9e8`
