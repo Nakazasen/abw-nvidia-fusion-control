@@ -2396,3 +2396,25 @@ Each audit must check:
   - not production-ready
   - not full bridge ready
   - not broad real-work-doc validation
+
+## 2026-05-16 Update - NVIDIA ABW E2E Document Chat UI Pass Recorded
+
+- Latest NVIDIA UX milestone:
+  - `NVIDIA_ABW_E2E_DOCUMENT_CHAT_UI_PASS`
+- Latest NVIDIA commit recorded:
+  - `fd06b6c3c85e6fbcfd28ca0226d13ff19c62ddec`
+  - `feat: complete minimal ABW document chat flow UI`
+- Bounded scope recorded:
+  - minimal end-to-end UI flow for status/ingest/review-drafts/promote-fail-closed/chat
+  - review endpoint implemented with ABW CLI JSON
+  - promote endpoint fail-closed with explicit manual-review requirement and no fake success
+- Validation evidence recorded:
+  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `95/95`
+  - `node tools/browser-smoke.mjs` PASS `118/0`
+  - `npm test` PASS
+- Residual limits preserved:
+  - this is not a readiness promotion
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not broad real-work-doc validation

@@ -5844,3 +5844,56 @@ Warning:
   - not enterprise-grade security
   - not packaging-ready
   - not broad real-work-doc validation
+## 2026-05-16 - NVIDIA ABW end-to-end document chat UI pass recorded
+
+- control head before update:
+  - `3e5a7386a8b60f36811a25d859432419754f1403`
+- NVIDIA head recorded:
+  - `fd06b6c3c85e6fbcfd28ca0226d13ff19c62ddec`
+- ABW head context:
+  - `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- verdict:
+  - `NVIDIA_ABW_E2E_DOCUMENT_CHAT_UI_PASS`
+- NVIDIA commit:
+  - `fd06b6c3c85e6fbcfd28ca0226d13ff19c62ddec`
+  - `feat: complete minimal ABW document chat flow UI`
+- push:
+  - `origin/main` success (`13b5de8..fd06b6c`)
+- changed files in NVIDIA:
+  - `nvidia_playground.html`
+  - `tools/abw-cli-reader.mjs`
+  - `tools/nvidia-server.mjs`
+  - `tests/fixtures/mock-abw-cli.mjs`
+  - `tests/abw-cli-reader-bridge.test.mjs`
+  - `docs/abw-ui-document-chat-test-guide.md`
+- recorded bounded capabilities:
+  - minimal end-to-end UI flow: workspace switch -> ingest -> review status -> promote fail-closed path -> ABW ask
+  - ABW Status shows workspace/trust/runtime/repo/read-only/version/doctor with refresh/switch controls
+  - ABW Ingest surfaces summary, drafts, unsupported files, parse errors, warnings, review_required, promotion_performed
+  - ABW Review / Drafts surfaces review status, actions/warnings, draft path input, review action, promote-selected action
+  - ABW Chat preserves answer/source/trust/warning/no_match transparency
+  - ask-again-after-review/promote path is visible
+  - copy keeps ingest as draft + review/promote requirement explicit
+  - no auto sync/write-back and no fake promote success
+- recorded backend behavior:
+  - `POST /proxy/abw/ingest` preserved
+  - `POST /proxy/abw/review` implemented with active trusted workspace and ABW CLI review JSON
+  - `POST /proxy/abw/promote` implemented fail-closed with trust/workspace checks and required draftPath
+  - promote response preserves `manualReviewRequired=true`, `promotionPerformed=false`, and no fake success
+  - ABW ask remains read-only
+- validation evidence:
+  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `95/95`
+  - `node tools/browser-smoke.mjs` PASS `118/0`
+  - `npm test` PASS
+  - known warning remains non-blocking:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- interpretation:
+  - bounded E2E document-chat usability pass only, not readiness promotion
+- non-claims preserved:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not Cognitive OS achieved
+  - not enterprise-grade security
+  - not packaging-ready
+  - not broad real-work-doc validation

@@ -195,3 +195,35 @@
   - not broad real-work-doc validation
 - Remaining estimate:
   - `5` large prompts remain in `0-7`
+
+## 2026-05-16 Snapshot (Post NVIDIA ABW E2E Document Chat UI)
+
+- Control HEAD before governance record: `3e5a7386a8b60f36811a25d859432419754f1403`
+- NVIDIA HEAD: `fd06b6c3c85e6fbcfd28ca0226d13ff19c62ddec`
+- ABW HEAD context: `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- Latest result: `NVIDIA_ABW_E2E_DOCUMENT_CHAT_UI_PASS`
+- NVIDIA commit:
+  - `fd06b6c3c85e6fbcfd28ca0226d13ff19c62ddec`
+  - `feat: complete minimal ABW document chat flow UI`
+- Push evidence:
+  - `origin/main` success (`13b5de8..fd06b6c`)
+- Scope recorded:
+  - minimal end-to-end UI flow for status/ingest/review/promote-fail-closed/chat
+  - no Control/ABW source mutation in this implementation milestone
+- Evidence recorded:
+  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `95/95`
+  - `node tools/browser-smoke.mjs` PASS `118/0`
+  - `npm test` PASS
+  - known non-blocking warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- Boundaries preserved:
+  - no auto sync/write-back
+  - no fake promote success
+  - promote path is fail-closed (`manualReviewRequired=true`, `promotionPerformed=false`)
+  - ABW ask remains read-only
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not broad real-work-doc validation
+- Remaining estimate:
+  - `4` large prompts remain in `0-7`

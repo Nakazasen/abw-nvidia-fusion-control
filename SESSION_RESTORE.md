@@ -178,3 +178,39 @@
   - not Cognitive OS achieved
 - Remaining estimate:
   - `5` large prompts remain in `0-7`
+
+## Latest Accepted Mirror State (2026-05-16 NVIDIA ABW E2E document chat UI)
+
+- Control `3e5a7386a8b60f36811a25d859432419754f1403` clean before governance update
+- NVIDIA `fd06b6c3c85e6fbcfd28ca0226d13ff19c62ddec` pushed
+- ABW `39a23a288b3df695f618d72d964bb6fdb66e1714` clean context
+- Latest result: `NVIDIA_ABW_E2E_DOCUMENT_CHAT_UI_PASS`
+- NVIDIA commit:
+  - `fd06b6c3c85e6fbcfd28ca0226d13ff19c62ddec`
+  - `feat: complete minimal ABW document chat flow UI`
+- Push evidence:
+  - `origin/main` success (`13b5de8..fd06b6c`)
+- Bounded capability evidence:
+  - ABW Status panel shows workspace/trust/repo/runtime/read-only/version/doctor
+  - ABW Ingest panel shows raw hint, loading, summary, drafts, unsupported files, parse errors, warnings, badges
+  - ABW Review / Drafts panel shows review status + actions/warnings + draftPath input + review/promote actions
+  - ABW Chat panel remains read-only ask with answer/source/trust/warning/no_match visibility
+  - ask-again-after-review/promote path is visible
+  - promote endpoint is fail-closed and does not fake success
+- Test evidence:
+  - bridge tests PASS `95/95`
+  - browser smoke PASS `118/0`
+  - `npm test` PASS
+  - known warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- Residual limits:
+  - promote is fail-closed, not full safe promote E2E
+  - minimal flow only, not full product workflow
+  - broad real-work-doc validation not proven
+  - no readiness upgrade
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not Cognitive OS achieved
+- Remaining estimate:
+  - `4` large prompts remain in `0-7`

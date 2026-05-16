@@ -2220,3 +2220,58 @@ Constraints for the next builder:
   - not Cognitive OS complete
 - Remaining estimate:
   - `5` large prompts remain in `0-7`
+## 2026-05-16 NVIDIA ABW E2E Document Chat UI Snapshot
+
+- Control HEAD before record:
+  - `3e5a7386a8b60f36811a25d859432419754f1403`
+- NVIDIA HEAD recorded:
+  - `fd06b6c3c85e6fbcfd28ca0226d13ff19c62ddec`
+- ABW HEAD context:
+  - `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- Latest result:
+  - `NVIDIA_ABW_E2E_DOCUMENT_CHAT_UI_PASS`
+- NVIDIA commit:
+  - `fd06b6c3c85e6fbcfd28ca0226d13ff19c62ddec`
+  - `feat: complete minimal ABW document chat flow UI`
+- Push evidence:
+  - `origin/main` succeeded (`13b5de8..fd06b6c`)
+- Files changed in NVIDIA:
+  - `nvidia_playground.html`
+  - `tools/abw-cli-reader.mjs`
+  - `tools/nvidia-server.mjs`
+  - `tests/fixtures/mock-abw-cli.mjs`
+  - `tests/abw-cli-reader-bridge.test.mjs`
+  - `docs/abw-ui-document-chat-test-guide.md`
+- UX behavior recorded:
+  - minimal end-to-end document chat UI flow is available
+  - ABW Status shows active workspace, trust, repo path, runtime source, read-only, version/doctor, refresh/switch
+  - ABW Ingest shows raw hint, ingest action, loading, summary, generated drafts, unsupported files, parse errors, warnings, review_required, promotion_performed
+  - ABW Review / Drafts shows review status, actions/warnings, draft path input, review action, promote selected draft action
+  - ABW Chat supports ask and shows answer/retrieval/trust/evidence/source/warning/no_match
+  - includes ask-again path after review/promote
+  - copy keeps ingest-as-draft and review/promote requirement explicit
+  - no auto sync/write-back and no fake promote success
+- Backend behavior recorded:
+  - `POST /proxy/abw/ingest` preserved
+  - `POST /proxy/abw/review` implemented with active trusted workspace and ABW CLI review JSON
+  - `POST /proxy/abw/promote` implemented fail-closed:
+    - checks workspace/trust/mismatch
+    - requires `draftPath`
+    - returns `manualReviewRequired=true`
+    - returns `promotionPerformed=false`
+    - does not fake success
+  - ABW ask remains read-only
+- Test evidence:
+  - `node tests/abw-cli-reader-bridge.test.mjs` PASS `95/95`
+  - `node tools/browser-smoke.mjs` PASS `118/0`
+  - `npm test` PASS
+  - known non-blocking warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- Readiness boundary remains:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not full bridge ready
+  - not broad real-work-doc validation
+  - not Cognitive OS complete
+- Remaining estimate:
+  - `4` large prompts remain in `0-7`

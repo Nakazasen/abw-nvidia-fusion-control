@@ -2563,3 +2563,20 @@ Mitigation:
   - keep no auto-promote and review-required messaging explicit in UI and governance
   - keep parse errors/unsupported files/warnings surfaced without suppression
   - preserve bounded non-claims until broader validation evidence exists
+
+## 2026-05-16 Update - Post NVIDIA ABW E2E Document Chat UI Pass Residual Risks
+
+- Closed in bounded scope:
+  - minimal UI flow now covers workspace/status/ingest/review-drafts/chat without requiring CLI for those read/review visibility steps
+  - ingest/review transparency improved and no-match/warnings remain visible
+- Residual risks remain:
+  - promote path is fail-closed and not full safe promote end-to-end in this sprint
+  - flow is minimal, not full review/promote product workflow
+  - browser smoke inline-edit warning remains:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - broad real-work-doc validation is still not proven
+  - no readiness upgrade is proven
+- Mitigation:
+  - keep fail-closed promote behavior explicit and visible in UI/governance
+  - keep manual-review requirement explicit and avoid fake success
+  - preserve bounded non-claims until broader validation evidence exists
