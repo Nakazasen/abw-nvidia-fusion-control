@@ -6273,3 +6273,59 @@ Warning:
   - this is backend contract evidence, not non-tech UX proof
 - next gate:
   - `IMPLEMENT_NVIDIA_APPROVE_BRIDGE_STAGE_2`
+
+## 2026-05-17 - NVIDIA approve bridge Stage 2 evidence recorded
+
+- Control head before update:
+  - a90892ddf0e0d9b515882982c9ee579b73f61fb1
+- NVIDIA head recorded:
+  - de7c907147de4a4938738e137e3264defe52426e
+- ABW head context:
+  - f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f
+- verdict:
+  - NVIDIA_APPROVE_BRIDGE_STAGE2_RECORDED
+- artifact:
+  - 06_VALIDATION/NVIDIA_APPROVE_BRIDGE_STAGE2_REPORT.md
+- scope:
+  - NVIDIA-only bounded bridge/server evidence
+  - no CONTROL edits during implementation
+  - no ABW edits during implementation
+  - no push
+  - no readiness promotion
+  - no final non-tech UI approve flow
+- recorded NVIDIA delta:
+  - bounded approve command support added in the reader
+  - explicit POST /proxy/abw/approve-draft
+  - dry-run preview mapping
+  - apply approved mapping
+  - blocked responses preserve approved=false and promotionPerformed=false
+  - trust and active-workspace guards
+  - batch/array reject
+  - wildcard reject
+  - missing confirmation reject
+  - invalid ABW JSON fail-closed
+  - ask/Q&A remains available without approve
+  - ask path does not trigger approve
+- preserved boundaries:
+  - /proxy/abw/promote remains fail-closed
+  - no final non-tech UI approve flow exists yet
+  - no bulk approval exists
+  - no corpus approval exists
+  - approval is not required before Q&A
+  - non-tech Review/Triage UX is still needed
+- validation evidence:
+  - git diff --check PASS with LF/CRLF warnings only
+  - node --check tools/abw-cli-reader.mjs PASS
+  - node --check tools/nvidia-server.mjs PASS
+  - node --check tests/abw-cli-reader-bridge.test.mjs PASS
+  - npm run abw:reader:test PASS 162/162
+  - npm run browser:smoke PASS 149/149
+  - warning preserved as warning-only:
+    - Inline edit widget opens from selection: widget not observable in current smoke state
+  - smoke verdict remains HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY
+- interpretation:
+  - Stage 2 bridge/server support is now recorded as bounded infrastructure evidence
+  - this closes the missing-bridge implementation gap
+  - this does not prove non-tech approval UX or daily-use readiness
+- next gate:
+  - DESIGN_NON_TECH_REVIEW_TRIAGE_FLOW

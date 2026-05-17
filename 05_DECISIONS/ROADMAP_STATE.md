@@ -19,8 +19,9 @@ Date: 2026-05-17
 
 ## 1. Where the Program Actually Is
 
-- Control governance is updating from local HEAD `93123c8ded8576d314c423de5b5bfa54f53cb1ac`.
+- Control governance is updating from local HEAD `a90892ddf0e0d9b515882982c9ee579b73f61fb1`.
 - NVIDIA bounded workflow hardening plus review-state UI clarity fix has been accepted locally at commit `a867f892be94c350b9cabcfa168d19f82dc64995`.
+- NVIDIA approve bridge Stage 2 is accepted locally at commit `de7c907147de4a4938738e137e3264defe52426e`.
 - ABW missing-source honesty fix is accepted locally at commit `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`.
 - ABW approve JSON contract Stage 1 is accepted locally at commit `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`.
 - Latest accepted governance milestones remain bounded (pilot/rerun/audit/planning tracks plus NVIDIA bounded workflow regression/smoke evidence).
@@ -33,7 +34,9 @@ Date: 2026-05-17
   - review actions no longer show `[object Object]`
   - review summary no longer implies trusted wiki promotion
   - trusted-source approval remains unavailable in the UI
-- NVIDIA approve bridge/server support is still not implemented, and `/proxy/abw/promote` remains fail-closed.
+- NVIDIA now exposes bounded approve bridge/server support through `/proxy/abw/approve-draft`.
+- `/proxy/abw/promote` remains fail-closed.
+- The new bridge is infrastructure-only and does not provide the final non-tech UI approve flow.
 - A pre-existing direct CLI JSON hardening caveat remains unresolved and is preserved as residual work, not hidden success.
 
 ## 2. Confirmed Direction
@@ -44,7 +47,8 @@ Date: 2026-05-17
   - honest review-state wording for non-technical operators
   - smoke-test hardening around layout/focus/trust states
 - safe non-tech trusted-source approval implementation after the contract design
-- Stage 2 bridge/server support before Stage 3 UI flow
+- safe non-tech Review/Triage UX design before Stage 3 UI flow
+- bounded approve bridge/server support is now recorded before Stage 3 UI flow
 - This is hardening and usability work inside bounded bridge scope.
 
 ## 3. What Is Not Yet True
@@ -60,9 +64,9 @@ Date: 2026-05-17
 
 ## 4. Immediate Next Governance-Grade Steps
 
-1. Review `06_VALIDATION/ABW_APPROVE_JSON_CONTRACT_STAGE1_REPORT.md`.
-2. Treat ABW approve JSON contract Stage 1 as bounded backend evidence, not readiness promotion and not a shipped non-tech UX.
+1. Review `06_VALIDATION/NVIDIA_APPROVE_BRIDGE_STAGE2_REPORT.md`.
+2. Treat NVIDIA approve bridge Stage 2 as bounded bridge infrastructure evidence, not readiness promotion and not a shipped non-tech approve UX.
 3. Preserve the honesty improvement and the no-mutation safety result on the browser UI path.
-4. Implement NVIDIA approve bridge/server support next before any UI approve claim.
+4. Design the non-tech Review/Triage flow next before any Stage 3 UI approve claim.
 5. Keep the non-tech UI flow gap, direct CLI JSON hardening caveat, weak positive `E1_fallback` trust `45`, and browser smoke inline-edit observability as active warning/blocker items until separately addressed.
 

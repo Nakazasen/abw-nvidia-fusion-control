@@ -249,6 +249,57 @@ Date: 2026-05-17
 - Recommended next gate:
   - `IMPLEMENT_NVIDIA_APPROVE_BRIDGE_STAGE_2`
 
+## D-2026-05-17-12: Record NVIDIA Approve Bridge Stage 2 As Bounded Bridge Infrastructure
+
+- Decision: Record NVIDIA commit `de7c907147de4a4938738e137e3264defe52426e` as the bounded Stage 2 implementation of NVIDIA approve bridge/server support for the ABW approve JSON contract.
+- Status: Accepted for operational recording.
+- Commit:
+  - `de7c907147de4a4938738e137e3264defe52426e`
+  - `feat: add bounded ABW approve bridge support`
+- Scope:
+  - NVIDIA-only
+  - no CONTROL edits during implementation
+  - no ABW edits during implementation
+  - no push
+  - no readiness promotion
+  - no final non-tech UI approve flow
+- Recorded capability:
+  - bounded approve command support in `tools/abw-cli-reader.mjs`
+  - explicit `POST /proxy/abw/approve-draft`
+  - dry-run preview mapping
+  - apply approved mapping
+  - structured blocked approve mapping
+  - trust and active-workspace guards
+  - batch/array reject
+  - wildcard reject
+  - missing confirmation reject
+  - invalid ABW JSON fail-closed
+  - ask/Q&A remains available without approve
+  - ask path does not trigger approve
+- Preserved boundary:
+  - `/proxy/abw/promote` remains fail-closed
+  - this is infrastructure only
+  - this is not non-tech daily-use approve UX
+  - this is not bulk approval
+  - this is not corpus approval
+  - approval is not required before Q&A
+  - non-tech Review/Triage UX is still required before friendly daily approval UX
+- Evidence:
+  - `git diff --check` PASS with LF/CRLF warnings only
+  - `node --check tools/abw-cli-reader.mjs` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tests/abw-cli-reader-bridge.test.mjs` PASS
+  - `npm run abw:reader:test` PASS `162 passed, 0 failed`
+  - `npm run browser:smoke` PASS `149 passed, 0 failed`
+  - warning retained:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - browser smoke verdict retained:
+    - `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Non-claim:
+  - This does not promote `DAILY_USE_READY`, production-ready, enterprise-ready, full bridge ready, autonomous-safe, packaging-ready, broad real-world validation, or Cognitive OS achieved.
+- Recommended next gate:
+  - `DESIGN_NON_TECH_REVIEW_TRIAGE_FLOW`
+
 ## D-2026-05-17-06: Record Small Sanitized Pilot As Warning Evidence
 
 - Decision: Record `WARNING_BOUNDED_SANITIZED_PILOT` as bounded sanitized bridge/API pilot evidence only.

@@ -26,11 +26,11 @@
 
 ## Immediate Next Actions
 
-1. Review `06_VALIDATION/ABW_APPROVE_JSON_CONTRACT_STAGE1_REPORT.md`.
-2. Treat ABW approve JSON contract Stage 1 as bounded backend evidence only, not non-tech product UX and not readiness promotion.
-3. Preserve the current boundary: NVIDIA approve is still unwired and `/proxy/abw/promote` remains fail-closed.
-4. Implement NVIDIA approve bridge/server support next: `IMPLEMENT_NVIDIA_APPROVE_BRIDGE_STAGE_2`.
-5. Preserve the remaining product blocker: non-tech UI preview/confirm approve flow is still missing.
+1. Review `06_VALIDATION/NVIDIA_APPROVE_BRIDGE_STAGE2_REPORT.md`.
+2. Treat NVIDIA approve bridge Stage 2 as bounded bridge infrastructure evidence only, not non-tech product UX and not readiness promotion.
+3. Preserve the current boundary: `/proxy/abw/approve-draft` exists, while `/proxy/abw/promote` remains fail-closed.
+4. Design the non-tech Review/Triage flow next: `DESIGN_NON_TECH_REVIEW_TRIAGE_FLOW`.
+5. Preserve the remaining product blocker: non-tech UI preview/confirm approve flow is still missing after Stage 2.
 6. Preserve the direct CLI JSON hardening issue as a residual caveat, not as a hidden pass.
 7. Keep the inline-edit browser smoke warning as warning-only until separately investigated.
 

@@ -18,6 +18,67 @@
 
 - 2026-05-17
 
+## 2026-05-17 NVIDIA Approve Bridge Stage 2 Snapshot
+
+- Control HEAD before record:
+  - `a90892ddf0e0d9b515882982c9ee579b73f61fb1`
+- NVIDIA HEAD recorded:
+  - `de7c907147de4a4938738e137e3264defe52426e`
+- ABW HEAD context:
+  - `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`
+- Latest result:
+  - `NVIDIA_APPROVE_BRIDGE_STAGE2_RECORDED`
+- Evidence artifact:
+  - `06_VALIDATION/NVIDIA_APPROVE_BRIDGE_STAGE2_REPORT.md`
+- Scope:
+  - NVIDIA-only bounded bridge/server evidence
+  - no CONTROL edits during implementation
+  - no ABW edits during implementation
+  - no push
+  - no readiness promotion
+  - no final non-tech UI approve flow
+- Bridge infrastructure recorded:
+  - bounded approve command support in NVIDIA reader
+  - explicit `POST /proxy/abw/approve-draft`
+  - dry-run preview mapping
+  - apply approved mapping
+  - structured blocked approve mapping
+  - trust and active-workspace guards
+  - batch/array reject
+  - wildcard reject
+  - apply-without-confirmation reject
+  - invalid ABW JSON fail-closed
+  - ask/Q&A remains available without approve
+  - ask path does not trigger approve
+- Boundary preserved:
+  - this is bridge infrastructure only
+  - `/proxy/abw/promote` remains fail-closed
+  - no non-tech UI preview/confirm approve flow exists yet
+  - no bulk approval exists
+  - no corpus approval exists
+  - approval is not required before Q&A
+  - non-tech Review/Triage UX is still needed
+- Validation:
+  - `git diff --check` PASS with LF/CRLF warnings only
+  - `node --check tools/abw-cli-reader.mjs` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tests/abw-cli-reader-bridge.test.mjs` PASS
+  - `npm run abw:reader:test` PASS `162/162`
+  - `npm run browser:smoke` PASS `149/149`
+  - inline-edit widget observability warning remains warning-only
+  - smoke verdict remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Readiness boundary remains:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not enterprise-ready
+  - not full bridge ready
+  - not autonomous-safe
+  - not packaging-ready
+  - not Cognitive OS achieved
+  - not broad real-world validation
+- Recommended next gate:
+  - `DESIGN_NON_TECH_REVIEW_TRIAGE_FLOW`
+
 ## 2026-05-17 ABW Approve JSON Contract Stage 1 Snapshot
 
 - Control HEAD before record:

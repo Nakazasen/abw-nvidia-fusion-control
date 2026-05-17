@@ -64,23 +64,19 @@
   - this is not a clean answer-quality or retrieval-coverage pass
 - Next movement should not be readiness promotion; this warning lineage is preserved, but the immediate follow-up is now `RERUN_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`.
 
-6. NVIDIA approve bridge blocker
-- NVIDIA UI clarity improved at commit `a867f892be94c350b9cabcfa168d19f82dc64995`.
-- The UI now explains review state honestly and no longer renders review actions as `[object Object]`.
-- ABW now has a bounded approve JSON contract at commit `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`.
-- This closes the prior blocker that ABW lacked a safe single-draft approve contract.
-- NVIDIA still does not expose approve through the bridge/server path.
-- `/proxy/abw/promote` must remain fail-closed for now.
-- Next movement is Stage 2 bridge/server wiring, not readiness promotion.
-
-7. Non-tech approve UX blocker
-- ABW Stage 1 is backend contract only.
+6. Non-tech approve UX blocker
+- NVIDIA Stage 2 approve bridge/server support is now recorded at commit `de7c907147de4a4938738e137e3264defe52426e`.
+- `/proxy/abw/approve-draft` now exists as bounded bridge infrastructure only.
+- `/proxy/abw/promote` remains fail-closed by design.
+- This closes the prior blocker that NVIDIA approve bridge/server support was missing.
+- This does not close the product blocker for non-technical approval UX.
 - No non-tech UI preview/confirm approve flow exists yet.
-- The product still lacks the explicit single-draft review, preview, confirm, and success/failure UX required for non-technical daily use.
+- No bulk approval exists.
+- No corpus approval exists.
 - Manual CLI approval remains unacceptable as product UX for non-technical users.
 - Stage 3 UI flow remains unimplemented.
 
-8. Strong manifest positive-usefulness blocker
+7. Strong manifest positive-usefulness blocker
 - The browser/proxy missing-source honesty failure is closed by ABW commit `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`, and the browser UI rerun preserves that fix as `WARNING_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`.
 - Missing-source, unsupported, and malformed explicit file/control queries now abstain correctly on the browser UI path:
   - `ABW_CLI_NO_MATCH`
@@ -94,10 +90,10 @@
   - `E1_fallback`
   - trust `45`
 - This is not a source-honesty failure, but it is still a product blocker for non-technical daily use.
-- The remaining gap is not CLI assistance; it is the lack of a safe non-tech UI trusted-source approve path and the resulting weak positive usefulness.
-- Next movement should not be readiness promotion; the next implementation gate is `IMPLEMENT_NVIDIA_APPROVE_BRIDGE_STAGE_2`.
+- The remaining gap is not CLI assistance; it is the lack of a safe non-tech Review/Triage plus UI trusted-source approve flow and the resulting weak positive usefulness.
+- Next movement should not be readiness promotion; the next implementation gate is `DESIGN_NON_TECH_REVIEW_TRIAGE_FLOW`.
 
-9. Direct CLI JSON hardening caveat
+8. Direct CLI JSON hardening caveat
 - A pre-existing direct CLI JSON hardening regression remains unresolved on this machine.
 - The failing command family is:
   - `py -m pytest tests/test_abw_json_hardening.py -k "ask_json_contract_no_match or ask_json_contract_runtime_write_suppressed or ask_json_contract_raw_only_query_marks_weak_evidence"`
