@@ -26,10 +26,11 @@
 
 ## Immediate Next Actions
 
-1. Review/approve `06_VALIDATION/SMALL_REAL_WORK_DOC_PILOT_PLAN.md`.
-2. If approved, run bounded sanitized pilot strictly within existing non-claim constraints.
-3. Investigate browser smoke inline-edit observability warning and record evidence.
-4. Re-sync governance set together after any accepted milestone (`ROADMAP`, `DECISIONS`, `RISKS`, `HANDOFF`, `INTEGRATION_JOURNAL`).
+1. Review accepted NVIDIA bounded workflow evidence recorded in `03_OPERATIONS/HANDOFF.md`.
+2. Return to `06_VALIDATION/SMALL_REAL_WORK_DOC_PILOT_PLAN.md` review before any further pilot execution.
+3. If approved, run bounded sanitized pilot strictly within existing non-claim constraints.
+4. Keep the inline-edit browser smoke warning as warning-only until separately investigated.
+5. Re-sync governance set together after any accepted milestone (`ROADMAP`, `DECISIONS`, `RISKS`, `HANDOFF`, `INTEGRATION_JOURNAL`).
 
 ## If Context Is Lost
 

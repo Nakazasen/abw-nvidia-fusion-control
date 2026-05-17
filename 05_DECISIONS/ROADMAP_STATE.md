@@ -19,14 +19,14 @@ Date: 2026-05-17
 
 ## 1. Where the Program Actually Is
 
-- Control governance is current and clean at local HEAD `0794c8957f35c3f7f6827c641d890d16d3d25372`.
-- NVIDIA is at commit `74d8b7577c5fe923a7ba75b58a9a7acd17bd94a7` with active local uncommitted sprint work.
+- Control governance is updating from local HEAD `323a8e89a62c9b2a15f86aa4ea66a892fbbb65ea`.
+- NVIDIA bounded workflow hardening has been accepted locally at commit `0e760ac3d842299b0514df1da97d436e7c7be925`.
 - ABW is at commit `39a23a288b3df695f618d72d964bb6fdb66e1714`, clean.
-- Latest accepted governance milestones remain bounded (pilot/rerun/audit/planning tracks).
+- Latest accepted governance milestones remain bounded (pilot/rerun/audit/planning tracks plus NVIDIA bounded workflow regression/smoke evidence).
 
 ## 2. Confirmed Direction
 
-- Near-term direction in local NVIDIA changes:
+- Near-term direction after accepted NVIDIA changes:
   - non-tech ABW document-assistant UX refinement
   - trust-first workspace and ingest behavior clarity
   - smoke-test hardening around layout/focus/trust states
@@ -43,8 +43,8 @@ Date: 2026-05-17
 
 ## 4. Immediate Next Governance-Grade Steps
 
-1. Audit NVIDIA dirty changes into explicit pass/fail evidence.
-2. Decide commit boundary for that sprint-in-progress delta.
-3. Re-run targeted regression/smoke evidence for the changed files.
-4. Update governance set (`ROADMAP/DECISIONS/RISKS/HANDOFF/INTEGRATION_JOURNAL`) in one consistency pass after acceptance.
+1. Review accepted NVIDIA evidence in `03_OPERATIONS/HANDOFF.md`.
+2. Return to `06_VALIDATION/SMALL_REAL_WORK_DOC_PILOT_PLAN.md` review.
+3. If approved, run only a bounded sanitized pilot under current non-claim constraints.
+4. Keep browser smoke inline-edit observability warning as warning-only until separately investigated.
 

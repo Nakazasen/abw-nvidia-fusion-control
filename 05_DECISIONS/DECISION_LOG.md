@@ -34,8 +34,8 @@ Date: 2026-05-17
 
 ## D-2026-05-17-03: Treat NVIDIA Local Uncommitted Work as In-Progress
 
-- Decision: Record NVIDIA uncommitted UI/server/test deltas as active sprint state, not accepted milestone closure.
-- Status: Accepted.
+- Decision: Record NVIDIA uncommitted UI/server/test deltas as active sprint state until audited, tested, split-committed, and governance-recorded.
+- Status: Superseded by `D-2026-05-17-05`.
 - Evidence:
   - `docs/abw-non-tech-ui-quickstart.md`
   - `nvidia_playground.html`
@@ -51,4 +51,32 @@ Date: 2026-05-17
 - Status: Accepted.
 - Rationale:
   - Governance posture and local code trajectory both emphasize mutation safety, trust gates, and honest no-match behavior.
+
+## D-2026-05-17-05: Accept NVIDIA Bounded Workflow Evidence Without Readiness Promotion
+
+- Decision: Accept the NVIDIA split-commit evidence ending at `0e760ac3d842299b0514df1da97d436e7c7be925` as bounded local regression/smoke evidence only.
+- Status: Accepted.
+- Accepted commits:
+  - `aa2a105` `fix: harden ABW bridge JSON handling`
+  - `3f968dd` `test: cover bounded ABW bridge edge cases`
+  - `79c8750` `test: expand browser smoke ABW workflow coverage`
+  - `e7af952` `feat: refine ABW document assistant workflow`
+  - `0e760ac` `docs: document bounded ABW UI workflow`
+- Evidence:
+  - `npm run abw:reader:test` PASS `108/108`
+  - `npm run browser:smoke` PASS `145/145`
+  - guard matrix PASS `16/16`
+  - verdict `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Warning retained:
+  - inline edit widget not observable in current smoke state
+  - warning-only, not readiness proof
+- Preserved boundaries:
+  - read-only ABW ask/query
+  - trust-gated ingest/review
+  - promote fail-closed
+  - no write-back/sync
+  - no auto-promotion
+  - no silent mutation
+- Non-claim:
+  - This does not promote `DAILY_USE_READY`, production-ready, enterprise-ready, full bridge ready, autonomous-safe, packaging-ready, broad real-world validation, or Cognitive OS achieved.
 

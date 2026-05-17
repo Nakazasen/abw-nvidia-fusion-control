@@ -5939,3 +5939,39 @@ Warning:
   - not enterprise-grade security
   - not packaging-ready
   - not broad real-work-doc validation
+
+## 2026-05-17 - Accepted NVIDIA bounded workflow evidence recorded
+
+- Control head before update:
+  - `323a8e89a62c9b2a15f86aa4ea66a892fbbb65ea`
+- NVIDIA final head:
+  - `0e760ac3d842299b0514df1da97d436e7c7be925`
+- ABW head context:
+  - `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- NVIDIA accepted split commits:
+  - `aa2a105` `fix: harden ABW bridge JSON handling`
+  - `3f968dd` `test: cover bounded ABW bridge edge cases`
+  - `79c8750` `test: expand browser smoke ABW workflow coverage`
+  - `e7af952` `feat: refine ABW document assistant workflow`
+  - `0e760ac` `docs: document bounded ABW UI workflow`
+- Verification evidence:
+  - `npm run abw:reader:test` PASS `108/108`
+  - `npm run browser:smoke` PASS `145/145`
+  - guard matrix PASS `16/16`
+  - browser smoke verdict `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Warning preserved:
+  - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - warning-only; not readiness proof
+- Preserved boundaries:
+  - ABW read-only ask/query boundary
+  - ingest/review trust gates
+  - promote fail-closed behavior
+  - no write-back/sync
+  - no auto-promotion
+  - no silent mutation
+  - no readiness overclaim
+- Interpretation:
+  - bounded local regression/smoke evidence accepted
+  - not `DAILY_USE_READY`, not production-ready, not enterprise-ready, not full bridge ready, not autonomous-safe, not packaging-ready, not Cognitive OS achieved, and not broad real-world validated
+- Next gate:
+  - `RETURN_TO_SMALL_SANITIZED_REAL_WORK_DOC_PILOT_REVIEW`

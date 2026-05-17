@@ -31,6 +31,46 @@
 - Supersedes operational mirrors previously spread across `03_OPERATIONS/SESSION_CLOSE.md`, `03_OPERATIONS/SESSION_RESTORE.md`, and `03_OPERATIONS/NEXT.md`.
 - Those files now hold compact references/indexes only.
 
+## 2026-05-17 Accepted NVIDIA Bounded Workflow Evidence Snapshot
+
+- Control HEAD before record:
+  - `323a8e89a62c9b2a15f86aa4ea66a892fbbb65ea`
+- NVIDIA final HEAD:
+  - `0e760ac3d842299b0514df1da97d436e7c7be925`
+- NVIDIA status after split commits:
+  - clean
+- ABW context HEAD:
+  - `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- Accepted NVIDIA commit sequence:
+  - `aa2a105` `fix: harden ABW bridge JSON handling`
+  - `3f968dd` `test: cover bounded ABW bridge edge cases`
+  - `79c8750` `test: expand browser smoke ABW workflow coverage`
+  - `e7af952` `feat: refine ABW document assistant workflow`
+  - `0e760ac` `docs: document bounded ABW UI workflow`
+- Verification evidence after commit:
+  - `npm run abw:reader:test` PASS `108/108`
+  - `npm run browser:smoke` PASS `145/145`
+  - guard matrix PASS `16/16`
+  - browser smoke verdict `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Warning preserved as warning-only:
+  - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - this warning is not readiness proof
+- Safety boundaries preserved:
+  - ABW read-only ask/query boundary preserved
+  - ingest/review trust gates preserved
+  - promote fail-closed behavior preserved
+  - no write-back/sync
+  - no auto-promotion
+  - no silent mutation
+  - no readiness overclaim
+  - local-first truth preserved
+- Interpretation:
+  - bounded local regression/smoke evidence accepted for the NVIDIA workflow hardening and UI usability delta
+  - no readiness promotion
+  - not production-ready, not enterprise-ready, not full-bridge ready, not autonomous-safe, not packaging-ready, and not broad real-world validated
+- Recommended next gate:
+  - `RETURN_TO_SMALL_SANITIZED_REAL_WORK_DOC_PILOT_REVIEW`
+
 ## 2026-05-16 Small Sanitized Real-Work Pilot Planning Snapshot
 
 - Control HEAD before record:

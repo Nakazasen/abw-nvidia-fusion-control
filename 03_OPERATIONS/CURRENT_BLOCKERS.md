@@ -35,14 +35,22 @@
 
 4. UI smoke residual warning blocker
 - Browser smoke still carries a recurring non-blocking warning around inline edit widget observability.
+- Latest accepted NVIDIA evidence still includes this warning:
+  - `Inline edit widget opens from selection: widget not observable in current smoke state`
 - This remains a residual confidence gap for UX completeness claims.
+- It is warning-only and is not readiness proof.
 
-5. Local NVIDIA dirty-state blocker for governance recording
-- NVIDIA repo has uncommitted local changes in core UI/server/tests/docs files.
-- Until committed/audited, this state is sprint-in-progress evidence, not accepted governance truth.
+5. Small sanitized real-work pilot review gate
+- NVIDIA dirty-state blocker is closed for the accepted split commits ending at `0e760ac3d842299b0514df1da97d436e7c7be925`.
+- Accepted evidence is bounded regression/smoke evidence only:
+  - `npm run abw:reader:test` PASS `108/108`
+  - `npm run browser:smoke` PASS `145/145`
+  - guard matrix PASS `16/16`
+  - verdict `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Next pilot movement still requires explicit small sanitized real-work document pilot review/approval.
 
 ## Immediate Risk If Ignored
 
-- Overclaim risk rises if uncommitted NVIDIA UX work is treated as finalized readiness.
-- Cross-file governance drift risk rises if updated local sprint state is not explicitly audited and recorded.
+- Overclaim risk rises if bounded smoke evidence is treated as daily-use or production readiness.
+- Pilot risk rises if small sanitized real-work document review gates are skipped.
 
