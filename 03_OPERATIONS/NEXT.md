@@ -26,11 +26,12 @@
 
 ## Immediate Next Actions
 
-1. Review `06_VALIDATION/ABW_READ_ONLY_FIX_UI_RERUN_WARNING_REPORT.md`.
-2. Treat `WARNING_UI_BOUNDED_SANITIZED_RERUN_AFTER_ABW_FIX` as bounded sanitized full-browser UI warning evidence only.
-3. Investigate backend retrieval / Vietnamese coverage next if continuing: `INVESTIGATE_BACKEND_RETRIEVAL_OR_VIETNAMESE_COVERAGE`.
-4. Preserve remaining no-match and `E1_fallback` trust `45` behavior as retrieval/quality warnings until separately addressed.
-5. Keep the inline-edit browser smoke warning as warning-only until separately investigated.
+1. Review `06_VALIDATION/NVIDIA_REVIEW_UI_CLARITY_FIX_REPORT.md`.
+2. Treat NVIDIA commit `a867f892be94c350b9cabcfa168d19f82dc64995` as UI clarity evidence only, not a readiness promotion.
+3. Rerun the strong manifest browser UI pilot next if continuing: `RERUN_STRONG_MANIFEST_UI_PILOT_AFTER_UI_CLARITY_FIX`.
+4. Preserve the trusted-source approve contract gap as active: UI promote remains fail-closed.
+5. Preserve missing-source honesty as a separate active investigation after the rerun if it still fails.
+6. Keep the inline-edit browser smoke warning as warning-only until separately investigated.
 
 ## If Context Is Lost
 

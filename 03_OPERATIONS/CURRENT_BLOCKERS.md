@@ -64,6 +64,18 @@
   - this is not a clean answer-quality or retrieval-coverage pass
 - Next movement should not be readiness promotion; current recommended gate is `INVESTIGATE_BACKEND_RETRIEVAL_OR_VIETNAMESE_COVERAGE`.
 
+6. Trusted-source approve contract blocker
+- NVIDIA UI clarity improved at commit `a867f892be94c350b9cabcfa168d19f82dc64995`.
+- The UI now explains review state honestly and no longer renders review actions as `[object Object]`.
+- This does not unblock trusted-source approval in the UI.
+- Safe UI promote/approve remains blocked until a bounded JSON approve contract exists.
+- `/proxy/abw/promote` must remain fail-closed for now.
+
+7. Missing-source honesty blocker
+- Missing-source honesty still needs separate investigation after the strong manifest two-phase UI pilot failure.
+- Current governance should not treat the UI clarity fix as evidence that missing-source abstention is fixed.
+- Non-technical daily-use remains unproven until missing-source behavior and trusted-source approval path are both addressed.
+
 ## Immediate Risk If Ignored
 
 - Overclaim risk rises if bounded smoke evidence is treated as daily-use or production readiness.

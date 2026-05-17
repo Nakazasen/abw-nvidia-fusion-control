@@ -106,6 +106,37 @@ Date: 2026-05-17
 - Non-claim:
   - This does not promote `DAILY_USE_READY`, production-ready, enterprise-ready, full bridge ready, autonomous-safe, packaging-ready, broad real-world validation, or Cognitive OS achieved.
 
+## D-2026-05-17-08: Record NVIDIA Review UI Clarity Fix As Evidence-Only
+
+- Decision: Record NVIDIA commit `a867f892be94c350b9cabcfa168d19f82dc64995` as bounded UI clarity evidence only.
+- Status: Accepted for operational recording.
+- Commit:
+  - `a867f892be94c350b9cabcfa168d19f82dc64995`
+  - `fix: clarify ABW review state in UI`
+- Evidence:
+  - review actions no longer render as `[object Object]`
+  - review summary distinguishes review items shown from trusted wiki promotion
+  - UI copy explains drafts are not trusted wiki yet
+  - UI copy explains trusted-source approval is not available in the UI yet
+  - UI copy explains that no auto-promotion was performed
+  - `git diff --check` PASS
+  - `node --check tools/browser-smoke.mjs` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `npm run abw:reader:test` PASS `108/108`
+  - `npm run browser:smoke` PASS `149/149`
+- Preserved boundary:
+  - `/proxy/abw/promote` remains fail-closed
+  - no ABW approve path is called from NVIDIA
+  - no write-back/sync
+  - no auto-promotion
+  - no trust-gate weakening
+- Non-claim:
+  - This does not prove non-technical daily-use readiness.
+  - This does not promote `DAILY_USE_READY`, production-ready, enterprise-ready, full bridge ready, autonomous-safe, packaging-ready, broad real-world validation, or Cognitive OS achieved.
+- Follow-on blockers preserved:
+  - no safe UI trusted-source approve contract yet
+  - missing-source honesty still needs separate investigation
+
 ## D-2026-05-17-06: Record Small Sanitized Pilot As Warning Evidence
 
 - Decision: Record `WARNING_BOUNDED_SANITIZED_PILOT` as bounded sanitized bridge/API pilot evidence only.

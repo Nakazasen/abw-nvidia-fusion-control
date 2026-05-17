@@ -87,6 +87,58 @@
 - Recommended next gate:
   - `INVESTIGATE_BACKEND_RETRIEVAL_OR_VIETNAMESE_COVERAGE`
 
+## 2026-05-17 NVIDIA Review UI Clarity Fix Snapshot
+
+- Control HEAD before record:
+  - `6d17a8e209181edcfa6c3395bdbb46e089ed533c`
+- NVIDIA HEAD recorded:
+  - `a867f892be94c350b9cabcfa168d19f82dc64995`
+- ABW HEAD context:
+  - `c877051ef303e99b77d92315a402415d5512997d`
+- Latest result:
+  - `NVIDIA_REVIEW_UI_CLARITY_FIX_RECORDED`
+- Evidence artifact:
+  - `06_VALIDATION/NVIDIA_REVIEW_UI_CLARITY_FIX_REPORT.md`
+- Scope:
+  - NVIDIA UI clarity evidence only
+  - no CONTROL readiness promotion
+  - no ABW promote-contract change
+- What improved in NVIDIA UI:
+  - review actions no longer render as `[object Object]`
+  - review summary distinguishes review items shown from trusted wiki promotion
+  - UI copy explains drafts are not trusted wiki yet
+  - UI copy explains trusted-source approval is not available in this UI yet
+  - UI copy explains no auto-promotion was performed
+- Safety and product boundary preserved:
+  - `/proxy/abw/promote` remains fail-closed
+  - no ABW approve path called from NVIDIA
+  - no write-back/sync
+  - no auto-promotion
+  - no trust-gate weakening
+  - no readiness overclaim
+- Validation:
+  - `git diff --check` PASS
+  - `node --check tools/browser-smoke.mjs` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `npm run abw:reader:test` PASS `108/108`
+  - `npm run browser:smoke` PASS `149/149`
+  - existing inline-edit observability warning remains warning-only
+- Remaining blockers preserved:
+  - no safe UI trusted-source approve contract yet
+  - missing-source honesty still needs separate investigation
+  - non-technical daily-use is still not proven
+- Readiness boundary remains:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not enterprise-ready
+  - not full bridge ready
+  - not autonomous-safe
+  - not packaging-ready
+  - not Cognitive OS achieved
+  - not broad real-world validation
+- Recommended next gate:
+  - `RERUN_STRONG_MANIFEST_UI_PILOT_AFTER_UI_CLARITY_FIX`
+
 ## 2026-05-17 Small Sanitized Pilot Warning Snapshot
 
 - Control HEAD before record:

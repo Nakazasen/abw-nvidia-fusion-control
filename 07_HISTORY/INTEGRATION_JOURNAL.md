@@ -6081,3 +6081,46 @@ Warning:
   - no readiness promotion
 - Next gate:
   - `INVESTIGATE_BACKEND_RETRIEVAL_OR_VIETNAMESE_COVERAGE`
+
+## 2026-05-17 - NVIDIA review UI clarity evidence recorded
+
+- Control head before update:
+  - `6d17a8e209181edcfa6c3395bdbb46e089ed533c`
+- NVIDIA head recorded:
+  - `a867f892be94c350b9cabcfa168d19f82dc64995`
+- ABW head context:
+  - `c877051ef303e99b77d92315a402415d5512997d`
+- verdict:
+  - `NVIDIA_REVIEW_UI_CLARITY_FIX_RECORDED`
+- artifact:
+  - `06_VALIDATION/NVIDIA_REVIEW_UI_CLARITY_FIX_REPORT.md`
+- scope:
+  - NVIDIA UI clarity evidence only
+  - CONTROL/ABW source unchanged in this milestone
+  - no readiness promotion
+- recorded NVIDIA delta:
+  - review actions no longer render as `[object Object]`
+  - review summary distinguishes review items shown from trusted wiki promotion
+  - promote limitation copy now states drafts are not trusted wiki yet
+  - trusted-source approval is not available in the UI yet
+  - no auto-promotion was performed
+- preserved boundaries:
+  - `/proxy/abw/promote` remains fail-closed
+  - no ABW approve path is called from NVIDIA
+  - no write-back/sync
+  - no auto-promotion
+  - no trust-gate weakening
+- validation evidence:
+  - `git diff --check` PASS
+  - `node --check tools/browser-smoke.mjs` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `npm run abw:reader:test` PASS `108/108`
+  - `npm run browser:smoke` PASS `149/149`
+  - existing browser smoke warning remains non-blocking:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+- remaining blockers preserved:
+  - no safe UI trusted-source approve contract yet
+  - missing-source honesty still needs separate investigation
+  - non-technical daily-use remains unproven
+- next gate:
+  - `RERUN_STRONG_MANIFEST_UI_PILOT_AFTER_UI_CLARITY_FIX`
