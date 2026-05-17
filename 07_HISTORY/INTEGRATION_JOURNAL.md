@@ -2,6 +2,56 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-17 - Missing-source and trusted retrieval guards repaired after approve UI pilot fail
+
+- Control head before repair gate:
+  - `bf7d3375b36308631baddb7379bd6914af92b19c`
+- NVIDIA head context:
+  - `2332a965429b5e4af29c36062a568d46fbae4123`
+- ABW head before repair:
+  - `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`
+- ABW fix commit:
+  - `f748a44e2bd87594314bcc0d0af93d9ad64a55e6`
+- prior failed gate:
+  - `FAIL_BOUNDED_NON_TECH_APPROVE_UI_PILOT`
+- repair verdict:
+  - `PASS_FIX_MISSING_SOURCE_AND_TRUSTED_RETRIEVAL_GUARDS`
+- artifact:
+  - `06_VALIDATION/FIX_MISSING_SOURCE_AND_TRUSTED_RETRIEVAL_GUARDS_AFTER_APPROVAL_REPORT.md`
+- root cause:
+  - short specific terms such as `IP` were dropped
+  - multi-term factual queries were too permissive
+  - unrelated trusted wiki could win through status bonus plus weak overlap after approval
+  - source-coverage negation could be treated as evidence
+  - generic document questions could weak-fallback without clear source reference
+- fix summary:
+  - tightened ABW retrieval guards in script and packaged legacy runtime paths
+  - preserved `ip`/`id` as short specific terms
+  - rejected source-coverage negation as support
+  - required stronger support for specific multi-term queries
+  - added regressions for missing-source control, unrelated trusted wiki reuse, and generic ambiguous source questions
+- focused synthetic rerun:
+  - factual/procedure direct questions stayed weak sourceful before approval
+  - missing-source IP, unsupported, malformed, and generic ambiguous queries abstained before approval
+  - exactly one factual source was approved
+  - factual question used trusted/wiki after approval
+  - missing-source IP, unsupported, and malformed still abstained after approval
+  - ask/query did not mutate `.brain`
+  - `query_deep_runs.jsonl` was not created/changed
+- validation:
+  - ABW targeted pytest PASS `164 passed, 2 warnings, 7 subtests passed`
+  - NVIDIA bridge PASS `162/162`
+  - NVIDIA `npm test` PASS
+  - `git diff --check` PASS with LF/CRLF warnings only
+- boundaries preserved:
+  - not a full browser pilot pass
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - no approve-all
+  - no batch/corpus approval
+  - Q&A remains available without approval
+- next gate:
+  - `RERUN_BOUNDED_NON_TECH_APPROVE_UI_PILOT_AFTER_RETRIEVAL_FIX`
 ## 2026-05-17 - Small sanitized pilot warning evidence recorded
 
 - Control head before update:

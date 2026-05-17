@@ -18,6 +18,63 @@
 
 - 2026-05-17
 
+## 2026-05-17 Missing-Source and Trusted Retrieval Guard Repair Snapshot
+
+- Control HEAD before repair gate:
+  - `bf7d3375b36308631baddb7379bd6914af92b19c`
+- NVIDIA HEAD context:
+  - `2332a965429b5e4af29c36062a568d46fbae4123`
+- ABW HEAD before repair:
+  - `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`
+- ABW fix commit:
+  - `f748a44e2bd87594314bcc0d0af93d9ad64a55e6`
+- Latest result:
+  - `PASS_FIX_MISSING_SOURCE_AND_TRUSTED_RETRIEVAL_GUARDS`
+- Evidence artifact:
+  - `06_VALIDATION/FIX_MISSING_SOURCE_AND_TRUSTED_RETRIEVAL_GUARDS_AFTER_APPROVAL_REPORT.md`
+- Failed pilot lineage preserved:
+  - `FAIL_BOUNDED_NON_TECH_APPROVE_UI_PILOT`
+  - single-item approve UI path was safe, but missing-source/trusted retrieval guard failed
+- Root cause recorded:
+  - short specific terms like `IP` were dropped
+  - multi-term factual queries did not require enough direct support
+  - trusted wiki status bonus could select unrelated approved source after approval
+  - source-coverage negation could be treated as evidence
+  - generic document questions could fall through to weak metadata
+- Repair recorded:
+  - ABW retrieval scoring now preserves short specific terms such as `ip` and `id`
+  - source-coverage negation is rejected as support
+  - multi-term specific queries require stronger direct support
+  - generic ambiguous source questions without clear references abstain
+  - unrelated approved trusted wiki sources are not reused for missing-source facts
+- Focused rerun evidence:
+  - fresh sanitized/synthetic workspace used
+  - before approval, factual/procedure direct questions remained `E1_fallback` trust `45`
+  - before approval, missing-source IP, unsupported, malformed, and generic ambiguous questions returned `no_match` / `E0_unknown` / trust `0` / `sources=[]`
+  - exactly one factual Lantern source was approved through the bounded approve contract
+  - after approval, factual Lantern question returned trusted/wiki evidence
+  - after approval, missing-source IP, unsupported, and malformed questions still abstained
+  - ask/query did not mutate `.brain`
+  - `query_deep_runs.jsonl` was not created/changed
+- Validation:
+  - `git diff --check` PASS with LF/CRLF warnings only
+  - ABW targeted pytest PASS `164 passed, 2 warnings, 7 subtests passed`
+  - NVIDIA bridge test PASS `162/162`
+  - NVIDIA syntax checks PASS
+  - NVIDIA `npm test` PASS
+  - inline-edit widget observability warning remains warning-only
+- Boundary preserved:
+  - not a full browser non-tech pilot pass
+  - not readiness promotion
+  - approval remains single-item only
+  - no approve-all
+  - no batch approval
+  - no corpus approval
+  - Q&A remains available without approval
+  - `/proxy/abw/promote` remains fail-closed
+- Recommended next gate:
+  - `RERUN_BOUNDED_NON_TECH_APPROVE_UI_PILOT_AFTER_RETRIEVAL_FIX`
+
 ## 2026-05-17 NVIDIA Single-Item Approve Apply Stage E Snapshot
 
 - Control HEAD before record:

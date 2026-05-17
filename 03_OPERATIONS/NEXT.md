@@ -26,14 +26,14 @@
 
 ## Immediate Next Actions
 
-1. Review `06_VALIDATION/NVIDIA_SINGLE_ITEM_APPROVE_APPLY_STAGE_E_REPORT.md`.
-2. Treat the Stage E result as bounded single-item approve apply evidence only, not readiness promotion.
-3. Preserve the current boundary: `/proxy/abw/approve-draft` exists, while `/proxy/abw/promote` remains fail-closed.
-4. Rerun the next bounded product gate: `RERUN_BOUNDED_NON_TECH_APPROVE_UI_PILOT`.
-5. Preserve the remaining product blockers: approval is single-item only, not folder/workspace/corpus approval, and this is still not non-tech daily-use readiness.
-6. Preserve that Q&A remains available without approval, candidates remain untrusted unless approve returns `approved=true` plus `promotionPerformed=true`, and blocked apply changes nothing.
-7. Preserve that the Stage E UI requires successful preview plus explicit confirmation before any `dry_run=false` request, and never calls `/proxy/abw/promote`.
-8. Preserve the direct CLI JSON hardening issue, the weak positive `E1_fallback` product gap, the broader real-world validation gap, and the inline-edit browser smoke warning as residual caveats, not hidden passes.
+1. Review `06_VALIDATION/FIX_MISSING_SOURCE_AND_TRUSTED_RETRIEVAL_GUARDS_AFTER_APPROVAL_REPORT.md`.
+2. Treat the retrieval guard repair as bounded source-honesty evidence only, not readiness promotion.
+3. Preserve the Stage E approval boundary: single item only, successful preview first, explicit confirmation required, no approve-all, no batch, no corpus approval.
+4. Rerun the next bounded product gate: `RERUN_BOUNDED_NON_TECH_APPROVE_UI_PILOT_AFTER_RETRIEVAL_FIX`.
+5. Preserve that Q&A remains available without approval and ask/query remains read-only.
+6. Confirm in the next full browser UI pilot that missing-source, unsupported, malformed, and ambiguous cases remain non-candidate after approval.
+7. Preserve that `/proxy/abw/promote` remains fail-closed and unused by the approve flow.
+8. Preserve the direct CLI JSON hardening issue, broader real-world validation gap, and inline-edit browser smoke warning as residual caveats, not hidden passes.
 
 ## If Context Is Lost
 

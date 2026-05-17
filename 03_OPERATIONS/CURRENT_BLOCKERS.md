@@ -80,13 +80,29 @@
 - The missing single-item approve apply UI blocker is now closed by recorded Stage E UI evidence.
 - This does not close the product blocker for non-technical implementation UX.
 - Stage E now provides a bounded single-item preview-plus-confirm approval flow only.
-- The bounded non-tech approve UI pilot has not been rerun yet.
+- The bounded non-tech approve UI pilot was rerun and failed on source honesty / trusted retrieval guard behavior, not approval mutation safety.
+- The failed pilot is preserved as `FAIL_BOUNDED_NON_TECH_APPROVE_UI_PILOT`.
+- The repair gate `FIX_MISSING_SOURCE_AND_TRUSTED_RETRIEVAL_GUARDS_AFTER_APPROVAL` is now recorded as bounded fix evidence.
+- The next full browser UI pilot still must be rerun after the retrieval guard fix.
 - No bulk approval exists.
 - No corpus approval exists.
 - Manual CLI approval remains unacceptable as product UX for non-technical users.
 - This does not prove broader non-technical daily-use readiness.
 
-7. Strong manifest positive-usefulness blocker
+7. Retrieval honesty after approval blocker
+- The immediate missing-source/trusted-retrieval guard failure is fixed in the ABW retrieval layer at commit `f748a44e2bd87594314bcc0d0af93d9ad64a55e6` and recorded in `06_VALIDATION/FIX_MISSING_SOURCE_AND_TRUSTED_RETRIEVAL_GUARDS_AFTER_APPROVAL_REPORT.md`.
+- Missing-source internal-IP queries now abstain before and after unrelated factual approval:
+  - `no_match`
+  - `E0_unknown`
+  - trust `0`
+  - `sources=[]`
+- Unrelated approved/trusted wiki sources are no longer reused for missing-source questions in the focused synthetic rerun.
+- Unsupported and malformed explicit file queries remain abstain-only in the focused rerun.
+- Generic ambiguous document queries abstain unless direct support exists.
+- This closes the immediate repair blocker only.
+- It does not replace the required full browser UI rerun after the fix.
+
+8. Strong manifest positive-usefulness blocker
 - The browser/proxy missing-source honesty failure is closed by ABW commit `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`, and the browser UI rerun preserves that fix as `WARNING_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`.
 - Missing-source, unsupported, and malformed explicit file/control queries now abstain correctly on the browser UI path:
   - `ABW_CLI_NO_MATCH`
@@ -106,7 +122,7 @@
 - Positive controls still remain weak in prior warning evidence until selective approval flow is piloted and shows improvement.
 - Next movement should not be readiness promotion; the next implementation gate is `RERUN_BOUNDED_NON_TECH_APPROVE_UI_PILOT`.
 
-8. Direct CLI JSON hardening caveat
+9. Direct CLI JSON hardening caveat
 - A pre-existing direct CLI JSON hardening regression remains unresolved on this machine.
 - The failing command family is:
   - `py -m pytest tests/test_abw_json_hardening.py -k "ask_json_contract_no_match or ask_json_contract_runtime_write_suppressed or ask_json_contract_raw_only_query_marks_weak_evidence"`
