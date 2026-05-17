@@ -66,12 +66,13 @@
 
 6. Non-tech Review/Triage and approve UX blocker
 - NVIDIA Stage 2 approve bridge/server support is now recorded at commit `de7c907147de4a4938738e137e3264defe52426e`.
+- NVIDIA Stage B read-only triage dashboard is now recorded at commit `395160cacbdf6464618cf6569dad78ff42596a2d`.
 - `/proxy/abw/approve-draft` now exists as bounded bridge infrastructure only.
 - `/proxy/abw/promote` remains fail-closed by design.
 - This closes the prior blocker that NVIDIA approve bridge/server support was missing.
 - The missing Review/Triage design blocker is now closed by recorded design evidence.
+- The missing read-only triage dashboard blocker is now closed by recorded Stage B UI evidence.
 - This does not close the product blocker for non-technical implementation UX.
-- No read-only triage dashboard exists yet.
 - No Q&A-integrated candidate surfacing exists yet.
 - No preview-only approve dry-run UI exists yet.
 - No non-tech UI preview/confirm approve flow exists yet.
@@ -99,7 +100,8 @@
 - This is not a source-honesty failure, but it is still a product blocker for non-technical daily use.
 - The remaining gap is not CLI assistance; it is the lack of implemented non-tech Review/Triage and UI trusted-source approve flow, plus the resulting weak positive usefulness.
 - The Review/Triage design now exists as recorded governance evidence.
-- Next movement should not be readiness promotion; the next implementation gate is `IMPLEMENT_READ_ONLY_TRIAGE_DASHBOARD_STAGE_B`.
+- The read-only triage dashboard now exists as bounded Stage B evidence, but it does not close the candidate/preview/apply gaps.
+- Next movement should not be readiness promotion; the next implementation gate is `IMPLEMENT_QA_INTEGRATED_CANDIDATE_SURFACING_STAGE_C`.
 
 8. Direct CLI JSON hardening caveat
 - A pre-existing direct CLI JSON hardening regression remains unresolved on this machine.

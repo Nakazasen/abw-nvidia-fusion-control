@@ -6371,3 +6371,59 @@ Warning:
   - this does not prove daily-use readiness
 - next gate:
   - `IMPLEMENT_READ_ONLY_TRIAGE_DASHBOARD_STAGE_B`
+
+## 2026-05-17 - NVIDIA read-only triage dashboard Stage B evidence recorded
+
+- Control head before update:
+  - `6cd9f924707f302d5e94fbd0286b5728038cc903`
+- NVIDIA head recorded:
+  - `395160cacbdf6464618cf6569dad78ff42596a2d`
+- ABW head context:
+  - `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`
+- verdict:
+  - `NVIDIA_READ_ONLY_TRIAGE_DASHBOARD_STAGE_B_RECORDED`
+- artifact:
+  - `06_VALIDATION/NVIDIA_READ_ONLY_TRIAGE_DASHBOARD_STAGE_B_REPORT.md`
+- scope:
+  - NVIDIA-only bounded UI evidence
+  - no CONTROL edits during implementation
+  - no ABW edits during implementation
+  - no push
+  - no readiness promotion
+  - read-only triage dashboard only
+- recorded NVIDIA delta:
+  - read-only triage dashboard added in `nvidia_playground.html`
+  - browser smoke coverage expanded in `tools/browser-smoke.mjs`
+  - groups implemented: ready to ask/not trusted yet, good candidates to review, needs attention, could not read, already trusted, recently used in answers
+  - honest empty states implemented
+  - copy explains Q&A remains available before review
+  - copy explains drafts are useful but not trusted yet
+  - unsupported and parse-error rows are shown under `Could not read`
+  - trusted group does not confuse review items with trusted wiki
+  - candidate group excludes missing-source and ambiguous cases
+- preserved boundaries:
+  - no approve UI exists yet
+  - no approve dry-run product UI exists yet
+  - no approve apply UI exists yet
+  - no approve-all
+  - no batch or corpus approval
+  - no hidden trust mutation
+  - `/proxy/abw/promote` remains fail-closed
+  - Q&A remains available without approval
+  - non-tech daily-use remains unproven
+- validation evidence:
+  - git diff --check PASS with LF/CRLF warnings only
+  - node --check tools/browser-smoke.mjs PASS
+  - node --check tools/nvidia-server.mjs PASS
+  - node --check tools/abw-cli-reader.mjs PASS
+  - npm run abw:reader:test PASS 162/162
+  - npm run browser:smoke PASS 159/159
+  - warning preserved as warning-only:
+    - Inline edit widget opens from selection: widget not observable in current smoke state
+  - smoke verdict remains HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY
+- interpretation:
+  - Stage B closes the missing read-only triage dashboard implementation gap
+  - this does not implement candidate surfacing or approve UI
+  - this does not prove daily-use readiness
+- next gate:
+  - `IMPLEMENT_QA_INTEGRATED_CANDIDATE_SURFACING_STAGE_C`

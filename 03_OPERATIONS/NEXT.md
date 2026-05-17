@@ -26,13 +26,13 @@
 
 ## Immediate Next Actions
 
-1. Review `06_VALIDATION/NON_TECH_REVIEW_TRIAGE_UX_DESIGN_REPORT.md`.
-2. Treat the Review/Triage result as design evidence only, not implementation and not readiness promotion.
+1. Review `06_VALIDATION/NVIDIA_READ_ONLY_TRIAGE_DASHBOARD_STAGE_B_REPORT.md`.
+2. Treat the Stage B result as bounded read-only UI evidence only, not readiness promotion.
 3. Preserve the current boundary: `/proxy/abw/approve-draft` exists, while `/proxy/abw/promote` remains fail-closed.
-4. Implement Stage B next: `IMPLEMENT_READ_ONLY_TRIAGE_DASHBOARD_STAGE_B`.
-5. Preserve the remaining product blockers: no triage dashboard, no candidate surfacing, no preview-only approve UI, and no single-item approve UI yet.
-6. Preserve that Q&A remains available without approval and approval stays selected-item only.
-7. Preserve the direct CLI JSON hardening issue and inline-edit browser smoke warning as residual caveats, not hidden passes.
+4. Implement Stage C next: `IMPLEMENT_QA_INTEGRATED_CANDIDATE_SURFACING_STAGE_C`.
+5. Preserve the remaining product blockers: no Q&A-integrated candidate surfacing, no preview-only approve UI, and no single-item approve UI yet.
+6. Preserve that Q&A remains available without approval, drafts are not trusted yet, and approval stays selected-item only.
+7. Preserve the direct CLI JSON hardening issue, the weak positive `E1_fallback` product gap, and the inline-edit browser smoke warning as residual caveats, not hidden passes.
 
 ## If Context Is Lost
 

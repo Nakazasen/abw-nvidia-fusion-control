@@ -22,6 +22,7 @@ Date: 2026-05-17
 - Control governance is updating from local HEAD `a90892ddf0e0d9b515882982c9ee579b73f61fb1`.
 - NVIDIA bounded workflow hardening plus review-state UI clarity fix has been accepted locally at commit `a867f892be94c350b9cabcfa168d19f82dc64995`.
 - NVIDIA approve bridge Stage 2 is accepted locally at commit `de7c907147de4a4938738e137e3264defe52426e`.
+- NVIDIA read-only triage dashboard Stage B is accepted locally at commit `395160cacbdf6464618cf6569dad78ff42596a2d`.
 - Non-tech Review/Triage UX design is now recorded locally as design evidence only.
 - ABW missing-source honesty fix is accepted locally at commit `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`.
 - ABW approve JSON contract Stage 1 is accepted locally at commit `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`.
@@ -39,7 +40,8 @@ Date: 2026-05-17
 - `/proxy/abw/promote` remains fail-closed.
 - The new bridge is infrastructure-only and does not provide the final non-tech UI approve flow.
 - The Review/Triage design now defines the non-tech path as ask first, review selectively, and approve one selected item later.
-- No read-only triage dashboard or approve UI has been implemented yet.
+- NVIDIA now exposes a read-only triage dashboard with grouped states, honest empty states, and no approval actions.
+- No approve UI has been implemented yet.
 - A pre-existing direct CLI JSON hardening caveat remains unresolved and is preserved as residual work, not hidden success.
 
 ## 2. Confirmed Direction
@@ -51,6 +53,7 @@ Date: 2026-05-17
   - smoke-test hardening around layout/focus/trust states
 - safe non-tech Review/Triage implementation starting with a read-only triage dashboard
 - safe non-tech trusted-source approval implementation only after read-only triage and candidate surfacing stages
+- immediate implementation focus moves to Q&A-integrated candidate surfacing
 - bounded approve bridge/server support is now recorded before any Stage E apply UI flow
 - This is hardening and usability work inside bounded bridge scope.
 
@@ -70,6 +73,6 @@ Date: 2026-05-17
 1. Review `06_VALIDATION/NON_TECH_REVIEW_TRIAGE_UX_DESIGN_REPORT.md`.
 2. Treat the Review/Triage result as design evidence only, not implementation and not readiness promotion.
 3. Preserve the honesty improvement and the no-mutation safety result on the browser UI path.
-4. Implement Stage B read-only triage dashboard next before any preview/apply approve UI claim.
-5. Keep the non-tech UI flow gap, direct CLI JSON hardening caveat, weak positive `E1_fallback` trust `45`, and browser smoke inline-edit observability as active warning/blocker items until separately addressed.
+4. Implement Stage C Q&A-integrated candidate surfacing next before any preview/apply approve UI claim.
+5. Keep the preview/apply non-tech UI flow gap, direct CLI JSON hardening caveat, weak positive `E1_fallback` trust `45`, and browser smoke inline-edit observability as active warning/blocker items until separately addressed.
 

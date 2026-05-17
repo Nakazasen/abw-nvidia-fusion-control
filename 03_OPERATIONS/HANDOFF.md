@@ -18,6 +18,65 @@
 
 - 2026-05-17
 
+## 2026-05-17 NVIDIA Read-Only Triage Dashboard Stage B Snapshot
+
+- Control HEAD before record:
+  - `6cd9f924707f302d5e94fbd0286b5728038cc903`
+- NVIDIA HEAD recorded:
+  - `395160cacbdf6464618cf6569dad78ff42596a2d`
+- ABW HEAD context:
+  - `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`
+- Latest result:
+  - `NVIDIA_READ_ONLY_TRIAGE_DASHBOARD_STAGE_B_RECORDED`
+- Evidence artifact:
+  - `06_VALIDATION/NVIDIA_READ_ONLY_TRIAGE_DASHBOARD_STAGE_B_REPORT.md`
+- Scope:
+  - NVIDIA-only bounded UI evidence
+  - no CONTROL edits during implementation
+  - no ABW edits during implementation
+  - no push
+  - no readiness promotion
+  - read-only triage dashboard only
+- Stage B UI recorded:
+  - read-only triage dashboard added in `nvidia_playground.html`
+  - browser smoke coverage expanded in `tools/browser-smoke.mjs`
+  - dashboard groups implemented:
+    - `Ready to ask, not trusted yet`
+    - `Good candidates to review`
+    - `Needs attention`
+    - `Could not read`
+    - `Already trusted`
+    - `Recently used in answers`
+  - honest empty states implemented for unread/population-missing states
+  - copy explains that Q&A remains available before review
+  - copy explains draft sources are useful but not trusted yet
+  - unsupported and parse-error rows are shown under `Could not read`
+  - trusted group does not confuse review items with trusted wiki
+  - candidate group excludes missing-source and ambiguous cases
+- Boundary preserved:
+  - this is read-only only
+  - no approve UI exists yet
+  - no approve dry-run product UI exists yet
+  - no approve apply UI exists yet
+  - no approve-all exists
+  - no batch or corpus approval exists
+  - no hidden trust mutation exists
+  - `/proxy/abw/promote` remains fail-closed
+  - `/proxy/abw/approve-draft` remains infrastructure only
+  - Q&A remains available without approval
+  - non-tech daily-use remains unproven
+- Validation:
+  - `git diff --check` PASS with LF/CRLF warnings only
+  - `node --check tools/browser-smoke.mjs` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tools/abw-cli-reader.mjs` PASS
+  - `npm run abw:reader:test` PASS `162/162`
+  - `npm run browser:smoke` PASS `159/159`
+  - inline-edit widget observability warning remains warning-only
+  - smoke verdict remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Recommended next gate:
+  - `IMPLEMENT_QA_INTEGRATED_CANDIDATE_SURFACING_STAGE_C`
+
 ## 2026-05-17 Non-Tech Review/Triage UX Design Snapshot
 
 - Control HEAD before record:

@@ -341,6 +341,63 @@ Date: 2026-05-17
 - Recommended next gate:
   - `IMPLEMENT_READ_ONLY_TRIAGE_DASHBOARD_STAGE_B`
 
+## D-2026-05-17-14: Record NVIDIA Read-Only Triage Dashboard Stage B As Bounded UI Evidence
+
+- Decision: Record NVIDIA commit `395160cacbdf6464618cf6569dad78ff42596a2d` as the bounded Stage B implementation of the read-only ABW triage dashboard.
+- Status: Accepted for operational recording.
+- Commit:
+  - `395160cacbdf6464618cf6569dad78ff42596a2d`
+  - `feat: add read-only ABW triage dashboard`
+- Scope:
+  - NVIDIA-only
+  - no CONTROL edits during implementation
+  - no ABW edits during implementation
+  - no push
+  - no readiness promotion
+  - read-only triage dashboard only
+- Recorded capability:
+  - read-only triage dashboard in `nvidia_playground.html`
+  - browser smoke coverage in `tools/browser-smoke.mjs`
+  - groups:
+    - `Ready to ask, not trusted yet`
+    - `Good candidates to review`
+    - `Needs attention`
+    - `Could not read`
+    - `Already trusted`
+    - `Recently used in answers`
+  - honest empty states for unreadable/unpopulated states
+  - copy explaining Q&A works before review and drafts are not trusted yet
+  - unsupported and parse-error content shown under `Could not read`
+  - trusted group does not confuse review items with trusted wiki
+  - candidate group excludes missing-source and ambiguous cases
+- Preserved boundary:
+  - this is read-only only
+  - no approve UI exists yet
+  - no approve dry-run product UI exists yet
+  - no approve apply UI exists yet
+  - no approve-all
+  - no batch or corpus approval
+  - no hidden trust mutation
+  - `/proxy/abw/promote` remains fail-closed
+  - `/proxy/abw/approve-draft` remains infrastructure only
+  - Q&A remains available without approval
+  - this does not prove non-technical daily-use readiness
+- Evidence:
+  - `git diff --check` PASS with LF/CRLF warnings only
+  - `node --check tools/browser-smoke.mjs` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tools/abw-cli-reader.mjs` PASS
+  - `npm run abw:reader:test` PASS `162 passed, 0 failed`
+  - `npm run browser:smoke` PASS `159 passed, 0 failed`
+  - warning retained:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - browser smoke verdict retained:
+    - `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Non-claim:
+  - This does not promote `DAILY_USE_READY`, production-ready, enterprise-ready, full bridge ready, autonomous-safe, packaging-ready, broad real-world validation, or Cognitive OS achieved.
+- Recommended next gate:
+  - `IMPLEMENT_QA_INTEGRATED_CANDIDATE_SURFACING_STAGE_C`
+
 ## D-2026-05-17-06: Record Small Sanitized Pilot As Warning Evidence
 
 - Decision: Record `WARNING_BOUNDED_SANITIZED_PILOT` as bounded sanitized bridge/API pilot evidence only.
