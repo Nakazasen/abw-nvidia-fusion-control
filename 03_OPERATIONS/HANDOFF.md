@@ -31,6 +31,62 @@
 - Supersedes operational mirrors previously spread across `03_OPERATIONS/SESSION_CLOSE.md`, `03_OPERATIONS/SESSION_RESTORE.md`, and `03_OPERATIONS/NEXT.md`.
 - Those files now hold compact references/indexes only.
 
+## 2026-05-17 ABW Read-Only Fix and Full UI Rerun Warning Snapshot
+
+- Control HEAD before record:
+  - `e52252d525bc60fd1aa789689b7e23195dc5adca`
+- NVIDIA HEAD during rerun:
+  - `6ddf31561a3636e3f8e3c5cadbd4854cf0923114`
+- ABW HEAD during rerun:
+  - `c877051ef303e99b77d92315a402415d5512997d`
+- Latest result:
+  - `WARNING_UI_BOUNDED_SANITIZED_RERUN_AFTER_ABW_FIX`
+- Evidence artifact:
+  - `06_VALIDATION/ABW_READ_ONLY_FIX_UI_RERUN_WARNING_REPORT.md`
+- ABW fix recorded:
+  - commit `c877051ef303e99b77d92315a402415d5512997d`
+  - `fix: suppress deep query logs in read-only mode`
+  - read-only `query_deep_runs.jsonl` mutation fixed
+  - direct CLI and NVIDIA bridge read-only asks no longer mutate `.brain`
+  - `runtimeWriteSuppressed=true`
+  - `deepRunLogSuppressed=true`
+- Validation:
+  - ABW targeted tests PASS `99 passed`
+  - ABW broader targeted tests PASS `118 passed, 2 warnings, 7 subtests passed`
+  - NVIDIA bridge test PASS `108/108`
+- Full browser UI rerun:
+  - browser UI used, no bridge/API fallback for the gate
+  - fresh sanitized workspace `D:\Sandbox\_real_user_pilot\ui_sanitized_rerun_after_abw_fix_20260517_131612`
+  - 5 raw files: 3 approved sanitized work-like files, 1 unsupported synthetic file, 1 malformed DOCX placeholder
+  - ingest `ingested=3`, `skipped=2`, `generated_drafts=3`, `review_required=true`, `promotion_performed=false`
+  - unsupported and parse-error rows readable; `[object Object]` did not appear
+- Safety outcome:
+  - query-time `.brain` mutation: no
+  - `.brain` count `10 -> 10`
+  - changed files `[]`
+  - `query_deep_runs.jsonl` not created/changed
+  - no pending edits
+  - no Apply
+  - no sync/write-back
+  - no auto-promotion
+  - CONTROL/NVIDIA/ABW remained clean
+- Remaining warning interpretation:
+  - Vietnamese remained no-match
+  - procedure/troubleshooting remained no-match on the fresh workspace
+  - some answers remained `E1_fallback`, trust `45`
+  - safety blocker is fixed, UI clarity passed, answer quality/retrieval coverage remains limited
+- Readiness boundary remains:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not enterprise-ready
+  - not full bridge ready
+  - not autonomous-safe
+  - not packaging-ready
+  - not Cognitive OS achieved
+  - not broad real-world validation
+- Recommended next gate:
+  - `INVESTIGATE_BACKEND_RETRIEVAL_OR_VIETNAMESE_COVERAGE`
+
 ## 2026-05-17 Small Sanitized Pilot Warning Snapshot
 
 - Control HEAD before record:

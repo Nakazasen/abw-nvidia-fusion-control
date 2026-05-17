@@ -26,10 +26,10 @@
 
 ## Immediate Next Actions
 
-1. Review `06_VALIDATION/SMALL_SANITIZED_REAL_WORK_DOC_PILOT_WARNING_REPORT.md`.
-2. Treat `WARNING_BOUNDED_SANITIZED_PILOT` as bounded sanitized bridge/API evidence only.
-3. Run a full browser UI sanitized pilot next if continuing validation: `RUN_UI_FULL_BROWSER_SANITIZED_PILOT`.
-4. Preserve the unsupported/malformed fallback warning as a quality gap until separately addressed.
+1. Review `06_VALIDATION/ABW_READ_ONLY_FIX_UI_RERUN_WARNING_REPORT.md`.
+2. Treat `WARNING_UI_BOUNDED_SANITIZED_RERUN_AFTER_ABW_FIX` as bounded sanitized full-browser UI warning evidence only.
+3. Investigate backend retrieval / Vietnamese coverage next if continuing: `INVESTIGATE_BACKEND_RETRIEVAL_OR_VIETNAMESE_COVERAGE`.
+4. Preserve remaining no-match and `E1_fallback` trust `45` behavior as retrieval/quality warnings until separately addressed.
 5. Keep the inline-edit browser smoke warning as warning-only until separately investigated.
 
 ## If Context Is Lost

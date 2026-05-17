@@ -40,23 +40,32 @@
 - This remains a residual confidence gap for UX completeness claims.
 - It is warning-only and is not readiness proof.
 
-5. Small sanitized pilot warning gate
-- Small sanitized bridge/API pilot evidence is recorded as `WARNING_BOUNDED_SANITIZED_PILOT`.
+5. Sanitized full UI rerun warning gate
+- ABW read-only `query_deep_runs.jsonl` mutation blocker is closed by ABW commit `c877051ef303e99b77d92315a402415d5512997d`.
+- Full browser UI sanitized rerun after the ABW fix is recorded as `WARNING_UI_BOUNDED_SANITIZED_RERUN_AFTER_ABW_FIX`.
 - Safety boundaries passed:
   - no query-time `.brain` mutation
+  - `.brain` count stayed `10 -> 10`
+  - `query_deep_runs.jsonl` was not created/changed
   - no pending edits after query
   - no NVIDIA Apply
   - no sync/write-back
   - no auto-promotion
-  - missing-source returned `ABW_CLI_NO_MATCH`, `E0_unknown`, trust `0`, `sources=[]`
-- Warning remains active:
-  - unsupported/malformed ask returned `E1_fallback`, trust `45`, draft source, weak-evidence warnings
-  - this is not a clean quality pass for that question
-- UI evidence remains partial because full browser UI automation was not used.
-- Next pilot movement should not be readiness promotion; current recommended gate is `RUN_UI_FULL_BROWSER_SANITIZED_PILOT`.
+  - CONTROL/NVIDIA/ABW remained clean
+- UI clarity passed:
+  - unsupported/parse-error rows readable
+  - weak/fallback warning visible
+  - missing-source visible
+  - no readiness overclaim visible
+- Remaining warning remains active:
+  - Vietnamese no-match
+  - procedure/troubleshooting no-match on fresh workspace
+  - some answers are `E1_fallback`, trust `45`
+  - this is not a clean answer-quality or retrieval-coverage pass
+- Next movement should not be readiness promotion; current recommended gate is `INVESTIGATE_BACKEND_RETRIEVAL_OR_VIETNAMESE_COVERAGE`.
 
 ## Immediate Risk If Ignored
 
 - Overclaim risk rises if bounded smoke evidence is treated as daily-use or production readiness.
-- Pilot risk rises if warning/partial-UI evidence is treated as clean broad validation.
+- Pilot risk rises if warning evidence is treated as clean broad validation.
 

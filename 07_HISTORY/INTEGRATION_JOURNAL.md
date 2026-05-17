@@ -6038,3 +6038,46 @@ Warning:
   - not `DAILY_USE_READY`, not production-ready, not enterprise-ready, not full bridge ready, not autonomous-safe, not packaging-ready, not Cognitive OS achieved, and not broad real-world validated
 - Next gate:
   - `RETURN_TO_SMALL_SANITIZED_REAL_WORK_DOC_PILOT_REVIEW`
+
+## 2026-05-17 - ABW read-only fix and full UI rerun warning evidence recorded
+
+- Control head before update:
+  - `e52252d525bc60fd1aa789689b7e23195dc5adca`
+- NVIDIA head context:
+  - `6ddf31561a3636e3f8e3c5cadbd4854cf0923114`
+- ABW head recorded:
+  - `c877051ef303e99b77d92315a402415d5512997d`
+- ABW commit:
+  - `c877051ef303e99b77d92315a402415d5512997d`
+  - `fix: suppress deep query logs in read-only mode`
+- Result recorded:
+  - `WARNING_UI_BOUNDED_SANITIZED_RERUN_AFTER_ABW_FIX`
+- ABW fix evidence:
+  - read-only `query_deep_runs.jsonl` mutation fixed
+  - direct CLI and NVIDIA bridge read-only asks no longer mutate `.brain`
+  - `runtimeWriteSuppressed=true`
+  - `deepRunLogSuppressed=true`
+  - ABW tests PASS `99 passed`
+  - ABW broader targeted tests PASS `118 passed, 2 warnings, 7 subtests passed`
+  - NVIDIA bridge test PASS `108/108`
+- UI rerun evidence:
+  - full browser UI used, not bridge/API fallback for the gate
+  - fresh sanitized workspace `D:\Sandbox\_real_user_pilot\ui_sanitized_rerun_after_abw_fix_20260517_131612`
+  - 5 raw files: 3 approved sanitized work-like files, 1 synthetic unsupported file, 1 synthetic malformed DOCX placeholder
+  - ingest `ingested=3`, `skipped=2`, `generated_drafts=3`, `review_required=true`, `promotion_performed=false`
+  - unsupported/parse-error rows readable; `[object Object]` did not appear
+  - query-time `.brain` stayed `10 -> 10`
+  - changed files `[]`
+  - `query_deep_runs.jsonl` not created/changed
+  - no pending edits, no Apply, no sync/write-back, no auto-promotion
+- Remaining warnings:
+  - Vietnamese no-match
+  - procedure/troubleshooting no-match on fresh workspace
+  - some answers remain `E1_fallback`, trust `45`
+- Interpretation:
+  - safety blocker fixed
+  - UI clarity passed
+  - answer quality/retrieval coverage remains limited
+  - no readiness promotion
+- Next gate:
+  - `INVESTIGATE_BACKEND_RETRIEVAL_OR_VIETNAMESE_COVERAGE`

@@ -80,6 +80,32 @@ Date: 2026-05-17
 - Non-claim:
   - This does not promote `DAILY_USE_READY`, production-ready, enterprise-ready, full bridge ready, autonomous-safe, packaging-ready, broad real-world validation, or Cognitive OS achieved.
 
+## D-2026-05-17-07: Record ABW Read-Only Fix and UI Rerun As Warning Evidence
+
+- Decision: Accept ABW commit `c877051ef303e99b77d92315a402415d5512997d` as the fix for read-only `query_deep_runs.jsonl` mutation, and record the full browser UI sanitized rerun as warning evidence.
+- Status: Accepted for operational recording.
+- Result:
+  - `WARNING_UI_BOUNDED_SANITIZED_RERUN_AFTER_ABW_FIX`
+- Evidence:
+  - direct CLI read-only ask no longer mutates `.brain`
+  - NVIDIA bridge read-only ask no longer mutates `.brain`
+  - `query_deep_runs.jsonl=false`
+  - `runtimeWriteSuppressed=true`
+  - `deepRunLogSuppressed=true`
+  - ABW tests PASS `99 passed`
+  - ABW broader targeted tests PASS `118 passed, 2 warnings, 7 subtests passed`
+  - NVIDIA bridge test PASS `108/108`
+  - full browser UI rerun used fresh sanitized workspace `D:\Sandbox\_real_user_pilot\ui_sanitized_rerun_after_abw_fix_20260517_131612`
+  - UI ingest `ingested=3`, `skipped=2`, `generated_drafts=3`, `review_required=true`, `promotion_performed=false`
+  - query-time `.brain` stayed `10 -> 10`; changed files `[]`
+  - `query_deep_runs.jsonl` not created/changed
+- Warning retained:
+  - Vietnamese no-match
+  - procedure/troubleshooting no-match on fresh workspace
+  - some answers remain `E1_fallback`, trust `45`
+- Non-claim:
+  - This does not promote `DAILY_USE_READY`, production-ready, enterprise-ready, full bridge ready, autonomous-safe, packaging-ready, broad real-world validation, or Cognitive OS achieved.
+
 ## D-2026-05-17-06: Record Small Sanitized Pilot As Warning Evidence
 
 - Decision: Record `WARNING_BOUNDED_SANITIZED_PILOT` as bounded sanitized bridge/API pilot evidence only.
