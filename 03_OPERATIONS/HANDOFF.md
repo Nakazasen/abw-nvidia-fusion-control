@@ -18,6 +18,61 @@
 
 - 2026-05-17
 
+## 2026-05-17 ABW Missing-Source Honesty Fix Snapshot
+
+- Control HEAD before record:
+  - `cd4d09fb4d879778257dc5fd170eac867eb54973`
+- NVIDIA HEAD context:
+  - `a867f892be94c350b9cabcfa168d19f82dc64995`
+- ABW HEAD recorded:
+  - `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`
+- Latest result:
+  - `ABW_MISSING_SOURCE_HONESTY_FIX_RECORDED`
+- Evidence artifact:
+  - `06_VALIDATION/ABW_MISSING_SOURCE_HONESTY_FIX_REPORT.md`
+- ABW fix recorded:
+  - commit `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`
+  - `fix: abstain on missing-source and parser-honesty controls`
+  - missing-source control no longer acts as answer evidence
+  - unsupported file references no longer weak-fallback to unrelated raw/draft content
+  - malformed file references no longer weak-fallback to unrelated raw/draft content
+  - narrow semantic mismatch guard added
+  - positive raw/draft fallback preserved as `E1_fallback`, trust `45`
+  - trusted wiki behavior unchanged
+- Validation:
+  - ABW targeted regressions PASS `6 passed`
+  - ABW retrieval-layer guard tests PASS `3 passed`
+  - broader ABW abstention/domain/entity regressions PASS `5 passed`
+  - NVIDIA bridge test PASS `108/108`
+- Proxy verification:
+  - fresh synthetic workspace `D:\Sandbox\_real_user_pilot\abw_honesty_fix_proxy_20260517_154122`
+  - missing-source => `ABW_CLI_NO_MATCH` / `no_match` / `E0_unknown` / trust `0` / `sources=[]`
+  - unsupported file => `ABW_CLI_NO_MATCH` / `no_match` / `E0_unknown` / trust `0` / `sources=[]`
+  - malformed file => `ABW_CLI_NO_MATCH` / `no_match` / `E0_unknown` / trust `0` / `sources=[]`
+  - positive factual/procedure fallback => `ABW_CLI_OK` / `raw_or_draft_only` / `E1_fallback` / trust `45`
+  - ambiguous control remains weak/cautious `E1_fallback`
+- Safety outcome:
+  - browser/proxy ask phase `.brain` mutation: no
+  - `query_deep_runs.jsonl` not created/changed
+  - no Apply
+  - no sync/write-back
+  - no auto-promotion
+  - CONTROL/NVIDIA/ABW remained clean during validation
+- Preserved caveat:
+  - direct CLI JSON hardening regression remains unresolved on this machine due to pre-existing plain-text-vs-JSON behavior
+  - this is recorded as a residual issue, not as a hidden pass
+- Readiness boundary remains:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not enterprise-ready
+  - not full bridge ready
+  - not autonomous-safe
+  - not packaging-ready
+  - not Cognitive OS achieved
+  - not broad real-world validation
+- Recommended next gate:
+  - `RERUN_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`
+
 ## CANONICAL REFERENCES
 
 - Strategic truth: `05_DECISIONS/ROADMAP.md`

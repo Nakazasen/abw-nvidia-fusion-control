@@ -137,6 +137,37 @@ Date: 2026-05-17
   - no safe UI trusted-source approve contract yet
   - missing-source honesty still needs separate investigation
 
+## D-2026-05-17-09: Record ABW Missing-Source Honesty Fix As Bounded Backend Evidence
+
+- Decision: Record ABW commit `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8` as the bounded backend fix for missing-source honesty and parser-honesty routing on the browser/proxy path.
+- Status: Accepted for operational recording.
+- Commit:
+  - `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`
+  - `fix: abstain on missing-source and parser-honesty controls`
+- Root cause fixed:
+  - missing-source control/spec text was treated as answer evidence
+  - unsupported and malformed explicit file-reference queries could weak-fallback into unrelated raw/draft content
+- Evidence:
+  - ABW targeted regressions PASS `6 passed`
+  - ABW retrieval-layer guard tests PASS `3 passed`
+  - broader ABW abstention/domain/entity regressions PASS `5 passed`
+  - NVIDIA `npm run abw:reader:test` PASS `108/108`
+  - proxy verification on fresh synthetic workspace `D:\Sandbox\_real_user_pilot\abw_honesty_fix_proxy_20260517_154122`
+  - missing-source => `ABW_CLI_NO_MATCH`, `no_match`, `E0_unknown`, trust `0`, `sources=[]`
+  - unsupported file => `ABW_CLI_NO_MATCH`, `no_match`, `E0_unknown`, trust `0`, `sources=[]`
+  - malformed file => `ABW_CLI_NO_MATCH`, `no_match`, `E0_unknown`, trust `0`, `sources=[]`
+  - positive relevant raw/draft fallback preserved => `ABW_CLI_OK`, `raw_or_draft_only`, `E1_fallback`, trust `45`
+  - ambiguous control remains weak/cautious `E1_fallback`
+  - browser/proxy ask phase `.brain` mutation `no`
+  - `query_deep_runs.jsonl` not created/changed
+- Preserved caveat:
+  - direct CLI JSON hardening regression remains unresolved on this machine due to pre-existing plain-text-vs-JSON behavior
+  - this caveat is recorded, not hidden, and not treated as a pass
+- Non-claim:
+  - This does not promote `DAILY_USE_READY`, production-ready, enterprise-ready, full bridge ready, autonomous-safe, packaging-ready, broad real-world validation, or Cognitive OS achieved.
+- Recommended next gate:
+  - `RERUN_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`
+
 ## D-2026-05-17-06: Record Small Sanitized Pilot As Warning Evidence
 
 - Decision: Record `WARNING_BOUNDED_SANITIZED_PILOT` as bounded sanitized bridge/API pilot evidence only.

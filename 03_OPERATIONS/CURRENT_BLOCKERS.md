@@ -62,7 +62,7 @@
   - procedure/troubleshooting no-match on fresh workspace
   - some answers are `E1_fallback`, trust `45`
   - this is not a clean answer-quality or retrieval-coverage pass
-- Next movement should not be readiness promotion; current recommended gate is `INVESTIGATE_BACKEND_RETRIEVAL_OR_VIETNAMESE_COVERAGE`.
+- Next movement should not be readiness promotion; this warning lineage is preserved, but the immediate follow-up is now `RERUN_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`.
 
 6. Trusted-source approve contract blocker
 - NVIDIA UI clarity improved at commit `a867f892be94c350b9cabcfa168d19f82dc64995`.
@@ -71,10 +71,30 @@
 - Safe UI promote/approve remains blocked until a bounded JSON approve contract exists.
 - `/proxy/abw/promote` must remain fail-closed for now.
 
-7. Missing-source honesty blocker
-- Missing-source honesty still needs separate investigation after the strong manifest two-phase UI pilot failure.
-- Current governance should not treat the UI clarity fix as evidence that missing-source abstention is fixed.
-- Non-technical daily-use remains unproven until missing-source behavior and trusted-source approval path are both addressed.
+7. Strong manifest rerun blocker
+- The browser/proxy missing-source honesty failure is closed by ABW commit `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`.
+- Missing-source, unsupported, and malformed explicit file/control queries now abstain correctly on the proxy path:
+  - `ABW_CLI_NO_MATCH`
+  - `no_match`
+  - `E0_unknown`
+  - trust `0`
+  - `sources=[]`
+- Positive relevant raw/draft fallback remains preserved as `E1_fallback`, trust `45`.
+- This does not prove broader non-technical daily-use readiness.
+- The next blocker is to rerun the strong manifest browser UI pilot after the honesty fix and confirm the bounded UI path still behaves honestly end to end.
+
+8. Direct CLI JSON hardening caveat
+- A pre-existing direct CLI JSON hardening regression remains unresolved on this machine.
+- The failing command family is:
+  - `py -m pytest tests/test_abw_json_hardening.py -k "ask_json_contract_no_match or ask_json_contract_runtime_write_suppressed or ask_json_contract_raw_only_query_marks_weak_evidence"`
+- Observed issue:
+  - plain-text-vs-JSON CLI behavior
+- Governance status:
+  - recorded caveat
+  - not hidden
+  - not treated as a pass
+  - not equivalent to a browser/proxy path regression
+- This remains relevant future hardening work if the direct CLI JSON surface is still considered supported.
 
 ## Immediate Risk If Ignored
 

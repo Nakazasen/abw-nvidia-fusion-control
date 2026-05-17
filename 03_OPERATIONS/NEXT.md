@@ -27,11 +27,12 @@
 ## Immediate Next Actions
 
 1. Review `06_VALIDATION/NVIDIA_REVIEW_UI_CLARITY_FIX_REPORT.md`.
-2. Treat NVIDIA commit `a867f892be94c350b9cabcfa168d19f82dc64995` as UI clarity evidence only, not a readiness promotion.
-3. Rerun the strong manifest browser UI pilot next if continuing: `RERUN_STRONG_MANIFEST_UI_PILOT_AFTER_UI_CLARITY_FIX`.
-4. Preserve the trusted-source approve contract gap as active: UI promote remains fail-closed.
-5. Preserve missing-source honesty as a separate active investigation after the rerun if it still fails.
-6. Keep the inline-edit browser smoke warning as warning-only until separately investigated.
+2. Review `06_VALIDATION/ABW_MISSING_SOURCE_HONESTY_FIX_REPORT.md`.
+3. Treat ABW commit `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8` as bounded source-honesty evidence only, not a readiness promotion.
+4. Rerun the strong manifest browser UI pilot next if continuing: `RERUN_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`.
+5. Preserve the trusted-source approve contract gap as active: UI promote remains fail-closed.
+6. Preserve the direct CLI JSON hardening issue as a residual caveat, not as a hidden pass.
+7. Keep the inline-edit browser smoke warning as warning-only until separately investigated.
 
 ## If Context Is Lost
 

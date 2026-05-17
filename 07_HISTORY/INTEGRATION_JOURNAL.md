@@ -6124,3 +6124,52 @@ Warning:
   - non-technical daily-use remains unproven
 - next gate:
   - `RERUN_STRONG_MANIFEST_UI_PILOT_AFTER_UI_CLARITY_FIX`
+
+## 2026-05-17 - ABW missing-source honesty fix recorded
+
+- Control head before update:
+  - `cd4d09fb4d879778257dc5fd170eac867eb54973`
+- NVIDIA head context:
+  - `a867f892be94c350b9cabcfa168d19f82dc64995`
+- ABW head recorded:
+  - `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`
+- verdict:
+  - `ABW_MISSING_SOURCE_HONESTY_FIX_RECORDED`
+- artifact:
+  - `06_VALIDATION/ABW_MISSING_SOURCE_HONESTY_FIX_REPORT.md`
+- recorded fix:
+  - `fix: abstain on missing-source and parser-honesty controls`
+  - missing-source control/spec text no longer answers as evidence
+  - unsupported explicit file references no longer weak-fallback to unrelated raw/draft content
+  - malformed explicit file references no longer weak-fallback to unrelated raw/draft content
+  - narrow semantic mismatch guard added
+  - positive relevant draft/raw fallback preserved as `E1_fallback`, trust `45`
+  - trusted wiki behavior unchanged
+- validation evidence:
+  - ABW targeted regressions PASS `6 passed`
+  - ABW retrieval-layer guard tests PASS `3 passed`
+  - broader ABW abstention/domain/entity regressions PASS `5 passed`
+  - NVIDIA bridge regression PASS `108/108`
+- proxy verification:
+  - fresh synthetic workspace `D:\Sandbox\_real_user_pilot\abw_honesty_fix_proxy_20260517_154122`
+  - missing-source => `ABW_CLI_NO_MATCH` / `no_match` / `E0_unknown` / trust `0` / `sources=[]`
+  - unsupported => `ABW_CLI_NO_MATCH` / `no_match` / `E0_unknown` / trust `0` / `sources=[]`
+  - malformed => `ABW_CLI_NO_MATCH` / `no_match` / `E0_unknown` / trust `0` / `sources=[]`
+  - positive factual/procedure fallback => `ABW_CLI_OK` / `raw_or_draft_only` / `E1_fallback` / trust `45`
+  - ambiguous control => weak/cautious `E1_fallback`
+- mutation safety:
+  - browser/proxy ask phase `.brain` unchanged
+  - `query_deep_runs.jsonl` not created/changed
+  - no Apply
+  - no sync/write-back
+  - no auto-promotion
+  - Control/NVIDIA/ABW remained clean during validation
+- caveat preserved:
+  - direct CLI JSON hardening regression remains unresolved on this machine due to pre-existing plain-text-vs-JSON behavior
+  - this is recorded as residual work, not hidden success
+- interpretation:
+  - source honesty improved for non-technical UX on the browser/proxy path
+  - this is not a readiness upgrade
+  - prior failed pilot lineage remains preserved
+- next gate:
+  - `RERUN_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`
