@@ -31,11 +31,11 @@ D:\Sandbox\skill-Anti-brain-wiki_note
 ## Source-of-truth governance files
 
 The core governance files are:
-- ROADMAP.md
-- DECISIONS.md
-- RISKS.md
-- HANDOFF.md
-- INTEGRATION_JOURNAL.md
+- 05_DECISIONS/ROADMAP.md
+- 05_DECISIONS/DECISIONS.md
+- 05_DECISIONS/RISKS.md
+- 03_OPERATIONS/HANDOFF.md
+- 07_HISTORY/INTEGRATION_JOURNAL.md
 
 These files must remain consistent with each other.
 
@@ -113,7 +113,7 @@ Auditor:
 - recommends commit only if evidence is sufficient
 
 Governance Recorder:
-- updates ROADMAP.md, DECISIONS.md, RISKS.md, HANDOFF.md, and INTEGRATION_JOURNAL.md
+- updates 05_DECISIONS/ROADMAP.md, 05_DECISIONS/DECISIONS.md, 05_DECISIONS/RISKS.md, 03_OPERATIONS/HANDOFF.md, and 07_HISTORY/INTEGRATION_JOURNAL.md
 - preserves not-proven lists
 - does not promote readiness without explicit decision
 
@@ -124,8 +124,8 @@ When resuming:
 2. Run git status --short.
 3. Check current HEAD.
 4. Compare against latest governance state.
-5. Read HANDOFF.md first.
-6. Read DECISIONS.md and RISKS.md next.
+5. Read 03_OPERATIONS/HANDOFF.md first.
+6. Read 05_DECISIONS/DECISIONS.md and 05_DECISIONS/RISKS.md next.
 7. Only then inspect implementation repos.
 
 ## Dirty work policy

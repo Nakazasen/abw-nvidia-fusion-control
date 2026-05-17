@@ -1,0 +1,51 @@
+{
+  "schema_version": "document.lifecycle.v0.1",
+  "lifecycle_states": {
+    "canonical": {
+      "authority": "may define accepted truth",
+      "requirements": [
+        "purpose",
+        "ownership",
+        "source_of_truth_or_canonicality"
+      ]
+    },
+    "derived": {
+      "authority": "may summarize canonical truth and local observations",
+      "requirements": [
+        "canonical reference",
+        "date or scope"
+      ]
+    },
+    "helper": {
+      "authority": "navigation or action aid only",
+      "requirements": [
+        "must not own readiness truth"
+      ]
+    },
+    "evidence": {
+      "authority": "historical validation record",
+      "requirements": [
+        "preserve verdict",
+        "preserve residual risks",
+        "preserve non-claims"
+      ]
+    },
+    "archive": {
+      "authority": "historical context",
+      "requirements": [
+        "must not override canonical operational truth"
+      ]
+    }
+  },
+  "allowed_duplication_zones": [
+    "07_HISTORY",
+    "06_VALIDATION evidence artifacts",
+    "explicit non-claims repeated for safety"
+  ],
+  "prohibited_duplication": [
+    "full latest operational mirror outside 03_OPERATIONS/HANDOFF.md",
+    "unqualified readiness promotion in helper docs",
+    "duplicated canonical ownership for the same truth domain"
+  ]
+}
+

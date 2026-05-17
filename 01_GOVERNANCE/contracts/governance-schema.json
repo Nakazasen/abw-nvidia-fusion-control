@@ -1,0 +1,42 @@
+{
+  "schema_version": "governance.contracts.v0.1",
+  "purpose": "Describe machine-readable governance contract shapes for non-destructive validation.",
+  "non_goals": [
+    "Does not implement runtime governance enforcement.",
+    "Does not certify production readiness."
+  ],
+  "required_document_fields": [
+    "path",
+    "owner",
+    "canonicality",
+    "purpose",
+    "lifecycle"
+  ],
+  "severity_levels": [
+    "critical",
+    "high",
+    "medium",
+    "low",
+    "info"
+  ],
+  "claim_classes": {
+    "forbidden_without_decision": [
+      "DAILY_USE_READY",
+      "production-ready",
+      "full bridge ready",
+      "Cognitive OS achieved",
+      "enterprise-grade security",
+      "packaging-ready",
+      "VS Code parity",
+      "Cursor parity"
+    ],
+    "allowed_contexts": [
+      "non-claim",
+      "not proven",
+      "blocked claim",
+      "historical rejected claim",
+      "explicitly promoted by DECISIONS.md"
+    ]
+  }
+}
+

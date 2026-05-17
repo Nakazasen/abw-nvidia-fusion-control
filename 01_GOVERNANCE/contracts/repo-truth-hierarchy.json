@@ -1,0 +1,30 @@
+{
+  "schema_version": "repo.truth.hierarchy.v0.1",
+  "truth_order": [
+    {
+      "rank": 1,
+      "scope": "local repositories",
+      "paths": [
+        "D:/Sandbox/ABW_NVIDIA_FUSION_CONTROL",
+        "D:/Sandbox/Nvidia",
+        "D:/Sandbox/skill-Anti-brain-wiki_note"
+      ],
+      "meaning": "Primary truth"
+    },
+    {
+      "rank": 2,
+      "scope": "remote mirrors",
+      "meaning": "Secondary synchronization reference"
+    }
+  ],
+  "document_precedence": [
+    "03_OPERATIONS/HANDOFF.md",
+    "07_HISTORY/INTEGRATION_JOURNAL.md",
+    "05_DECISIONS/DECISIONS.md",
+    "05_DECISIONS/RISKS.md",
+    "05_DECISIONS/ROADMAP.md",
+    "00_SYSTEM/NON_CLAIMS.md",
+    "derived_and_helper_documents"
+  ]
+}
+

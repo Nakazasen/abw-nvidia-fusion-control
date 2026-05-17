@@ -1,0 +1,37 @@
+{
+  "schema_version": "cognitive.routing.v0.1",
+  "entrypoints": {
+    "universal": "START_HERE.md",
+    "recovery": "04_RECOVERY/RECOVERY_PROTOCOL.md",
+    "context_collapse_recovery": "04_RECOVERY/CONTEXT_COLLAPSE_PROTOCOL.md",
+    "operational_truth": "03_OPERATIONS/HANDOFF.md",
+    "current_blockers": "03_OPERATIONS/CURRENT_BLOCKERS.md",
+    "governance_topology": "01_GOVERNANCE/GOVERNANCE_MAP.md",
+    "runtime_governance": "03_OPERATIONS/runtime_governance/RUNTIME_GOVERNANCE_SURFACE.md",
+    "runtime_warning_policy": "01_GOVERNANCE/runtime_contracts/runtime-warning-policy.md",
+    "execution_layer": "03_OPERATIONS/execution_layer/EXECUTION_SURFACE_MAP.md",
+    "execution_contract": "01_GOVERNANCE/execution_contracts/bounded-execution-contract.md",
+    "human_review_gates": "06_VALIDATION/review_gates/HUMAN_REVIEW_REQUIRED_MATRIX.md",
+    "execution_recovery": "04_RECOVERY/EXECUTION_RECOVERY_PROTOCOL.md"
+  },
+  "read_orders": {
+    "human": [
+      "START_HERE.md",
+      "REPO_MAP.md",
+      "00_SYSTEM/PROJECT_PHILOSOPHY.md",
+      "01_GOVERNANCE/GOVERNANCE_MAP.md",
+      "04_RECOVERY/RECOVERY_PROTOCOL.md",
+      "03_OPERATIONS/HANDOFF.md"
+    ],
+    "ai_agent": [
+      "START_HERE.md",
+      "REPO_MAP.md",
+      "00_SYSTEM/PROJECT_PHILOSOPHY.md",
+      "01_GOVERNANCE/GOVERNANCE_MAP.md",
+      "04_RECOVERY/RECOVERY_PROTOCOL.md",
+      "03_OPERATIONS/HANDOFF.md",
+      "01_GOVERNANCE/AI_AGENT_OPERATING_RULES.md",
+      "00_SYSTEM/NON_CLAIMS.md"
+    ]
+  }
+}

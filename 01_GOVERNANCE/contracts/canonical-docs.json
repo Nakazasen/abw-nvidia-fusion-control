@@ -1,0 +1,90 @@
+{
+  "schema_version": "canonical.docs.v0.1",
+  "source": "01_GOVERNANCE/FILE_OWNERSHIP.md",
+  "canonical_docs": [
+    {
+      "path": "START_HERE.md",
+      "owner": "Governance Recorder",
+      "canonicality": "entrypoint",
+      "purpose": "Universal bootstrap"
+    },
+    {
+      "path": "01_GOVERNANCE/GOVERNANCE_MAP.md",
+      "owner": "Governance Recorder",
+      "canonicality": "canonical",
+      "purpose": "Governance topology and memory graph"
+    },
+    {
+      "path": "03_OPERATIONS/HANDOFF.md",
+      "owner": "Governance Recorder",
+      "canonicality": "canonical",
+      "purpose": "Latest accepted operational truth"
+    },
+    {
+      "path": "05_DECISIONS/ROADMAP.md",
+      "owner": "Architect + Governance Recorder",
+      "canonicality": "canonical",
+      "purpose": "Strategic roadmap"
+    },
+    {
+      "path": "05_DECISIONS/DECISIONS.md",
+      "owner": "Architect + Governance Recorder",
+      "canonicality": "canonical",
+      "purpose": "Accepted decisions"
+    },
+    {
+      "path": "05_DECISIONS/RISKS.md",
+      "owner": "Architect + Auditor",
+      "canonicality": "canonical",
+      "purpose": "Persistent risk registry"
+    },
+    {
+      "path": "00_SYSTEM/NON_CLAIMS.md",
+      "owner": "Governance Recorder + Auditor",
+      "canonicality": "canonical",
+      "purpose": "Forbidden claim boundaries"
+    },
+    {
+      "path": "04_RECOVERY/CONTEXT_COLLAPSE_PROTOCOL.md",
+      "owner": "Governance Recorder",
+      "canonicality": "canonical",
+      "purpose": "Deterministic recovery when context or operational state is incomplete"
+    },
+    {
+      "path": "03_OPERATIONS/runtime_governance/RUNTIME_GOVERNANCE_SURFACE.md",
+      "owner": "Governance Recorder",
+      "canonicality": "canonical",
+      "purpose": "Runtime governance surface map"
+    },
+    {
+      "path": "01_GOVERNANCE/runtime_contracts/runtime-warning-policy.md",
+      "owner": "Governance Recorder + Auditor",
+      "canonicality": "canonical",
+      "purpose": "Runtime warning boundaries and non-enforcement policy"
+    },
+    {
+      "path": "03_OPERATIONS/execution_layer/EXECUTION_SURFACE_MAP.md",
+      "owner": "Governance Recorder + Operator",
+      "canonicality": "canonical",
+      "purpose": "Executable surface map and action safety classification"
+    },
+    {
+      "path": "01_GOVERNANCE/execution_contracts/bounded-execution-contract.md",
+      "owner": "Governance Recorder + Auditor",
+      "canonicality": "canonical",
+      "purpose": "Bounded execution rules and forbidden autonomy boundaries"
+    },
+    {
+      "path": "06_VALIDATION/review_gates/HUMAN_REVIEW_REQUIRED_MATRIX.md",
+      "owner": "Auditor + Governance Recorder",
+      "canonicality": "canonical",
+      "purpose": "Human review thresholds for execution"
+    },
+    {
+      "path": "04_RECOVERY/EXECUTION_RECOVERY_PROTOCOL.md",
+      "owner": "Governance Recorder + Auditor",
+      "canonicality": "canonical",
+      "purpose": "Interrupted, stale, and conflicting execution recovery"
+    }
+  ]
+}
