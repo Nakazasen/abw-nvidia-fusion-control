@@ -1,3 +1,5 @@
+<!-- markdownlint-configure-file { "MD013": false, "MD024": { "siblings_only": true } } -->
+
 # Architecture Decisions
 
 ## Ownership
@@ -674,6 +676,7 @@ Consequence:
 - Does not mutate ABW.
 - Does not claim daily-use readiness yet.
 - Does not claim production-ready/Cognitive OS/full bridge.
+
 ## DECISION: Accept NVIDIA UI usability smoke repair completion
 
 - Status: Accepted
@@ -1074,6 +1077,7 @@ Consequence:
 - Does not claim daily-use readiness.
 - Does not claim production-ready.
 - Does not claim Cognitive OS achieved.
+
 ## DECISION: Accept NVIDIA Apply Pending Edit To Disk Proof Completion
 
 - Status: Accepted
@@ -1105,6 +1109,7 @@ Consequence:
   - Does not mutate ABW.
   - Does not claim production-ready.
   - Does not claim Cognitive OS achieved.
+
 ## DECISION: Prove NVIDIA Full Manual Create/Apply E2E Next
 
 - Status: Accepted
@@ -2838,7 +2843,6 @@ Consequence:
 - Does not implement packaging.
 - Does not mutate ABW.
 
-
 ## DECISION: Record NVIDIA explicit path precedence fix completion
 
 - Status: Accepted
@@ -2896,7 +2900,6 @@ Consequence:
 - Does not implement packaging.
 - Does not mutate ABW.
 
-
 ## DECISION: Proceed to targeted manual revalidation rerun for NVIDIA Test 6
 
 - Status: Accepted
@@ -2935,7 +2938,6 @@ Consequence:
 - Does not implement packaging.
 - Does not mutate ABW.
 - Does not start a new code sprint.
-
 
 ## DECISION: Record NVIDIA workspace root absolute path blocker
 

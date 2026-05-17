@@ -1,4 +1,4 @@
-# Current Blockers (As of 2026-05-17)
+# Current Blockers (As of 2026-05-18)
 
 ## Ownership
 
@@ -83,7 +83,23 @@
 - The bounded non-tech approve UI pilot was rerun and failed on source honesty / trusted retrieval guard behavior, not approval mutation safety.
 - The failed pilot is preserved as `FAIL_BOUNDED_NON_TECH_APPROVE_UI_PILOT`.
 - The repair gate `FIX_MISSING_SOURCE_AND_TRUSTED_RETRIEVAL_GUARDS_AFTER_APPROVAL` is now recorded as bounded fix evidence.
-- The next full browser UI pilot still must be rerun after the retrieval guard fix.
+- The next full browser UI pilot was rerun on `2026-05-18` and recorded as `WARNING_BOUNDED_NON_TECH_APPROVE_UI_PILOT_AFTER_RETRIEVAL_FIX`.
+- Safety and honesty controls passed in that rerun:
+  - Q&A worked before approval
+  - exactly one source was previewed and approved
+  - trusted factual retrieval improved after approval
+  - missing-source, unsupported, malformed, and ambiguous generic remained abstain-only before and after approval
+  - ask/query did not mutate `.brain`
+  - `query_deep_runs.jsonl` was not created/changed
+  - `/proxy/abw/promote` remained unused
+- The remaining blocker is now UX/product clarity, not source honesty:
+  - Step 3 review copy still says trusted-source approval is unavailable in this UI
+  - review summary/action copy still implies manual-only promotion although the triage preview/apply path exists and works
+  - approved factual answer still carries residual weak-source wording noise
+- Follow-up status:
+  - the stale approval-availability copy has now been fixed in local NVIDIA UI wording and browser smoke/regression checks passed
+  - the warning classification is preserved historically because the pilot ran before that copy fix
+  - the immediate remaining gate is now a clean rerun of the bounded browser pilot with the corrected wording, not another approval-feature buildout
 - No bulk approval exists.
 - No corpus approval exists.
 - Manual CLI approval remains unacceptable as product UX for non-technical users.
@@ -99,8 +115,8 @@
 - Unrelated approved/trusted wiki sources are no longer reused for missing-source questions in the focused synthetic rerun.
 - Unsupported and malformed explicit file queries remain abstain-only in the focused rerun.
 - Generic ambiguous document queries abstain unless direct support exists.
-- This closes the immediate repair blocker only.
-- It does not replace the required full browser UI rerun after the fix.
+- The full browser UI rerun after the fix now confirms the same abstention behavior on the real UI path.
+- This closes the immediate honesty/rerun requirement, but it does not close the broader UX/readiness blocker.
 
 8. Strong manifest positive-usefulness blocker
 - The browser/proxy missing-source honesty failure is closed by ABW commit `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`, and the browser UI rerun preserves that fix as `WARNING_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`.
@@ -116,11 +132,12 @@
   - `E1_fallback`
   - trust `45`
 - This is not a source-honesty failure, but it is still a product blocker for non-technical daily use.
-- The remaining gap is not CLI assistance; it is the need to rerun a bounded non-tech approve UI pilot and show that selective approval materially improves weak positive usefulness.
+- The bounded non-tech approve UI rerun after retrieval fix now shows that selective approval materially improves the approved factual item from `E1_fallback` / trust `45` to `E2_wiki` / trust `72`.
+- The remaining gap is no longer selective-approval proof; it is refreshing bounded browser evidence on the corrected copy without overclaiming readiness.
 - The Review/Triage design now exists as recorded governance evidence.
 - The read-only triage dashboard, candidate surfacing, preview-only dry-run, and Stage E single-item approve apply UI now all exist as bounded evidence.
 - Positive controls still remain weak in prior warning evidence until selective approval flow is piloted and shows improvement.
-- Next movement should not be readiness promotion; the next implementation gate is `RERUN_BOUNDED_NON_TECH_APPROVE_UI_PILOT`.
+- Next movement should not be readiness promotion; the next implementation gate is `RERUN_COPY_CLEAN_BOUNDED_NON_TECH_APPROVE_UI_PILOT`.
 
 9. Direct CLI JSON hardening caveat
 - A pre-existing direct CLI JSON hardening regression remains unresolved on this machine.

@@ -1,6 +1,6 @@
 # Roadmap State (Local Snapshot)
 
-Date: 2026-05-17
+Date: 2026-05-18
 
 ## Ownership
 
@@ -27,6 +27,7 @@ Date: 2026-05-17
 - NVIDIA preview-only approve dry-run Stage D is accepted locally at commit `2e44f4928af8fd362fabdd03138896491b18401a`.
 - NVIDIA single-item approve apply Stage E is accepted locally at commit `2332a965429b5e4af29c36062a568d46fbae4123`.
 - ABW retrieval guard repair after the failed bounded non-tech approve UI pilot is recorded as `PASS_FIX_MISSING_SOURCE_AND_TRUSTED_RETRIEVAL_GUARDS` at commit `f748a44e2bd87594314bcc0d0af93d9ad64a55e6`.
+- Full browser rerun after the retrieval guard fix is now recorded as `WARNING_BOUNDED_NON_TECH_APPROVE_UI_PILOT_AFTER_RETRIEVAL_FIX`.
 - Non-tech Review/Triage UX design is now recorded locally as design evidence only.
 - ABW missing-source honesty fix is accepted locally at commit `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`.
 - ABW approve JSON contract Stage 1 is accepted locally at commit `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`.
@@ -51,8 +52,14 @@ Date: 2026-05-17
 - NVIDIA now exposes preview-only dry-run review entry points and a preview panel that calls `/proxy/abw/approve-draft` with `dry_run=true` only.
 - NVIDIA now exposes a bounded single-item approve apply path that requires successful preview, explicit confirmation token/text, trusted workspace continuity, and non-stale candidate state.
 - Preview is not approval by itself, and approval does not imply folder, workspace, or corpus validation.
-- The bounded non-tech approve UI pilot failed on missing-source / trusted retrieval honesty after approval and must be rerun after the retrieval guard fix.
+- The bounded non-tech approve UI pilot previously failed on missing-source / trusted retrieval honesty after approval and was rerun after the retrieval guard fix.
 - The focused repair rerun confirms missing-source, unsupported, malformed, and generic ambiguous queries abstain before/after a single factual source is approved.
+- The full browser rerun confirms the same honesty behavior on the real UI path, confirms single-item preview/apply approval works, and confirms the approved factual item improves to trusted/wiki `E2_wiki` / trust `72`.
+- The warning reason at runtime was UX clarity:
+  - Step 3 review copy still said trusted-source approval was unavailable in this UI
+  - review summary/action copy still implied manual-only promotion
+  - approved factual answer still carried residual weak-source wording noise
+- The stale approval-availability copy has now been fixed afterward in local NVIDIA UI wording and validated by NVIDIA regression plus browser smoke.
 - A pre-existing direct CLI JSON hardening caveat remains unresolved and is preserved as residual work, not hidden success.
 
 ## 2. Confirmed Direction
@@ -66,7 +73,7 @@ Date: 2026-05-17
 - safe non-tech trusted-source approval implementation only after read-only triage and candidate surfacing stages
 - preview-only approve dry-run is now recorded before apply
 - single-item approve apply Stage E is now recorded before any broader pilot or validation claim
-- immediate validation focus moves to rerunning a bounded non-tech approve UI pilot after the retrieval guard fix
+- immediate validation focus moves to rerunning the bounded pilot on the corrected UI copy without treating that as readiness promotion
 - This is hardening and usability work inside bounded bridge scope.
 
 ## 3. What Is Not Yet True
@@ -82,9 +89,9 @@ Date: 2026-05-17
 
 ## 4. Immediate Next Governance-Grade Steps
 
-1. Review `06_VALIDATION/NVIDIA_SINGLE_ITEM_APPROVE_APPLY_STAGE_E_REPORT.md`.
-2. Treat the Stage E result as bounded single-item approve apply evidence only, not readiness promotion.
-3. Preserve the honesty improvement and the no-mutation safety result on the browser UI path.
-4. Rerun a bounded non-tech approve UI pilot after the retrieval guard fix before any broader approval claim.
-5. Keep the bounded pilot gap, direct CLI JSON hardening caveat, weak positive `E1_fallback` trust `45`, broader real-world validation gap, and browser smoke inline-edit observability as active warning/blocker items until separately addressed.
+1. Review `06_VALIDATION/RERUN_BOUNDED_NON_TECH_APPROVE_UI_PILOT_AFTER_RETRIEVAL_FIX_REPORT.md` and its stale-copy addendum.
+2. Preserve that the warning classification remains the historical runtime result for the pilot, not readiness promotion.
+3. Preserve the browser-path safety line: ask/query read-only, one-source-only approval, and `/proxy/abw/promote` still unused.
+4. Rerun the bounded non-tech approve UI pilot on the corrected copy before making any broader UX claim.
+5. Keep the direct CLI JSON hardening caveat, weak positive `E1_fallback` trust `45`, broader real-world validation gap, and browser smoke inline-edit observability warning as active residual items until separately addressed.
 

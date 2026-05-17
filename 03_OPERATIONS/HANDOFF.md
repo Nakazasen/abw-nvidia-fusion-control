@@ -16,7 +16,51 @@
 
 ## LAST UPDATED
 
-- 2026-05-17
+- 2026-05-18
+
+## 2026-05-18 Bounded Non-Tech Approve UI Pilot After Retrieval Fix Snapshot
+
+- Control HEAD before validation:
+  - `9dda3d1b7bad27a9ee4ecdb35fe65bbafcea5dbe`
+- NVIDIA HEAD validated:
+  - `2332a965429b5e4af29c36062a568d46fbae4123`
+- ABW HEAD validated:
+  - `f748a44e2bd87594314bcc0d0af93d9ad64a55e6`
+- Latest result:
+  - `WARNING_BOUNDED_NON_TECH_APPROVE_UI_PILOT_AFTER_RETRIEVAL_FIX`
+- Evidence artifact:
+  - `06_VALIDATION/RERUN_BOUNDED_NON_TECH_APPROVE_UI_PILOT_AFTER_RETRIEVAL_FIX_REPORT.md`
+- What passed on the real browser UI path:
+  - fresh sanitized/synthetic workspace used
+  - ingest `ingested=3`, `skipped=2`, `generated_drafts=3`, `review_required=true`, `promotion_performed=false`
+  - Q&A worked before approval
+  - factual/procedure positive controls returned weak sourceful `E1_fallback`, trust `45`
+  - missing-source, unsupported, malformed, and generic ambiguous queries abstained before approval
+  - exactly one factual Lantern draft was marked candidate, previewed, and approved with explicit confirmation
+  - approval used `/proxy/abw/approve-draft` only
+  - `/proxy/abw/promote` remained unused
+  - factual Lantern improved after approval to trusted/wiki `exact_match` / `E2_wiki` / trust `72`
+  - missing-source, unsupported, malformed, and ambiguous generic still abstained after approval
+  - ask/query did not mutate `.brain`
+  - `query_deep_runs.jsonl` was not created/changed
+- Warning retained:
+  - Step 3 review/promotion copy still says trusted-source approval is unavailable in this UI
+  - review actions still imply manual-only promotion even though triage preview/apply now exists and works
+  - approved factual answer still shows residual weak-source wording noise in the answer card
+- Follow-up after warning:
+  - stale approval-availability copy was fixed afterward in local NVIDIA UI wording
+  - browser smoke and full NVIDIA regression checks passed after the copy fix
+  - the original pilot classification remains warning because that was the runtime state during the pilot
+- Boundary preserved:
+  - not readiness promotion
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - no approve-all
+  - no batch approval
+  - no corpus approval
+  - Q&A remains available without approval
+- Recommended next gate:
+  - `A. RERUN_COPY_CLEAN_BOUNDED_NON_TECH_APPROVE_UI_PILOT`
 
 ## 2026-05-17 Missing-Source and Trusted Retrieval Guard Repair Snapshot
 
