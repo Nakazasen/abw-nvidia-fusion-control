@@ -168,6 +168,42 @@ Date: 2026-05-17
 - Recommended next gate:
   - `RERUN_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`
 
+## D-2026-05-17-10: Record Strong Manifest UI Pilot After Honesty Fix As Warning Evidence
+
+- Decision: Record the strong manifest browser UI rerun after ABW honesty fix as bounded warning evidence, not a clean pass and not a readiness promotion.
+- Status: Accepted for operational recording.
+- Result:
+  - `WARNING_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`
+- Workspace:
+  - `D:\Sandbox\_real_user_pilot\strong_manifest_after_honesty_fix_20260517_161115`
+- Evidence:
+  - browser UI used
+  - fresh sanitized/synthetic workspace used
+  - UI clarity remained good
+  - missing-source abstained: `ABW_CLI_NO_MATCH`, `no_match`, `E0_unknown`, trust `0`, `sources=[]`
+  - unsupported abstained: `ABW_CLI_NO_MATCH`, `no_match`, `E0_unknown`, trust `0`, `sources=[]`
+  - malformed abstained: `ABW_CLI_NO_MATCH`, `no_match`, `E0_unknown`, trust `0`, `sources=[]`
+  - ambiguous remained weak/cautious: `ABW_CLI_OK`, `raw_or_draft_only`, `E1_fallback`, trust `45`
+  - positive factual/Vietnamese/procedure/troubleshooting remained weak: `ABW_CLI_OK`, `raw_or_draft_only`, `E1_fallback`, trust `45`
+  - no query-time `.brain` mutation
+  - no `query_deep_runs.jsonl`
+  - no pending edits
+  - no Apply
+  - no sync/write-back
+  - no auto-promotion
+  - CONTROL/NVIDIA/ABW remained clean
+- Product interpretation:
+  - source honesty is materially improved for non-technical UX
+  - positive answer usefulness remains weak
+  - no safe non-tech UI trusted-source approve contract exists yet
+  - manual CLI approval is not acceptable as non-tech daily-use UX
+- Preserved caveat:
+  - direct CLI JSON hardening caveat remains active
+- Non-claim:
+  - This does not promote `DAILY_USE_READY`, production-ready, enterprise-ready, full bridge ready, autonomous-safe, packaging-ready, broad real-world validation, or Cognitive OS achieved.
+- Recommended next gate:
+  - `DESIGN_SAFE_NON_TECH_UI_APPROVE_CONTRACT`
+
 ## D-2026-05-17-06: Record Small Sanitized Pilot As Warning Evidence
 
 - Decision: Record `WARNING_BOUNDED_SANITIZED_PILOT` as bounded sanitized bridge/API pilot evidence only.

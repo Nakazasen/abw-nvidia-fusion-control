@@ -26,11 +26,11 @@
 
 ## Immediate Next Actions
 
-1. Review `06_VALIDATION/NVIDIA_REVIEW_UI_CLARITY_FIX_REPORT.md`.
-2. Review `06_VALIDATION/ABW_MISSING_SOURCE_HONESTY_FIX_REPORT.md`.
-3. Treat ABW commit `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8` as bounded source-honesty evidence only, not a readiness promotion.
-4. Rerun the strong manifest browser UI pilot next if continuing: `RERUN_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`.
-5. Preserve the trusted-source approve contract gap as active: UI promote remains fail-closed.
+1. Review `06_VALIDATION/STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX_REPORT.md`.
+2. Treat `WARNING_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX` as bounded warning evidence, not a clean pass and not a readiness promotion.
+3. Preserve the source-honesty improvement: missing-source, unsupported, and malformed abstain correctly on the browser UI path.
+4. Preserve the remaining product blocker: positive controls remain weak `E1_fallback`, trust `45`.
+5. Design the safe non-tech UI trusted-source approve contract next: `DESIGN_SAFE_NON_TECH_UI_APPROVE_CONTRACT`.
 6. Preserve the direct CLI JSON hardening issue as a residual caveat, not as a hidden pass.
 7. Keep the inline-edit browser smoke warning as warning-only until separately investigated.
 

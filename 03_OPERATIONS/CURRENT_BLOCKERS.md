@@ -71,17 +71,22 @@
 - Safe UI promote/approve remains blocked until a bounded JSON approve contract exists.
 - `/proxy/abw/promote` must remain fail-closed for now.
 
-7. Strong manifest rerun blocker
-- The browser/proxy missing-source honesty failure is closed by ABW commit `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`.
-- Missing-source, unsupported, and malformed explicit file/control queries now abstain correctly on the proxy path:
+7. Strong manifest positive-usefulness blocker
+- The browser/proxy missing-source honesty failure is closed by ABW commit `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`, and the browser UI rerun preserves that fix as `WARNING_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`.
+- Missing-source, unsupported, and malformed explicit file/control queries now abstain correctly on the browser UI path:
   - `ABW_CLI_NO_MATCH`
   - `no_match`
   - `E0_unknown`
   - trust `0`
   - `sources=[]`
-- Positive relevant raw/draft fallback remains preserved as `E1_fallback`, trust `45`.
-- This does not prove broader non-technical daily-use readiness.
-- The next blocker is to rerun the strong manifest browser UI pilot after the honesty fix and confirm the bounded UI path still behaves honestly end to end.
+- Ambiguous remains weak/cautious, which is acceptable for this gate.
+- Positive controls remain weak:
+  - factual, Vietnamese, procedure, and troubleshooting still return `raw_or_draft_only`
+  - `E1_fallback`
+  - trust `45`
+- This is not a source-honesty failure, but it is still a product blocker for non-technical daily use.
+- The remaining gap is not CLI assistance; it is the lack of a safe non-tech UI trusted-source approve path and the resulting weak positive usefulness.
+- Next movement should not be readiness promotion; the next governance-grade gate is `DESIGN_SAFE_NON_TECH_UI_APPROVE_CONTRACT`.
 
 8. Direct CLI JSON hardening caveat
 - A pre-existing direct CLI JSON hardening regression remains unresolved on this machine.

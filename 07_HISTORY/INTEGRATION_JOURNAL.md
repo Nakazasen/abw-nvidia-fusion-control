@@ -6173,3 +6173,57 @@ Warning:
   - prior failed pilot lineage remains preserved
 - next gate:
   - `RERUN_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`
+## 2026-05-17 - Strong manifest UI pilot after honesty fix recorded
+
+- Control head before update:
+  - `8932eb579a0b5344e7deeb840df03ffb48f393c4`
+- NVIDIA head context:
+  - `a867f892be94c350b9cabcfa168d19f82dc64995`
+- ABW head context:
+  - `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`
+- verdict:
+  - `WARNING_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`
+- artifact:
+  - `06_VALIDATION/STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX_REPORT.md`
+- workspace:
+  - `D:\Sandbox\_real_user_pilot\strong_manifest_after_honesty_fix_20260517_161115`
+- execution path:
+  - browser UI used
+  - fresh sanitized/synthetic workspace used
+  - no repo edits
+  - no readiness promotion
+- honesty controls:
+  - missing-source abstained: `ABW_CLI_NO_MATCH` / `no_match` / `E0_unknown` / trust `0` / `sources=[]`
+  - unsupported abstained: `ABW_CLI_NO_MATCH` / `no_match` / `E0_unknown` / trust `0` / `sources=[]`
+  - malformed abstained: `ABW_CLI_NO_MATCH` / `no_match` / `E0_unknown` / trust `0` / `sources=[]`
+  - ambiguous remained weak/cautious: `ABW_CLI_OK` / `raw_or_draft_only` / `E1_fallback` / trust `45`
+- positive controls remained weak:
+  - factual, Vietnamese, procedure, and troubleshooting still returned `raw_or_draft_only`
+  - `E1_fallback`
+  - trust `45`
+  - this is not a source-honesty failure, but it remains a daily-use quality/UX warning
+- UI clarity remained good:
+  - trust-first guidance visible
+  - review/promote limitation visible
+  - drafts not trusted wiki yet visible
+  - trusted-source approval unavailable in UI visible
+  - no auto-promotion visible
+  - no `[object Object]` regression
+- safety outcome:
+  - no query-time `.brain` mutation
+  - no `query_deep_runs.jsonl`
+  - no pending edits
+  - no Apply
+  - no sync/write-back
+  - no auto-promotion
+  - Control/NVIDIA/ABW remained clean
+- interpretation:
+  - source honesty improved materially for non-technical UX
+  - positive usefulness remains weak
+  - no safe non-tech UI trusted-source approve contract exists yet
+  - manual CLI approval is not acceptable as non-tech daily-use UX
+  - this is warning evidence, not a clean pass and not a readiness upgrade
+- caveat preserved:
+  - direct CLI JSON hardening caveat remains active
+- next gate:
+  - `DESIGN_SAFE_NON_TECH_UI_APPROVE_CONTRACT`

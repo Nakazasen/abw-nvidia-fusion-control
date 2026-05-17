@@ -18,6 +18,65 @@
 
 - 2026-05-17
 
+## 2026-05-17 Strong Manifest UI Pilot After Honesty Fix Snapshot
+
+- Control HEAD before record:
+  - `8932eb579a0b5344e7deeb840df03ffb48f393c4`
+- NVIDIA HEAD context:
+  - `a867f892be94c350b9cabcfa168d19f82dc64995`
+- ABW HEAD context:
+  - `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`
+- Latest result:
+  - `WARNING_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`
+- Evidence artifact:
+  - `06_VALIDATION/STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX_REPORT.md`
+- Validation path:
+  - browser UI used
+  - fresh strong sanitized/synthetic workspace `D:\Sandbox\_real_user_pilot\strong_manifest_after_honesty_fix_20260517_161115`
+  - no repo edits
+  - no readiness promotion
+- Honesty controls:
+  - missing-source abstained: `ABW_CLI_NO_MATCH` / `no_match` / `E0_unknown` / trust `0` / `sources=[]`
+  - unsupported explicit file reference abstained: `ABW_CLI_NO_MATCH` / `no_match` / `E0_unknown` / trust `0` / `sources=[]`
+  - malformed explicit file reference abstained: `ABW_CLI_NO_MATCH` / `no_match` / `E0_unknown` / trust `0` / `sources=[]`
+  - ambiguous remained weak/cautious: `ABW_CLI_OK` / `raw_or_draft_only` / `E1_fallback` / trust `45`
+- Positive controls remained weak:
+  - factual, Vietnamese, procedure, and troubleshooting stayed `raw_or_draft_only`
+  - `E1_fallback`
+  - trust `45`
+  - this is not a source-honesty failure, but remains a daily-use quality/UX warning
+- UI clarity remained good:
+  - trust-first guidance visible
+  - review/promote limitation visible
+  - drafts are not trusted wiki yet visible
+  - trusted-source approval unavailable in UI visible
+  - no auto-promotion visible
+  - no `[object Object]` regression
+- Safety outcome:
+  - no query-time `.brain` mutation
+  - no `query_deep_runs.jsonl`
+  - no pending edits
+  - no Apply
+  - no sync/write-back
+  - no auto-promotion
+  - CONTROL/NVIDIA/ABW remained clean
+- Product interpretation:
+  - source honesty improved materially for non-technical UX
+  - positive answer usefulness remains weak
+  - no safe non-tech UI trusted-source approve contract exists yet
+  - manual CLI approval is not acceptable as non-tech daily-use UX
+- Readiness boundary remains:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not enterprise-ready
+  - not full bridge ready
+  - not autonomous-safe
+  - not packaging-ready
+  - not Cognitive OS achieved
+  - not broad real-world validation
+- Recommended next gate:
+  - `DESIGN_SAFE_NON_TECH_UI_APPROVE_CONTRACT`
+
 ## 2026-05-17 ABW Missing-Source Honesty Fix Snapshot
 
 - Control HEAD before record:
