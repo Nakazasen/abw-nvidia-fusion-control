@@ -67,20 +67,19 @@
 6. Non-tech Review/Triage and approve UX blocker
 - NVIDIA Stage 2 approve bridge/server support is now recorded at commit `de7c907147de4a4938738e137e3264defe52426e`.
 - NVIDIA Stage B read-only triage dashboard is now recorded at commit `395160cacbdf6464618cf6569dad78ff42596a2d`.
+- NVIDIA Stage C Q&A-integrated candidate surfacing is now recorded at commit `308bdd5fb0bca9237087132b598418092f7ddc95`.
 - `/proxy/abw/approve-draft` now exists as bounded bridge infrastructure only.
 - `/proxy/abw/promote` remains fail-closed by design.
 - This closes the prior blocker that NVIDIA approve bridge/server support was missing.
 - The missing Review/Triage design blocker is now closed by recorded design evidence.
 - The missing read-only triage dashboard blocker is now closed by recorded Stage B UI evidence.
+- The missing Q&A-integrated candidate surfacing blocker is now closed by recorded Stage C UI evidence.
 - This does not close the product blocker for non-technical implementation UX.
-- No Q&A-integrated candidate surfacing exists yet.
 - No preview-only approve dry-run UI exists yet.
 - No non-tech UI preview/confirm approve flow exists yet.
 - No bulk approval exists.
 - No corpus approval exists.
 - Manual CLI approval remains unacceptable as product UX for non-technical users.
-- Stage B read-only triage dashboard remains unimplemented.
-- Stage C candidate surfacing remains unimplemented.
 - Stage D preview-only approve dry-run UI remains unimplemented.
 - Stage E single-item approve apply UI remains unimplemented.
 
@@ -101,7 +100,8 @@
 - The remaining gap is not CLI assistance; it is the lack of implemented non-tech Review/Triage and UI trusted-source approve flow, plus the resulting weak positive usefulness.
 - The Review/Triage design now exists as recorded governance evidence.
 - The read-only triage dashboard now exists as bounded Stage B evidence, but it does not close the candidate/preview/apply gaps.
-- Next movement should not be readiness promotion; the next implementation gate is `IMPLEMENT_QA_INTEGRATED_CANDIDATE_SURFACING_STAGE_C`.
+- The Q&A-integrated candidate surfacing now exists as bounded Stage C evidence, but it does not close the preview/apply gaps.
+- Next movement should not be readiness promotion; the next implementation gate is `IMPLEMENT_PREVIEW_ONLY_APPROVE_DRY_RUN_STAGE_D`.
 
 8. Direct CLI JSON hardening caveat
 - A pre-existing direct CLI JSON hardening regression remains unresolved on this machine.

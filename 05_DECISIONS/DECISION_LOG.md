@@ -398,6 +398,69 @@ Date: 2026-05-17
 - Recommended next gate:
   - `IMPLEMENT_QA_INTEGRATED_CANDIDATE_SURFACING_STAGE_C`
 
+## D-2026-05-17-15: Record NVIDIA Q&A-Integrated Candidate Surfacing Stage C As Bounded UI Evidence
+
+- Decision: Record NVIDIA commit `308bdd5fb0bca9237087132b598418092f7ddc95` as the bounded Stage C implementation of Q&A-integrated ABW review candidate surfacing.
+- Status: Accepted for operational recording.
+- Commit:
+  - `308bdd5fb0bca9237087132b598418092f7ddc95`
+  - `feat: surface ABW review candidates from Q&A`
+- Scope:
+  - NVIDIA-only
+  - no CONTROL edits during implementation
+  - no ABW edits during implementation
+  - no push
+  - no readiness promotion
+  - read-only candidate surfacing only
+- Recorded capability:
+  - candidate suggestion UI on eligible weak answer cards
+  - local session-only candidate state
+  - `Mark as candidate` action
+  - `Remove candidate` action
+  - candidate rendering inside `Good candidates to review`
+  - missing-source no-review message
+  - unsupported/parse-error non-candidate message
+  - ambiguous clarification message
+- Candidate boundary:
+  - candidate appears only when the answer is weak, sourceful, draft/raw based, not missing-source, not unsupported/parse-error, not ambiguous, and useful enough to show a real answer body
+  - candidate is not trusted
+  - candidate is not approved
+  - no approval happens in this flow
+- Preserved boundary:
+  - no approve UI exists yet
+  - no approve dry-run product UI exists yet
+  - no approve apply UI exists yet
+  - no approval endpoint is called from the Stage C UI flow
+  - no approve-all
+  - no batch or corpus approval
+  - `/proxy/abw/promote` remains fail-closed
+  - Q&A remains available without approval
+  - this does not prove non-technical daily-use readiness
+- Evidence:
+  - `git diff --check` PASS with LF/CRLF warnings only
+  - `node --check tools/browser-smoke.mjs` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tools/abw-cli-reader.mjs` PASS
+  - `npm run abw:reader:test` PASS `162 passed, 0 failed`
+  - `npm run browser:smoke` PASS `165 passed, 0 failed`
+  - warning retained:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - browser smoke verdict retained:
+    - `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+  - explicit smoke outcomes retained:
+    - weak sourceful answer can become candidate
+    - candidate appears in `Good candidates to review`
+    - candidate is not trusted
+    - missing-source does not show candidate
+    - unsupported/parse-error does not show candidate
+    - ambiguous asks for clarification instead of candidate action
+    - candidate action does not call `/proxy/abw/approve-draft`
+    - candidate action does not call `/proxy/abw/promote`
+- Non-claim:
+  - This does not promote `DAILY_USE_READY`, production-ready, enterprise-ready, full bridge ready, autonomous-safe, packaging-ready, broad real-world validation, or Cognitive OS achieved.
+- Recommended next gate:
+  - `IMPLEMENT_PREVIEW_ONLY_APPROVE_DRY_RUN_STAGE_D`
+
 ## D-2026-05-17-06: Record Small Sanitized Pilot As Warning Evidence
 
 - Decision: Record `WARNING_BOUNDED_SANITIZED_PILOT` as bounded sanitized bridge/API pilot evidence only.

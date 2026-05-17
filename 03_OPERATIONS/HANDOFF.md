@@ -18,6 +18,62 @@
 
 - 2026-05-17
 
+## 2026-05-17 NVIDIA Q&A Candidate Surfacing Stage C Snapshot
+
+- Control HEAD before record:
+  - `fa0d6ddd897d730741e766f40ebc09ee77a7a6e4`
+- NVIDIA HEAD recorded:
+  - `308bdd5fb0bca9237087132b598418092f7ddc95`
+- ABW HEAD context:
+  - `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`
+- Latest result:
+  - `NVIDIA_QA_CANDIDATE_SURFACING_STAGE_C_RECORDED`
+- Evidence artifact:
+  - `06_VALIDATION/NVIDIA_QA_CANDIDATE_SURFACING_STAGE_C_REPORT.md`
+- Scope:
+  - NVIDIA-only bounded UI evidence
+  - no CONTROL edits during implementation
+  - no ABW edits during implementation
+  - no push
+  - no readiness promotion
+  - read-only candidate surfacing only
+- Stage C UI recorded:
+  - eligible weak/sourceful answer cards now show a candidate suggestion UI
+  - candidate state is local/session-only
+  - `Mark as candidate` action exists
+  - `Remove candidate` action exists
+  - candidate appears in `Good candidates to review`
+  - candidate copy explains untrusted draft source, review later, not trusted yet, and no approval happens here
+  - missing-source shows a no-review message
+  - unsupported/parse-error shows a non-candidate message
+  - ambiguous answers ask for clarification instead of review
+- Boundary preserved:
+  - candidate is not trusted
+  - candidate is not approved
+  - no approve UI exists yet
+  - no approve dry-run product UI exists yet
+  - no approve apply UI exists yet
+  - no approve endpoint is called from the Stage C UI flow
+  - no approve-all exists
+  - no batch or corpus approval exists
+  - no hidden trust mutation exists
+  - `/proxy/abw/promote` remains fail-closed
+  - `/proxy/abw/approve-draft` remains infrastructure only
+  - Q&A remains available without approval
+  - non-tech daily-use remains unproven
+- Validation:
+  - `git diff --check` PASS with LF/CRLF warnings only
+  - `node --check tools/browser-smoke.mjs` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tools/abw-cli-reader.mjs` PASS
+  - `npm run abw:reader:test` PASS `162/162`
+  - `npm run browser:smoke` PASS `165/165`
+  - candidate flow verified read-only and endpoint-free
+  - inline-edit widget observability warning remains warning-only
+  - smoke verdict remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Recommended next gate:
+  - `IMPLEMENT_PREVIEW_ONLY_APPROVE_DRY_RUN_STAGE_D`
+
 ## 2026-05-17 NVIDIA Read-Only Triage Dashboard Stage B Snapshot
 
 - Control HEAD before record:

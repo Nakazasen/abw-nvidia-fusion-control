@@ -6427,3 +6427,59 @@ Warning:
   - this does not prove daily-use readiness
 - next gate:
   - `IMPLEMENT_QA_INTEGRATED_CANDIDATE_SURFACING_STAGE_C`
+
+## 2026-05-17 - NVIDIA Q&A-integrated candidate surfacing Stage C evidence recorded
+
+- Control head before update:
+  - `fa0d6ddd897d730741e766f40ebc09ee77a7a6e4`
+- NVIDIA head recorded:
+  - `308bdd5fb0bca9237087132b598418092f7ddc95`
+- ABW head context:
+  - `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`
+- verdict:
+  - `NVIDIA_QA_CANDIDATE_SURFACING_STAGE_C_RECORDED`
+- artifact:
+  - `06_VALIDATION/NVIDIA_QA_CANDIDATE_SURFACING_STAGE_C_REPORT.md`
+- scope:
+  - NVIDIA-only bounded UI evidence
+  - no CONTROL edits during implementation
+  - no ABW edits during implementation
+  - no push
+  - no readiness promotion
+  - read-only candidate surfacing only
+- recorded NVIDIA delta:
+  - candidate suggestion UI on eligible weak answer cards
+  - local session-only candidate state
+  - Mark as candidate action
+  - Remove candidate action
+  - candidate rendering in Good candidates to review
+  - missing-source no-review message
+  - unsupported/parse-error non-candidate message
+  - ambiguous clarification message
+- preserved boundaries:
+  - candidate is not trusted
+  - candidate is not approved
+  - no approve UI exists yet
+  - no approve dry-run/apply UI exists yet
+  - no approval endpoint is called from the Stage C UI flow
+  - no approve-all
+  - no batch or corpus approval
+  - `/proxy/abw/promote` remains fail-closed
+  - Q&A remains available without approval
+  - non-tech daily-use remains unproven
+- validation evidence:
+  - git diff --check PASS with LF/CRLF warnings only
+  - node --check tools/browser-smoke.mjs PASS
+  - node --check tools/nvidia-server.mjs PASS
+  - node --check tools/abw-cli-reader.mjs PASS
+  - npm run abw:reader:test PASS 162/162
+  - npm run browser:smoke PASS 165/165
+  - warning preserved as warning-only:
+    - Inline edit widget opens from selection: widget not observable in current smoke state
+  - smoke verdict remains HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY
+- interpretation:
+  - Stage C closes the missing Q&A-integrated candidate surfacing implementation gap
+  - this does not implement preview-only approve dry-run or approve apply UI
+  - this does not prove daily-use readiness
+- next gate:
+  - `IMPLEMENT_PREVIEW_ONLY_APPROVE_DRY_RUN_STAGE_D`
