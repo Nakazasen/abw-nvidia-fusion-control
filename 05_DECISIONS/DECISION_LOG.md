@@ -80,3 +80,22 @@ Date: 2026-05-17
 - Non-claim:
   - This does not promote `DAILY_USE_READY`, production-ready, enterprise-ready, full bridge ready, autonomous-safe, packaging-ready, broad real-world validation, or Cognitive OS achieved.
 
+## D-2026-05-17-06: Record Small Sanitized Pilot As Warning Evidence
+
+- Decision: Record `WARNING_BOUNDED_SANITIZED_PILOT` as bounded sanitized bridge/API pilot evidence only.
+- Status: Accepted for operational recording.
+- Evidence:
+  - sanitized/synthetic pilot workspace `D:\Sandbox\_real_user_pilot\small_sanitized_run_20260517_110628`
+  - NVIDIA bridge/API fallback path used
+  - full browser UI automation was not used, so UI evidence is partial
+  - ingest `ingested=3`, `skipped=2`, `generated_drafts=3`, `review_required=true`, `promotion_performed=false`
+  - unsupported file and malformed DOCX were reported honestly
+  - missing-source returned `ABW_CLI_NO_MATCH`, `E0_unknown`, trust `0`, `sources=[]`
+  - query-time `.brain` signature unchanged
+  - no pending edits after query, no Apply, no sync/write-back, no auto-promotion
+- Warning retained:
+  - unsupported/malformed ask returned `E1_fallback`, trust `45`, draft source, weak-evidence warnings
+  - this is not a clean quality pass for that question
+- Non-claim:
+  - This does not promote `DAILY_USE_READY`, production-ready, enterprise-ready, full bridge ready, autonomous-safe, packaging-ready, broad real-world validation, or Cognitive OS achieved.
+

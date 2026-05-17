@@ -2,6 +2,69 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-17 - Small sanitized pilot warning evidence recorded
+
+- Control head before update:
+  - `70bab595dee0fcbcc612cb1b2d1952574d2d7124`
+- NVIDIA head during pilot:
+  - `0e760ac3d842299b0514df1da97d436e7c7be925`
+- ABW head during pilot:
+  - `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- result:
+  - `WARNING_BOUNDED_SANITIZED_PILOT`
+- artifact:
+  - `06_VALIDATION/SMALL_SANITIZED_REAL_WORK_DOC_PILOT_WARNING_REPORT.md`
+- evidence class:
+  - bounded sanitized bridge/API pilot evidence
+- scope:
+  - sanitized/synthetic docs only
+  - 5 files total
+  - 3 approved sanitized work-like files
+  - 2 synthetic parser-honesty files
+  - no raw pilot data committed
+- execution path:
+  - NVIDIA bridge/API fallback path
+  - full browser UI automation was not used, so UI evidence is partial
+  - `ABW_REPO_PATH=D:\Sandbox\skill-Anti-brain-wiki_note`
+  - `ABW_READ_ONLY_QUERY=1`
+- ingest evidence:
+  - `ingested=3`
+  - `skipped=2`
+  - `unsupported_files=raw/unsupported.xyz`
+  - `parse_errors=raw/malformed.docx invalid zip container`
+  - `generated_drafts=3`
+  - `review_required=true`
+  - `promotion_performed=false`
+  - pending drafts `3`
+  - reviewed count `3`
+- question evidence:
+  - factual/procedure/troubleshooting/Vietnamese returned `ABW_CLI_OK`, `E2_wiki`, trust `72`, sources visible
+  - missing-source returned `ABW_CLI_NO_MATCH`, `E0_unknown`, trust `0`, `sources=[]`
+  - ambiguous/weak returned `ABW_CLI_OK`, `E2_wiki`, trust `63`, sources visible
+  - unsupported/malformed ask returned `E1_fallback`, trust `45`, draft source, weak-evidence warnings
+- mutation safety:
+  - query-time `.brain` unchanged `10 -> 10`
+  - no pending edits after query
+  - no NVIDIA Apply
+  - no sync/write-back
+  - no unsafe `execute_command`
+  - no auto-promotion
+  - Control/NVIDIA/ABW remained clean
+- interpretation:
+  - safety boundaries passed in the bridge/API path
+  - warning result is preserved because unsupported/malformed ask fell back to weak draft evidence
+  - this is not a clean quality pass and not full UI validation
+- non-claims preserved:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not enterprise-ready
+  - not Cognitive OS achieved
+  - not full bridge ready
+  - not autonomous-safe
+  - not packaging-ready
+  - not broad real-world validation
+- next gate:
+  - `RUN_UI_FULL_BROWSER_SANITIZED_PILOT`
 ## 2026-05-16 - Small sanitized real-work pilot planning artifact recorded
 
 - Control head before update:

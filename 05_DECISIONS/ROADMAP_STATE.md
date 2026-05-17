@@ -19,10 +19,11 @@ Date: 2026-05-17
 
 ## 1. Where the Program Actually Is
 
-- Control governance is updating from local HEAD `323a8e89a62c9b2a15f86aa4ea66a892fbbb65ea`.
+- Control governance is updating from local HEAD `70bab595dee0fcbcc612cb1b2d1952574d2d7124`.
 - NVIDIA bounded workflow hardening has been accepted locally at commit `0e760ac3d842299b0514df1da97d436e7c7be925`.
 - ABW is at commit `39a23a288b3df695f618d72d964bb6fdb66e1714`, clean.
 - Latest accepted governance milestones remain bounded (pilot/rerun/audit/planning tracks plus NVIDIA bounded workflow regression/smoke evidence).
+- Latest pilot evidence is `WARNING_BOUNDED_SANITIZED_PILOT`, recorded as sanitized bridge/API evidence with partial UI coverage.
 
 ## 2. Confirmed Direction
 
@@ -37,14 +38,17 @@ Date: 2026-05-17
 
 - Not `DAILY_USE_READY`.
 - Not production-ready.
-- Not full bridge write-back/sync ready.
+- Not enterprise-ready.
+- Not full bridge ready.
+- Not autonomous-safe.
+- Not packaging-ready.
 - Not broad real private/work-document validated.
 - Not Cognitive OS achieved.
 
 ## 4. Immediate Next Governance-Grade Steps
 
-1. Review accepted NVIDIA evidence in `03_OPERATIONS/HANDOFF.md`.
-2. Return to `06_VALIDATION/SMALL_REAL_WORK_DOC_PILOT_PLAN.md` review.
-3. If approved, run only a bounded sanitized pilot under current non-claim constraints.
-4. Keep browser smoke inline-edit observability warning as warning-only until separately investigated.
+1. Review `06_VALIDATION/SMALL_SANITIZED_REAL_WORK_DOC_PILOT_WARNING_REPORT.md`.
+2. Treat the pilot result as bounded warning evidence, not readiness promotion.
+3. Run full browser UI sanitized pilot coverage before interpreting the UI path more broadly.
+4. Keep unsupported/malformed fallback and browser smoke inline-edit observability as warning-only until separately investigated.
 

@@ -40,17 +40,23 @@
 - This remains a residual confidence gap for UX completeness claims.
 - It is warning-only and is not readiness proof.
 
-5. Small sanitized real-work pilot review gate
-- NVIDIA dirty-state blocker is closed for the accepted split commits ending at `0e760ac3d842299b0514df1da97d436e7c7be925`.
-- Accepted evidence is bounded regression/smoke evidence only:
-  - `npm run abw:reader:test` PASS `108/108`
-  - `npm run browser:smoke` PASS `145/145`
-  - guard matrix PASS `16/16`
-  - verdict `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
-- Next pilot movement still requires explicit small sanitized real-work document pilot review/approval.
+5. Small sanitized pilot warning gate
+- Small sanitized bridge/API pilot evidence is recorded as `WARNING_BOUNDED_SANITIZED_PILOT`.
+- Safety boundaries passed:
+  - no query-time `.brain` mutation
+  - no pending edits after query
+  - no NVIDIA Apply
+  - no sync/write-back
+  - no auto-promotion
+  - missing-source returned `ABW_CLI_NO_MATCH`, `E0_unknown`, trust `0`, `sources=[]`
+- Warning remains active:
+  - unsupported/malformed ask returned `E1_fallback`, trust `45`, draft source, weak-evidence warnings
+  - this is not a clean quality pass for that question
+- UI evidence remains partial because full browser UI automation was not used.
+- Next pilot movement should not be readiness promotion; current recommended gate is `RUN_UI_FULL_BROWSER_SANITIZED_PILOT`.
 
 ## Immediate Risk If Ignored
 
 - Overclaim risk rises if bounded smoke evidence is treated as daily-use or production readiness.
-- Pilot risk rises if small sanitized real-work document review gates are skipped.
+- Pilot risk rises if warning/partial-UI evidence is treated as clean broad validation.
 

@@ -31,6 +31,73 @@
 - Supersedes operational mirrors previously spread across `03_OPERATIONS/SESSION_CLOSE.md`, `03_OPERATIONS/SESSION_RESTORE.md`, and `03_OPERATIONS/NEXT.md`.
 - Those files now hold compact references/indexes only.
 
+## 2026-05-17 Small Sanitized Pilot Warning Snapshot
+
+- Control HEAD before record:
+  - `70bab595dee0fcbcc612cb1b2d1952574d2d7124`
+- NVIDIA HEAD during pilot:
+  - `0e760ac3d842299b0514df1da97d436e7c7be925`
+- ABW HEAD during pilot:
+  - `39a23a288b3df695f618d72d964bb6fdb66e1714`
+- Latest result:
+  - `WARNING_BOUNDED_SANITIZED_PILOT`
+- Evidence artifact:
+  - `06_VALIDATION/SMALL_SANITIZED_REAL_WORK_DOC_PILOT_WARNING_REPORT.md`
+- Evidence class:
+  - bounded sanitized bridge/API pilot evidence
+- Pilot workspace:
+  - `D:\Sandbox\_real_user_pilot\small_sanitized_run_20260517_110628`
+- Scope:
+  - sanitized/synthetic docs only
+  - 5 files total
+  - 3 approved sanitized work-like files
+  - 2 synthetic parser-honesty files
+  - no raw pilot data committed
+- Execution path:
+  - NVIDIA bridge/API fallback path
+  - full browser UI automation was not used, so UI evidence is partial
+  - `ABW_REPO_PATH=D:\Sandbox\skill-Anti-brain-wiki_note`
+  - `ABW_READ_ONLY_QUERY=1`
+- Ingest evidence:
+  - `ingested=3`
+  - `skipped=2`
+  - `unsupported_files=raw/unsupported.xyz`
+  - `parse_errors=raw/malformed.docx invalid zip container`
+  - `generated_drafts=3`
+  - `review_required=true`
+  - `promotion_performed=false`
+  - pending drafts `3`
+  - reviewed count `3`
+- Ask evidence:
+  - factual/procedure/troubleshooting/Vietnamese returned `ABW_CLI_OK`, `E2_wiki`, trust `72`, sources visible
+  - missing-source returned `ABW_CLI_NO_MATCH`, `E0_unknown`, trust `0`, `sources=[]`
+  - ambiguous/weak returned `ABW_CLI_OK`, `E2_wiki`, trust `63`, sources visible
+  - unsupported/malformed ask returned `E1_fallback`, trust `45`, draft source, weak-evidence warnings
+- Safety outcome:
+  - safety boundaries passed
+  - repos stayed clean
+  - query-time `.brain` signature unchanged, `10 -> 10` files
+  - no pending edits after query
+  - no NVIDIA Apply
+  - no sync/write-back
+  - no unsafe `execute_command`
+  - no auto-promotion
+- Warning interpretation:
+  - unsupported/malformed ask is warning-only because it stayed weak/draft-scoped and did not claim strong evidence
+  - this is not a clean quality pass for that question
+  - bridge/API fallback is not full UI validation
+- Readiness boundary remains:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not enterprise-ready
+  - not full bridge ready
+  - not autonomous-safe
+  - not packaging-ready
+  - not Cognitive OS achieved
+  - not broad real-world validation
+- Recommended next gate:
+  - `RUN_UI_FULL_BROWSER_SANITIZED_PILOT`
+
 ## 2026-05-17 Accepted NVIDIA Bounded Workflow Evidence Snapshot
 
 - Control HEAD before record:
