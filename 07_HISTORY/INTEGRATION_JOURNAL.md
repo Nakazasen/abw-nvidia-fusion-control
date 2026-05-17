@@ -6227,3 +6227,49 @@ Warning:
   - direct CLI JSON hardening caveat remains active
 - next gate:
   - `DESIGN_SAFE_NON_TECH_UI_APPROVE_CONTRACT`
+## 2026-05-17 - ABW approve JSON contract Stage 1 recorded
+
+- Control head before update:
+  - `93123c8ded8576d314c423de5b5bfa54f53cb1ac`
+- NVIDIA head context:
+  - `a867f892be94c350b9cabcfa168d19f82dc64995`
+- ABW head recorded:
+  - `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`
+- verdict:
+  - `ABW_APPROVE_JSON_CONTRACT_STAGE1_RECORDED`
+- artifact:
+  - `06_VALIDATION/ABW_APPROVE_JSON_CONTRACT_STAGE1_REPORT.md`
+- recorded implementation:
+  - safe single-draft approve JSON contract
+  - dry-run preview
+  - apply explicit confirmation token/text
+  - stale hash guard
+  - queue status validation
+  - target wiki collision block
+  - path traversal block
+  - structured blocked responses
+  - no fake success
+  - API endpoint `/approve-draft`
+  - CLI `--json approve` contract
+  - manual CLI compatibility preserved
+- safety behavior:
+  - single draft only
+  - no batch mode
+  - dry-run no mutation
+  - blocked no mutation
+  - apply mutates only selected draft, queue item, and review log
+- validation evidence:
+  - contract-focused tests PASS `56 passed`
+  - compile/syntax checks PASS
+  - missing-source/read-only targeted tests PASS `6 passed`
+  - retrieval guard tests PASS `3 passed`
+  - broader abstention/domain/entity regressions PASS `5 passed`
+  - `git diff --check` PASS with LF/CRLF warnings only
+  - NVIDIA compatibility `npm run abw:reader:test` PASS `108/108`
+- limitation preserved:
+  - NVIDIA approve bridge/server support not implemented yet
+  - UI approve flow not implemented yet
+  - `/proxy/abw/promote` remains fail-closed
+  - this is backend contract evidence, not non-tech UX proof
+- next gate:
+  - `IMPLEMENT_NVIDIA_APPROVE_BRIDGE_STAGE_2`

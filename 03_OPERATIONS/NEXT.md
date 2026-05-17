@@ -26,11 +26,11 @@
 
 ## Immediate Next Actions
 
-1. Review `06_VALIDATION/STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX_REPORT.md`.
-2. Treat `WARNING_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX` as bounded warning evidence, not a clean pass and not a readiness promotion.
-3. Preserve the source-honesty improvement: missing-source, unsupported, and malformed abstain correctly on the browser UI path.
-4. Preserve the remaining product blocker: positive controls remain weak `E1_fallback`, trust `45`.
-5. Design the safe non-tech UI trusted-source approve contract next: `DESIGN_SAFE_NON_TECH_UI_APPROVE_CONTRACT`.
+1. Review `06_VALIDATION/ABW_APPROVE_JSON_CONTRACT_STAGE1_REPORT.md`.
+2. Treat ABW approve JSON contract Stage 1 as bounded backend evidence only, not non-tech product UX and not readiness promotion.
+3. Preserve the current boundary: NVIDIA approve is still unwired and `/proxy/abw/promote` remains fail-closed.
+4. Implement NVIDIA approve bridge/server support next: `IMPLEMENT_NVIDIA_APPROVE_BRIDGE_STAGE_2`.
+5. Preserve the remaining product blocker: non-tech UI preview/confirm approve flow is still missing.
 6. Preserve the direct CLI JSON hardening issue as a residual caveat, not as a hidden pass.
 7. Keep the inline-edit browser smoke warning as warning-only until separately investigated.
 

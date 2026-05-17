@@ -204,6 +204,51 @@ Date: 2026-05-17
 - Recommended next gate:
   - `DESIGN_SAFE_NON_TECH_UI_APPROVE_CONTRACT`
 
+## D-2026-05-17-11: Record ABW Approve JSON Contract Stage 1 As Bounded Backend Evidence
+
+- Decision: Record ABW commit `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f` as the bounded Stage 1 implementation of the safe single-draft approve JSON contract.
+- Status: Accepted for operational recording.
+- Commit:
+  - `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`
+  - `feat: add safe approve draft JSON contract`
+- Scope:
+  - ABW-only
+  - no NVIDIA edits
+  - no CONTROL edits during implementation
+  - no push
+  - no readiness promotion
+  - no UI wiring
+- Contract features:
+  - single-draft only
+  - dry-run preview with no mutation
+  - apply requires explicit confirmation token/text
+  - stale draft hash guard
+  - queue status validation
+  - target wiki collision block
+  - path traversal block
+  - structured blocked responses
+  - no fake success
+  - API endpoint `/approve-draft`
+  - CLI `--json approve` contract
+  - manual CLI compatibility preserved
+- Evidence:
+  - `py -m pytest tests/test_abw_review.py tests/test_abw_api.py tests/test_abw_json_hardening.py -q` PASS `56 passed`
+  - `py -m compileall src scripts tests/test_abw_review.py tests/test_abw_api.py tests/test_abw_json_hardening.py` PASS
+  - missing-source/read-only targeted tests PASS `6 passed`
+  - retrieval guard tests PASS `3 passed`
+  - broader abstention/domain/entity regressions PASS `5 passed`
+  - `git diff --check` PASS with LF/CRLF warnings only
+  - NVIDIA compatibility check `npm run abw:reader:test` PASS `108/108`
+- Preserved limitation:
+  - NVIDIA approve bridge/server support is not implemented yet
+  - non-tech UI approve flow is not implemented yet
+  - `/proxy/abw/promote` remains fail-closed
+  - this does not prove non-tech daily-use UX
+- Non-claim:
+  - This does not promote `DAILY_USE_READY`, production-ready, enterprise-ready, full bridge ready, autonomous-safe, packaging-ready, broad real-world validation, or Cognitive OS achieved.
+- Recommended next gate:
+  - `IMPLEMENT_NVIDIA_APPROVE_BRIDGE_STAGE_2`
+
 ## D-2026-05-17-06: Record Small Sanitized Pilot As Warning Evidence
 
 - Decision: Record `WARNING_BOUNDED_SANITIZED_PILOT` as bounded sanitized bridge/API pilot evidence only.

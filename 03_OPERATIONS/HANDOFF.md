@@ -18,6 +18,74 @@
 
 - 2026-05-17
 
+## 2026-05-17 ABW Approve JSON Contract Stage 1 Snapshot
+
+- Control HEAD before record:
+  - `93123c8ded8576d314c423de5b5bfa54f53cb1ac`
+- NVIDIA HEAD context:
+  - `a867f892be94c350b9cabcfa168d19f82dc64995`
+- ABW HEAD recorded:
+  - `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`
+- Latest result:
+  - `ABW_APPROVE_JSON_CONTRACT_STAGE1_RECORDED`
+- Evidence artifact:
+  - `06_VALIDATION/ABW_APPROVE_JSON_CONTRACT_STAGE1_REPORT.md`
+- Scope:
+  - ABW-only bounded backend contract
+  - no NVIDIA edits
+  - no CONTROL edits during implementation
+  - no push
+  - no readiness promotion
+  - no UI wiring
+- Contract implemented:
+  - safe single-draft approve JSON contract
+  - dry-run preview with no mutation
+  - apply requires explicit confirmation token/text
+  - draft hash stale-preview guard
+  - queue status validation
+  - no overwrite by default
+  - structured blocked responses
+  - no fake success
+  - ABW API endpoint `/approve-draft`
+  - ABW CLI `--json approve` contract
+  - manual CLI compatibility preserved
+- Safety behavior verified:
+  - single draft only
+  - no batch mode
+  - wildcard blocked
+  - path traversal blocked
+  - stale approve blocked
+  - target wiki collision blocked
+  - non-draft path blocked
+  - dry-run no mutation
+  - blocked no mutation
+  - apply mutates only selected draft, queue item, and review log in the selected workspace
+- Validation:
+  - `py -m pytest tests/test_abw_review.py tests/test_abw_api.py tests/test_abw_json_hardening.py -q` PASS `56 passed`
+  - `py -m compileall src scripts tests/test_abw_review.py tests/test_abw_api.py tests/test_abw_json_hardening.py` PASS
+  - missing-source/read-only targeted tests PASS `6 passed`
+  - retrieval guard tests PASS `3 passed`
+  - broader abstention/domain/entity regressions PASS `5 passed`
+  - `git diff --check` PASS with LF/CRLF warnings only
+  - NVIDIA compatibility check `npm run abw:reader:test` PASS `108/108`
+- Important limitation preserved:
+  - NVIDIA approve bridge/server support is not implemented yet
+  - NVIDIA UI approve flow is not implemented yet
+  - `/proxy/abw/promote` remains fail-closed
+  - this stage does not create non-tech daily-use UX
+  - non-tech daily-use remains unproven
+- Readiness boundary remains:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not enterprise-ready
+  - not full bridge ready
+  - not autonomous-safe
+  - not packaging-ready
+  - not Cognitive OS achieved
+  - not broad real-world validation
+- Recommended next gate:
+  - `IMPLEMENT_NVIDIA_APPROVE_BRIDGE_STAGE_2`
+
 ## 2026-05-17 Strong Manifest UI Pilot After Honesty Fix Snapshot
 
 - Control HEAD before record:
