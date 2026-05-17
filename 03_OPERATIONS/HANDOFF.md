@@ -18,6 +18,62 @@
 
 - 2026-05-17
 
+## 2026-05-17 NVIDIA Preview-Only Approve Dry-Run Stage D Snapshot
+
+- Control HEAD before record:
+  - `d62c8788d9864260ea8d7d57e3e6e6f5d1d952d9`
+- NVIDIA HEAD recorded:
+  - `2e44f4928af8fd362fabdd03138896491b18401a`
+- ABW HEAD context:
+  - `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`
+- Latest result:
+  - `NVIDIA_PREVIEW_ONLY_APPROVE_DRY_RUN_STAGE_D_RECORDED`
+- Evidence artifact:
+  - `06_VALIDATION/NVIDIA_PREVIEW_ONLY_APPROVE_DRY_RUN_STAGE_D_REPORT.md`
+- Scope:
+  - NVIDIA-only bounded UI evidence
+  - no CONTROL edits during implementation
+  - no ABW edits during implementation
+  - no push
+  - no readiness promotion
+  - preview-only dry-run UI only
+- Stage D UI recorded:
+  - preview-only dry-run state added in `nvidia_playground.html`
+  - preview request helper added
+  - preview panel added
+  - Preview review entry points added
+  - `/proxy/abw/approve-draft` is called with `dry_run=true` only
+  - no confirm payload is sent from the UI in Stage D
+  - preview panel shows draft path, `Not trusted yet`, target trusted path if returned, summary, warnings, blocking errors, and future confirmation token/text only
+  - copy explains preview only, nothing changed, approval comes later, one source does not approve the folder, and blocked preview changes nothing
+- Boundary preserved:
+  - preview is not approval
+  - candidate remains not trusted yet
+  - no apply UI exists yet
+  - `dry_run=false` is never sent from the UI
+  - no approve-all exists
+  - no batch or corpus approval exists
+  - missing-source cannot preview
+  - unsupported/parse-error cannot preview
+  - ambiguous without clear source cannot preview
+  - `/proxy/abw/promote` remains fail-closed
+  - Q&A remains available without approval
+  - non-tech daily-use remains unproven
+- Validation:
+  - `git diff --check` PASS with LF/CRLF warnings only
+  - `node --check tools/browser-smoke.mjs` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tools/abw-cli-reader.mjs` PASS
+  - `npm run abw:reader:test` PASS `162/162`
+  - `npm run browser:smoke` PASS
+  - preview calls verified `dry_run=true` only
+  - blocked preview is shown honestly
+  - preview does not call `/proxy/abw/promote`
+  - inline-edit widget observability warning remains warning-only
+  - smoke verdict remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Recommended next gate:
+  - `IMPLEMENT_SINGLE_ITEM_APPROVE_APPLY_STAGE_E`
+
 ## 2026-05-17 NVIDIA Q&A Candidate Surfacing Stage C Snapshot
 
 - Control HEAD before record:

@@ -19,11 +19,12 @@ Date: 2026-05-17
 
 ## 1. Where the Program Actually Is
 
-- Control governance is updating from local HEAD `a90892ddf0e0d9b515882982c9ee579b73f61fb1`.
+- Control governance is updating from local HEAD `d62c8788d9864260ea8d7d57e3e6e6f5d1d952d9`.
 - NVIDIA bounded workflow hardening plus review-state UI clarity fix has been accepted locally at commit `a867f892be94c350b9cabcfa168d19f82dc64995`.
 - NVIDIA approve bridge Stage 2 is accepted locally at commit `de7c907147de4a4938738e137e3264defe52426e`.
 - NVIDIA read-only triage dashboard Stage B is accepted locally at commit `395160cacbdf6464618cf6569dad78ff42596a2d`.
 - NVIDIA Q&A-integrated candidate surfacing Stage C is accepted locally at commit `308bdd5fb0bca9237087132b598418092f7ddc95`.
+- NVIDIA preview-only approve dry-run Stage D is accepted locally at commit `2e44f4928af8fd362fabdd03138896491b18401a`.
 - Non-tech Review/Triage UX design is now recorded locally as design evidence only.
 - ABW missing-source honesty fix is accepted locally at commit `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`.
 - ABW approve JSON contract Stage 1 is accepted locally at commit `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`.
@@ -43,7 +44,8 @@ Date: 2026-05-17
 - The Review/Triage design now defines the non-tech path as ask first, review selectively, and approve one selected item later.
 - NVIDIA now exposes a read-only triage dashboard with grouped states, honest empty states, and no approval actions.
 - NVIDIA now exposes read-only candidate surfacing from eligible weak answer cards into the triage dashboard.
-- No approve UI has been implemented yet.
+- NVIDIA now exposes preview-only dry-run review entry points and a preview panel that calls `/proxy/abw/approve-draft` with `dry_run=true` only.
+- Preview is not approval, candidate remains not trusted yet, and no apply UI has been implemented yet.
 - A pre-existing direct CLI JSON hardening caveat remains unresolved and is preserved as residual work, not hidden success.
 
 ## 2. Confirmed Direction
@@ -55,8 +57,8 @@ Date: 2026-05-17
   - smoke-test hardening around layout/focus/trust states
 - safe non-tech Review/Triage implementation starting with a read-only triage dashboard
 - safe non-tech trusted-source approval implementation only after read-only triage and candidate surfacing stages
-- immediate implementation focus moves to preview-only approve dry-run
-- bounded approve bridge/server support is now recorded before any Stage E apply UI flow
+- preview-only approve dry-run is now recorded before any apply UI flow
+- immediate implementation focus moves to single-item approve apply Stage E
 - This is hardening and usability work inside bounded bridge scope.
 
 ## 3. What Is Not Yet True
@@ -72,9 +74,9 @@ Date: 2026-05-17
 
 ## 4. Immediate Next Governance-Grade Steps
 
-1. Review `06_VALIDATION/NON_TECH_REVIEW_TRIAGE_UX_DESIGN_REPORT.md`.
-2. Treat the Review/Triage result as design evidence only, not implementation and not readiness promotion.
+1. Review `06_VALIDATION/NVIDIA_PREVIEW_ONLY_APPROVE_DRY_RUN_STAGE_D_REPORT.md`.
+2. Treat the Stage D result as bounded preview-only UI evidence only, not approval and not readiness promotion.
 3. Preserve the honesty improvement and the no-mutation safety result on the browser UI path.
-4. Implement Stage D preview-only approve dry-run next before any approve-apply UI claim.
+4. Implement Stage E single-item approve apply next before any broader approval claim.
 5. Keep the apply-stage non-tech UI flow gap, direct CLI JSON hardening caveat, weak positive `E1_fallback` trust `45`, and browser smoke inline-edit observability as active warning/blocker items until separately addressed.
 

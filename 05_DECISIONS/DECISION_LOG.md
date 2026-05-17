@@ -461,6 +461,70 @@ Date: 2026-05-17
 - Recommended next gate:
   - `IMPLEMENT_PREVIEW_ONLY_APPROVE_DRY_RUN_STAGE_D`
 
+## D-2026-05-17-16: Record NVIDIA Preview-Only Approve Dry-Run Stage D As Bounded UI Evidence
+
+- Decision: Record NVIDIA commit `2e44f4928af8fd362fabdd03138896491b18401a` as the bounded Stage D implementation of preview-only approve dry-run UI.
+- Status: Accepted for operational recording.
+- Commit:
+  - `2e44f4928af8fd362fabdd03138896491b18401a`
+  - `feat: add preview-only ABW approve dry-run UI`
+- Scope:
+  - NVIDIA-only
+  - no CONTROL edits during implementation
+  - no ABW edits during implementation
+  - no push
+  - no readiness promotion
+  - preview-only dry-run UI only
+- Recorded capability:
+  - preview-only dry-run state in `nvidia_playground.html`
+  - preview request helper
+  - preview panel
+  - Preview review entry points
+  - explicit `/proxy/abw/approve-draft` preview path from the UI
+  - UI sends `dry_run=true` only
+  - no confirm payload is sent from the UI in Stage D
+  - preview panel shows draft path, current `Not trusted yet` state, target trusted path if returned, preview summary, warnings, blocking errors, and future confirmation token/text only
+- Preserved boundary:
+  - preview is not approval
+  - candidate remains not trusted yet
+  - no apply UI exists yet
+  - `dry_run=false` is never sent from the UI
+  - no approve-all
+  - no batch or corpus approval
+  - missing-source cannot preview
+  - unsupported/parse-error cannot preview
+  - ambiguous without clear source cannot preview
+  - `/proxy/abw/promote` remains fail-closed
+  - Q&A remains available without approval
+  - this does not prove non-technical daily-use readiness
+- Evidence:
+  - `git diff --check` PASS with LF/CRLF warnings only
+  - `node --check tools/browser-smoke.mjs` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tools/abw-cli-reader.mjs` PASS
+  - `npm run abw:reader:test` PASS `162 passed, 0 failed`
+  - `npm run browser:smoke` PASS
+  - warning retained:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - browser smoke verdict retained:
+    - `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+  - explicit smoke outcomes retained:
+    - preview calls `dry_run=true`
+    - `dry_run=false` is never sent
+    - preview panel renders
+    - blocked preview is shown honestly
+    - candidate remains `Not trusted yet`
+    - no apply UI
+    - weak sourceful answer can be previewed after candidate marking
+    - missing-source does not show preview/candidate action
+    - unsupported/parse-error do not show preview/candidate action
+    - ambiguous without clear source does not show preview action
+    - preview does not call `/proxy/abw/promote`
+- Non-claim:
+  - This does not promote `DAILY_USE_READY`, production-ready, enterprise-ready, full bridge ready, autonomous-safe, packaging-ready, broad real-world validation, or Cognitive OS achieved.
+- Recommended next gate:
+  - `IMPLEMENT_SINGLE_ITEM_APPROVE_APPLY_STAGE_E`
+
 ## D-2026-05-17-06: Record Small Sanitized Pilot As Warning Evidence
 
 - Decision: Record `WARNING_BOUNDED_SANITIZED_PILOT` as bounded sanitized bridge/API pilot evidence only.
