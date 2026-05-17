@@ -6549,3 +6549,74 @@ Warning:
   - this does not prove daily-use readiness
 - next gate:
   - `IMPLEMENT_SINGLE_ITEM_APPROVE_APPLY_STAGE_E`
+
+## 2026-05-17 - NVIDIA single-item approve apply Stage E evidence recorded
+
+- Control head before update:
+  - `816ad0953a08c860a61bcf82ecadfaa773aa2f54`
+- NVIDIA head recorded:
+  - `2332a965429b5e4af29c36062a568d46fbae4123`
+- ABW head context:
+  - `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`
+- verdict:
+  - `NVIDIA_SINGLE_ITEM_APPROVE_APPLY_STAGE_E_RECORDED`
+- artifact:
+  - `06_VALIDATION/NVIDIA_SINGLE_ITEM_APPROVE_APPLY_STAGE_E_REPORT.md`
+- scope:
+  - NVIDIA-only bounded UI evidence
+  - no CONTROL edits during implementation
+  - no ABW edits during implementation
+  - no push
+  - no readiness promotion
+  - single-item approve apply UI only
+- recorded NVIDIA delta:
+  - single-item approve apply flow added in `nvidia_playground.html`
+  - approval eligibility checks added
+  - explicit confirmation UI added
+  - approved-source local state added
+  - honest success and blocked rendering added
+  - Stage E smoke coverage added in `tools/browser-smoke.mjs`
+  - apply request uses `/proxy/abw/approve-draft` with `dry_run=false` only from the explicit confirmation path
+- preserved boundaries:
+  - approval applies to exactly one previewed source
+  - approval is not folder, workspace, or corpus approval
+  - no approve-all
+  - no batch approval
+  - Q&A remains available without approval
+  - apply requires successful preview first
+  - apply requires explicit confirmation token/text
+  - blocked apply keeps candidate not trusted yet
+  - success marks exactly one source trusted
+  - missing-source cannot approve
+  - unsupported/parse-error cannot approve
+  - ambiguous without clear source cannot approve
+  - `/proxy/abw/promote` remains fail-closed and unused
+  - no hidden trust mutation
+- validation evidence:
+  - `git diff --check` PASS with LF/CRLF warnings only
+  - `node --check tools/browser-smoke.mjs` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tools/abw-cli-reader.mjs` PASS
+  - `npm run abw:reader:test` PASS `162/162`
+  - `npm run browser:smoke` PASS
+  - warning preserved as warning-only:
+    - `Inline edit widget opens from selection: widget not observable in current smoke state`
+  - smoke verdict remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+  - explicit smoke outcomes:
+    - apply unavailable before preview
+    - preview still uses `dry_run=true`
+    - apply enables only after explicit confirmation
+    - apply sends `dry_run=false` only after confirmation
+    - apply includes expected hash, queue status, and confirmation token/text
+    - success marks exactly one source trusted
+    - blocked apply is shown honestly
+    - blocked apply keeps candidate untrusted
+    - no approve-all, batch, or corpus wording
+    - no `/proxy/abw/promote` call
+- interpretation:
+  - Stage E closes the missing single-item approve apply UI implementation gap
+  - this does not prove non-tech daily-use readiness
+  - this does not validate whole-folder, workspace, or corpus approval
+  - prior warning lineage remains preserved
+- next gate:
+  - `RERUN_BOUNDED_NON_TECH_APPROVE_UI_PILOT`

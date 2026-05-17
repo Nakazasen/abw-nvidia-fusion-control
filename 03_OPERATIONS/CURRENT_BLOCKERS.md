@@ -69,6 +69,7 @@
 - NVIDIA Stage B read-only triage dashboard is now recorded at commit `395160cacbdf6464618cf6569dad78ff42596a2d`.
 - NVIDIA Stage C Q&A-integrated candidate surfacing is now recorded at commit `308bdd5fb0bca9237087132b598418092f7ddc95`.
 - NVIDIA Stage D preview-only approve dry-run UI is now recorded at commit `2e44f4928af8fd362fabdd03138896491b18401a`.
+- NVIDIA Stage E single-item approve apply UI is now recorded at commit `2332a965429b5e4af29c36062a568d46fbae4123`.
 - `/proxy/abw/approve-draft` now exists as bounded bridge infrastructure only.
 - `/proxy/abw/promote` remains fail-closed by design.
 - This closes the prior blocker that NVIDIA approve bridge/server support was missing.
@@ -76,13 +77,14 @@
 - The missing read-only triage dashboard blocker is now closed by recorded Stage B UI evidence.
 - The missing Q&A-integrated candidate surfacing blocker is now closed by recorded Stage C UI evidence.
 - The missing preview-only approve dry-run UI blocker is now closed by recorded Stage D UI evidence.
+- The missing single-item approve apply UI blocker is now closed by recorded Stage E UI evidence.
 - This does not close the product blocker for non-technical implementation UX.
-- Stage D preview-only UI exists, but preview is not approval and no confirm/apply flow exists yet.
-- No non-tech UI preview/confirm approve flow exists yet.
+- Stage E now provides a bounded single-item preview-plus-confirm approval flow only.
+- The bounded non-tech approve UI pilot has not been rerun yet.
 - No bulk approval exists.
 - No corpus approval exists.
 - Manual CLI approval remains unacceptable as product UX for non-technical users.
-- Stage E single-item approve apply UI remains unimplemented.
+- This does not prove broader non-technical daily-use readiness.
 
 7. Strong manifest positive-usefulness blocker
 - The browser/proxy missing-source honesty failure is closed by ABW commit `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`, and the browser UI rerun preserves that fix as `WARNING_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`.
@@ -98,11 +100,11 @@
   - `E1_fallback`
   - trust `45`
 - This is not a source-honesty failure, but it is still a product blocker for non-technical daily use.
-- The remaining gap is not CLI assistance; it is the lack of implemented non-tech Review/Triage and UI trusted-source approve flow, plus the resulting weak positive usefulness.
+- The remaining gap is not CLI assistance; it is the need to rerun a bounded non-tech approve UI pilot and show that selective approval materially improves weak positive usefulness.
 - The Review/Triage design now exists as recorded governance evidence.
-- The read-only triage dashboard now exists as bounded Stage B evidence, but it does not close the candidate/preview/apply gaps.
-- The Q&A-integrated candidate surfacing now exists as bounded Stage C evidence, and Stage D preview-only dry-run UI now exists as bounded evidence, but they do not close the apply gap.
-- Next movement should not be readiness promotion; the next implementation gate is `IMPLEMENT_SINGLE_ITEM_APPROVE_APPLY_STAGE_E`.
+- The read-only triage dashboard, candidate surfacing, preview-only dry-run, and Stage E single-item approve apply UI now all exist as bounded evidence.
+- Positive controls still remain weak in prior warning evidence until selective approval flow is piloted and shows improvement.
+- Next movement should not be readiness promotion; the next implementation gate is `RERUN_BOUNDED_NON_TECH_APPROVE_UI_PILOT`.
 
 8. Direct CLI JSON hardening caveat
 - A pre-existing direct CLI JSON hardening regression remains unresolved on this machine.

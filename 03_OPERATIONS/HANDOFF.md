@@ -18,6 +18,73 @@
 
 - 2026-05-17
 
+## 2026-05-17 NVIDIA Single-Item Approve Apply Stage E Snapshot
+
+- Control HEAD before record:
+  - `816ad0953a08c860a61bcf82ecadfaa773aa2f54`
+- NVIDIA HEAD recorded:
+  - `2332a965429b5e4af29c36062a568d46fbae4123`
+- ABW HEAD context:
+  - `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`
+- Latest result:
+  - `NVIDIA_SINGLE_ITEM_APPROVE_APPLY_STAGE_E_RECORDED`
+- Evidence artifact:
+  - `06_VALIDATION/NVIDIA_SINGLE_ITEM_APPROVE_APPLY_STAGE_E_REPORT.md`
+- Scope:
+  - NVIDIA-only bounded UI evidence
+  - no CONTROL edits during implementation
+  - no ABW edits during implementation
+  - no push
+  - no readiness promotion
+  - single-item approve apply UI only
+- Stage E UI recorded:
+  - single-item approve apply flow added in `nvidia_playground.html`
+  - approval eligibility checks added
+  - explicit confirmation UI added
+  - approved-source local state added
+  - honest success and blocked rendering added
+  - browser smoke coverage expanded in `tools/browser-smoke.mjs`
+  - apply remains limited to one selected, previewed source
+  - apply request uses `/proxy/abw/approve-draft` with `dry_run=false` only after explicit confirmation
+- Approval boundary recorded:
+  - approval applies to exactly one previewed source
+  - approval is not folder approval
+  - approval is not workspace approval
+  - approval is not corpus approval
+  - no approve-all exists
+  - no batch approval exists
+  - Q&A remains available without approval
+  - apply requires successful preview first
+  - apply requires explicit confirmation token/text
+  - blocked apply keeps the candidate not trusted yet
+  - success marks exactly one source trusted
+  - missing-source cannot approve
+  - unsupported/parse-error cannot approve
+  - ambiguous without clear source cannot approve
+  - `/proxy/abw/promote` remains fail-closed and unused
+  - non-tech daily-use remains unproven
+- Validation:
+  - `git diff --check` PASS with LF/CRLF warnings only
+  - `node --check tools/browser-smoke.mjs` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tools/abw-cli-reader.mjs` PASS
+  - `npm run abw:reader:test` PASS `162/162`
+  - `npm run browser:smoke` PASS
+  - apply is unavailable before preview
+  - preview still uses `dry_run=true`
+  - apply enables only after explicit confirmation
+  - apply sends `dry_run=false` only after confirmation
+  - apply includes expected hash, queue status, and confirmation token/text
+  - success marks exactly one source trusted
+  - blocked apply is shown honestly
+  - blocked apply keeps the candidate untrusted
+  - no approve-all, batch, or corpus wording appears
+  - no `/proxy/abw/promote` call occurs
+  - inline-edit widget observability warning remains warning-only
+  - smoke verdict remains `HARDENING_BASELINE_PASS_NOT_DAILY_USE_READY`
+- Recommended next gate:
+  - `RERUN_BOUNDED_NON_TECH_APPROVE_UI_PILOT`
+
 ## 2026-05-17 NVIDIA Preview-Only Approve Dry-Run Stage D Snapshot
 
 - Control HEAD before record:
