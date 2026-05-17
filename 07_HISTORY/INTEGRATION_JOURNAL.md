@@ -2,6 +2,46 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-18 - Copy-clean bounded non-tech approve UI pilot passed
+
+- Control head before validation:
+  - `6e19f8027171ef02e7e5511f1576f29b1016c3ff`
+- NVIDIA head validated:
+  - `8b2473bc01b629d919efd0d8b5d61b2a3a3662e8`
+- ABW head validated:
+  - `f748a44e2bd87594314bcc0d0af93d9ad64a55e6`
+- result:
+  - `PASS_COPY_CLEAN_BOUNDED_NON_TECH_APPROVE_UI_PILOT`
+- artifact:
+  - `06_VALIDATION/RERUN_COPY_CLEAN_BOUNDED_NON_TECH_APPROVE_UI_PILOT_REPORT.md`
+- execution path:
+  - real browser UI on local NVIDIA server
+  - fresh sanitized/synthetic workspace
+  - repo-source ABW
+  - `ABW_READ_ONLY_QUERY=1`
+- passed evidence:
+  - active UI copy no longer says trusted-source approval is unavailable or manual-only
+  - ingest `ingested=3`, `skipped=2`, `generated_drafts=3`, `review_required=true`, `promotion_performed=false`
+  - factual/procedure returned weak sourceful `E1_fallback`, trust `45` before approval
+  - missing-source, unsupported, malformed, and generic ambiguous queries abstained before approval
+  - exactly one factual Lantern source was marked candidate, previewed, and approved
+  - preview used `/proxy/abw/approve-draft` with `dry_run=true`
+  - apply used `/proxy/abw/approve-draft` with `dry_run=false`
+  - factual Lantern improved after approval to `exact_match` / `E2_wiki` / trust `72`
+  - missing-source, unsupported, malformed, and ambiguous generic still abstained after approval
+  - ask/query did not mutate `.brain`
+  - `query_deep_runs.jsonl` was not created/changed
+  - `/proxy/abw/promote` remained unused
+- boundaries preserved:
+  - not readiness promotion
+  - no approve-all
+  - no batch approval
+  - no corpus approval
+  - Q&A remains available without approval
+  - not `DAILY_USE_READY`
+- recommended next gate:
+  - `A. RECORD_AND_ADVANCE_TO_BOUNDED_DAILY_REHEARSAL_DESIGN`
+
 ## 2026-05-18 - Stale approval copy fixed after warning pilot record
 
 - scope:

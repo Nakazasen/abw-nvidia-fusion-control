@@ -28,6 +28,7 @@ Date: 2026-05-18
 - NVIDIA single-item approve apply Stage E is accepted locally at commit `2332a965429b5e4af29c36062a568d46fbae4123`.
 - ABW retrieval guard repair after the failed bounded non-tech approve UI pilot is recorded as `PASS_FIX_MISSING_SOURCE_AND_TRUSTED_RETRIEVAL_GUARDS` at commit `f748a44e2bd87594314bcc0d0af93d9ad64a55e6`.
 - Full browser rerun after the retrieval guard fix is now recorded as `WARNING_BOUNDED_NON_TECH_APPROVE_UI_PILOT_AFTER_RETRIEVAL_FIX`.
+- Copy-clean full browser rerun after the approval-copy fix is now recorded as `PASS_COPY_CLEAN_BOUNDED_NON_TECH_APPROVE_UI_PILOT`.
 - Non-tech Review/Triage UX design is now recorded locally as design evidence only.
 - ABW missing-source honesty fix is accepted locally at commit `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`.
 - ABW approve JSON contract Stage 1 is accepted locally at commit `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`.
@@ -60,6 +61,8 @@ Date: 2026-05-18
   - review summary/action copy still implied manual-only promotion
   - approved factual answer still carried residual weak-source wording noise
 - The stale approval-availability copy has now been fixed afterward in local NVIDIA UI wording and validated by NVIDIA regression plus browser smoke.
+- The bounded copy-clean rerun now confirms that the active browser UI copy is consistent with the Stage E single-item preview/apply path.
+- Missing-source, unsupported, malformed, and generic ambiguous questions abstain before and after approval on the corrected-copy browser path.
 - A pre-existing direct CLI JSON hardening caveat remains unresolved and is preserved as residual work, not hidden success.
 
 ## 2. Confirmed Direction
@@ -73,7 +76,7 @@ Date: 2026-05-18
 - safe non-tech trusted-source approval implementation only after read-only triage and candidate surfacing stages
 - preview-only approve dry-run is now recorded before apply
 - single-item approve apply Stage E is now recorded before any broader pilot or validation claim
-- immediate validation focus moves to rerunning the bounded pilot on the corrected UI copy without treating that as readiness promotion
+- immediate validation focus moves to recording the copy-clean bounded pilot pass and advancing only to the next bounded rehearsal-design gate
 - This is hardening and usability work inside bounded bridge scope.
 
 ## 3. What Is Not Yet True
@@ -89,9 +92,9 @@ Date: 2026-05-18
 
 ## 4. Immediate Next Governance-Grade Steps
 
-1. Review `06_VALIDATION/RERUN_BOUNDED_NON_TECH_APPROVE_UI_PILOT_AFTER_RETRIEVAL_FIX_REPORT.md` and its stale-copy addendum.
-2. Preserve that the warning classification remains the historical runtime result for the pilot, not readiness promotion.
+1. Review `06_VALIDATION/RERUN_COPY_CLEAN_BOUNDED_NON_TECH_APPROVE_UI_PILOT_REPORT.md`.
+2. Preserve that the pass is bounded to sanitized/synthetic browser evidence only, not readiness promotion.
 3. Preserve the browser-path safety line: ask/query read-only, one-source-only approval, and `/proxy/abw/promote` still unused.
-4. Rerun the bounded non-tech approve UI pilot on the corrected copy before making any broader UX claim.
-5. Keep the direct CLI JSON hardening caveat, weak positive `E1_fallback` trust `45`, broader real-world validation gap, and browser smoke inline-edit observability warning as active residual items until separately addressed.
+4. Record and advance only to bounded daily rehearsal design, not real-data readiness.
+5. Keep the direct CLI JSON hardening caveat, weak positive `E1_fallback` trust `45` before approval, broader real-world validation gap, and browser smoke inline-edit observability warning as active residual items until separately addressed.
 

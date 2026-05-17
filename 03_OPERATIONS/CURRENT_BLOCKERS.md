@@ -99,7 +99,7 @@
 - Follow-up status:
   - the stale approval-availability copy has now been fixed in local NVIDIA UI wording and browser smoke/regression checks passed
   - the warning classification is preserved historically because the pilot ran before that copy fix
-  - the immediate remaining gate is now a clean rerun of the bounded browser pilot with the corrected wording, not another approval-feature buildout
+  - the clean rerun on corrected wording now passed as `PASS_COPY_CLEAN_BOUNDED_NON_TECH_APPROVE_UI_PILOT`
 - No bulk approval exists.
 - No corpus approval exists.
 - Manual CLI approval remains unacceptable as product UX for non-technical users.
@@ -133,11 +133,11 @@
   - trust `45`
 - This is not a source-honesty failure, but it is still a product blocker for non-technical daily use.
 - The bounded non-tech approve UI rerun after retrieval fix now shows that selective approval materially improves the approved factual item from `E1_fallback` / trust `45` to `E2_wiki` / trust `72`.
-- The remaining gap is no longer selective-approval proof; it is refreshing bounded browser evidence on the corrected copy without overclaiming readiness.
+- The selective-approval proof and copy-clean browser evidence now both exist on a sanitized/synthetic workspace.
 - The Review/Triage design now exists as recorded governance evidence.
 - The read-only triage dashboard, candidate surfacing, preview-only dry-run, and Stage E single-item approve apply UI now all exist as bounded evidence.
-- Positive controls still remain weak in prior warning evidence until selective approval flow is piloted and shows improvement.
-- Next movement should not be readiness promotion; the next implementation gate is `RERUN_COPY_CLEAN_BOUNDED_NON_TECH_APPROVE_UI_PILOT`.
+- Positive controls before approval still remain weak `E1_fallback` / trust `45`, but the approved factual source now cleanly improves to trusted/wiki evidence on the browser path.
+- Next movement should not be readiness promotion; the next governance gate is `RECORD_AND_ADVANCE_TO_BOUNDED_DAILY_REHEARSAL_DESIGN`.
 
 9. Direct CLI JSON hardening caveat
 - A pre-existing direct CLI JSON hardening regression remains unresolved on this machine.

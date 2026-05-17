@@ -18,6 +18,43 @@
 
 - 2026-05-18
 
+## 2026-05-18 Copy-Clean Bounded Non-Tech Approve UI Pilot Snapshot
+
+- Control HEAD before validation:
+  - `6e19f8027171ef02e7e5511f1576f29b1016c3ff`
+- NVIDIA HEAD validated:
+  - `8b2473bc01b629d919efd0d8b5d61b2a3a3662e8`
+- ABW HEAD validated:
+  - `f748a44e2bd87594314bcc0d0af93d9ad64a55e6`
+- Latest result:
+  - `PASS_COPY_CLEAN_BOUNDED_NON_TECH_APPROVE_UI_PILOT`
+- Evidence artifact:
+  - `06_VALIDATION/RERUN_COPY_CLEAN_BOUNDED_NON_TECH_APPROVE_UI_PILOT_REPORT.md`
+- What passed on the real browser UI path:
+  - fresh sanitized/synthetic workspace used
+  - UI copy no longer says trusted-source approval is unavailable or manual-only
+  - ingest `ingested=3`, `skipped=2`, `generated_drafts=3`, `review_required=true`, `promotion_performed=false`
+  - Q&A worked before approval
+  - factual/procedure positive controls returned weak sourceful `E1_fallback`, trust `45`
+  - missing-source, unsupported, malformed, and generic ambiguous queries abstained before approval
+  - exactly one factual Lantern draft was marked candidate, previewed, and approved with explicit confirmation
+  - approval used `/proxy/abw/approve-draft` only
+  - `/proxy/abw/promote` remained unused
+  - factual Lantern improved after approval to trusted/wiki `exact_match` / `E2_wiki` / trust `72`
+  - missing-source, unsupported, malformed, and ambiguous generic still abstained after approval
+  - ask/query did not mutate `.brain`
+  - `query_deep_runs.jsonl` was not created/changed
+- Boundary preserved:
+  - not readiness promotion
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - no approve-all
+  - no batch approval
+  - no corpus approval
+  - Q&A remains available without approval
+- Recommended next gate:
+  - `A. RECORD_AND_ADVANCE_TO_BOUNDED_DAILY_REHEARSAL_DESIGN`
+
 ## 2026-05-18 Bounded Non-Tech Approve UI Pilot After Retrieval Fix Snapshot
 
 - Control HEAD before validation:
