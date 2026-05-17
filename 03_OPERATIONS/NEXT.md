@@ -26,13 +26,13 @@
 
 ## Immediate Next Actions
 
-1. Review `06_VALIDATION/NVIDIA_APPROVE_BRIDGE_STAGE2_REPORT.md`.
-2. Treat NVIDIA approve bridge Stage 2 as bounded bridge infrastructure evidence only, not non-tech product UX and not readiness promotion.
+1. Review `06_VALIDATION/NON_TECH_REVIEW_TRIAGE_UX_DESIGN_REPORT.md`.
+2. Treat the Review/Triage result as design evidence only, not implementation and not readiness promotion.
 3. Preserve the current boundary: `/proxy/abw/approve-draft` exists, while `/proxy/abw/promote` remains fail-closed.
-4. Design the non-tech Review/Triage flow next: `DESIGN_NON_TECH_REVIEW_TRIAGE_FLOW`.
-5. Preserve the remaining product blocker: non-tech UI preview/confirm approve flow is still missing after Stage 2.
-6. Preserve the direct CLI JSON hardening issue as a residual caveat, not as a hidden pass.
-7. Keep the inline-edit browser smoke warning as warning-only until separately investigated.
+4. Implement Stage B next: `IMPLEMENT_READ_ONLY_TRIAGE_DASHBOARD_STAGE_B`.
+5. Preserve the remaining product blockers: no triage dashboard, no candidate surfacing, no preview-only approve UI, and no single-item approve UI yet.
+6. Preserve that Q&A remains available without approval and approval stays selected-item only.
+7. Preserve the direct CLI JSON hardening issue and inline-edit browser smoke warning as residual caveats, not hidden passes.
 
 ## If Context Is Lost
 

@@ -64,17 +64,24 @@
   - this is not a clean answer-quality or retrieval-coverage pass
 - Next movement should not be readiness promotion; this warning lineage is preserved, but the immediate follow-up is now `RERUN_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`.
 
-6. Non-tech approve UX blocker
+6. Non-tech Review/Triage and approve UX blocker
 - NVIDIA Stage 2 approve bridge/server support is now recorded at commit `de7c907147de4a4938738e137e3264defe52426e`.
 - `/proxy/abw/approve-draft` now exists as bounded bridge infrastructure only.
 - `/proxy/abw/promote` remains fail-closed by design.
 - This closes the prior blocker that NVIDIA approve bridge/server support was missing.
-- This does not close the product blocker for non-technical approval UX.
+- The missing Review/Triage design blocker is now closed by recorded design evidence.
+- This does not close the product blocker for non-technical implementation UX.
+- No read-only triage dashboard exists yet.
+- No Q&A-integrated candidate surfacing exists yet.
+- No preview-only approve dry-run UI exists yet.
 - No non-tech UI preview/confirm approve flow exists yet.
 - No bulk approval exists.
 - No corpus approval exists.
 - Manual CLI approval remains unacceptable as product UX for non-technical users.
-- Stage 3 UI flow remains unimplemented.
+- Stage B read-only triage dashboard remains unimplemented.
+- Stage C candidate surfacing remains unimplemented.
+- Stage D preview-only approve dry-run UI remains unimplemented.
+- Stage E single-item approve apply UI remains unimplemented.
 
 7. Strong manifest positive-usefulness blocker
 - The browser/proxy missing-source honesty failure is closed by ABW commit `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`, and the browser UI rerun preserves that fix as `WARNING_STRONG_MANIFEST_UI_PILOT_AFTER_HONESTY_FIX`.
@@ -90,8 +97,9 @@
   - `E1_fallback`
   - trust `45`
 - This is not a source-honesty failure, but it is still a product blocker for non-technical daily use.
-- The remaining gap is not CLI assistance; it is the lack of a safe non-tech Review/Triage plus UI trusted-source approve flow and the resulting weak positive usefulness.
-- Next movement should not be readiness promotion; the next implementation gate is `DESIGN_NON_TECH_REVIEW_TRIAGE_FLOW`.
+- The remaining gap is not CLI assistance; it is the lack of implemented non-tech Review/Triage and UI trusted-source approve flow, plus the resulting weak positive usefulness.
+- The Review/Triage design now exists as recorded governance evidence.
+- Next movement should not be readiness promotion; the next implementation gate is `IMPLEMENT_READ_ONLY_TRIAGE_DASHBOARD_STAGE_B`.
 
 8. Direct CLI JSON hardening caveat
 - A pre-existing direct CLI JSON hardening regression remains unresolved on this machine.

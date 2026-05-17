@@ -18,6 +18,50 @@
 
 - 2026-05-17
 
+## 2026-05-17 Non-Tech Review/Triage UX Design Snapshot
+
+- Control HEAD before record:
+  - `3cca21e0002c8d9ba4f587b714375827379073f3`
+- NVIDIA HEAD context:
+  - `de7c907147de4a4938738e137e3264defe52426e`
+- ABW HEAD context:
+  - `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`
+- Latest result:
+  - `REVIEW_TRIAGE_DESIGN_RECORDED`
+- Evidence artifact:
+  - `06_VALIDATION/NON_TECH_REVIEW_TRIAGE_UX_DESIGN_REPORT.md`
+- Scope:
+  - design record only
+  - no NVIDIA edits
+  - no ABW edits
+  - no push
+  - no readiness promotion
+  - no UI implementation
+- Design recorded:
+  - ask first, trust gradually, approve selected knowledge items only
+  - approval is optional and not required before Q&A
+  - approval must not imply whole-corpus validation
+  - user-facing states for ready-to-ask, needs-review, candidate, trusted, weak, missing-source, ambiguous, unsupported, and parse-error cases
+  - triage dashboard groups by user action rather than file path
+  - Q&A-integrated review flow: ask -> inspect source -> optionally review selected item
+  - approval candidates are suggestions only, not automatic trust
+  - safe approve entry points are limited to single-item preview contexts
+  - forbidden approve entry points include bulk, corpus, unsupported, parse-error, missing-source, ambiguous-without-source, and unpreviewed raw document paths
+  - staged implementation plan begins with a read-only triage dashboard before any approve UI
+- Boundary preserved:
+  - this is design evidence only
+  - no review/triage UI is implemented yet
+  - no approve UI is implemented yet
+  - Stage B is read-only triage dashboard only
+  - `/proxy/abw/promote` remains fail-closed
+  - `/proxy/abw/approve-draft` remains bounded infrastructure only
+  - no bulk approval exists
+  - no corpus approval exists
+  - Q&A remains available without approval
+  - non-tech daily-use remains unproven
+- Recommended next gate:
+  - `IMPLEMENT_READ_ONLY_TRIAGE_DASHBOARD_STAGE_B`
+
 ## 2026-05-17 NVIDIA Approve Bridge Stage 2 Snapshot
 
 - Control HEAD before record:

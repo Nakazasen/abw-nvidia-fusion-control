@@ -6329,3 +6329,45 @@ Warning:
   - this does not prove non-tech approval UX or daily-use readiness
 - next gate:
   - DESIGN_NON_TECH_REVIEW_TRIAGE_FLOW
+
+## 2026-05-17 - Non-tech Review/Triage UX design recorded
+
+- Control head before update:
+  - `3cca21e0002c8d9ba4f587b714375827379073f3`
+- NVIDIA head context:
+  - `de7c907147de4a4938738e137e3264defe52426e`
+- ABW head context:
+  - `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`
+- verdict:
+  - `REVIEW_TRIAGE_DESIGN_RECORDED`
+- artifact:
+  - `06_VALIDATION/NON_TECH_REVIEW_TRIAGE_UX_DESIGN_REPORT.md`
+- scope:
+  - design/governance only
+  - no NVIDIA mutation
+  - no ABW mutation
+  - no push
+  - no readiness promotion
+- recorded design direction:
+  - ask first, trust gradually, approve selected items only
+  - approval is optional and is never required before Q&A
+  - approval must not imply whole-corpus validation
+  - triage groups content by user action rather than file path
+  - user-facing states cover readable, candidate, trusted, weak, missing-source, ambiguous, unsupported, and parse-error paths
+  - Q&A flow may suggest review for weak-but-useful sources
+  - approve entry points are limited to single-item preview contexts
+  - Stage B is read-only triage dashboard only
+- preserved boundaries:
+  - no review/triage UI is implemented yet
+  - no approve UI is implemented yet
+  - no bulk approval
+  - no corpus approval
+  - `/proxy/abw/promote` remains fail-closed
+  - Q&A remains available without approval
+  - non-tech daily-use remains unproven
+- interpretation:
+  - this closes the missing design step
+  - this does not close the implementation blockers
+  - this does not prove daily-use readiness
+- next gate:
+  - `IMPLEMENT_READ_ONLY_TRIAGE_DASHBOARD_STAGE_B`

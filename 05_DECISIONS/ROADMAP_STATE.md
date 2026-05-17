@@ -22,6 +22,7 @@ Date: 2026-05-17
 - Control governance is updating from local HEAD `a90892ddf0e0d9b515882982c9ee579b73f61fb1`.
 - NVIDIA bounded workflow hardening plus review-state UI clarity fix has been accepted locally at commit `a867f892be94c350b9cabcfa168d19f82dc64995`.
 - NVIDIA approve bridge Stage 2 is accepted locally at commit `de7c907147de4a4938738e137e3264defe52426e`.
+- Non-tech Review/Triage UX design is now recorded locally as design evidence only.
 - ABW missing-source honesty fix is accepted locally at commit `11fb4c6d36e0e18ba9a516a51674c3e88ce081e8`.
 - ABW approve JSON contract Stage 1 is accepted locally at commit `f6e6bdcd7aa2b76758611fb4c1587c2af5ba547f`.
 - Latest accepted governance milestones remain bounded (pilot/rerun/audit/planning tracks plus NVIDIA bounded workflow regression/smoke evidence).
@@ -37,6 +38,8 @@ Date: 2026-05-17
 - NVIDIA now exposes bounded approve bridge/server support through `/proxy/abw/approve-draft`.
 - `/proxy/abw/promote` remains fail-closed.
 - The new bridge is infrastructure-only and does not provide the final non-tech UI approve flow.
+- The Review/Triage design now defines the non-tech path as ask first, review selectively, and approve one selected item later.
+- No read-only triage dashboard or approve UI has been implemented yet.
 - A pre-existing direct CLI JSON hardening caveat remains unresolved and is preserved as residual work, not hidden success.
 
 ## 2. Confirmed Direction
@@ -46,9 +49,9 @@ Date: 2026-05-17
   - trust-first workspace and ingest behavior clarity
   - honest review-state wording for non-technical operators
   - smoke-test hardening around layout/focus/trust states
-- safe non-tech trusted-source approval implementation after the contract design
-- safe non-tech Review/Triage UX design before Stage 3 UI flow
-- bounded approve bridge/server support is now recorded before Stage 3 UI flow
+- safe non-tech Review/Triage implementation starting with a read-only triage dashboard
+- safe non-tech trusted-source approval implementation only after read-only triage and candidate surfacing stages
+- bounded approve bridge/server support is now recorded before any Stage E apply UI flow
 - This is hardening and usability work inside bounded bridge scope.
 
 ## 3. What Is Not Yet True
@@ -64,9 +67,9 @@ Date: 2026-05-17
 
 ## 4. Immediate Next Governance-Grade Steps
 
-1. Review `06_VALIDATION/NVIDIA_APPROVE_BRIDGE_STAGE2_REPORT.md`.
-2. Treat NVIDIA approve bridge Stage 2 as bounded bridge infrastructure evidence, not readiness promotion and not a shipped non-tech approve UX.
+1. Review `06_VALIDATION/NON_TECH_REVIEW_TRIAGE_UX_DESIGN_REPORT.md`.
+2. Treat the Review/Triage result as design evidence only, not implementation and not readiness promotion.
 3. Preserve the honesty improvement and the no-mutation safety result on the browser UI path.
-4. Design the non-tech Review/Triage flow next before any Stage 3 UI approve claim.
+4. Implement Stage B read-only triage dashboard next before any preview/apply approve UI claim.
 5. Keep the non-tech UI flow gap, direct CLI JSON hardening caveat, weak positive `E1_fallback` trust `45`, and browser smoke inline-edit observability as active warning/blocker items until separately addressed.
 

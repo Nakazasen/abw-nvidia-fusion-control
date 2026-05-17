@@ -300,6 +300,47 @@ Date: 2026-05-17
 - Recommended next gate:
   - `DESIGN_NON_TECH_REVIEW_TRIAGE_FLOW`
 
+## D-2026-05-17-13: Record Non-Tech Review/Triage UX Design As Design Evidence Only
+
+- Decision: Record the non-tech Review/Triage UX design as bounded governance/design evidence only, and use it to guide staged UI implementation without implying shipped UX.
+- Status: Accepted for operational recording.
+- Scope:
+  - CONTROL-only record
+  - no NVIDIA edits during design
+  - no ABW edits during design
+  - no push
+  - no readiness promotion
+  - no implementation claim
+- Product problem recorded:
+  - non-technical users may ingest many documents/pages
+  - they cannot read or approve everything manually
+  - approval must not mean whole-corpus validation
+  - approval should mean trusting one specific previewed item
+  - Q&A must remain available before approval
+- UX principles recorded:
+  - ask first
+  - trust gradually
+  - approve selected knowledge items only
+  - never require approval before Q&A
+  - never imply whole-corpus validation
+  - reduce workload by surfacing candidates rather than forcing blanket review
+- Design direction recorded:
+  - user-facing states for readable, weak, candidate, trusted, unsupported, parse-error, missing-source, and ambiguous paths
+  - triage dashboard groups by user action, not by file path
+  - Q&A-integrated review flow: ask -> inspect source -> optionally review selected item
+  - approval candidates are suggestions only
+  - safe approve entry points are limited to single-item preview contexts
+  - forbidden approve entry points include bulk/corpus/unsupported/parse-error/missing-source/ambiguous/unpreviewed paths
+  - Stage B is read-only triage dashboard only
+- Preserved boundary:
+  - this does not implement review/triage UI
+  - this does not implement approve UI
+  - this does not create bulk approval or corpus approval
+  - this does not make approval required before Q&A
+  - this does not promote `DAILY_USE_READY`, production-ready, enterprise-ready, full bridge ready, autonomous-safe, packaging-ready, broad real-world validation, or Cognitive OS achieved
+- Recommended next gate:
+  - `IMPLEMENT_READ_ONLY_TRIAGE_DASHBOARD_STAGE_B`
+
 ## D-2026-05-17-06: Record Small Sanitized Pilot As Warning Evidence
 
 - Decision: Record `WARNING_BOUNDED_SANITIZED_PILOT` as bounded sanitized bridge/API pilot evidence only.
