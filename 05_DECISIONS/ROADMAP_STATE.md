@@ -80,6 +80,22 @@ Date: 2026-05-19
   - ask/query does not mutate `.brain` in focused repro
   - `query_deep_runs.jsonl` remains absent during ask
 - The next executable gate is now `RERUN_BOUNDED_DAILY_REHEARSAL_WITH_FRESH_LOW_RISK_DOCX_WORKSPACE`.
+- The fresh low-risk DOCX rerun is now recorded as `WARNING_BOUNDED_DAILY_REHEARSAL_WITH_FRESH_LOW_RISK_DOCX_WORKSPACE`.
+- The fresh rerun confirms:
+  - no contaminated state was copied into the new workspace root
+  - browser-path ingest succeeded on all `10` low-risk `.docx` files
+  - direct positive controls returned weak but sourceful `E1_fallback` / trust `45` before approval
+  - one-source preview/apply approval worked
+  - the approved direct question improved to `E2_wiki` / trust `70`
+  - missing-source abstained before and after approval
+  - ambiguous generic abstained before and after approval
+  - no quarantine source was used
+  - ask/query did not mutate `.brain`
+  - `query_deep_runs.jsonl` remained absent
+- The fresh rerun warning is now UX-specific:
+  - after successful fresh ingest, the UI still warns that the workspace already has prior assistant state
+  - that warning is triggered by state created during the current run, not by copied contamination
+- The next executable gate is now `FIX_REMAINING_LOW_RISK_DOCX_UX_BLOCKERS`.
 - A pre-existing direct CLI JSON hardening caveat remains unresolved and is preserved as residual work, not hidden success.
 
 ## 2. Confirmed Direction
@@ -93,7 +109,7 @@ Date: 2026-05-19
 - safe non-tech trusted-source approval implementation only after read-only triage and candidate surfacing stages
 - preview-only approve dry-run is now recorded before apply
 - single-item approve apply Stage E is now recorded before any broader pilot or validation claim
-- immediate validation focus moves to rerunning the low-risk DOCX rehearsal on a fresh workspace after the blocker-fix gate
+- immediate validation focus moves to refining fresh-workspace low-risk rehearsal UX clarity after the warning rerun
 - This is hardening and usability work inside bounded bridge scope.
 
 ## 3. What Is Not Yet True
@@ -109,9 +125,8 @@ Date: 2026-05-19
 
 ## 4. Immediate Next Governance-Grade Steps
 
-1. Review `06_VALIDATION/FIX_LOW_RISK_REHEARSAL_UX_BLOCKERS_REPORT.md`.
-2. Preserve that the latest passed executable gate before real-doc rerun still remains bounded and does not promote readiness.
-3. Preserve the failed real DOCX rehearsal as historical evidence, not as a rewritten pass.
-4. Rerun the low-risk DOCX rehearsal only on a fresh workspace root or fresh low-risk copy after the blocker-fix gate.
-5. Keep the direct CLI JSON hardening caveat, broader real-world validation gap, and browser smoke inline-edit observability warning as active residual items until separately addressed.
+1. Review `06_VALIDATION/RERUN_BOUNDED_DAILY_REHEARSAL_WITH_FRESH_LOW_RISK_DOCX_WORKSPACE_REPORT.md`.
+2. Preserve the failed contaminated-workspace run as historical evidence and the fresh rerun as warning evidence only.
+3. Fix the post-ingest prior-state warning so fresh current-run generated state is not mislabeled as copied prior assistant contamination.
+4. Keep the direct CLI JSON hardening caveat, broader real-world validation gap, anti-self-fulfilling caution, and browser smoke inline-edit observability warning as active residual items until separately addressed.
 

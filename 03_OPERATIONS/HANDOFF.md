@@ -3336,3 +3336,38 @@ Constraints for the next builder:
   - not sensitive-document validation
 - next executable gate:
   - `RERUN_BOUNDED_DAILY_REHEARSAL_WITH_FRESH_LOW_RISK_DOCX_WORKSPACE`
+
+## 2026-05-19 - Fresh low-risk DOCX rehearsal rerun recorded
+
+- Control HEAD before update:
+  - `e9550d0035225d9a8604f36cd4e381a89bca7407`
+- NVIDIA HEAD context:
+  - `5d743f5cd797a624838f4537f5c49433545331ab`
+- ABW HEAD context:
+  - `829708a298f12ca69fe4b3a0ffdfe881d22d9d10`
+- verdict:
+  - `WARNING_BOUNDED_DAILY_REHEARSAL_WITH_FRESH_LOW_RISK_DOCX_WORKSPACE`
+- artifact:
+  - `06_VALIDATION/RERUN_BOUNDED_DAILY_REHEARSAL_WITH_FRESH_LOW_RISK_DOCX_WORKSPACE_REPORT.md`
+- bounded result:
+  - fresh workspace root was used
+  - no prior contaminated state was copied
+  - browser-path ingest succeeded on all `10` low-risk `.docx` files
+  - ask-before worked
+  - missing-source abstained before and after approval
+  - ambiguous generic abstained before and after approval
+  - one-source preview/apply approval worked
+  - approved direct question improved from `E1_fallback` / trust `45` to `E2_wiki` / trust `70`
+  - ask/query did not mutate `.brain`
+  - no quarantine source was used
+- residual warning:
+  - after successful fresh ingest, the UI still warned that the workspace already had prior assistant state
+  - this warning was triggered by state created during the current run, not by copied contamination
+  - the warning is therefore misleading for a fresh rehearsal root and remains a UX blocker
+- boundary remains:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not broad real-work-doc validation
+  - not sensitive-document validation
+- next executable gate:
+  - `FIX_REMAINING_LOW_RISK_DOCX_UX_BLOCKERS`

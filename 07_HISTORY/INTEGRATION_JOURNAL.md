@@ -6901,3 +6901,36 @@ Warning:
   - not sensitive-document validation
 - next gate:
   - `RERUN_BOUNDED_DAILY_REHEARSAL_WITH_FRESH_LOW_RISK_DOCX_WORKSPACE`
+
+## 2026-05-19 - fresh low-risk DOCX rehearsal rerun recorded
+
+- verdict:
+  - `WARNING_BOUNDED_DAILY_REHEARSAL_WITH_FRESH_LOW_RISK_DOCX_WORKSPACE`
+- artifact:
+  - `06_VALIDATION/RERUN_BOUNDED_DAILY_REHEARSAL_WITH_FRESH_LOW_RISK_DOCX_WORKSPACE_REPORT.md`
+- workspace hygiene:
+  - used a fresh workspace root
+  - copied only the `10` user-confirmed low-risk `.docx` files into `raw`
+  - did not copy `.brain`, `drafts`, `processed`, `wiki`, logs, or prior reports
+- bounded result:
+  - fresh pre-ingest workspace showed zero prior assistant state and zero quarantine
+  - browser-path ingest succeeded on all `10` files
+  - ask-before worked
+  - direct positive controls returned weak but sourceful `E1_fallback` answers from matching drafts
+  - candidate/preview/approve-one-source flow worked
+  - approved direct question improved to trusted/wiki `E2_wiki`
+  - missing-source and ambiguous generic abstained before and after approval
+  - no quarantine source was used
+  - ask/query did not mutate `.brain`
+  - `query_deep_runs.jsonl` remained absent
+- residual warning:
+  - post-ingest UI still warns that the workspace already has prior assistant state
+  - in this rerun that warning came from state created by the current run itself, not copied contamination
+  - this remains a non-tech UX blocker even though the safety/honesty controls passed
+- boundary:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not broad real-work-doc validation
+  - not sensitive-document validation
+- next gate:
+  - `FIX_REMAINING_LOW_RISK_DOCX_UX_BLOCKERS`

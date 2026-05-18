@@ -191,6 +191,24 @@
   - the previous contaminated real workspace should be preserved as failure evidence, not deleted silently
 - This still does not prove daily-use readiness or broad real-world validation.
 
+12. Fresh low-risk DOCX rerun warning remains
+- The fresh rerun is now recorded as `WARNING_BOUNDED_DAILY_REHEARSAL_WITH_FRESH_LOW_RISK_DOCX_WORKSPACE`.
+- Safety and honesty controls passed on the fresh workspace path:
+  - no contaminated state was copied
+  - ingest succeeded on `10` low-risk `.docx` files
+  - direct positive controls returned weak but sourceful `E1_fallback` answers before approval
+  - one-source preview/apply approval worked
+  - the approved direct question improved to trusted/wiki `E2_wiki`
+  - missing-source abstained before and after approval
+  - ambiguous generic abstained before and after approval
+  - no quarantine source was used
+  - ask/query did not mutate `.brain`
+  - `query_deep_runs.jsonl` remained absent
+- The remaining blocker is UX clarity on the fresh path:
+  - after the current fresh ingest creates `.brain`, `drafts`, and `processed`, the UI warns that the workspace already has prior assistant state
+  - this is misleading because the warning is triggered by current-run generated state rather than copied contamination
+- This is not a new honesty failure, but it is still a non-technical UX blocker for bounded rehearsal quality.
+
 ## Immediate Risk If Ignored
 
 - Overclaim risk rises if bounded smoke evidence is treated as daily-use or production readiness.
