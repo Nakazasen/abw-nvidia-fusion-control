@@ -6861,3 +6861,43 @@ Warning:
   - prior warning lineage remains preserved
 - next gate:
   - `RERUN_BOUNDED_NON_TECH_APPROVE_UI_PILOT`
+
+## 2026-05-19 - low-risk rehearsal blocker fix evidence recorded
+
+- verdict:
+  - `PASS_FIX_LOW_RISK_REHEARSAL_UX_BLOCKERS`
+- artifact:
+  - `06_VALIDATION/FIX_LOW_RISK_REHEARSAL_UX_BLOCKERS_REPORT.md`
+- root cause captured:
+  - active ABW runtime path lacked quarantine/wrong-workspace exclusion
+  - generic contaminated-workspace queries could reuse unrelated prior wiki content
+  - NVIDIA UI needed explicit prior-state and quarantine warning surfaces
+  - failed real-workspace `.brain` mutation evidence is preserved historically, while focused repro revalidated read-only ask as non-mutating
+- code scope:
+  - ABW retrieval guard changes in `scripts/abw_knowledge.py` and mirrored `_legacy` copy
+  - ABW regression additions in `tests/test_abw_runner.py`
+  - NVIDIA workspace-state inspection in `tools/nvidia-server.mjs`
+  - NVIDIA warning/status UI updates in `nvidia_playground.html`
+  - NVIDIA bridge regression additions in `tests/abw-cli-reader-bridge.test.mjs`
+- validation:
+  - `py -m pytest tests/test_abw_runner.py -q` PASS
+  - `py -m pytest tests/test_abw_query_deep.py tests/test_abw_runner.py tests/test_abw_api.py tests/test_abw_review.py tests/test_abw_json_hardening.py -q` PASS
+  - `node --check tools/browser-smoke.mjs` PASS
+  - `node --check tools/nvidia-server.mjs` PASS
+  - `node --check tools/abw-cli-reader.mjs` PASS
+  - `node --test tests/abw-cli-reader-bridge.test.mjs` PASS
+  - `npm test` PASS
+- focused repro result:
+  - contaminated workspace warning visible with quarantine counts
+  - generic contaminated-workspace ask abstains
+  - missing-source abstains
+  - direct supported ask improves from `E1_fallback` / trust `45` to `E2_wiki` / trust `72` after one-source approval
+  - ask/query does not mutate `.brain`
+  - `query_deep_runs.jsonl` remains absent during ask
+- boundary:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not broad real-work-doc validation
+  - not sensitive-document validation
+- next gate:
+  - `RERUN_BOUNDED_DAILY_REHEARSAL_WITH_FRESH_LOW_RISK_DOCX_WORKSPACE`

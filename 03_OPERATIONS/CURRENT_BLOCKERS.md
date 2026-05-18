@@ -175,6 +175,22 @@
 - Next movement should be:
   - `A. FIX_LOW_RISK_REHEARSAL_UX_BLOCKERS`
 
+11. Fresh low-risk DOCX rerun still pending
+- The blocker-fix gate is now recorded as `PASS_FIX_LOW_RISK_REHEARSAL_UX_BLOCKERS`.
+- Focused synthetic contamination repro now shows:
+  - prior assistant state warning is visible
+  - quarantine/wrong-workspace files are surfaced as warnings
+  - generic contaminated-workspace ask abstains
+  - missing-source abstains
+  - direct supported ask improves from `E1_fallback` / trust `45` to `E2_wiki` / trust `72` after one-source approval
+  - ask/query does not mutate `.brain`
+  - `query_deep_runs.jsonl` remains absent during ask
+- The failed real DOCX rehearsal is preserved historically and is not rewritten as a pass.
+- The remaining blocker is now rerun hygiene, not the original quarantine/generic/query-mutation bug set:
+  - the next real low-risk DOCX rehearsal should use a fresh workspace copy or fresh workspace root
+  - the previous contaminated real workspace should be preserved as failure evidence, not deleted silently
+- This still does not prove daily-use readiness or broad real-world validation.
+
 ## Immediate Risk If Ignored
 
 - Overclaim risk rises if bounded smoke evidence is treated as daily-use or production readiness.

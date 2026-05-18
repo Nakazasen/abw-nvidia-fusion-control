@@ -3305,3 +3305,34 @@ Constraints for the next builder:
   - not enterprise-grade security
   - not packaging-ready
   - not broad real-work-doc validation
+
+## 2026-05-19 - Low-risk rehearsal blocker fix recorded
+
+- Control HEAD before update:
+  - `fa810459e9fb22bdbcd560d6a9c6789b68f9eb59`
+- NVIDIA HEAD context:
+  - `8b2473bc01b629d919efd0d8b5d61b2a3a3662e8`
+- ABW HEAD context:
+  - `f748a44e2bd87594314bcc0d0af93d9ad64a55e6`
+- verdict:
+  - `PASS_FIX_LOW_RISK_REHEARSAL_UX_BLOCKERS`
+- artifact:
+  - `06_VALIDATION/FIX_LOW_RISK_REHEARSAL_UX_BLOCKERS_REPORT.md`
+- root cause recorded:
+  - active ABW runtime did not exclude quarantine/wrong-workspace wiki paths
+  - generic contaminated-workspace questions could resolve to unrelated prior wiki content
+  - the browser UI did not surface prior assistant state clearly enough
+  - direct focused repro did not reproduce query-time `.brain` mutation, so the failed rehearsal remains preserved while read-only ask is now revalidated in focused repro
+- bounded fix evidence:
+  - quarantine-like wiki paths are excluded from trusted retrieval
+  - generic questions abstain in contaminated multi-document workspaces
+  - browser UI now surfaces prior-state and quarantine warnings with counts
+  - focused repro preserved one-source preview/apply approval
+  - focused repro preserved no query-time `.brain` mutation and no `query_deep_runs.jsonl`
+- boundary remains:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not broad real-work-doc validation
+  - not sensitive-document validation
+- next executable gate:
+  - `RERUN_BOUNDED_DAILY_REHEARSAL_WITH_FRESH_LOW_RISK_DOCX_WORKSPACE`

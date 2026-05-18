@@ -26,23 +26,22 @@
 
 ## Immediate Next Actions
 
-1. Review `06_VALIDATION/RUN_BOUNDED_DAILY_REHEARSAL_WITH_LOW_RISK_DOCX_DOCS_REPORT.md`.
-2. Treat the latest low-risk rehearsal result as bounded failure evidence only:
+1. Review `06_VALIDATION/FIX_LOW_RISK_REHEARSAL_UX_BLOCKERS_REPORT.md`.
+2. Preserve that the prior real DOCX run remains historical failure evidence:
    - `FAIL_BOUNDED_DAILY_REHEARSAL_WITH_LOW_RISK_DOCS`
-3. Preserve what still passed inside that failed rehearsal:
-   - exact parent workspace root could be selected
-   - ingest of the `10` low-risk `.docx` files succeeded at the network layer
-   - missing-source abstained
-   - one-source preview/apply approval worked
-   - `/proxy/abw/promote` remained unused
-4. Fix the blockers before any expansion:
-   - workspace-state contamination from preexisting wiki/quarantine content
-   - ask/query mutation on the real workspace path
-   - stale ingest/trust/health UI rendering after switch and ingest
+3. Use the blocker-fix evidence only for bounded direction:
+   - quarantine/wrong-workspace trusted reuse is fixed
+   - generic contaminated-workspace ask now abstains
+   - focused repro preserved read-only ask with no `.brain` mutation
+   - one-source preview/apply approval still works
+4. Rerun the low-risk DOCX rehearsal only on a fresh workspace root or fresh low-risk copy:
+   - do not silently delete the previously contaminated workspace
+   - do not treat the old contaminated workspace as fresh-ingest evidence
 5. Keep the boundary:
    - no readiness promotion
-   - no claim of isolated fresh-doc success on this workspace
-6. Preserve the direct CLI JSON hardening issue, broader real-world validation gap, and inline-edit browser smoke warning as residual caveats, not hidden passes.
+   - no claim of broad real-world validation
+   - no claim of sensitive-document safety
+6. Preserve the direct CLI JSON hardening caveat, broader real-world validation gap, and inline-edit browser smoke warning as residual caveats.
 
 ## If Context Is Lost
 
