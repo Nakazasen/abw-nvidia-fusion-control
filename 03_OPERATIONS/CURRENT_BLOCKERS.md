@@ -156,9 +156,29 @@
   - not equivalent to a browser/proxy path regression
 - This remains relevant future hardening work if the direct CLI JSON surface is still considered supported.
 
+10. Low-risk rehearsal workspace-state blocker
+- The bounded low-risk rehearsal on `2026-05-19` is recorded as `FAIL_BOUNDED_DAILY_REHEARSAL_WITH_LOW_RISK_DOCS`.
+- The selected workspace root was correct and the raw folder did contain the user-confirmed `10` low-risk `.docx` files.
+- Browser-path ingest also succeeded at the network layer:
+  - `ingested=10`
+  - `skipped=0`
+  - `generated_drafts=10`
+  - `review_required=true`
+  - `promotion_performed=false`
+- The rehearsal still failed for four reasons:
+  - the real workspace already contained extensive preexisting `.brain`, `drafts`, `processed`, and `wiki` state
+  - a generic question reused unrelated existing quarantine/wiki content such as `wiki\quarantine_wrong_workspace\agv.md`
+  - ask/query mutated workspace `.brain` during the ask-before-approval phase
+  - visible ingest/trust status remained stale or misleading despite ingest success
+- This is not a sensitivity failure and not a readiness promotion path.
+- It is a bounded product/workspace-hygiene failure on the real low-risk workspace path.
+- Next movement should be:
+  - `A. FIX_LOW_RISK_REHEARSAL_UX_BLOCKERS`
+
 ## Immediate Risk If Ignored
 
 - Overclaim risk rises if bounded smoke evidence is treated as daily-use or production readiness.
 - Pilot risk rises if warning evidence is treated as clean broad validation.
 - UX overclaim risk rises if backend approve contract completion is mistaken for a shipped non-tech approve flow.
+- Workspace contamination risk rises if a real low-risk workspace with preexisting wiki/quarantine state is treated as isolated fresh-ingest evidence.
 

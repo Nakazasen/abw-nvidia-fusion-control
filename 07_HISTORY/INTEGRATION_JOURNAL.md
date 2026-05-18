@@ -2,6 +2,50 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-19 - Bounded daily rehearsal with low-risk DOCX docs failed on real workspace path
+
+- Control head before update:
+  - `8bd6ceb3d71a0a0f7d27f6204f80ccd2c6e40f15`
+- NVIDIA head validated:
+  - `8b2473bc01b629d919efd0d8b5d61b2a3a3662e8`
+- ABW head validated:
+  - `f748a44e2bd87594314bcc0d0af93d9ad64a55e6`
+- result:
+  - `FAIL_BOUNDED_DAILY_REHEARSAL_WITH_LOW_RISK_DOCS`
+- latest passed executable validation gate still remains:
+  - `PASS_COPY_CLEAN_BOUNDED_NON_TECH_APPROVE_UI_PILOT`
+- artifact:
+  - `06_VALIDATION/RUN_BOUNDED_DAILY_REHEARSAL_WITH_LOW_RISK_DOCX_DOCS_REPORT.md`
+- document set:
+  - workspace root selected exactly:
+    - `D:\Sandbox\Web_matthesinhhoanguyco\mat-the-website`
+  - raw folder under that workspace:
+    - `D:\Sandbox\Web_matthesinhhoanguyco\mat-the-website\raw`
+  - `10` user-confirmed low-risk `.docx` files
+- what passed:
+  - exact parent workspace root could be selected in the browser UI
+  - browser-path ingest request succeeded:
+    - `ingested=10`
+    - `skipped=0`
+    - `generated_drafts=10`
+    - `review_required=true`
+    - `promotion_performed=false`
+  - missing-source internal-IP control abstained
+  - one weak sourceful answer could be marked candidate, previewed, and approved as exactly one source
+  - `/proxy/abw/promote` remained unused
+- why the rehearsal failed:
+  - the real workspace already contained extensive preexisting `.brain`, `drafts`, `processed`, and `wiki` state
+  - a generic question reused unrelated existing quarantine/wiki content:
+    - `wiki\quarantine_wrong_workspace\agv.md`
+  - ask/query mutated workspace `.brain` during the ask-before-approval phase
+  - visible ingest/trust status remained stale/misleading despite ingest success
+- interpretation:
+  - this is bounded failure evidence on the real low-risk workspace path
+  - this is not a sensitivity failure
+  - this is not a readiness promotion path
+- next gate:
+  - `A. FIX_LOW_RISK_REHEARSAL_UX_BLOCKERS`
+
 ## 2026-05-19 - Bounded daily rehearsal design recorded
 
 - Control head before update:

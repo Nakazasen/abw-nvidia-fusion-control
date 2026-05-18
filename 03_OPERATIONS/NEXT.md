@@ -26,19 +26,22 @@
 
 ## Immediate Next Actions
 
-1. Review `06_VALIDATION/BOUNDED_DAILY_REHEARSAL_DESIGN.md`.
-2. Treat the latest passed executable gate `PASS_COPY_CLEAN_BOUNDED_NON_TECH_APPROVE_UI_PILOT` as bounded sanitized/synthetic browser evidence only, not readiness promotion.
-3. Preserve the validated safety line:
-   - Q&A works before approval
-   - approval is one source only
-   - ask/query remains read-only
-   - `/proxy/abw/promote` remains fail-closed and unused
-4. Preserve the new rehearsal boundary:
-   - low-risk/non-sensitive docs only
-   - no private/customer/HR/legal/finance/contract/incident-sensitive docs
+1. Review `06_VALIDATION/RUN_BOUNDED_DAILY_REHEARSAL_WITH_LOW_RISK_DOCX_DOCS_REPORT.md`.
+2. Treat the latest low-risk rehearsal result as bounded failure evidence only:
+   - `FAIL_BOUNDED_DAILY_REHEARSAL_WITH_LOW_RISK_DOCS`
+3. Preserve what still passed inside that failed rehearsal:
+   - exact parent workspace root could be selected
+   - ingest of the `10` low-risk `.docx` files succeeded at the network layer
+   - missing-source abstained
+   - one-source preview/apply approval worked
+   - `/proxy/abw/promote` remained unused
+4. Fix the blockers before any expansion:
+   - workspace-state contamination from preexisting wiki/quarantine content
+   - ask/query mutation on the real workspace path
+   - stale ingest/trust/health UI rendering after switch and ingest
+5. Keep the boundary:
    - no readiness promotion
-5. Run the next executable gate only after the user confirms the document set is non-sensitive:
-   - `RUN_BOUNDED_DAILY_REHEARSAL_WITH_LOW_RISK_DOCS`
+   - no claim of isolated fresh-doc success on this workspace
 6. Preserve the direct CLI JSON hardening issue, broader real-world validation gap, and inline-edit browser smoke warning as residual caveats, not hidden passes.
 
 ## If Context Is Lost

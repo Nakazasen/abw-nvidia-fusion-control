@@ -18,6 +18,50 @@
 
 - 2026-05-19
 
+## 2026-05-19 Bounded Daily Rehearsal With Low-Risk DOCX Docs Snapshot
+
+- Control HEAD before rehearsal record:
+  - `8bd6ceb3d71a0a0f7d27f6204f80ccd2c6e40f15`
+- NVIDIA HEAD validated:
+  - `8b2473bc01b629d919efd0d8b5d61b2a3a3662e8`
+- ABW HEAD validated:
+  - `f748a44e2bd87594314bcc0d0af93d9ad64a55e6`
+- Latest result:
+  - `FAIL_BOUNDED_DAILY_REHEARSAL_WITH_LOW_RISK_DOCS`
+- Latest passed executable validation gate remains:
+  - `PASS_COPY_CLEAN_BOUNDED_NON_TECH_APPROVE_UI_PILOT`
+- Evidence artifact:
+  - `06_VALIDATION/RUN_BOUNDED_DAILY_REHEARSAL_WITH_LOW_RISK_DOCX_DOCS_REPORT.md`
+- What was validated on the real browser UI path:
+  - exact parent workspace root was selected:
+    - `D:\Sandbox\Web_matthesinhhoanguyco\mat-the-website`
+  - raw folder under that workspace contained the confirmed `10` low-risk `.docx` files
+  - browser-path ingest endpoint succeeded:
+    - `ingested=10`
+    - `skipped=0`
+    - `generated_drafts=10`
+    - `review_required=true`
+    - `promotion_performed=false`
+  - missing-source internal-IP question abstained
+  - one weak sourceful answer could be marked candidate, previewed, and approved as exactly one source
+  - `/proxy/abw/promote` remained unused
+- Why the rehearsal failed:
+  - the real workspace already carried extensive preexisting `.brain`, `drafts`, `processed`, and `wiki` state
+  - a generic question reused unrelated existing wiki/quarantine content:
+    - `wiki\quarantine_wrong_workspace\agv.md`
+  - ask/query mutated workspace `.brain` during the ask-before-approval phase
+  - visible ingest/trust status remained stale/misleading despite ingest network success
+- Boundary preserved:
+  - not readiness promotion
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not broad real-world validation
+  - no approve-all
+  - no batch approval
+  - no corpus/workspace approval
+- Recommended next gate:
+  - `A. FIX_LOW_RISK_REHEARSAL_UX_BLOCKERS`
+
 ## 2026-05-19 Bounded Daily Rehearsal Design Snapshot
 
 - Control HEAD before design record:
