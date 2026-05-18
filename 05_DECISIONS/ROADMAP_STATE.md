@@ -1,6 +1,6 @@
 # Roadmap State (Local Snapshot)
 
-Date: 2026-05-18
+Date: 2026-05-19
 
 ## Ownership
 
@@ -19,7 +19,7 @@ Date: 2026-05-18
 
 ## 1. Where the Program Actually Is
 
-- Control governance is updating from local HEAD `816ad0953a08c860a61bcf82ecadfaa773aa2f54`.
+- Control governance is updating from local HEAD `44adcd1b09c9d034441a42334c75eeaf524124b2`.
 - NVIDIA bounded workflow hardening plus review-state UI clarity fix has been accepted locally at commit `a867f892be94c350b9cabcfa168d19f82dc64995`.
 - NVIDIA approve bridge Stage 2 is accepted locally at commit `de7c907147de4a4938738e137e3264defe52426e`.
 - NVIDIA read-only triage dashboard Stage B is accepted locally at commit `395160cacbdf6464618cf6569dad78ff42596a2d`.
@@ -63,6 +63,9 @@ Date: 2026-05-18
 - The stale approval-availability copy has now been fixed afterward in local NVIDIA UI wording and validated by NVIDIA regression plus browser smoke.
 - The bounded copy-clean rerun now confirms that the active browser UI copy is consistent with the Stage E single-item preview/apply path.
 - Missing-source, unsupported, malformed, and generic ambiguous questions abstain before and after approval on the corrected-copy browser path.
+- The bounded daily rehearsal design is now recorded in `06_VALIDATION/BOUNDED_DAILY_REHEARSAL_DESIGN.md`.
+- The next executable gate is now `RUN_BOUNDED_DAILY_REHEARSAL_WITH_LOW_RISK_DOCS`.
+- That next gate is constrained to user-confirmed low-risk/non-sensitive documents only.
 - A pre-existing direct CLI JSON hardening caveat remains unresolved and is preserved as residual work, not hidden success.
 
 ## 2. Confirmed Direction
@@ -76,7 +79,7 @@ Date: 2026-05-18
 - safe non-tech trusted-source approval implementation only after read-only triage and candidate surfacing stages
 - preview-only approve dry-run is now recorded before apply
 - single-item approve apply Stage E is now recorded before any broader pilot or validation claim
-- immediate validation focus moves to recording the copy-clean bounded pilot pass and advancing only to the next bounded rehearsal-design gate
+- immediate validation focus moves to running the bounded daily rehearsal only on confirmed low-risk/non-sensitive documents
 - This is hardening and usability work inside bounded bridge scope.
 
 ## 3. What Is Not Yet True
@@ -92,9 +95,9 @@ Date: 2026-05-18
 
 ## 4. Immediate Next Governance-Grade Steps
 
-1. Review `06_VALIDATION/RERUN_COPY_CLEAN_BOUNDED_NON_TECH_APPROVE_UI_PILOT_REPORT.md`.
-2. Preserve that the pass is bounded to sanitized/synthetic browser evidence only, not readiness promotion.
+1. Review `06_VALIDATION/BOUNDED_DAILY_REHEARSAL_DESIGN.md`.
+2. Preserve that the latest pass remains bounded sanitized/synthetic browser evidence only, not readiness promotion.
 3. Preserve the browser-path safety line: ask/query read-only, one-source-only approval, and `/proxy/abw/promote` still unused.
-4. Record and advance only to bounded daily rehearsal design, not real-data readiness.
+4. Run `RUN_BOUNDED_DAILY_REHEARSAL_WITH_LOW_RISK_DOCS` only after the user confirms the document set is non-sensitive.
 5. Keep the direct CLI JSON hardening caveat, weak positive `E1_fallback` trust `45` before approval, broader real-world validation gap, and browser smoke inline-edit observability warning as active residual items until separately addressed.
 

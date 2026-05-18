@@ -2,6 +2,46 @@
 
 This file records the shared ABW x NVIDIA integration history in the control repo.
 
+## 2026-05-19 - Bounded daily rehearsal design recorded
+
+- Control head before update:
+  - `44adcd1b09c9d034441a42334c75eeaf524124b2`
+- NVIDIA head referenced:
+  - `8b2473bc01b629d919efd0d8b5d61b2a3a3662e8`
+- ABW head referenced:
+  - `f748a44e2bd87594314bcc0d0af93d9ad64a55e6`
+- result:
+  - `BOUNDED_DAILY_REHEARSAL_DESIGN_RECORDED`
+- latest passed executable validation gate:
+  - `PASS_COPY_CLEAN_BOUNDED_NON_TECH_APPROVE_UI_PILOT`
+- artifact:
+  - `06_VALIDATION/BOUNDED_DAILY_REHEARSAL_DESIGN.md`
+- scope:
+  - CONTROL-only governance/design update
+  - no NVIDIA mutation
+  - no ABW mutation
+  - no private-document pilot execution
+  - no sensitive-document ingest
+- design coverage:
+  - bounded low-risk/non-sensitive rehearsal scope
+  - entry criteria and operator confirmation requirement
+  - allowed and disallowed document classes
+  - bounded dataset shape `5-10` then `10-30`
+  - user-flow validation steps including one-source preview/approval and post-approval re-ask
+  - required metrics and hard stop conditions
+  - classification outcomes for the future rehearsal run
+- boundaries preserved:
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not enterprise-ready
+  - not broad real-world validation
+  - no approve-all
+  - no batch approval
+  - no corpus approval
+- next executable gate:
+  - `RUN_BOUNDED_DAILY_REHEARSAL_WITH_LOW_RISK_DOCS`
+  - only after the user confirms the rehearsal document set is non-sensitive
+
 ## 2026-05-18 - Copy-clean bounded non-tech approve UI pilot passed
 
 - Control head before validation:

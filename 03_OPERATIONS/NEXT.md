@@ -7,7 +7,7 @@
 
 ## LAST UPDATED
 
-- 2026-05-18
+- 2026-05-19
 
 ## CANONICAL REFERENCES
 
@@ -26,20 +26,19 @@
 
 ## Immediate Next Actions
 
-1. Review `06_VALIDATION/RERUN_COPY_CLEAN_BOUNDED_NON_TECH_APPROVE_UI_PILOT_REPORT.md`.
-2. Treat the copy-clean pilot as bounded sanitized/synthetic browser evidence only, not readiness promotion.
+1. Review `06_VALIDATION/BOUNDED_DAILY_REHEARSAL_DESIGN.md`.
+2. Treat the latest passed executable gate `PASS_COPY_CLEAN_BOUNDED_NON_TECH_APPROVE_UI_PILOT` as bounded sanitized/synthetic browser evidence only, not readiness promotion.
 3. Preserve the validated safety line:
    - Q&A works before approval
    - approval is one source only
    - ask/query remains read-only
    - `/proxy/abw/promote` remains fail-closed and unused
-4. Preserve the copy-clean UX result:
-   - stale approval-unavailable wording is gone
-   - candidate marking remains review-only
-   - preview remains dry-run only
-   - approval remains one source only after explicit confirmation
-5. Move to the next bounded governance gate:
-   - `A. RECORD_AND_ADVANCE_TO_BOUNDED_DAILY_REHEARSAL_DESIGN`
+4. Preserve the new rehearsal boundary:
+   - low-risk/non-sensitive docs only
+   - no private/customer/HR/legal/finance/contract/incident-sensitive docs
+   - no readiness promotion
+5. Run the next executable gate only after the user confirms the document set is non-sensitive:
+   - `RUN_BOUNDED_DAILY_REHEARSAL_WITH_LOW_RISK_DOCS`
 6. Preserve the direct CLI JSON hardening issue, broader real-world validation gap, and inline-edit browser smoke warning as residual caveats, not hidden passes.
 
 ## If Context Is Lost

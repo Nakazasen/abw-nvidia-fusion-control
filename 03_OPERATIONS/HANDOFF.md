@@ -16,7 +16,42 @@
 
 ## LAST UPDATED
 
-- 2026-05-18
+- 2026-05-19
+
+## 2026-05-19 Bounded Daily Rehearsal Design Snapshot
+
+- Control HEAD before design record:
+  - `44adcd1b09c9d034441a42334c75eeaf524124b2`
+- NVIDIA HEAD referenced:
+  - `8b2473bc01b629d919efd0d8b5d61b2a3a3662e8`
+- ABW HEAD referenced:
+  - `f748a44e2bd87594314bcc0d0af93d9ad64a55e6`
+- Latest result:
+  - `BOUNDED_DAILY_REHEARSAL_DESIGN_RECORDED`
+- Latest passed executable validation gate:
+  - `PASS_COPY_CLEAN_BOUNDED_NON_TECH_APPROVE_UI_PILOT`
+- Evidence artifact:
+  - `06_VALIDATION/BOUNDED_DAILY_REHEARSAL_DESIGN.md`
+- What this record adds:
+  - bounded daily rehearsal plan for low-risk/non-sensitive documents only
+  - explicit entry criteria before any rehearsal run
+  - allowed/disallowed document classes
+  - bounded dataset shape and user-flow validation steps
+  - required metrics and hard stop conditions
+  - next executable gate named without promoting readiness
+- Boundary preserved:
+  - not a real private-document pilot
+  - not readiness promotion
+  - not `DAILY_USE_READY`
+  - not production-ready
+  - not broad real-world validation
+  - no approve-all
+  - no batch approval
+  - no corpus approval
+  - no sensitive-document ingest authorized by this design record
+- Recommended next gate:
+  - `RUN_BOUNDED_DAILY_REHEARSAL_WITH_LOW_RISK_DOCS`
+  - only after the user confirms the document set is non-sensitive
 
 ## 2026-05-18 Copy-Clean Bounded Non-Tech Approve UI Pilot Snapshot
 

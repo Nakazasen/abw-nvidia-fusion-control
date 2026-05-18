@@ -1,4 +1,4 @@
-# Current Blockers (As of 2026-05-18)
+# Current Blockers (As of 2026-05-19)
 
 ## Ownership
 
@@ -29,6 +29,8 @@
 2. Real-data validation blocker
 - Existing accepted passes are bounded to synthetic/sanitized workflows.
 - Broad private/work-document readiness remains blocked.
+- The next executable gate is limited to low-risk/non-sensitive rehearsal documents only.
+- No rehearsal should start until the user confirms the selected document set is non-sensitive.
 
 3. Bridge scope blocker
 - Full bridge capabilities (write-back/sync/auto-promote/execute-command through ABW path) remain blocked by governance boundaries.
@@ -137,7 +139,9 @@
 - The Review/Triage design now exists as recorded governance evidence.
 - The read-only triage dashboard, candidate surfacing, preview-only dry-run, and Stage E single-item approve apply UI now all exist as bounded evidence.
 - Positive controls before approval still remain weak `E1_fallback` / trust `45`, but the approved factual source now cleanly improves to trusted/wiki evidence on the browser path.
-- Next movement should not be readiness promotion; the next governance gate is `RECORD_AND_ADVANCE_TO_BOUNDED_DAILY_REHEARSAL_DESIGN`.
+- The bounded daily rehearsal design is now recorded in `06_VALIDATION/BOUNDED_DAILY_REHEARSAL_DESIGN.md`.
+- Next movement should not be readiness promotion; the next executable gate is `RUN_BOUNDED_DAILY_REHEARSAL_WITH_LOW_RISK_DOCS`.
+- That gate remains blocked until the operator confirms the rehearsal set is low-risk and non-sensitive.
 
 9. Direct CLI JSON hardening caveat
 - A pre-existing direct CLI JSON hardening regression remains unresolved on this machine.
